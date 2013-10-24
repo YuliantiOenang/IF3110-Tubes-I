@@ -167,6 +167,56 @@ pre {
 		-webkit-border-bottom-left-radius: 5px;
 	}
 
+	/* Drop Down Menu */
+	/* Initialize */
+	ul#menubar, ul#menubar u.sub-menu {
+		padding: 0;
+		margin: 0;
+	}
+	
+	ul#menubar li, ul#menubar ul.sub-menu li {
+		list-style-type: none;
+		display: inline-block;
+	}
+	
+	/* Link Appearance */
+	ul#menubar li a, ul#menubar li ul.sub-menu li a {
+		text-decoration: none;
+		color: #fff;
+		background: #000305;
+		padding: 5px;
+		display: inline-block;
+	}
+	/* Make the parent of sub-menu relative */
+	ul#menubar li {
+		position: relative;
+	}
+	/* sub menu */
+	ul#menubar li ul.sub-menu {
+		display: none;
+		position: absolute;
+		top: 30px;
+		left: 0;
+		width: 100px;
+	}
+	ul#menubar li:hover ul.sub-menu {
+		color: #fff;
+		display: block;
+	}
+	ul#menubar .sub-menu {
+		margin-top: 10px;
+		padding: 0px;
+	}
+	ul#menubar .sub-menu li a {
+		background: #000305;
+		width: 152px;
+		border-radius: 0px;
+		-moz-border-radius: 0px;
+		-webkit-border-radius: 0px;
+	}
+	ul#menubar .sub-menu li a:hover {
+		background: #C74354;
+	}
 
 /***** Featured *****/
 #featured {

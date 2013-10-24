@@ -90,14 +90,25 @@ ANIMATEPOPUPBOX = {
  
 	<nav><ul id="menubar">
 		<li><a href="index.php">Home</a></li>
-		<li><a href="#">Kategori Barang</a></li>
-		
+		<li><a href="#">Kategori Barang</a>
+			<ul class="sub-menu">	
+			<?php 
+				include "koneksi.inc.php";
+				$query2 = "select * from barang group by kategori";
+				$hasil2 = mysql_query($query2,$koneksi);
+				while($row = mysql_fetch_array($hasil2)){
+				echo '<li><a href="#">'.$row["kategori"].'</a></li>';
+				}
+			?>
+			</ul>
+		</li>
 		<li style="float:right"><button type="button">Search</button></li>
 		<li style="float:right"><input type="text" name="search" placeholder="Cari Barang"></li>
 		
 	</ul></nav>
  
 </header><!-- /#banner -->
+
 <div id='mbox' style='display:none;'></div>
 <div id='back_mbox' style='display:none;'></div><div id='fade_mbox' style='display:none;'></div>
 <div id="userlogin">
@@ -106,16 +117,6 @@ ANIMATEPOPUPBOX = {
 	<pre>Password		<input type="password" name="password"></pre>
 	<input type="submit" value="Login"> <a href="registerform.php">Daftar baru!</a>
 </form>
-</div>
-<div>
-<?php 
-	include "koneksi.inc.php";
-	$query2 = "select * from barang group by kategori";
-	$hasil2 = mysql_query($query2,$koneksi);
-	while($row = mysql_fetch_array($hasil2)){
-		echo $row['kategori']."<br>";
-	}
-?>
 </div>
 <script>
 if(typeof(Storage)!=="undefined"){

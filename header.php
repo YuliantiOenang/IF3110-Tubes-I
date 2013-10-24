@@ -98,7 +98,6 @@ ANIMATEPOPUPBOX = {
 	</ul></nav>
  
 </header><!-- /#banner -->
-
 <div id='mbox' style='display:none;'></div>
 <div id='back_mbox' style='display:none;'></div><div id='fade_mbox' style='display:none;'></div>
 <div id="userlogin">
@@ -107,6 +106,16 @@ ANIMATEPOPUPBOX = {
 	<pre>Password		<input type="password" name="password"></pre>
 	<input type="submit" value="Login"> <a href="registerform.php">Daftar baru!</a>
 </form>
+</div>
+<div>
+<?php 
+	include "koneksi.inc.php";
+	$query2 = "select * from barang group by kategori";
+	$hasil2 = mysql_query($query2,$koneksi);
+	while($row = mysql_fetch_array($hasil2)){
+		echo $row['kategori']."<br>";
+	}
+?>
 </div>
 <script>
 if(typeof(Storage)!=="undefined"){

@@ -15,7 +15,6 @@ function sendAjax(data, target, callback){
 			try{
 				callback(JSON.parse(this.responseText));
 			}catch(err){
-				alert(this.responseText);
 				callback({"status":"error"});
 			}
 			

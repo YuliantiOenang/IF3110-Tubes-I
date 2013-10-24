@@ -6,7 +6,7 @@
 	function addToCart($id_barang, $jumlah){
 		// mengecek apakah masih bisa meng-add barang dengan id tertentu sejumlah tertentu
 		// return -1 jika sukses, dan sisa barang jika gagal
-		
+		global $DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME;
 		$conn = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
 		
 		$statement = $conn->prepare("SELECT stok FROM barang WHERE id_barang = ?");
@@ -30,17 +30,17 @@
 		 * buy() mengembalikan true jika pembelian berhasil, false jika gagal (ada barang yg tidak mencukupi).
 		 * jika ada satu jenis barang yg tidak mencukupi, maka seluruh transaksi digagalkan
 		 */
-		 
+		global $DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME;
 		$conn = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
 		
 		$conn->autocommit(false);
 		
 		$success = true;	
-		$sql = "UPDATE barang SET stok = stok - ? WHERE id_barang = ? AND stok >= ?";
+		$sql = "UPDATE barang SET stok = stok - ?, jumlah_terbeli = jumlah_terbeli + ? WHERE id_barang = ? AND stok >= ?";
 		
 		foreach ($list as $item){
 			$statement = $conn->prepare($sql);
-			$statement->bind_param("iii", $item["jumlah"], $item["id"], $item["jumlah"]);
+			$statement->bind_param("iiii", $item["jumlah"], $item["jumlah"], $item["id"], $item["jumlah"]);
 			$statement->execute();
 			
 			$success = ($statement->affected_rows == 1); // sukses jika affected row tepat 1
@@ -52,9 +52,9 @@
 			}
 		}
 		
-		if ($success){
+		if ($success){ // jika semua sukses, commit
 			$conn->commit();
-		}else{
+		}else{ // ada 1 aja yg gagal, rollback
 			$conn->rollback();
 		}	
 		

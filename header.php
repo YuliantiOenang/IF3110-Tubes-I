@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="utf-8" />
 <title>RuSerBa</title>
- 
 <link rel="stylesheet" href="css/main.css" type="text/css" /> 
+
 <script>
 var d = document; 
 function showhide(id,event){
@@ -84,22 +85,26 @@ ANIMATEPOPUPBOX = {
 
 <header id="banner" class="body">
 	
-	<span style="float:left"><a href="#"><img src="images/logo.png" alt="RuSerBa Logo" width="110" height="110"/></a></span>
-	<h1><span><a href="#">RuSerBa<br><strong>Ruko Serba Ada</strong></a></span></h1>
-	
- 	<nav><ul id="menubar">
-		<li class="active"><a href="index.php">Home</a></li>
+	<span style="float:left"><a href="index.php"><img src="images/logo.png" alt="RuSerBa Logo" width="110" height="110"/></a></span>
+	<h1><span><a href="index.php">RuSerBa<br><strong>Ruko Serba Ada</strong></a></span></h1>
+ 
+	<nav><ul id="menubar">
+		<li><a href="index.php">Home</a></li>
 		<li><a href="#">Kategori Barang</a></li>
+		
 		<li style="float:right"><button type="button">Search</button></li>
 		<li style="float:right"><input type="text" name="search" placeholder="Cari Barang"></li>
+		
 	</ul></nav>
+ 
 </header><!-- /#banner -->
+
 <div id='mbox' style='display:none;'></div>
 <div id='back_mbox' style='display:none;'></div><div id='fade_mbox' style='display:none;'></div>
 <div id="userlogin">
 <form method="post" action="index.php">
-	<pre>Username	<input type="text" name="username"></pre>
-	<pre>Password	<input type="password" name="password"></pre>
+	<pre>Username		<input type="text" name="username"></pre>
+	<pre>Password		<input type="password" name="password"></pre>
 	<input type="submit" value="Login"> <a href="registerform.php">Daftar baru!</a>
 </form>
 </div>

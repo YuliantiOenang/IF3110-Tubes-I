@@ -16,3 +16,5 @@ Rule dan Konvensi:
 - src/ - berisi semua kode sumber dari aplikasi yang akan anda kumplukan
 - docs/ - berisi dokumentasi dari aplikasi, jika diperlukan
 - db/ - berisi file sql hasil dump
+
+TEST

@@ -38,7 +38,7 @@ var temp = ""+text;
 if (temp.length==0)
   { 
   	if(num==1)
-  		document.getElementById("validasiName").innerHTML="";
+  		document.getElementById("validasiNama").innerHTML="";
   	else if(num==2)
   		document.getElementById("validasiUser").innerHTML="";
   	else if(num==3)
@@ -81,10 +81,10 @@ xmlhttp.send();
 <body>
 <h3>Start typing a name in the input field below:</h3>
 <form action=""> 
-Full Name: <input type="text" id="name" onkeyup="validate(name.value,1,null)"/><span id="validasiNama"></span></br>
+Full Name: <input type="text" id="nama" onkeyup="validate(nama.value,1,'budi')"/><span id="validasiNama"></span></br>
 Username: <input type="text" id="usnm" onkeyup="validate(usnm.value,2,pwd.value)"/><span id="validasiUser"></span></br>
 Password: <input type="password" id="pwd" onkeyup="validate(pwd.value,3,null)"/><span id="validasiPass"></span></br>
-Confirm Password: <input type="password" id="pwd2" onkeyup="validate(pwd2.value,4,null)"/><span id="validasiCoPass"></span></br>
+Confirm Password: <input type="password" id="pwd2" onkeyup="validate(pwd2.value,4,pwd.value)"/><span id="validasiCoPass"></span></br>
 Email: <input type="text" id="email" onkeyup="validate(email.value,5,null)"/><span id="validasiEmail"></span></br>
 <button type="button" onclick="showHint(usnm.value,pwd.value,email.value)">PUNCH Me!</button>
 </form>

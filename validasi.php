@@ -1,7 +1,7 @@
 <?php
 $data = $_GET['q'];
 $type = intval($_GET['num']);
-$pass = $_GET['pass'];
+if (isset($_GET['pass'])) $pass = $_GET['pass'];
 $uservalid = false;
 $passvalid = false;
 $copassvalid = false;
@@ -10,13 +10,14 @@ include "koneksi.inc.php";
 
 switch ($type) {
 	case 1://Full name validator 
+		$complete = false;
 		$sql="SELECT * FROM anggota WHERE nama = '".$data."'";
-		$regex = '/^[A-Za-z]{6,10}+(. [A-Za-z]{2,20})+$/';
+		$regex = '/^([A-Za-z]{1,10})+([ ][A-Za-z]{1,20})+$/';
 		$result = mysql_query($sql,$koneksi);
-		echo preg_match($regex, $data);
-		if(mysql_num_rows($result)!=1 && preg_match($regex, $data))
+		if(preg_match($regex, $data)) $complete = true;
+		if(mysql_num_rows($result)==0 && $complete)
 	  		{echo "OK";$uservalid=true;}
-		else if(!preg_match($regex, $data)){echo "Nama harus terdiri dari karakter(A-Z)(a-z). Minimal 2 kata.";$uservalid=false;}
+		else if(!$complete){echo "Nama harus terdiri dari karakter(A-Z)(a-z). Minimal 2 kata.";$uservalid=false;}
 		else if(mysql_num_rows($result)==1){echo "Nama sudah terdaftar. Silakan coba yang lain";$uservalid=false;}
 	break;
 	case 2://username validator
@@ -33,18 +34,21 @@ switch ($type) {
 		else {echo "Username minimal 5 karakter";$uservalid=false;}
 	break;
 	case 3://password validator
-		if(strlen($data)>8){echo "OK";$passvalid=true;}
+		$samewithpass = false;
+		if($pass==$data){$samewithpass = true;}
+		if(strlen($data)>7  && !$samewithpass){echo "OK";$passvalid=true;}
 		else 
 			{	if(strlen($data)<1) echo"";
+				else if($samewithpass){echo "Password tidak boleh sama dengan username";}
 				else echo "Password minimal 8 karakter";
 				$passvalid = false;
 			}
 	break;
 	case 4://copassword validator
-		if($pass==$data && $passvalid){echo "OK";$copassvalid=true;}
+		if($pass==$data){echo "OK";$copassvalid=true;}
 		else 
 			{	if(strlen($data)<1) echo"";
-				else if(!$passvalid) echo "Silakan isi password awal dengan benar.";
+				else if($pass!=$data) echo "Silakan isi password awal dengan benar.";
 				else echo "Confirm Password harus sama dengan Password di atas.";
 				$copassvalid = false;
 			}

@@ -76,6 +76,35 @@ ANIMATEPOPUPBOX = {
 		showhide("back_mbox","hide");
 	}
 }
+
+function searchsuggest(text)
+{
+var xmlhttp;
+var temp = ""+text;
+if (temp.length==0)
+  { 
+  	document.getElementById("cariyu").innerHTML="";
+  	return;
+  }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    	document.getElementById("cariyu").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","search.php?cari="+text,true);
+xmlhttp.send();
+}
 </script>
 </head>
  
@@ -85,8 +114,8 @@ ANIMATEPOPUPBOX = {
 
 <header id="banner" class="body">
 	
-	<span style="float:left"><a href="index.php"><img src="images/logo.png" alt="RuSerBa Logo" width="110" height="110"/></a></span>
-	<h1><span><a href="index.php">RuSerBa<br><strong>Ruko Serba Ada</strong></a></span></h1>
+	<span style="float:left"><a href="index.php"><img src="images/logo.png" alt="RuSerBa Logo" width="120" height="120"/></a></span>
+	<span><h1><a href="index.php">RuSerBa<br><strong>Ruko Serba Ada</strong></a></h1></span>
  
 	<nav><ul id="menubar">
 		<li><a href="index.php">Home</a></li>
@@ -103,7 +132,10 @@ ANIMATEPOPUPBOX = {
 			</ul>
 		</li>
 		<li style="float:right"><button type="button">Search</button></li>
-		<li style="float:right"><input type="text" name="search" placeholder="Cari Barang"></li>
+		<li style="float:right"><input type="text" name="search" id="cari"placeholder="Cari Barang" onkeyup="searchsuggest(cari.value)">
+			<ul class="suggestion" id="cariyu">	
+			</ul>
+		</li>
 		
 	</ul></nav>
  
@@ -127,8 +159,8 @@ if(typeof(Storage)!=="undefined"){
 	}else{
 		<?php
 		include "koneksi.inc.php";
-		$username=$_POST['username'];
-		$password=$_POST['password'];
+		if(isset($_POST['username']))$username=$_POST['username'];
+		if(isset($_POST['password']))$password=$_POST['password'];
 		if(empty($username) and empty($password)){
 		?>
 		var s = "<li><a href=\"javascript:ANIMATEPOPUPBOX.showbox('userlogin','User Login');\">Login</a></li>";

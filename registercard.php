@@ -1,3 +1,11 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+<?php include "header.php"; ?>
+
+<article id="registerform">
 <?php
 include "koneksi.inc.php";
 $username=$_POST['username'];
@@ -17,3 +25,7 @@ if(!empty($cardnumber)){
 	echo "<html><body>Your card number is incorrect!<br><a href='registercardform.php?username=".$username."'>Daftar ulang</a> atau <a href='index.php'>Kembali ke halaman utama</a></body></html>";
 }
 ?>
+</article>
+
+<?php include "footer.php"; ?>
+</body>

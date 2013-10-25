@@ -192,9 +192,13 @@ pre {
 		left: 0;
 		width: 100px;
 	}
+	ul.sub-menu{
+		color:#000;
+	}
 	ul#menubar li:hover ul.sub-menu {
 		color: #fff;
 		display: block;
+		transition:all 1s ease;
 	}
 	ul#menubar .sub-menu {
 		margin-top: 10px;
@@ -214,12 +218,6 @@ pre {
 	/* search suggestion*/
 	/* Search Down Menu */
 	/* Initialize */
-	ul#menubar ul.suggestion{
-		padding: 0;
-		margin: 0;
-		font-size: 12px;
-		text-align: left;
-	}
 	ul#menubar ul.suggestion li{
 		list-style-type: armenian;
 		display: inline-block;
@@ -239,16 +237,14 @@ pre {
 	}
 	/* sub menu */
 	ul#menubar li ul.suggestion {
-		display: none;
 		position: absolute;
-		top: 26px;
+		top: 28px;
 		left: 0px;
 		width: 181px;
-	}
-	ul#menubar li ul.suggestion {
 		color: #fff;
 		display: block;
-		border: 2px solid #ddd;
+		font-size: 12px;
+		text-align: left;
 	}
 	ul#menubar .suggestion {
 		margin-top: 0px;
@@ -258,9 +254,14 @@ pre {
 	ul#menubar .suggestion li a {
 		background: #000305;
 		width: 181px;
+		border: 1px solid #ddd;
+		border-radius:2px;
+		-moz-border-radius:2px;
+		-webkit-border-radius:2px;
 	}
 	ul#menubar .suggestion li a:hover {
 		background: #C74354;
+		transition:background 1s ease;
 	}
 
 /***** Featured *****/

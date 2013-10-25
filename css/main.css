@@ -8,12 +8,11 @@ body {
 	background: #F5F4EF;
 	color: #000305;
 	font-size: 14px;
-	font-family: 'Trebuchet MS';
+	font-family: 'Tahoma';
 	line-height: 1.429;
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	
 }
  
 /* Headings */
@@ -98,7 +97,7 @@ aside, nav, article, figure, pre {
 
 /* pre tags */
 pre {
-	font-family: 'Trebuchet MS';
+	font-family: 'Tahoma';
 }
 	
 /***** Header *****/
@@ -108,11 +107,11 @@ pre {
 }
  
 	/* Banner */
-	#banner h1 {font-size: 3.571em; line-height: .6;}
+	#banner h1 {font-size: 51px; line-height: .6;}
 	#banner h1 a:link, #banner h1 a:visited {
 		color: #000305;
 		display: block;
-		font-weight: bold;
+		font-weight: normal;
 		margin: 0 0 .6em .2em;
 		text-decoration: none;
 		width: 427px;
@@ -158,29 +157,23 @@ pre {
 	}
 	
 	#banner nav li:first-child a {
-		border-top-left-radius: 5px;
-		-moz-border-radius-topleft: 5px;
-		-webkit-border-top-left-radius: 5px;
-		
-		border-bottom-left-radius: 5px;
-		-moz-border-radius-bottomleft: 5px;
-		-webkit-border-bottom-left-radius: 5px;
+		border-radius: 0px;
+		-moz-border-radius: 0px;
+		-webkit-border-radius: 0px;
 	}
 
 	/* Drop Down Menu */
 	/* Initialize */
-	ul#menubar, ul#menubar u.sub-menu {
+	ul#menubar, ul#menubar ul.sub-menu{
 		padding: 0;
 		margin: 0;
 	}
-	
-	ul#menubar li, ul#menubar ul.sub-menu li {
+	ul#menubar li, ul#menubar ul.sub-menu li{
 		list-style-type: none;
 		display: inline-block;
 	}
-	
 	/* Link Appearance */
-	ul#menubar li a, ul#menubar li ul.sub-menu li a {
+	ul#menubar li a, ul#menubar li ul.sub-menu li a{
 		text-decoration: none;
 		color: #fff;
 		background: #000305;
@@ -210,11 +203,63 @@ pre {
 	ul#menubar .sub-menu li a {
 		background: #000305;
 		width: 152px;
-		border-radius: 0px;
-		-moz-border-radius: 0px;
-		-webkit-border-radius: 0px;
 	}
 	ul#menubar .sub-menu li a:hover {
+		background: #C74354;
+	}
+	ul#menubar #cari {
+		width : 200px;
+	}
+
+	/* search suggestion*/
+	/* Search Down Menu */
+	/* Initialize */
+	ul#menubar ul.suggestion{
+		padding: 0;
+		margin: 0;
+		font-size: 12px;
+		text-align: left;
+	}
+	ul#menubar ul.suggestion li{
+		list-style-type: armenian;
+		display: inline-block;
+	}
+	/* Link Appearance */
+	ul#menubar li ul.suggestion li a{
+		text-decoration: none;
+		color: #000;
+		background: #fff;
+		padding-left: 3px;
+		padding-top: 0;
+		display: inline-block;
+	}
+	/* Make the parent of sub-menu relative */
+	ul#menubar li {
+		position: relative;
+	}
+	/* sub menu */
+	ul#menubar li ul.suggestion {
+		display: none;
+		position: absolute;
+		top: 26px;
+		left: 0px;
+		width: 181px;
+	}
+	ul#menubar li ul.suggestion {
+		color: #fff;
+		display: block;
+		border: 2px solid #ddd;
+	}
+	ul#menubar .suggestion {
+		margin-top: 0px;
+		margin-left: 0px;
+		padding: 0px;
+	}
+	ul#menubar .suggestion li a {
+		background: #000305;
+		width: 181px;
+	}
+	ul#menubar .suggestion li a:hover {
 		background: #C74354;
 	}
 

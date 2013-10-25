@@ -7,6 +7,53 @@
 <link rel="stylesheet" href="css/main.css" type="text/css" /> 
 
 <script>
+//DYNAMIC TITLEBAR
+var message = new Array() // leave this as is
+
+message[0] = "Selamat datang di Ruserba!";
+message[1] = "Disini kami menjual barang-barang kebutuhan sehari-hari secara online";
+message[2] = "Kamu bisa pilih berbagai barang yang ada berdasarkan kategori";
+message[3] = "Pembelian barang jadi lebih mudah dan barang cepat sampai";
+message[4] = "Selamat Berbelanja!";
+
+var reps = 2
+
+var speed = 100
+
+var p=message.length;
+var T="";
+var C=0;
+var mC=0;
+var s=0;
+var sT=null;
+if(reps<1)reps=1;
+function doTheThing(){
+T=message[mC];
+A();}
+function A(){
+s++
+if(s>9){s=1}
+
+if(s==1){document.title='|||--- '+T+' ---|||'}
+if(s==2){document.title='|-||-- '+T+' --||-|'}
+if(s==3){document.title='|--||- '+T+' -||--|'}
+if(s==4){document.title='|---|| '+T+' ||---|'}
+if(s==5){document.title='|--|-| '+T+' |-|--|'}
+if(s==6){document.title='|-|--| '+T+' |--|-|'}
+if(s==7){document.title='||---| '+T+' |---||'}
+if(s==8){document.title='||--|- '+T+' -|--||'}
+if(s==9){document.title='||-|-- '+T+' --|-||'}
+if(C<(8*reps)){
+sT=setTimeout("A()",speed);
+C++
+}else{
+C=0;
+s=0;
+mC++
+if(mC>p-1)mC=0;
+sT=null;
+doTheThing();}}
+doTheThing();
 var d = document; 
 function showhide(id,event){
 	if(event=='hide'){ d.getElementById(id).style.display = 'none'; }
@@ -76,6 +123,34 @@ ANIMATEPOPUPBOX = {
 		showhide("back_mbox","hide");
 	}
 }
+function searchsuggest(text)
+{
+var xmlhttp;
+var temp = ""+text;
+if (temp.length==0)
+  { 
+  	document.getElementById("cariyu").innerHTML="";
+  	return;
+  }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    	document.getElementById("cariyu").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","search.php?cari="+text,true);
+xmlhttp.send();
+}
 </script>
 </head>
  
@@ -85,8 +160,8 @@ ANIMATEPOPUPBOX = {
 
 <header id="banner" class="body">
 	
-	<span style="float:left"><a href="index.php"><img src="images/logo.png" alt="RuSerBa Logo" width="120" height="120"/></a></span>
-	<span><h1><a href="index.php">RuSerBa<br><strong>Ruko Serba Ada</strong></a></h1></span>
+	<span style="float:left"><a href="index.php"><img src="images/logo.png" alt="RuSerBa Logo" width="110" height="110"/></a></span>
+	<h1><span><a href="index.php">RuSerBa<br><strong>Ruko Serba Ada</strong></a></span></h1>
  
 	<nav><ul id="menubar">
 		<li><a href="index.php">Home</a></li>
@@ -103,7 +178,10 @@ ANIMATEPOPUPBOX = {
 			</ul>
 		</li>
 		<li style="float:right"><button type="button">Search</button></li>
-		<li style="float:right"><input type="text" name="search" placeholder="Cari Barang"></li>
+		<li style="float:right"><input type="text" name="search" id="cari"placeholder="Cari Barang" onkeyup="searchsuggest(cari.value)">
+			<ul class="suggestion" id="cariyu">	
+			</ul>
+		</li>
 		
 	</ul></nav>
  
@@ -113,22 +191,23 @@ ANIMATEPOPUPBOX = {
 <div id='back_mbox' style='display:none;'></div><div id='fade_mbox' style='display:none;'></div>
 <div id="userlogin">
 <form method="post" action="index.php">
-	<pre>Username		<input type="text" name="username"></pre>
-	<pre>Password		<input type="password" name="password"></pre>
+	<pre>Username		<input type="text" id="username" name="username"></pre>
+	<pre>Password		<input type="password" id="password" name="password"></pre>
 	<input type="submit" value="Login"> <a href="registerform.php">Daftar baru!</a>
 </form>
 </div>
 <script>
 if(typeof(Storage)!=="undefined"){
 	if(localStorage.wbduser){
-		var s = "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');\">Logout</a></li>";
+		var s = "<li><a href=\"profile.php\">Profile</a></li>";
+		s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');\">Logout</a></li>";
 		document.getElementById("menubar").innerHTML+=s;
 		document.getElementById("banner").innerHTML+="<p>Selamat datang, <b>"+localStorage.wbduser+"</b>!</p>";
 	}else{
 		<?php
 		include "koneksi.inc.php";
-		$username=$_POST['username'];
-		$password=$_POST['password'];
+		if(isset($_POST['username'])){$username=$_POST['username'];}
+		if(isset($_POST['password'])){$password=$_POST['password'];}
 		if(empty($username) and empty($password)){
 		?>
 		var s = "<li><a href=\"javascript:ANIMATEPOPUPBOX.showbox('userlogin','User Login');\">Login</a></li>";
@@ -141,8 +220,10 @@ if(typeof(Storage)!=="undefined"){
 				$row = mysql_fetch_array($hasil);
 				echo "localStorage.wbduser=\"".$username."\";";
 				?>
-				var s = "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');\">Logout</a></li>";
+				var s = "<li><a href=\"profile.php\">Profile</a></li>";
+				s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');\">Logout</a></li>";
 				document.getElementById("menubar").innerHTML+=s;
+				document.getElementById("banner").innerHTML+="<p>Selamat datang, <b>"+localStorage.wbduser+"</b>!</p>";
 				<?php
 			}else{
 				?>

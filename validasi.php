@@ -11,20 +11,15 @@ include "koneksi.inc.php";
 switch ($type) {
 	case 1://Full name validator 
 		$complete = false;
-		$sql="SELECT * FROM anggota WHERE nama = '".$data."'";
 		$regex = '/^([A-Za-z]{1,10})+([ ][A-Za-z]{1,20})+$/';
-		$result = mysql_query($sql,$koneksi);
-		if(preg_match($regex, $data)) $complete = true;
-		if(mysql_num_rows($result)==0 && $complete)
-	  		{echo "OK";$uservalid=true;}
-		else if(!$complete){echo "Nama harus terdiri dari karakter(A-Z)(a-z). Minimal 2 kata.";$uservalid=false;}
-		else if(mysql_num_rows($result)==1){echo "Nama sudah terdaftar. Silakan coba yang lain";$uservalid=false;}
+		if(preg_match($regex, $data)){
+			echo "OK";$uservalid=true;
+		}else{echo "Nama harus terdiri dari karakter(A-Z)(a-z). Minimal 2 kata.";$uservalid=false;}
 	break;
 	case 2://username validator
 		$sql="SELECT * FROM anggota WHERE username = '".$data."'";
 		$regex = '/^([A-Za-z0-9]{5,20})$/';
 		$result = mysql_query($sql,$koneksi);
-		$row = mysql_fetch_array($result);
 		$samewithpass = false;
 		if($pass==$data){$samewithpass = true;}
 		if(mysql_num_rows($result)!=1 && preg_match($regex, $data) && !$samewithpass)

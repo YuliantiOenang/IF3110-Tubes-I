@@ -1,0 +1,46 @@
+p {
+	text-align:center;
+	color:black;
+	font-family:arial;
+}
+
+.page_container {
+	width: 940px;
+	height: 500px;
+	background-color:blue;
+	float: left;
+}
+
+.heading {
+	width: 940px;
+	height: 100px;
+	background-color:green;
+}
+
+.footer {
+	width: 940px;
+	height: 100px;
+	background-color:green;
+	float:left;
+}
+
+.navigation {
+	width: 940px;
+	height: 50px;
+	background-color:orange;
+}
+
+.bar_navigation {
+	width: 100px;
+	height: 50px;
+	background-color:red;
+	float: left;
+	border: 2px solid;
+}
+
+.container {
+	width: 940px;
+	height: 500px;
+	background-color:blue;
+	float: left;
+}

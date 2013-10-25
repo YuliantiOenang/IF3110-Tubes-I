@@ -1,0 +1,182 @@
+<html>
+
+<head>
+<title>Registrasi</title>
+<script type = "text/javascript">
+	//validasi input setiap field pada form
+	function CheckField(field)
+	{
+		var val_username  = document.forms ["regform"] ["username"].value;
+		var val_namalengkap = document.forms ["regform"] ["namalengkap"].value;
+		var val_email = document.forms ["regform"] ["email"].value;
+		var val_password  = document.forms ["regform"] ["password"].value;
+		var val_cpassword  = document.forms ["regform"] ["cpassword"].value;
+		var err_username  = document.getElementById("err_username");
+		var err_namalengkap  = document.getElementById("err_namalengkap");
+		var err_email  = document.getElementById("err_email");
+		var err_password  = document.getElementById("err_password");
+		var err_cpassword  = document.getElementById("err_cpassword");
+		
+		switch(field)
+		{
+			case 'username' :
+				//pengecekan whitespace pada username
+				var valid = /\s/;
+				if (valid.test(val_username) == true)
+				{
+					err_username.innerHTML = "Username tidak boleh mengandung spasi";
+				}
+				else if ((val_username.length > 0) && (val_username.length < 5))
+				{
+					err_username.innerHTML = "Username minimal terdiri 5 karakter"; 
+				}
+				else if ((val_username.length != 0) && (val_username == val_password))
+				{
+					err_username.innerHTML = "Username tidak boleh sama dengan password";
+				}
+				else
+				{
+					err_username.innerHTML = "";
+					//TO-DO AJAX validator untuk username yang sudah terdaftar
+				}
+				break;
+			case 'namalengkap' :
+				//validasi dengan regex
+				var valid = /. ./i;
+				if ((val_namalengkap.length != 0) && (valid.test(val_namalengkap) == false))
+				{
+					err_namalengkap.innerHTML = "Nama Lengkap harus mempunyai minimal dua kata yang dipisahkan oleh spasi";
+				}
+				else
+				{
+					err_namalengkap.innerHTML = "";
+				}
+				break;
+			case 'email' :
+				var atpos=val_email.indexOf("@");
+				var dotpos=val_email.lastIndexOf(".");
+				var whitespace=val_email.indexOf(" ");
+				if ((val_email.length != 0) && (atpos<1 || dotpos<atpos+2 || dotpos+2>=val_email.length || whitespace != -1))
+				{
+					err_email.innerHTML = "Format email tidak valid";
+				}
+				else
+				{
+					err_email.innerHTML = "";
+					//TO-DO AJAX validator untuk email yang sudah terdaftar
+				}
+				break;
+			case 'password' :
+				if ((val_password.length > 0) && (val_password.length < 8))
+				{
+					err_password.innerHTML = "Password harus mempunyai panjang minimal 8 karakter";
+				}
+				else if ((val_password.length != 0) && (val_password == val_username))
+				{
+					err_password.innerHTML = "Password tidak boleh sama dengan Username";
+				}
+				else if ((val_password.length != 0) && (val_password == val_email))
+				{
+					err_password.innerHTML = "Password tidak boleh sama dengan Email";
+				}
+				else
+				{
+					err_password.innerHTML = "";
+				}
+				break;
+			case 'cpassword' :
+				if ((val_cpassword.length != 0) && (val_password.length != 0) && (val_cpassword != val_password))
+				{
+					err_cpassword.innerHTML = "Harus sama dengan Password";
+				}
+				else
+				{
+					err_cpassword.innerHTML = "";
+				}
+				break;
+		}
+	}
+	
+	//enable button Register
+	function CheckForm()
+	{
+		//field pada form
+		var lgt_username  = document.forms ["regform"] ["username"].value.length;
+		var lgt_namalengkap = document.forms ["regform"] ["namalengkap"].value.length;
+		var lgt_email = document.forms ["regform"] ["email"].value.length;
+		var lgt_password  = document.forms ["regform"] ["password"].value.length;
+		var lgt_cpassword  = document.forms ["regform"] ["cpassword"].value.length;
+		var lgt_nomorhp  = document.forms ["regform"] ["nomor_hp"].value.length;
+		var lgt_alamat  = document.forms ["regform"] ["alamat"].value.length;
+		var lgt_kotakabupaten  = document.forms ["regform"] ["kota_kabupaten"].value.length;
+		var lgt_provinsi  = document.forms ["regform"] ["provinsi"].value.length;
+		var lgt_kodepos  = document.forms ["regform"] ["kodepos"].value.length;
+		//error message
+		var err_username  = document.getElementById("err_username");
+		var err_namalengkap  = document.getElementById("err_namalengkap");
+		var err_email  = document.getElementById("err_email");
+		var err_password  = document.getElementById("err_password");
+		var err_cpassword  = document.getElementById("err_cpassword");
+		//button Register
+		var button_submit = document.forms ["regform"] ["btn_submit"];
+		
+		//jika semua field sudah terisi
+		if((lgt_username!=0 )&& (lgt_namalengkap!=0) && (lgt_email!=0) && (lgt_password!=0) && (lgt_cpassword!=0) && (lgt_nomorhp!=0) && (lgt_alamat!=0) && (lgt_kotakabupaten!=0) && (lgt_provinsi!=0) && (lgt_kodepos!=0))
+		{
+			//jika field error semuanya kosong
+			if((err_username.innerHTML=="") && (err_namalengkap.innerHTML=="") && (err_email.innerHTML=="") && (err_password.innerHTML=="") && (err_cpassword.innerHTML==""))
+			{
+				//enable button Register
+				button_submit.disabled = false;
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+
+<fieldset>
+	<legend>Registrasi</legend>
+	<!-- form registrasi -->
+	<form name = "regform" action="registrasi.php" method="post">
+		<span>
+			Username: <input type="text" name="username" onchange= "CheckField('username');CheckForm();"> <br>
+			<div id = "err_username" style="font-size:14px;color:red"><!-- --></div>
+		</span>
+		<span>
+			Nama Lengkap: <input type="text" name="namalengkap" onchange="CheckField('namalengkap');CheckForm();"><br>
+			<div id = "err_namalengkap" style="font-size:14px;color:red"> <!-- --></div>
+		</span>
+		<span>
+			Nomor Handphone: <input type="text" name="nomor_hp" onchange="CheckForm();"><br>
+		</span>
+		<span>
+			Alamat: <input type="text" name="alamat" onchange="CheckForm();"><br>
+		</span>
+		<span>
+			Kota/Kabupaten: <input type="text" name="kota_kabupaten" onchange="CheckForm();"><br>
+		</span>
+		<span>
+			Provinsi: <input type="text" name="provinsi" onchange="CheckForm();"><br>
+		</span>
+		<span>
+			Kode Pos: <input type="text" name="kodepos" onchange="CheckForm();"><br>
+		</span>
+		<span>
+			Email: <input type="text" name="email" onchange="CheckField('email');CheckForm();"><br>
+			<div id = "err_email" style="font-size:14px;color:red"> <!-- --></div>
+		</span>
+		<span>
+			Password: <input type="password" name="password" onchange="CheckField('password');CheckForm();"><br>
+			<div id = "err_password" style="font-size:14px;color:red"> <!-- --></div>
+		</span>
+		<span>
+			Confirm Password: <input type="password" name="cpassword" onchange="CheckField('cpassword');CheckForm();"><br>
+			<div id = "err_cpassword" style="font-size:14px;color:red"> <!-- --></div>
+		</span>
+		<input type="submit" name="btn_submit" value = "Register" disabled>
+	</form>
+
+</body>
+</html>

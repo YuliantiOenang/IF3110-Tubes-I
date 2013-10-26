@@ -36,8 +36,24 @@
 				}
 				else
 				{
-					err_username.innerHTML = "";
-					//TO-DO AJAX validator untuk username yang sudah terdaftar
+					//pengecekan username ke db
+					if (window.XMLHttpRequest)
+					{// code for IE7+, Firefox, Chrome, Opera, Safari
+						xmlhttp=new XMLHttpRequest();
+					}
+					else
+					{// code for IE6, IE5
+						xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					xmlhttp.onreadystatechange=function()
+					{
+						if (xmlhttp.readyState==4 && xmlhttp.status==200)
+						{
+							err_username.innerHTML=xmlhttp.responseText;
+						}
+					}
+					xmlhttp.open("GET","validasi_username_email.php?q="+val_username,true);
+					xmlhttp.send();
 				}
 				break;
 			case 'namalengkap' :
@@ -62,8 +78,24 @@
 				}
 				else
 				{
-					err_email.innerHTML = "";
-					//TO-DO AJAX validator untuk email yang sudah terdaftar
+					//pengecekan username ke db
+					if (window.XMLHttpRequest)
+					{// code for IE7+, Firefox, Chrome, Opera, Safari
+						xmlhttp=new XMLHttpRequest();
+					}
+					else
+					{// code for IE6, IE5
+						xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					xmlhttp.onreadystatechange=function()
+					{
+						if (xmlhttp.readyState==4 && xmlhttp.status==200)
+						{
+							err_email.innerHTML=xmlhttp.responseText;
+						}
+					}
+					xmlhttp.open("GET","validasi_username_email.php?q="+val_email,true);
+					xmlhttp.send();
 				}
 				break;
 			case 'password' :
@@ -129,6 +161,14 @@
 				//enable button Register
 				button_submit.disabled = false;
 			}
+			else
+			{
+				button_submit.disabled = true;
+			}
+		}
+		else
+		{
+			button_submit.disabled = true;
 		}
 	}
 </script>

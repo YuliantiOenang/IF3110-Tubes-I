@@ -33,7 +33,7 @@ if(strlen($username)>5 && $username!=$pass)
 	$boolNama=true;
 }
 
-if($pass==$confPass)
+if($pass==$confPass&& $pass!= "" & confPass!="")
 {
 	$boolPass=true;
 }

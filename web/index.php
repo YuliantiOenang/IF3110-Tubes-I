@@ -1,7 +1,7 @@
-<!--<!DOCTYPE html> -->
+<!DOCTYPE html> 
 <html>
 <head>
-
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/latihan.css"> <!--pemanggilan file css-->
 
 </head>
@@ -109,14 +109,16 @@ function remove(id)
 		</div>
 		<form id="test">
 			<div class="forms">
-			<font color="blue">Username : </font><input type="text" id="user" value='user'  /></br>
+			Username : <input type="text" id="user" required placeholder = "Username" /></br>
 			</div>
 			<div class="forms">
-			<font color="blue">Password : </font><input type="password" id="pass" value='pass'></br>
+			Password : <input type="password" id="pass" required placeholder = "Password"></br>
 			</div>
 			<div class="forms">
 			<input type="button" value="LogIn" onclick="login()"></input>
 			<input type="button" value="Cancel" onclick="cancel()"></input>
+			</div>
+			<div class="error">
 			<p id="Error"></p>
 			</div>
 			</form>

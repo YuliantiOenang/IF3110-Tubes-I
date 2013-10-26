@@ -226,144 +226,30 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> TOP THREE JACKETS<label></br>
+		<label> CREDIT CARD FORM<label></br></br>
 		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-					
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
+			<div class = "registerspace">
+			<label>Full Name </label> <input type="text" id="user" required placeholder = "e.g. cmartin" /></br>
 			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-					
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
+			<div class = "registerspace">
+			<label>Credit Card Number</label> <input type="password" id="user" required placeholder = "1234" /></br>
 			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
+			<div class = "registerspace">
+			<label>Expiration Date</label> <input type="password" id="user" required placeholder = "1234" /></br>
 			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE SWEATER<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
+			
+			<div class = "registerspace">
+			<input type="button" value = "Confirm"></br>
 			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
+			
+			 
+			  
 			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
 			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE T-SHIRTS<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE MISC.<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE POKEMON<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-		</div>
-		<div class = "mekanisme">
-		<p class = "copyrightext"> Mekanisme Pembayaran </br></br>
-		1. Pembeli melakukan login atau sign up
-		2. Pembeli memesan produk-produk yang ingin dibeli </br>
-		3. Pembeli melakukan checkout dengan memilih cart </br>
-		4. Pembeli memilih mekanisme pembayaran, yaitu dengan kartu kredit yang dipilih </br>
-		</div>
-	</div>
-	</div>
+			
+			
+			
+	
 	<div class = "footer">
 		<div class = "info">
 

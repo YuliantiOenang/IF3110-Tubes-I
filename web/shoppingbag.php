@@ -228,7 +228,7 @@ function remove(id)
 		<div class = "topfivetitle">
 		<label> TOP THREE JACKETS<label></br>
 		</div>
-		<div class = "topthreecat">
+		
 			<div class = "toppreview">
 				<div class = "previmage">
 					
@@ -249,119 +249,24 @@ function remove(id)
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
-			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE SWEATER<label></br>
-		</div>
-		<div class = "topthreecat">
+				</div>
 			<div class = "toppreview">
 				<div class = "previmage">
 				
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
-			</div>
+				</div>
 			<div class = "toppreview">
 				<div class = "previmage">
 				
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
 				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
+			<div class = "checkout">
+			<input type="button" value="Checkout"></input>
 			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE T-SHIRTS<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE MISC.<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE POKEMON<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-		</div>
-		<div class = "mekanisme">
-		<p class = "copyrightext"> Mekanisme Pembayaran </br></br>
-		1. Pembeli melakukan login atau sign up
-		2. Pembeli memesan produk-produk yang ingin dibeli </br>
-		3. Pembeli melakukan checkout dengan memilih cart </br>
-		4. Pembeli memilih mekanisme pembayaran, yaitu dengan kartu kredit yang dipilih </br>
-		</div>
 	</div>
 	</div>
 	<div class = "footer">

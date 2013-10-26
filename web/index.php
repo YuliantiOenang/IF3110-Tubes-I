@@ -192,6 +192,10 @@ function remove(id)
 	
 </div>
 
+<?php
+		include "config/connect.php";
+		
+?>
 
 <div class = "bodymain">
 	<div class = "sidebar">
@@ -229,131 +233,101 @@ function remove(id)
 		<label> TOP THREE JACKETS<label></br>
 		</div>
 		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-					
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-					
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
+			<?php
+				$count=0;
+				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Jaket' order by terbayar.jumlah desc");
+				while(($baris=mysql_fetch_row($hasil)) && $count<3)
+				{
+				echo "<div class = 'toppreview'>
+					<div class = 'previmage'>
+						<a href='detailbarang.php?id=".$baris[0]."'><img src='".$baris[4]."' class='resizeimage'></a>
+					</div>
+					<p class = 'copyrightext'> ".$baris[1]." </br>
+					  Rp".$baris[2]." </label> </br> </p>
+				</div>";
+						$count++;
+				}
+			?>
 		</div>
 		<div class = "topfivetitle">
 		<label> TOP THREE SWEATER<label></br>
 		</div>
 		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
+			<?php
+				$count=0;
+				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Sweater' order by terbayar.jumlah desc");
+				while(($baris=mysql_fetch_row($hasil)) && $count<3)
+				{
+				echo "<div class = 'toppreview'>
+					<div class = 'previmage'>
+						<a href='detailbarang.php?id=".$baris[0]."'><img src='".$baris[4]."' class='resizeimage'></a>
+					</div>
+					<p class = 'copyrightext'> ".$baris[1]." </br>
+					  Rp".$baris[2]." </label> </br> </p>
+				</div>";
+						$count++;
+				}
+			?>
 		</div>
 		<div class = "topfivetitle">
 		<label> TOP THREE T-SHIRTS<label></br>
 		</div>
 		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
+			<?php
+				$count=0;
+				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='TShirt' order by terbayar.jumlah desc");
+				while(($baris=mysql_fetch_row($hasil)) && $count<3)
+				{
+				echo "<div class = 'toppreview'>
+					<div class = 'previmage'>
+						<a href='detailbarang.php?id=".$baris[0]."'><img src='".$baris[4]."' class='resizeimage'></a>
+					</div>
+					<p class = 'copyrightext'> ".$baris[1]." </br>
+					  Rp".$baris[2]." </label> </br> </p>
+				</div>";
+						$count++;
+				}
+			?>
 		</div>
 		<div class = "topfivetitle">
 		<label> TOP THREE MISC.<label></br>
 		</div>
 		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
+			<?php
+				$count=0;
+				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Misc' order by terbayar.jumlah desc");
+				while(($baris=mysql_fetch_row($hasil)) && $count<3)
+				{
+				echo "<div class = 'toppreview'>
+					<div class = 'previmage'>
+						<a href='detailbarang.php?id=".$baris[0]."'><img src='".$baris[4]."' class='resizeimage'></a>
+					</div>
+					<p class = 'copyrightext'> ".$baris[1]." </br>
+					  Rp".$baris[2]." </label> </br> </p>
+				</div>";
+						$count++;
+				}
+			?>
 		</div>
 		<div class = "topfivetitle">
 		<label> TOP THREE POKEMON<label></br>
 		</div>
 		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
+			<?php
+				$count=0;
+				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Pokemon' order by terbayar.jumlah desc");
+				while(($baris=mysql_fetch_row($hasil)) && $count<3)
+				{
+				echo "<div class = 'toppreview'>
+					<div class = 'previmage'>
+						<a href='detailbarang.php?id=".$baris[0]."'><img src='".$baris[4]."' class='resizeimage'></a>
+					</div>
+					<p class = 'copyrightext'> ".$baris[1]." </br>
+					  Rp".$baris[2]." </label> </br> </p>
+				</div>";
+						$count++;
+				}
+			?>
 		</div>
 		<div class = "mekanisme">
 		<p class = "copyrightext"> Mekanisme Pembayaran </br></br>

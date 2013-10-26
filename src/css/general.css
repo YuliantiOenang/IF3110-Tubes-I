@@ -1,0 +1,97 @@
+body {
+	margin:0;
+	padding:32px 64px;
+}
+
+a, div, form, li, p, ul {
+	margin:0;
+	padding:0;
+}
+
+#header {
+	max-width:100%;
+	margin-bottom:32px;
+}
+
+#header_top {
+	padding-top:64px;
+}
+
+#header_bottom {
+	background-color:red;
+	margin-bottom:inherit;
+}
+
+#logo {
+	background-color:black;
+	color:white;
+	float:left;
+	height:128px;
+	margin-bottom:inherit;
+	width:128px;
+}
+
+#nav_bar {
+	background-color:inherit;
+	float:left;
+	clear:right;
+	font-family:arial;
+	height:32px;
+	margin-bottom:inherit;
+	overflow:hidden;
+	text-align:center;
+	width:761px;
+}
+
+#nav_bar_right {
+	float:right;
+	font-family:arial;
+	height:32px;
+	overflow:hidden;
+	text-align:center;
+}
+
+#nav_hor {
+	display:inline;
+	margin:5px 4px 0px 4px;
+}
+
+#nav_hor_wrap {
+	display:block;
+	float:left;
+	margin-top:5px;
+	width:150px;
+}
+
+#search {
+	background-color:inherit;
+	height:32px;
+	margin-bottom:inherit;
+	padding-right:4px;
+	float:right;
+}
+
+#text_field {
+	margin-top:3px;
+	width:192px;
+}
+
+#button {
+	margin-top:3px;
+	text-align:center;
+	width:64px;
+}
+
+#content {
+	clear:both;
+	background-color:yellow;
+	min-height:512px;
+	margin-bottom:32px;
+}
+
+#footer {
+	background-color:#bf0001;
+	color:white;
+	font-size:12px;
+	text-align:center;
+}

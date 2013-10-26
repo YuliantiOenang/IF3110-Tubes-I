@@ -25,12 +25,9 @@ require 'framework/init.php';
 
 //load router
 $registry->router = new Router($registry);
-
 //load path ke controller
 $registry->router->setPath (SITEPATH . '/app/controllers');
-
 //load template
 $registry->template = new Template($registry);
-
 //load controller
 $registry->router->loader();

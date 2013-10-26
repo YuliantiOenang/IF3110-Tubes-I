@@ -81,7 +81,7 @@ class Router {
 		$route = (empty($_GET['route'])) ? '' : $_GET['route'];
 	
 		if (empty($route)) {
-			$route = 'index';
+			$route = 'home';
 		} else {
 			//ambil potongan2 dari route
 			$parts = explode('/', $route);
@@ -92,7 +92,7 @@ class Router {
 		}
 	
 		if (empty($this->controller)) {
-			$this->controller = 'index';
+			$this->controller = 'home';
 		}
 	
 		//get action
@@ -101,6 +101,6 @@ class Router {
 		}
 	
 		//set file path
-		$this->file = $this->path .'/'. $this->controller . 'Controller.php';
+		$this->file = $this->path .'/'. $this->controller . '.php';
 	}
 }

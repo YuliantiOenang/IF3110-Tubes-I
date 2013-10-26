@@ -192,7 +192,10 @@ function remove(id)
 	
 </div>
 
-
+<?php
+		include "config/connect.php";
+		
+?>
 <div class = "bodymain">
 	<div class = "sidebar">
 		
@@ -231,14 +234,26 @@ function remove(id)
 		
 			<div class = "toppreview">
 				<div class = "previmage">
-					<img src= "images/jacket1.jpg" class="resizeimage"><img>
+					
+					
+			<?php
+				
+				$hasil = mysql_query("select nama, kategori,harga,deskripsi,foto from peralatan where no_alat=".$_GET['id']."");
+				while(($baris=mysql_fetch_row($hasil)))
+				{
+				echo '<img src= "'.$baris[4].'" class="resizeimage"><img>';
+				$nama=$baris[0];
+				$kategori=$baris[2];
+				$deskripsi=$baris[3];
+				}
+			?>
 				</div>
 			 
 			</div>
 			  <div class = "detail">
-					<p> Nama Produk : </p>
-					<p> Harga Produk : </p>
-					<p> Deskripsi : </p>
+					<p> Nama Produk : <?php echo $nama;?></p>
+					<p> Harga Produk : <?php echo "Rp.".$kategori;?></p>
+					<p> Deskripsi : <?php echo $deskripsi;?></p>
 					<label> Jumlah Beli : </label> <input type="text" id="user" /></br></br>
 					<input type="button" value="Add to Cart"></input>
 				</div>

@@ -226,137 +226,89 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> TOP THREE JACKETS<label></br>
+		<label> SEARCH RESULTS<label></br></br>
 		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
+		
+			<div class = "searchres">
 				<div class = "previmage">
 					
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
 			</div>
-			<div class = "toppreview">
+			<div class = "searchres">
 				<div class = "previmage">
 					
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
 			</div>
-			<div class = "toppreview">
+			<div class = "searchres">
 				<div class = "previmage">
-				
+					
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
 			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE SWEATER<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
+			<div class = "searchres">
 				<div class = "previmage">
-				
+					
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
 			</div>
-			<div class = "toppreview">
+			<div class = "searchres">
 				<div class = "previmage">
-				
+					
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
 			</div>
-			<div class = "toppreview">
+			<div class = "searchres">
 				<div class = "previmage">
-				
+					
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
 			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE T-SHIRTS<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
+			<div class = "searchres">
 				<div class = "previmage">
-				
+					
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
 			</div>
-			<div class = "toppreview">
+			<div class = "searchres">
 				<div class = "previmage">
-				
+					
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
 			</div>
-			<div class = "toppreview">
+			<div class = "searchres">
 				<div class = "previmage">
-				
+					
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
 			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE MISC.<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
+			<div class = "searchres">
 				<div class = "previmage">
-				
+					
 				</div>
 				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
 					  Rp175.000 </label> </br> </p>
 			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
+			 <div class = "searchnext">
+			   
+			   </div>
+			  
 			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
 			</div>
-		</div>
-		<div class = "topfivetitle">
-		<label> TOP THREE POKEMON<label></br>
-		</div>
-		<div class = "topthreecat">
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-		</div>
-	</div>
-	</div>
+			
+			
+			
+	
 	<div class = "footer">
 		<div class = "info">
 

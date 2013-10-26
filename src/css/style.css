@@ -1,6 +1,7 @@
 #container {
 	width: 100%;
 	height: 100%;
+	background:black;
 	margin: 0;
 }
 
@@ -13,10 +14,18 @@
 	padding:10px;
 }
 
+#edit_profile{
+	margin-left:700px;
+	float:left;
+	width:520px;
+	background:lightgrey;
+	padding:10px;
+}
+
 #profilearea {
 	width:390px;
 	float:left;
-	border:5px solid gray;
+	border:5px solid grey;
 	margin-top:100px;
 	margin-left:50px;
 	background:lightgrey;

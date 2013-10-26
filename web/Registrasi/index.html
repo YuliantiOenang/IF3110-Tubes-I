@@ -1,0 +1,71 @@
+<html>
+<body>
+
+	<script>
+		function checkSubmit(){
+			var xmlhtpp;
+			
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			var confirm_password = document.getElementById("confirm_password").value;
+			var nama_lengkap = document.getElementById("nama_lengkap").value;
+			var email = document.getElementById("email").value;
+			
+			if(window.XMLHttpRequest){
+				//CODE FOR IE7+, FIREFOX, ETC
+				xmlhttp = new XMLHttpRequest();
+			}else{
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			//document.getElementById("pesan").innerHTML = "sadf";
+			
+			xmlhttp.onreadystatechange=function(){
+				if(xmlhttp.readystate=4 && xmlhttp.status == 200){
+					var echo = xmlhttp.responseText;
+					var response = echo.substr(2,echo.length-1);
+					//document.getElementById("pesan").innerHTML = echo.length;
+					//response = "true";
+					
+					document.getElementById("pesan").innerHTML = echo;
+					
+					if(response == "true"){
+						document.getElementById("submit").disabled = false;
+						//document.getElementById("pesan").innerHTML = "sadf"
+					}else{
+						document.getElementById("submit").disabled = true;
+					}
+				}
+			}
+			xmlhttp.open("GET","validasi.php?username=" + username + "&password=" + password
+				+"&confirm_password=" + confirm_password + "&nama_lengkap = " + nama_lengkap
+				+ "&email=" + email,true);
+			xmlhttp.send();
+		}
+		
+	</script>
+		
+	<div id = "login_form"">
+		<div>
+			Registrasi Pelanggan
+		</div>
+		<div>
+			<form>
+				<label>Username</label><br>
+				<input type="text"  id="username" onkeydown="checkSubmit()"><br>
+				<label>Password</label><br>
+				<input type="password" id ="password" onkeydown = "checkSubmit()"><br>
+				<label>Confirm Password</label><br>
+				<input type="password" id= "confirm_password" onkeydown = "checkSubmit()"><br>
+				<label>Nama Lengkap</label><br>
+				<input type="text" id="nama_lengkap" onkeydown = "checkSubmit()"><br>
+				<label>Email</label><br>
+				<input type="text" id="email" onkeydown = "checkSubmit()"><br>
+				<input type="submit" id = "submit" disabled value="Ampas">
+			</form>
+		</div>
+	</div>
+	<div id ="pesan">
+	</div>
+</body>
+</html>

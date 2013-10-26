@@ -13,6 +13,11 @@
 define('ENVIRONMENT', 'development');
 
 /**
+ * Alamat web home
+ */
+define('SITEURL', '//localhost/IF3110-Tubes-I/src/');
+
+/**
  * Database configuration
  */
 $CONFIG['mysql']['database'] = 'tubes1_wbd';

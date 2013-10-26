@@ -69,7 +69,6 @@ class Router {
 		$controller->$action();
 	 }
 
-
 	/**
 	*
 	* @get the controller

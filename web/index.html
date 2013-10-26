@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!--<!DOCTYPE html> -->
 <html>
 <head>
 
@@ -84,12 +84,21 @@ function login()
 
 </script>
 <body>
-<div id="lightbox">			 <!--pop up-->
+<div id="lightbox">	
+		<div class="loginpoptop"><!--pop up-->
+		<h4 id="loginHeader">LOGIN</h4>
+		</div>
 		<form id="test">
-			nama : <input type="text" id="user" value='user'/>username</br>
-			password : <input type="password" id="pass" value='pass'>password</br>
-			<input type="button" value="LogIn" onclick=login()></input></br>
+			<div class="forms">
+			<font color="blue">Username : </font><input type="text" id="user" value='user'  /></br>
+			</div>
+			<div class="forms">
+			<font color="blue">Password : </font><input type="password" id="pass" value='pass'></br>
+			</div>
+			<div class="forms">
+			<input type="button" value="LogIn" onclick=login()></input><input type="button" value="Cancel" onclick=login()></input>
 			<p id="Error"></p>
+			</div>
 			</form>
 
 		</div>
@@ -110,11 +119,12 @@ function login()
 				</div>
 			</div>
 			<div class = "signupplace">
+				
 				<div>
 					<img src = "images/signup.png" class = "signup" id="signup"></img>
 					
 				</div> 
-			
+			<p class="welctext">WELCOME!</p>
 			</div>
 		</div>
 		<div class = "menu">

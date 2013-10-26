@@ -154,14 +154,37 @@ margin-bottom:0px;
     top: 0;
     z-index:99;
 }
+#loginHeader
+{
+text-align:center;
+}
 #lightbox{
     visibility:hidden;
     position:absolute;
-    background:red;
+    background:white;
     border:2px solid #3c3c3c;
     color:white;
     z-index:100;
     width: 400px;
     height:200px;
     padding:20px;
+	border-radius:20px;
+	
 }
+
+.loginpoptop {
+	height : 20%;
+	width : 100%;
+	border : 1px;
+	border-radius:20px;
+	background-color:blue;
+	}
+	
+.welctext {
+text-align : right;
+}	
+.forms {
+	height : 10%;
+	width : 100%;
+	margin-top: 20px;
+	}

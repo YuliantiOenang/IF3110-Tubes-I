@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2013 at 05:49 PM
+-- Generation Time: Oct 26, 2013 at 05:35 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -35,7 +35,11 @@ CREATE TABLE IF NOT EXISTS `data_user` (
   `provinsi` varchar(30) NOT NULL,
   `kodepos` varchar(5) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(50) NOT NULL,
+  `jumlah_transaksi` int(3) NOT NULL,
+  `card_number` varchar(30) NOT NULL,
+  `name_on_card` varchar(128) NOT NULL,
+  `expired_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

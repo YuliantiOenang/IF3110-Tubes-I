@@ -89,6 +89,10 @@ a, div, form, li, p, ul {
 	margin-bottom:32px;
 }
 
+#textinside{
+	margin-left:5cm;
+}
+
 #footer {
 	background-color:#bf0001;
 	color:white;

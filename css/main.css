@@ -201,13 +201,23 @@ pre {
 		display: block;
 		transition: background .5s linear;
 	}
+	
 	ul#menubar .sub-menu {
 		margin-top: 10px;
 		padding: 0px;
 	}
 	ul#menubar .sub-menu li a {
 		background: #000305;
-		width: 152px;
+		width: 151px;
+	}
+	ul#menubar .sub-menu li:last-child a {
+		border-bottom-right-radius: 5px;
+		-moz-border-bottom-right-radius: 5px;
+		-webkit-border-bottom-right-radius: 5px;
+		
+		border-bottom-left-radius: 5px;
+		-moz-border-bottom-left-radius: 5px;
+		-webkit-border-bottom-left-radius: 5px;
 	}
 	ul#menubar .sub-menu li a:hover {
 		background: #C74354;
@@ -261,6 +271,7 @@ pre {
 		background: #C74354;
 		transition:background 1s ease;
 	}
+
 /***** Featured *****/
 #featured {
 	background: #fff;
@@ -280,6 +291,13 @@ pre {
 	margin: 0.786em 2em 0 5em;
 	width: 248px;
 }
+
+#featured img {
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+}
+
 #featured figure img {display: block; float: right;}
  
 #featured h2 {color: #C74451; font-size: 1.714em; margin-bottom: 0.333em;}

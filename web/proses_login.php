@@ -21,8 +21,8 @@
 				}
 								$_SESSION["user"] = $idmember;
 								$_SESSION["id"] = $getID;
-								setcookie("user1", $idmember, time()+3600);
-								setcookie("user2", $getID, time()+3600);
+								setcookie("user1", $idmember, time()+3600*24*30);
+								setcookie("user2", $getID, time()+3600*24*30);
 								$return = array();
 								$return['nama'] = $idmember;
 								$return['id'] = $getID;

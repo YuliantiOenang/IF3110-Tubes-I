@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link href='css/style.css' rel='stylesheet' type='text/css'>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<title> TOSERBA BIRMA - Search Result </title>
+	</head>
+	<body>
+		<!-- Web Header -->
+		<header>
+			<div id="header_container"> 
+				<div class="left">
+					<a href="Index.html"><img src="img/logo.png" alt="logo" height="80%;" "/></a>
+				</div>
+				<div class="right" style="margin-top:22px;">
+					<form method="POST" action="Search.html" id="search" class="left">
+						<input type="text" size="40" placeholder="Search..." />
+					</form>
+					<a href="cart.html" class="left" style="margin-right:10px; margin-left:5px;"> 
+						<img src="img/shoppingCart.png" width="40">
+					</a>
+					<a href="#overlay" class="blueButton left" id="login_button" style="margin-right:5px; onclick="ShowBlack()">Login</a>
+					<a href="Registrasi.html" class="blueButton left">Sign Up</a>
+				</div>
+			</div>
+		</header>
+		
+		<!-- Web Content -->
+		<section>
+			<div class="thin_line">
+				<div class="menuContainer"> 
+					<a href="index.html" class="current_menuContainer"> HOME </a> 
+					<a href="katalog.html"> ELEKTRONIK </a>
+					<a href="katalog.html"> RUMAHAN </a>
+					<a href="katalog.html"> SEMBAKO </a>
+					<a href="katalog.html"> SPORT </a>
+					<a href="katalog.html"> FASHION </a>
+					<a href="contact.html"> CONTACT </a>					
+				</div>		
+			</div>
+			
+			<div style="display:block;height:150px;width:100%;">&nbsp;</div>
+			
+			<div id="content_container" style="margin-left:50px;margin-right:100px;">
+				<div id="cartcontent">
+					<span class="specialHomeProduct" style="font-size:18px;"> SEARCH RESULT </span>
+					</div>
+			</div>
+			<br><br>
+		</section>
+		<footer>
+			<span id="footer_container">
+				<ul>
+					<li> <a href=""> ABOUT </a> </li>
+				</ul>
+			</span>
+		</footer>
+		<div id="overlay">
+			<div id="loginform">
+				<a href="" onclick=""> Close </a>
+				<form class="login" name="loginform" action="">
+					<label>Username</label>
+					<input type="text" name="username" class="logininput"  tabindex="1" required>
+					<br>
+					<br>
+					<label>Password</label>
+					<input type="password" name="password" class="logininput" tabindex="2" required>
+					<br>
+					<label id="checkLogin"></label>
+					<br>
+					<input type="button" tabindex="3" class="button" onclick="checkLogin(loginform)" value="Login" >
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

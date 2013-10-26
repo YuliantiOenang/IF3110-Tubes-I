@@ -1,0 +1,655 @@
+html {width:100%; height:100%; overflow-x:hidden; font-family:Segoe UI; font-weight: lighter; margin:0px;}
+body {width:100%; height:300px;margin:0px; background-color:#f7f7f7; margin:0px;}
+
+/* HEADER SECTION 
+------------------------------------------------------------------------------------------- */
+header {
+	width:100%;
+	height:80px;
+	background-color:#efefef;
+	display:block;
+	position:fixed;
+	z-index:100;
+}
+#header_container {
+	width:95%; 
+	height:100%; 
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+.thin_line {
+	display:block;height:35px;margin-left:0px;width:100%;background-color:gray; margin-top:80px;position:fixed; z-index:100;
+}
+.red_thin_line {	display:block;height:3px;margin-left:0px;width:100%; background-color:#b52532; margin-top:115px; position:fixed;z-index:100;}
+
+/* HOME 
+------------------------------------------------------------------------------------------ */
+.home_image_bar {
+	width:95%;
+	height:190px;
+	margin:auto;
+	margin-top:30px;
+	margin-bottom:70px;
+	display:block;
+}
+.specialHome {
+	float:left;color:#b52532; font-family:Tahoma; font-size:30px;
+}
+.specialHomeProduct {
+	float:left;color:#20027A; font-family:Tahoma; font-size:18px;
+}
+.soc_med {
+	margin-top:-100px;
+	float:left; color:#b52532; font-family:Tahoma; font-size:18px;
+}
+.special_product_container {
+	width:20%; 
+	margin-left:2%;
+	height:120px;
+	float:left;
+}
+.special_product_navigation {
+	width:5%;
+	height:120px;
+	float:left;
+	cursor:pointer;
+}
+.special_product_container span {
+	font-size:13px;
+	width:100%;
+	display:block;
+	text-align:center;
+}
+.special_product_container img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	min-height:120px;
+	margin-bottom:10px;
+	cursor:pointer;
+}
+.menuContainer {
+	width:95%;
+	color:#fff;
+	margin:auto;
+	
+}
+.menuContainer a {
+	text-decoration:none;
+	color:#fff;
+	margin-left:3px;
+	width:90px;
+	display:block;
+	float:left;
+	text-align:center;
+	line-height: 35px; 
+	vertical-align: middle;
+}
+.menuContainer a:hover {
+	background-color:#b52532;
+}
+.current_menuContainer {
+	background-color:#b52532;
+}
+#home_favorite{
+	margin-top:5px;
+}
+#home_elektronik{
+	padding-top:50px;
+}
+
+/* STYLING 
+--------------------------------------------------------------------------------------------------------------------- */
+.bold {font-weight:bold;}
+.clear {clear:both;}
+.left {float:left;}
+.right {float:right;}
+.left10 {margin-left:10px;}
+.left20 {margin-left:20px;}
+.top10 {margin-top:10px;}
+.top20 {margin-top:20px;}
+.top30 {margin-top:30px;}
+.top45 {margin-top:45px;}
+.top30 {margin-top:30px;}
+.line10 {line-height:50%;}
+a {text-decoration:none;}
+.graybold {color: #999999;font-weight: 600;}
+.gray {color:#999999;}
+.red {color: red;}
+.white {color:#fff;};
+
+/* BUTTON
+---------------------------------------------------------------------------------------------------------------------- */
+.link_blue {background-color:#007bc1; color:#fff; padding-left:10px; padding-right:10px; padding-top:8px; padding-bottom:8px; 
+text-decoration:none;border:none;cursor:pointer;
+-webkit-box-shadow: 2px 3px 5px rgba(50, 50, 50, 0.17);
+-moz-box-shadow:    2px 3px 5px rgba(50, 50, 50, 0.17);
+box-shadow:         2px 3px 5px rgba(50, 50, 50, 0.17);
+}
+.link_blue:hover{background-color:#0092dd;text-decoration:none;}
+
+.link_blue_rect {
+	background-color:#007bc1;
+	color:#fff;
+	cursor:pointer;
+}
+.link_blue_rect:hover{
+	background-color:#0092dd;
+}
+
+.link_lightblue {background-color:#6FBEC6; color:#fff; padding-left:25px; padding-right:25px; padding-top:15px; padding-bottom:15px; 
+text-decoration:none;border:none; 
+-webkit-box-shadow: 2px 3px 5px rgba(50, 50, 50, 0.17);
+-moz-box-shadow:    2px 3px 5px rgba(50, 50, 50, 0.17);
+box-shadow:         2px 3px 5px rgba(50, 50, 50, 0.17); 
+font-family:Segoe UI; font-weight:lighter;; margin-left:auto; margin-right:auto;
+font-weight:bold; letter-spacing:1px; cursor:pointer;
+font-size:20px;
+}
+.link_lightblue:hover{background-color:#9ad2d8;text-decoration:none;}
+
+.link_red {background-color:#FF5544; color:#fff; padding-left:25px; padding-right:25px; padding-top:8px; padding-bottom:8px; 
+text-decoration:none;border:none;
+-webkit-box-shadow: 2px 3px 5px rgba(50, 50, 50, 0.17);
+-moz-box-shadow:    2px 3px 5px rgba(50, 50, 50, 0.17);
+box-shadow:         2px 3px 5px rgba(50, 50, 50, 0.17);
+margin-left:auto;margin-right:auto; letter-spacing:1px; cursor:pointer; margin-right:10px;
+}
+.link_red:hover{background-color:#ff786b;text-decoration:none;}
+
+.link_tosca {background-color:#A8DBC6; color:#fff; padding-left:25px; padding-right:25px; padding-top:8px; padding-bottom:8px; 
+text-decoration:none;border:none;
+-webkit-box-shadow: 2px 3px 5px rgba(50, 50, 50, 0.17);
+-moz-box-shadow:    2px 3px 5px rgba(50, 50, 50, 0.17);
+box-shadow:         2px 3px 5px rgba(50, 50, 50, 0.17);
+margin-left:auto;margin-right:auto; letter-spacing:1px; cursor:pointer; margin-right:10px;
+}
+.link_tosca:hover{background-color:#bae4d3;text-decoration:none;}
+
+.blueButton {
+	-moz-box-shadow:inset 0px 3px 10px -5px #bbdaf7;
+	-webkit-box-shadow:inset 0px 3px 10px -5px #bbdaf7;
+	box-shadow:inset 0px 3px 10px -5px #bbdaf7;
+	background-color:#79bbff;
+	-moz-border-radius:34px;
+	-webkit-border-radius:34px;
+	border-radius:34px;
+	cursor:pointer;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 23px;
+	text-decoration:none;
+	text-shadow:1px 0px 12px #528ecc;
+}.blueButton:hover {
+	background-color:#378de5;
+}.blueButton:active {
+	position:relative;
+	top:1px;
+}
+
+/* Search Box 
+---------------------------------------------------------------------------------------------------- */
+#search input {
+	outline:none;
+	background-color: #fcfcfc;
+	border: none;
+	font-size: 14px Arial;
+	color: #bebebe;
+	width: 150px;
+	padding: 6px 10px 6px 25px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	margin-right:10px;
+	margin-top:5px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+	-webkit-appearance	:none;
+}
+
+/* Footer 
+---------------------------------------------------------------------------------------------------- */
+footer {
+	height:80px;
+	color:#fff;
+	width:100%;
+	background-color:#b52532;
+	display:block;
+	bottom: 0;
+}
+#footer_container {
+	display: inline-block;
+	margin-left:auto;
+	width:100%;
+	padding-top:12px;
+	text-align: center;
+}
+#footer_container ul {
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+#footer_container ul li {
+	display:inline;
+	padding-right:25px;
+}
+#footer_container ul li a {
+	color:#fff;
+	text-decoration:none;
+}
+
+/* Register
+---------------------------------------------------------------------------------------------------- */
+#register_form {
+	width:95%;
+	margin:auto;
+	height:520px;
+	padding-top:30px;
+	display:block;
+}
+
+#register_form a, #register_form a:visited{
+	color: #4488FF;
+	text-decoration: none;
+}
+
+#form_label {
+	width: 40%;
+	height: 330px;
+	float: left;
+	font-family: Tahoma;
+	color: #3B5999;
+	line-height: 40px;
+	letter-spacing:1px;
+}
+
+#form_input {
+	width: 60%;
+	height: 390px;
+	float: left;
+	line-height: 40px;
+}
+
+
+#form_input input , #form_input textarea{
+	width: 65%;
+}
+
+#register_button {
+	float: left;
+}
+
+#submit_register {
+	width: 200px;
+	height: 40px;
+	background-image: linear-gradient(top, #4488FF 0%, #1155CC 100%);
+	background-image: -webkit-linear-gradient(top, #4488FF 0%, #1155CC 100%);
+	background-image: -moz-linear-gradient(top, #4488FF 0%, #1155CC 100%);
+	border: 1px inset;
+	border-color: #1155CC;
+	color: #FFFFFF;
+	text-shadow: 0px 1px #000000;
+	font-weight: bold;
+	font-size: 21px;
+	border-radius: 5px;
+}
+
+/* Spesifikasi Produk
+---------------------------------------------------------------------------------------------------- */
+
+.image_specification {
+	width : 80% ;
+	height : 400px ;
+	margin-left: auto ;
+	margin-right:auto ;
+	display: block;
+}
+
+.container3D {
+	width:400px;
+	height:450px;
+	margin-left: auto;
+	margin-right:auto;
+	display: block;
+}
+
+/* Cart
+---------------------------------------------------------------------------------------------------- */
+#cart
+{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	width:80%;
+	border-collapse:collapse;
+}
+#cart td, #cart th 
+{
+	font-size:12px;
+	border:1px solid #b52532;
+	padding:3px 7px 2px 7px;
+}
+#cart th 
+{
+	font-size:16px;
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:4px;
+	background-color:#b52532;
+	color:#ffffff;
+}
+#cart td.produk {
+	width:40%;
+}
+#cart td.harga {
+	width:19%;
+}
+#cart td.jumlah{
+	text-align:center;
+}
+#produk td{
+	border:0px;
+}
+#total{
+	margin-top:20px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:14px;
+	width:80%;
+}
+#total td{
+	width:22%;
+}
+.spinner {
+	width:50px;
+}
+.cancelProduct {
+	cursor:pointer;
+}
+
+/* Checkout Pengiriman dan Pembayaran
+---------------------------------------------------------------------------------------------------- */
+#addressinfo{
+	border: 1px solid gray;
+	-moz-border-radius:24px;
+	-webkit-border-radius:24px;
+	border-radius:24px;
+	margin-top:20px;
+	width:100%;
+	height:auto;
+	float:left;
+}
+#paymentinfo{
+	border: 1px solid gray;
+	-moz-border-radius:24px;
+	-webkit-border-radius:24px;
+	border-radius:24px;
+	margin-top:20px;
+	height:auto;
+	width:100%;
+	float:left;
+}
+.contentinfo{
+	margin:20px;
+	font-family: Segoe UI;
+	color: #3B5999;
+	font-size:18px;
+}
+
+.payment{
+	font-family: Segoe UI;
+	font-weight:light;
+	font-size: 12px;
+	color: #706F70;
+}
+.paymentinput{
+	width:80%;
+}
+
+.confirmbutton {
+	-moz-box-shadow:inset 0px 3px 10px -5px #bbdaf7;
+	-webkit-box-shadow:inset 0px 3px 10px -5px #bbdaf7;
+	box-shadow:inset 0px 3px 10px -5px #bbdaf7;
+	background-color:#FF0512;
+	-moz-border-radius:34px;
+	-webkit-border-radius:34px;
+	border-radius:34px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 23px;
+	text-decoration:none;
+}.confirmbutton:hover {
+	background-color:#C4020C;
+}.confirmbutton:active {
+	position:relative;
+	top:1px;
+}
+#pembayaran_container {
+	margin:auto; width:95%; display:block;
+}
+
+.leftForm {
+	float:left;
+	width:30%;
+	display:block;
+	line-height:30px;
+}
+.rightForm {
+	float:left;
+	width:70%;
+	display:block;
+	line-height:35px;
+}
+.rightForm input , .rightForm textarea {width:90%;}
+/* CONTACT 
+----------------------------------------------------------------------------------------------------- */
+#contact_container {
+	width:95%;
+	margin:auto;
+	
+}
+
+/* LOGIN
+------------------------------------------------------------------------------------------------------ */
+/* LOGIN AND SIGNUP
+--------------------------------------------------------------------------------------------------------------------- */
+#black {
+	background-color: #000000;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0.9;
+	visibility: hidden;
+}
+
+#loginform {
+	background-color: #E0E0E0;
+	padding: 5px;
+	position: relative;
+	top: 20%;
+	margin: 0 auto;
+	width: 400px;
+	height: 300px;
+	border-radius: 10px;
+}
+#overlay:target > #loginform {
+	animation:fadein 500ms ease;
+	-webkit-animation:fadein 500ms ease;
+	-moz-animation:fadein 500ms ease;
+}
+
+#overlay {
+	background-color: #000000;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0.9;
+	visibility: hidden;
+}
+
+#overlay:target {
+	visibility: visible;
+}
+
+#loginform a {
+	text-decoration: none;
+	color: #222222;
+	font-weight: bold;
+	float: right;
+}
+
+.login {
+	margin: 26px;
+	padding: 26px;
+}
+
+.login label {
+	font-size: 25px;
+}
+
+.logininput {
+	font-size: 25px;
+	padding-left: 10px;
+}
+
+.input {
+	padding-left: 5px;
+}
+
+#loginbutton {
+	font-size: 20px;
+	color: #FFFFFF;
+	padding: 7px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	
+	background-image: linear-gradient(top, rgb(120,120,120) 0%, rgb(0,0,0) 100%);
+	background-image: -moz-linear-gradient(top, rgb(120,120,120) 0%, rgb(0,0,0) 100%);
+	background-image: -webkit-linear-gradient(top, rgb(120,120,120) 0%, rgb(0,0,0) 100%);
+}
+/* Spesifikasi Produk
+---------------------------------------------------------------------------------------------------- */
+
+.image_specification {
+	width : 80% ;
+	height : 400px ;
+	margin-left: auto ;
+	margin-right:auto ;
+	display: block;
+}
+
+.container3D {
+	width:400px;
+	height:450px;
+	margin-left: auto ;
+	margin-right:auto ;
+	display: block;
+	margin-top:10px;
+}
+
+.bag {
+	width:90% ;
+	height:500px;
+	margin-left: auto;
+	margin-right: auto ;
+	margin-top: 30px;
+}
+
+.bagbutton {
+	width:90% ;
+	height:40px;
+	margin-left: auto;
+	margin-right: auto ;
+	margin-top: 30px;
+}
+
+.bag1button {
+	width:33% ;
+	height:40px;
+	float:left ;
+}
+
+.bag1r {
+	width:33% ;
+	height:300px;
+	float:left ;
+}
+
+.bag1s {
+	width:33% ;
+	height:300px;
+	float:left ;
+}
+
+.form-2 {
+    /* Size and position */
+    width: 300px;
+    margin: 60px auto 30px;
+    padding: 15px;
+    position: relative;
+ 
+    /* Styles */
+    background: #fffaf6;
+    border-radius: 4px;
+    color: #7e7975;
+    box-shadow:
+        0 2px 2px rgba(0,0,0,0.2),        
+        0 1px 5px rgba(0,0,0,0.2),        
+        0 0 0 12px rgba(135,131,135,0.4); 
+}
+
+.blueButtonc {
+	-moz-box-shadow:inset 0px 3px 10px -5px #bbdaf7;
+	-webkit-box-shadow:inset 0px 3px 10px -5px #bbdaf7;
+	box-shadow:inset 0px 3px 10px -5px #bbdaf7;
+	background-color:#79bbff;
+	-moz-border-radius:34px;
+	-webkit-border-radius:34px;
+	border-radius:34px;
+	border:1px solid #84bbf3;
+	display:block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 23px;
+	text-decoration:none;
+	text-shadow:1px 0px 12px #528ecc;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.blueButtonc:hover {
+	background-color:#378de5;
+}
+
+.blueButtonc:active {
+	position:relative;
+	top:1px;
+}
+
+/* KATALOG
+------------------------------------------------------------------------------ */
+#filter_brand div , #filter_category div{
+	float:left;
+	width:150px;
+}
+#filter_brand select, #filter_category select {
+	float:left;
+	width:150px;
+}
+#filter_category div {
+	margin-left:80px;
+}

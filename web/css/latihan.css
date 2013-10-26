@@ -279,7 +279,7 @@ background-color : blue;
 .toppreview {
 width : 200px;
 height : 230px;
-background-color : white;
+background-color : #99d9ea;
 margin-left : 50px;
 float : left; 
 }
@@ -299,6 +299,14 @@ height : 150px;
 background-color : red;
 margin-left : auto;
 margin-right : auto;
+}
+
+.detail {
+width : 50%;
+height : 60%;
+margin-left : 40px;
+
+float : left;
 }
 
 .searchnext {

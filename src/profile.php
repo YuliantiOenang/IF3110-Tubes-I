@@ -1,11 +1,11 @@
-<!-- Search Result -->
+<!-- Profile Page of User -->
 <!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/general.css"></link>
 		<meta charset="UTF-8"></meta>
 		<title>
-			Hasil Penelusuran
+			Profil Diri
 		</title>
 	</head>
 	<body>
@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<div id="content">
-			<h1>Hasil Pencarian</h1>
+			<h1>Profil Diri</h1>
 		</div>
 		<div id="footer">
 			<p>Copyright 2013 by <b>Kelompok LapAn</b></p>

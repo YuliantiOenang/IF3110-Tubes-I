@@ -307,3 +307,11 @@ height : 50px;
 background-color : yellow;
 float:left;
 }
+
+.registerspace {
+width : 80%;
+height : 50px;
+
+margin-top : 20px;
+margin-left : 20px;
+}

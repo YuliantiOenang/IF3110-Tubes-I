@@ -25,10 +25,8 @@ border-radius:25px;
 }
 
 .logo {
-background-image:url('images/logo.png');
-background-repeat:no-repeat;
-background-position:right top;
-/* background-color:green; */
+
+
 border:1px;
 height:100%;
 width:37%;
@@ -37,12 +35,9 @@ border-radius:25px;
 }
 
 .cart {
-background-image:url('images/cart.png');
-background-repeat:no-repeat;
-background-size:100% 100%;
-background-position:right top;
+
 border:1px;
-height:100%;
+height:50%;
 width:20%;
 float: right;
 }
@@ -56,9 +51,7 @@ border-radius:25px;
 }
 
 .jacket {
-background-image:url('images/jacket.png');
-background-repeat:no-repeat;
-background-size:100% 100%;
+
 border:0px;
 height:100%;
 width:20%;
@@ -66,9 +59,7 @@ float:left;
 }
 
 .tshirt {
-background-image:url('images/tshirt.png');
-background-repeat:no-repeat;
-background-size:100% 100%;
+
 border:0px;
 height:100%;
 width:20%;
@@ -76,9 +67,7 @@ float:left;
 }
 
 .wristband {
-background-image:url('images/wristbands.png');
-background-repeat:no-repeat;
-background-size:100% 100%;
+
 border:0px;
 height:100%;
 width:20%;
@@ -86,9 +75,7 @@ float:left;
 }
 
 .emblem {
-background-image:url('images/tshirt.png');
-background-repeat:no-repeat;
-background-size:100% 100%;
+
 border:0px;
 height:100%;
 width:20%;
@@ -96,9 +83,7 @@ float:left;
 }
 
 .pokemon {
-background-image:url('images/tshirt.png');
-background-repeat:no-repeat;
-background-size:100% 100%;
+
 border:0px;
 height:100%;
 width:20%;
@@ -125,9 +110,7 @@ border-radius:25px;
 }
 
 .signup{
-background-image:url('images/signup.png');
-background-repeat:no-repeat;
-background-size:100% 100%;
+
 border:0px;
 height:100%;
 width:20%;
@@ -136,9 +119,7 @@ margin-bottom:0px;
 }
 
 .login{
-background-image:url('images/login.png');
-background-repeat:no-repeat;
-background-size:100% 100%;
+
 border:0px;
 height:100%;
 width:20%;

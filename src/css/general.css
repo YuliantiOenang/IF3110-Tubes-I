@@ -150,6 +150,10 @@ div, form, h1, li, p, ul {
 	width:1146px;
 }
 
+#textinside{
+	margin-left:5cm;
+}
+
 #footer {
 	background:-moz-linear-gradient(#ff0000, #bf0000, #B30F00);
 	background:-o-linear-gradient(#ff0000, #bf0000, #B30F00);

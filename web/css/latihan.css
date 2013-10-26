@@ -209,7 +209,7 @@ min-height : 525px;
 
 
 float : left;
-background-color : #99d9ea;
+background-color : white;
 }
 
 .bodymain {
@@ -314,4 +314,13 @@ height : 50px;
 
 margin-top : 20px;
 margin-left : 20px;
+}
+
+.mekanisme {
+width : 99%;
+height : 200px;
+border-radius : 15px;
+background-color : #99d9ea;
+border : 5px solid blue;
+
 }

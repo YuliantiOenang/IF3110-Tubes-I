@@ -1,7 +1,6 @@
 <?php
 
 
-
 $email_a = $_GET["email"];
 $email_b = explode('.',$email_a);
 

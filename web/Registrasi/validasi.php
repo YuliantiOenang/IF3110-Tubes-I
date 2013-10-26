@@ -18,14 +18,22 @@ $boolUser=false;
 $boolPass=false;
 $bool = true;
 $boolNama=false;
+$boolEmail = false;
 $retval=array();
+
+$namaLeng = explode(' ',$namaLengkap);
+if(count($namaLeng)>1){
+	if($namaLeng[1] != ''){
+		$boolUser = true;
+	}
+}
 
 if(strlen($username)>5 && $username!=$pass)
 {
-	$bool=true;
+	$boolNama=true;
 }
 
-if($pass=$confPass)
+if($pass==$confPass)
 {
 	$boolPass=true;
 }
@@ -48,6 +56,15 @@ else
 }
 
 if (filter_var($email_a, FILTER_VALIDATE_EMAIL) && $bool) {
-    echo "true";
+   $boolEmail = true;
 }
+
+
+$return = array();
+$return["boolUser"] = $boolUser;
+$return["boolPass"] = $boolPass;
+$return["bool"] = $boolEmail;
+$return["boolNama"] = $boolNama;
+echo json_encode($return);
+
 ?>

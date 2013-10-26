@@ -1,7 +1,7 @@
 body { background-color:black}
 
 .main {
-background-color:white;
+background-color:#ffffff;
 border:0px ;
 
  width:100%;
@@ -29,7 +29,7 @@ border-radius:25px;
 
 border:1px;
 height:100%;
-width:37%;
+width:100%;
 float: left;
 border-radius:25px;
 }
@@ -37,9 +37,18 @@ border-radius:25px;
 .cart {
 
 border:1px;
-height:50%;
-width:20%;
+height:100%;
+width:10%;
 float: right;
+}
+
+.cartimage {
+
+border:1px;
+height:100%;
+width:10%;
+float: right;
+
 }
 
 .menu {
@@ -57,6 +66,8 @@ height:100%;
 width:20%;
 float:left;
 }
+
+
 
 .tshirt {
 
@@ -127,4 +138,24 @@ float: right;
 border-radius:25px;
 margin-bottom:0px;
 }
+
+.loginImage{
+
+
+height:100%;
+width:100%;
+
+
+}
+
+.utama{
+background-color:red;
+border:0px;
+height:60%;
+width:100%;
+
+border-radius:25px;
+margin-bottom:0px;
+}
+
 

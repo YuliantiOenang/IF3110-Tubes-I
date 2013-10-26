@@ -47,8 +47,8 @@ class Router {
 		//jika file gak ada
 		if (is_readable($this->file) == false)
 		{
-			$this->file = $this->path.'/error404.php';
-	        $this->controller = 'error404';
+			$this->file = $this->path.'/error/404.php';
+	        $this->controller = 'Error404';
 		}
 	
 		//include controller

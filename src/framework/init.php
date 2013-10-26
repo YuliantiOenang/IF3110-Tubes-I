@@ -15,4 +15,4 @@ function __autoload($class_name) {
 //create new registry
 $registry = new Registry;
 //create database registry
-$registry->db = db::getInstance();
+//$registry->db = db::getInstance();

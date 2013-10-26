@@ -37,7 +37,7 @@ Class Template {
 
 
 	function show($name) {
-		$path = __SITE_PATH . '/app/views' . '/' . $name . '.php';
+		$path = SITEPATH . '/app/views' . '/' . $name . '.php';
 	
 		if (file_exists($path) == false) {
 			throw new Exception('Template not found in '. $path);

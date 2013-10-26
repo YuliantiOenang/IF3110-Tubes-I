@@ -231,7 +231,7 @@ function remove(id)
 		
 			<div class = "toppreview">
 				<div class = "previmage">
-					
+					<img src= "images/jacket1.jpg" class="resizeimage"><img>
 				</div>
 			 
 			</div>
@@ -239,6 +239,7 @@ function remove(id)
 					<p> Nama Produk : </p>
 					<p> Harga Produk : </p>
 					<p> Deskripsi : </p>
+					<label> Jumlah Beli : </label> <input type="text" id="user" /></br></br>
 					<input type="button" value="Add to Cart"></input>
 				</div>
 			</div>

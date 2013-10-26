@@ -59,6 +59,76 @@ function showhide(id,event){
 	if(event=='hide'){ d.getElementById(id).style.display = 'none'; }
 	else if(event=='show'){ d.getElementById(id).style.display = ''; }
 }
+
+function searchsuggest(text)
+{
+var xmlhttp;
+var temp = ""+text;
+if (temp.length==0)
+  { 
+  	document.getElementById("cariyu").innerHTML="";
+  	return;
+  }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    	document.getElementById("cariyu").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","search.php?cari="+text,true);
+xmlhttp.send();
+}
+
+function auth(user,pass){
+var xmlhttp;
+if (user.length==0 ||pass.length==0)
+  { 
+  	//document.getElementById("menubar").innerHTML+="";
+  	return;
+  }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }	
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    	switch(xmlhttp.responseText){
+    		case '0':
+    			ANIMATEPOPUPBOX.closembox();
+    			localStorage.wbduser= user;
+    			var s = "<li><a href=\"profile.php\">Profile</a></li>";
+				s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');\">Logout</a></li>";
+				document.getElementById("log").innerHTML=s;
+				document.getElementById("banner").innerHTML+="<p>Selamat datang, <b>"+localStorage.wbduser+"</b>!</p>";
+    		break;
+    		case '1':
+    			document.getElementById("errorInfo").innerHTML='<img src="images/unlike.png" width="15" height="15"/>Invalid username passowrd!';
+    		break;
+    	}
+    	//document.getElementById("menubar").innerHTML=+
+    }
+  }
+xmlhttp.open("POST","autentikasi.php",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send("username="+user+"&password="+pass);
+}
 /* ANIMATE POPUP BOX v.3.5 (Updated on 24 October 2013)
    this javascript originally created by Taufik on April 2009
    Allright Reserved
@@ -123,34 +193,7 @@ ANIMATEPOPUPBOX = {
 		showhide("back_mbox","hide");
 	}
 }
-function searchsuggest(text)
-{
-var xmlhttp;
-var temp = ""+text;
-if (temp.length==0)
-  { 
-  	document.getElementById("cariyu").innerHTML="";
-  	return;
-  }
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
 
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    	document.getElementById("cariyu").innerHTML=xmlhttp.responseText;
-    }
-  }
-xmlhttp.open("GET","search.php?cari="+text,true);
-xmlhttp.send();
-}
 </script>
 </head>
  
@@ -177,6 +220,7 @@ xmlhttp.send();
 			?>
 			</ul>
 		</li>
+		<div id="log"></div>
 		<li style="float:right"><button type="button">Search</button></li>
 		<li style="float:right"><input type="text" name="search" id="cari"placeholder="Cari Barang" onkeyup="searchsuggest(cari.value)">
 			<ul class="suggestion" id="cariyu">	
@@ -190,16 +234,17 @@ xmlhttp.send();
 <div id='mbox' style='display:none;'></div>
 <div id='back_mbox' style='display:none;'></div><div id='fade_mbox' style='display:none;'></div>
 <div id="userlogin">
-<form method="post" action="index.php">
+<form method="post">
+	<pre><span id="errorInfo"><span/></pre>
 	<pre>Username		<input type="text" id="username" name="username"></pre>
 	<pre>Password		<input type="password" id="password" name="password"></pre>
-	<input type="submit" value="Login"> <a href="registerform.php">Daftar baru!</a>
+	<input type="button" value="Login" onclick="auth(username.value,password.value)"> <a href="registerform.php">Daftar baru!</a>
 </form>
 </div>
 <script>
 if(typeof(Storage)!=="undefined"){
-	if(localStorage.wbduser){
-		var s = "<li><a href=\"profile.php\">Profile</a></li>";
+	if(!localStorage.wbduser){
+	/*	var s = "<li><a href=\"profile.php\">Profile</a></li>";
 		s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');\">Logout</a></li>";
 		document.getElementById("menubar").innerHTML+=s;
 		document.getElementById("banner").innerHTML+="<p>Selamat datang, <b>"+localStorage.wbduser+"</b>!</p>";
@@ -209,11 +254,11 @@ if(typeof(Storage)!=="undefined"){
 		if(isset($_POST['username'])){$username=$_POST['username'];}
 		if(isset($_POST['password'])){$password=$_POST['password'];}
 		if(empty($username) and empty($password)){
-		?>
+		?>*/
 		var s = "<li><a href=\"javascript:ANIMATEPOPUPBOX.showbox('userlogin','User Login');\">Login</a></li>";
 		s += "<li><a href=\"registerform.php\">Daftar</a></li>";
-		document.getElementById("menubar").innerHTML+=s;
-		<?php
+		document.getElementById("log").innerHTML=s;
+		/*<?php
 		}else{
 			$hasil = mysql_query("SELECT * FROM anggota where username='".$username."' and password='".$password."'",$koneksi);
 			if(mysql_num_rows($hasil)==1){
@@ -235,8 +280,15 @@ if(typeof(Storage)!=="undefined"){
 			}
 		}
 		?>
-	}
+	}*/
+}else{
+	var s = "<li><a href=\"profile.php\">Profile</a></li>";
+				s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');\">Logout</a></li>";
+				document.getElementById("log").innerHTML=s;
+				document.getElementById("banner").innerHTML+="<p>Selamat datang, <b>"+localStorage.wbduser+"</b>!</p>";
+}
 }else{
 	document.getElementById("menubar").innerHTML="Sorry, your browser does not support web storage...";
 }
+
 </script>

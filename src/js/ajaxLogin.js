@@ -13,10 +13,13 @@ function onLoginClick(strUrl, formName, responseDiv) {
     }
     self.xmlHttpRequest.open('POST', strUrl, true);
     self.xmlHttpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    if (self.xmlHttpRequest.readState != 4) {
-        updatePage("Please wait...", responseDiv);
-    } else {
-        updatePage("Login Berhasil", responseDiv);
+    self.xmlHttpRequest.onreadystatechange = function() {
+        if (self.xmlHttpRequest.readyState == 4) {
+            updatePage("Login Berhasil", responseDiv);
+        }
+		else{
+			updatePage("Please wait...", responseDiv);
+		}
     }
     
     self.xmlHttpRequest.send(getString(formName));

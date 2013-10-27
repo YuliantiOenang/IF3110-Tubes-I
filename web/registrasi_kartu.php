@@ -14,21 +14,23 @@ function daftar_kartu(){
 	
 	http.onreadystatechange=function(){
 	
-		if(http.readystate==4 && http.status == 200){
-		document.write();
+		if(http.readyState==4 && http.status == 200){
+			//alert(http.responseText);
 			var decodeJSON = JSON.parse(http.responseText);
 			
 			if(decodeJSON.status == false){
 				alert("KARTU YANG ANDA DAFTARKAN TIDAK VALID");
+			}else{
+				alert("Berhasil mendaftarkan kartu");
 			}
 			
 		}
 		//document.write(decodeJSON.status);
 	}
 	
-	http.open("GET","proses_kartu.php?card_number="+document.getElementById("card_number")
-		+"&card_name=" + document.getElementById("card_name")
-		+"&card_expired=" + document.getElementById("card_expired")
+	http.open("GET","proses_kartu.php?card_number="+document.getElementById("card_number").value
+		+"&card_name=" + document.getElementById("card_name").value
+		+"&card_expired=" + document.getElementById("card_expired").value
 		,true
 		);
 		

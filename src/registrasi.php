@@ -14,7 +14,7 @@ else
 {
 	//echo 'registrasi berhasil';
 	//redirect ke registrasi kartu kredit
-	header( 'Location: form_registrasi_kartukredit.html' );
+	header( 'Location: index.php?page=form_registrasi_kartukredit' );
 }
 
 //close connection

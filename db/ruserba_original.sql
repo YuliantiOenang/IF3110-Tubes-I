@@ -1,5 +1,6 @@
 create table user(
-	username varchar(256),
+	user_id int auto_increment,
+	username varchar(256) not null,
 	email varchar(256) not null,
 	password varchar(256) not null,
 	nama_lengkap varchar(256) not null,
@@ -11,7 +12,9 @@ create table user(
 	nomor_kartu varchar(256) default null,
 	nama_kartu varchar(256) default null,
 	ekspirasi_kartu date default null,
-	primary key(username)
+	primary key(user_id),
+	unique(username),
+	unique(email)
 );
 
 create table kategori(

@@ -81,7 +81,8 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `username` varchar(256) NOT NULL DEFAULT '',
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(256) NOT NULL,
   `email` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
   `nama_lengkap` varchar(256) NOT NULL,
@@ -93,8 +94,10 @@ CREATE TABLE `user` (
   `nomor_kartu` varchar(256) DEFAULT NULL,
   `nama_kartu` varchar(256) DEFAULT NULL,
   `ekspirasi_kartu` date DEFAULT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +106,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('john','john@yahoo.com','0d107d09f5bbe40cade3de5c71e9e9b7','John Smith','Jawa Barat','Bandung','Jl. Ganeca No.42A','14562','081347556202','3141-5156-1425-5421','John Smith','2016-09-01');
+INSERT INTO `user` VALUES (1,'john','john@yahoo.com','0d107d09f5bbe40cade3de5c71e9e9b7','John Smith','Jawa Barat','Bandung','Jl. Ganeca No.42A','14562','081347556202','3141-5156-1425-5421','John Smith','2016-09-01');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -116,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-27 18:53:51
+-- Dump completed on 2013-10-28  5:33:08

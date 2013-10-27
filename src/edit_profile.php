@@ -39,11 +39,11 @@
 			<div id="header_bottom">
 				<ul id="nav_bar">
 					<li id="nav_hor_wrap"></li>
-					<li id="nav_hor_wrap"><a href="category.php">KATEGORI 1</a></li>
-					<li id="nav_hor_wrap"><a href="category.php">KATEGORI 2</a></li>
-					<li id="nav_hor_wrap"><a href="category.php">KATEGORI 3</a></li>
-					<li id="nav_hor_wrap"><a href="category.php">KATEGORI 4</a></li>
-					<li id="nav_hor_wrap"><a href="category.php">KATEGORI 5</a></li>
+					<li id="nav_hor_wrap"><a href="category.php?kat=Makanan">MAKANAN</a></li>
+					<li id="nav_hor_wrap"><a href="category.php?kat=Pakaian">PAKAIAN</a></li>
+					<li id="nav_hor_wrap"><a href="category.php?kat=Furnitur">FURNITUR</a></li>
+					<li id="nav_hor_wrap"><a href="category.php?kat=Peralatan Dapur">ALAT DAPUR</a></li>
+					<li id="nav_hor_wrap"><a href="category.php?kat=Alat Sehari - hari">LAIN-LAIN</a></li>
 					<li id="search">
 						<form action="#" method="post">
 							<input id="text_field" type="text" name="name"></input>

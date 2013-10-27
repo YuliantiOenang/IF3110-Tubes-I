@@ -1,4 +1,4 @@
-<!-- Profile Page of User -->
+<!-- Edit Profile Form -->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,9 +6,21 @@
 		<link rel="stylesheet" type="text/css" href="css/form.css"></link>
 		<meta charset="UTF-8"></meta>
 		<title>
-			Profil Diri
+			Edit Profile
 		</title>
 	</head>
+	<script>
+	function validatepass()
+		{
+			var x=document.forms["editform"]["changepassword"].value;
+			var y=document.forms["editform"]["confirmchangepassword"].value;
+			if (x==null || x=="" || x!=y )
+			  {
+			  alert("Password Salah");
+			  return false;
+			  }
+		}
+	</script>
 	<body>
 		<div id="header">
 			<div id="header_top">
@@ -53,16 +65,8 @@
 			</div>
 		</div>
 		<div id="content">
-			<h1>Profil Diri</h1>
-			<form name="profileform" action="edit_profile.php" method="post">
-				<div id="form_one_row">
-					<p id="label_form" class="label">
-						Username
-					</p>
-					<p id="label_form" class="partition">
-						:
-					</p>
-				</div>
+			<h1>Edit Profile</h1>
+			<form name="editform" action="profile.php" onsubmit="return validatepass()" method="post">
 				<div id="form_one_row">
 					<p id="label_form" class="label">
 						Nama Lengkap
@@ -70,6 +74,28 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<input id="label_form" class="text_field" type="text" name="namalengkap">
+					</input>
+				</div>
+				<div id="form_one_row">
+					<p id="label_form" class="label">
+						Ganti Password	
+					</p>
+					<p id="label_form" class="partition">
+						:
+					</p>
+					<input id="label_form" class="text_field" type="password" name="changepassword">
+					</input>
+				</div>
+				<div id="form_one_row">
+					<p id="label_form" class="label">
+						Konfirmasi Password
+					</p>
+					<p id="label_form" class="partition">
+						:
+					</p>
+					<input id="label_form" class="text_field" type="password" name="confirmchangepassword">
+					</input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -78,6 +104,8 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<input id="label_form" class="text_field" type="text" name="nomorhp">
+					</input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -86,6 +114,8 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<input id="label_form" class="text_field" type="text" name="alamat">
+					</input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -94,6 +124,8 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<input id="label_form" class="text_field" type="text" name="kota">
+					</input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -102,6 +134,8 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<input id="label_form" class="text_field" type="text" name="provinsi">
+					</input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -110,25 +144,11 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<input id="label_form" class="text_field" type="text" name="kodepos">
+					</input>
 				</div>
 				<div id="form_one_row">
-					<p id="label_form" class="label">
-						Email
-					</p>
-					<p id="label_form" class="partition">
-						:
-					</p>
-				</div>
-				<div id="form_one_row">
-					<p id="label_form" class="label">
-						Jumlah Transaksi
-					</p>
-					<p id="label_form" class="partition">
-						:
-					</p>
-				</div>
-				<div id="form_one_row">
-					<input id="submit" type="submit" value="EDIT"></input>
+					<input id="submit" type="submit" value="SUBMIT"></input>
 				</div>
 				<div id="form_one_row"></div>
 			</form>

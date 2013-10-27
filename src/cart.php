@@ -27,8 +27,12 @@
 
 </head>
 <body onload="loadCartPage()">
-<?php include("header.php"); ?>
-
-<div id="cart"></div>
+<div class="outer">
+	<?php include("header.php"); ?>
+	<div class="content">
+		<h3>Keranjang Belanja</h3>
+		<div id="cart" class="table"></div>
+	</div>
+</div>
 </body>
 </html>

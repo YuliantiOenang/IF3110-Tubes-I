@@ -62,7 +62,12 @@ function refreshCart(){
 			cart.appendChild(document.createElement("hr"));
 			cart.appendChild(hrow);
 			
-			cart.innerHTML += "<input type='button' value='Lakukan Pembelian' onclick='commit_buy()' />";
+			var s = "<div id='btn-row' class='row'>"
+			s += "<input class='main-button' type='button' value='Lakukan Pembelian' onclick='commit_buy()' />";
+			s += " <input class='grey-button' type='button' value='Bersihkan Keranjang' onclick='clean_cart()' />";
+			s += "</div>"
+			
+			cart.innerHTML += s;
 			
 		}else{
 			cart.innerHTML = "error " + response.details;
@@ -72,6 +77,15 @@ function refreshCart(){
 	var request = {"action" : "cart", "ids" : list};
 	
 	sendAjax(request, "cart.php", callback);
+}
+
+function clean_cart(){
+	localStorage.removeItem("shoppingbag");
+	refreshCart();
+}
+
+function commit_buy(){
+
 }
 
 function editItem(id){

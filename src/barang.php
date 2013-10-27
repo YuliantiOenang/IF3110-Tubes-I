@@ -31,23 +31,24 @@ if ($barang == null) header("Location: index.php");
 <script src="js/transaction.js"></script>
 </head>
 <body>
-<?php
-	include("header.php");
-?>
-<?php
-	echo '<div class="barang">';
-	echo '<div class="row title">'.$barang->nama.'</div>';
-	echo '<div class="row"><img class="imgbarang" src="image/'.$barang->id.'.jpg" /></div>';
-	echo '<div class="row harga"><div class="cell33">Harga</div><div class="cell66">: Rp. '.$barang->harga.'</div></div>';
-	echo '<div class="row kategori"><div class="cell33">Kategori</div><div class="cell66">: '.$barang->kategori.'</div></div>';
-	echo '<div class="row"><div class="cell33">Deskripsi</div><div class="cell66">:</div></div>';
-	echo '<div class="row deskripsi">'.$barang->deskripsi.'</div>';
-	echo '</div>';
-	
-	echo '<input type="button" value="tambahkan ke keranjang" onclick="addCart('.$barang->id.')"/>';
-?>
-
-
-
+<div class="outer">
+	<?php
+		include("header.php");
+	?>
+	<div class='content'>
+	<?php
+		echo '<div class="barang table">';
+		echo '<div class="row title">'.$barang->nama.'</div>';
+		echo '<div class="row"><img class="imgbarang" src="image/'.$barang->id.'.jpg" /></div>';
+		echo '<div class="row harga"><div class="cell33">Harga</div><div class="cell66">: Rp. '.$barang->harga.'</div></div>';
+		echo '<div class="row kategori"><div class="cell33">Kategori</div><div class="cell66">: '.$barang->kategori.'</div></div>';
+		echo '<div class="row"><div class="cell33">Deskripsi</div><div class="cell66">:</div></div>';
+		echo '<div class="row deskripsi">'.$barang->deskripsi.'</div>';
+		echo '</div>';
+		
+		echo '<input class="main-button" type="button" value="Tambahkan ke Keranjang" onclick="addCart('.$barang->id.')"/>';
+	?>
+	</div>
+</div>
 </body>
 </html>

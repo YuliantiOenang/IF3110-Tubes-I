@@ -22,6 +22,28 @@
 </style>
 
 <script type = "text/javascript">
+	//mengecek apakah user sudah login atau belum
+	function IsLoggedIn()
+	{
+		if(localStorage.getItem(0) === null)
+		{
+			//mengeluarkan tombol Register dan Login
+			document.getElementById('register_or_profile').innerHTML = 'Register';
+			document.getElementById('register_or_profile').href = "index.php?page=form_registrasi";
+			document.getElementById('login_or_logout').innerHTML = 'Login';
+			document.getElementById('login_or_logout').href = "javascript:PopupLogin('show');";
+		}
+		else
+		{
+			//mengeluarkan tombol Profile dan Logout
+			var username = localStorage.getItem(0);
+			document.getElementById('register_or_profile').innerHTML = 'Hello '+username+' !'
+			document.getElementById('register_or_profile').href = ""; //TO-DO halaman profile
+			document.getElementById('login_or_logout').innerHTML = 'Logout';
+			document.getElementById('login_or_logout').href = "javascript:localStorage.clear();IsLoggedIn();";
+		}
+	}
+
 	function PopupLogin(showhide)
 	{
 		if(showhide == "show")
@@ -30,7 +52,10 @@
 		}
 		else if(showhide == "hide")
 		{
+			//hide login form
 			document.getElementById('popup_login').style.visibility="hidden"; 
+			//hapus username dan password yang diisi di login form
+			document.getElementById("id_form").reset();
 		}
 	}
 	
@@ -39,6 +64,7 @@
 		var val_username  = document.forms ["form_login"] ["username"].value;
 		var val_password = document.forms ["form_login"] ["password"].value;
 		var err_login = document.getElementById("err_login");
+		var success = false;
 		
 		//pengecekan username dan password ke db
 		if (window.XMLHttpRequest)
@@ -54,6 +80,27 @@
 			if (xmlhttp.readyState==4 && xmlhttp.status==200)
 			{
 				err_login.innerHTML=xmlhttp.responseText;
+				if(err_login.innerHTML == "")
+				{
+					PopupLogin('hide');
+					//proses menyimpan login info ke localStorage
+					localStorage.clear();
+					var exp_date = new Date();
+					//set umur localStorage 30 hari
+					exp_date.setDate(exp_date.getDate()+30);
+					try
+					{
+						//simpan val_username dan exp_date ke localStorage
+						localStorage.setItem(0,val_username);
+						localStorage.setItem(1,exp_date);
+						//update button pada navbar
+						IsLoggedIn();
+					}
+					catch (e)
+					{
+						
+					}
+				}
 			}
 		}
 		xmlhttp.open("GET","validasi_login.php?username="+val_username+"&pass="+val_password,true);
@@ -66,17 +113,19 @@
 <h1> RuSerBa Header </h1>
 
 <div id = "popup_login">
-	<form name="form_login" action="javascript:CheckLogin();" method="post">
-	<center>Username:</center>
-	<center><input name="username" size="14" /></center>
-	<center>Password:</center>
-	<center><input name="password" type="password" size="14" /></center>
-	<center> <div id = "err_login" style="font-size:12px;color:red"><!-- --></div> </center>
-	<center><input type="submit" name="submit" value="login"/></center>
+	<form id = "id_form" name="form_login" action="javascript:CheckLogin();" method="post">
+		<center>Username:</center>
+		<center><input name="username" size="14" /></center>
+		<center>Password:</center>
+		<center><input name="password" type="password" size="14" /></center>
+		<center> <div id = "err_login" style="font-size:12px;color:red"><!-- --></div> </center>
+		<center><input type="submit" name="submit" value="login"/></center>
 	</form>
 	<br />
 	<center><a href="javascript:PopupLogin('hide');">close</a></center>
 </div>
-<a href = "javascript:PopupLogin('show');">Login</a>
-<a href = "index.php?page=form_registrasi"> Register </a>
+<div id = "account_buttons">
+	<a id = "register_or_profile" href = ""><!-- --><script type = "text/javascript"> IsLoggedIn();</script></a>
+	<a id = "login_or_logout" href = ""><!-- --><script type = "text/javascript"> IsLoggedIn();</script></a>
+</div>
 <div id = "content">

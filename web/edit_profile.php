@@ -80,12 +80,14 @@ function checkSubmit(){
 			ada_berubah = true;
 		}else{
 			alert("Nama tidak valid, kurang dari 2 kata");
+			can_submit = false;
 		}
 	}
 	
 	if(document.getElementById("password").value != getCookie("password")){
 		ada_berubah = true;
 	}
+	
 	
 	if(document.getElementById("alamat").value != document.getElementById("alamat").defaultValue){
 		ada_berubah = true;
@@ -95,7 +97,7 @@ function checkSubmit(){
 		ada_berubah = true;
 	}
 	
-	if(document.getElementById("kecamatan").value != document.getElementById("kecamatan").defaultValue){
+	if(document.getElementById("kobupaten").value != document.getElementById("kobupaten").defaultValue){
 		ada_berubah = true;
 	}
 	
@@ -106,6 +108,7 @@ function checkSubmit(){
 	if(document.getElementById("handphone").value != document.getElementById("handphone").defaultValue){
 		ada_berubah = true;
 	}
+	//document.write("");
 	
 	if(!ada_berubah){
 		alert("Tidak ada data yang berubah");
@@ -114,10 +117,26 @@ function checkSubmit(){
 	
 	if(can_submit){
 		//kirim data
+		var data_kirim;
+		data_kirim = "nama_lengkap=" + document.getElementById("nama_lengkap").value;
+		data_kirim += "&password=" + document.getElementById("password").value;
+		data_kirim += "&alamat=" + document.getElementById("alamat").value;
+		data_kirim += "&provinsi=" + document.getElementById("provinsi").value;
+		data_kirim += "&kobupaten=" + document.getElementById("kobupaten").value;
+		data_kirim += "&kodepos=" + document.getElementById("kodepos").value;
+		data_kirim += "&handphone=" + document.getElementById("handphone").value
 		
-		http.open("POST","kirim_edit.php",true);
+		window.location="proses_edit.php?"+data_kirim;
+		
+		/*http.open("POST","proses_edit.php",true);
 		http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		//http.send()
+		http.send("nama_lengkap="+document.getElementById("nama_lengkap").value+
+			"&password="+document.getElementById("password").value+
+			"&alamat="+document.getElementById("alamat").value+
+			"&kobupaten="+document.getElementById("kobupaten").value+
+			"&kodepos="+document.getElementById("kodepos").value+
+			"&handphone="+document.getElementById("handphone").value
+			);*/
 	}
 	
 }
@@ -220,15 +239,16 @@ function remove(id)
 <body>
 
 <?php
-	setcookie('user1','asu',time()+3600*24*30);
-	setcookie('username','asusampas',time()+3600*24*30);
-	setcookie("email","ampas@ampas.com",time()+3600*24*30);
-	setcookie("password","ampasampas",time()+3600*24*30);
-	setcookie("alamat","jalan sesuatu",time()+3600*24*30);
-	setcookie("provinsi","jawa Barat",time()+3600*24*30);
-	setcookie("kecamatan","bandung",time()+3600*24*30);
-	setcookie("kodepos","14350",time()+3600*24*30);
-	setcookie("handphone","08988204004",time()+3600*24*30);
+	// setcookie('user1','asu',time()+3600*24*30);
+	// setcookie("IdCustomer", '1', time()+3600*24*30);
+	// setcookie('username','asusampas',time()+3600*24*30);
+	// setcookie("email","ampas@ampas.com",time()+3600*24*30);
+	// setcookie("password","ampasampas",time()+3600*24*30);
+	// setcookie("alamat","jalan sesuatu",time()+3600*24*30);
+	// setcookie("provinsi","jawa Barat",time()+3600*24*30);
+	// setcookie("kobupaten","bandung",time()+3600*24*30);
+	// setcookie("kodepos","14350",time()+3600*24*30);
+	// setcookie("handphone","08988204004",time()+3600*24*30);
 ?>
 
 <div id="lightbox">	
@@ -367,19 +387,19 @@ function remove(id)
 			<label>Confirm change Password</label> <input type="password" id="conf_password" required placeholder = "1234"></br>
 			</div>
 			<div class = "registerspace">
-			<label>Alamat</label> <input type="text" id="user" required placeholder = "Jl. Ganesha No.10 Bandung" value =<?php echo $_COOKIE["alamat"]?> defaultValue = <?php echo $_COOKIE["alamat"]?>></br>
+			<label>Alamat</label> <input type="text" id="alamat" placeholder = "Jl. Ganesha No.10 Bandung" value =<?php echo $_COOKIE["alamat"]?> defaultValue = <?php echo $_COOKIE["alamat"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Provinsi</label> <input type="text" id="user" required placeholder = "Jawa Barat" value =<?php echo $_COOKIE["provinsi"]?> defaultValue = <?php echo $_COOKIE["provinsi"]?>></br>
+			<label>Provinsi</label> <input type="text" id="provinsi" placeholder = "Jawa Barat" value =<?php echo $_COOKIE["provinsi"]?> defaultValue = <?php echo $_COOKIE["provinsi"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Kecamatan</label> <input type="text" id="user" required placeholder = "Sumur Bandung" value =<?php echo $_COOKIE["kecamatan"]?> defaultValue = <?php echo $_COOKIE["kecamatan"]?>></br>
+			<label>Kota/Kabupaten</label> <input type="text" id="kobupaten" placeholder = "Sumur Bandung" value =<?php echo $_COOKIE["kobupaten"]?> defaultValue = <?php echo $_COOKIE["kobupaten"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Kode Pos</label> <input type="text" id="user" required placeholder = "40124" value =<?php echo $_COOKIE["kodepos"]?> defaultValue = <?php echo $_COOKIE["kodepos"]?>></br>
+			<label>Kode Pos</label> <input type="text" id="kodepos" placeholder = "40124" value =<?php echo $_COOKIE["kodepos"]?> defaultValue = <?php echo $_COOKIE["kodepos"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Nomor Handphone</label> <input type="text" id="user" required placeholder = "08180000000" value =<?php echo $_COOKIE["handphone"]?> defaultValue = <?php echo $_COOKIE["handphone"]?>></br>
+			<label>Nomor Handphone</label> <input type="text" id="handphone" placeholder = "08180000000" value =<?php echo $_COOKIE["handphone"]?> defaultValue = <?php echo $_COOKIE["handphone"]?>></br>
 			</div>
 			<div class = "registerspace">
 			<input type="button" value = "Save" onclick="checkSubmit()"><label id="pesan"></label></br>

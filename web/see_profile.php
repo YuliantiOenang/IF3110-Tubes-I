@@ -8,31 +8,37 @@
 <script src="js/AjaxCreateObject.js" language="javascript"></script>
 <script type="text/javascript">
 
-function daftar_kartu(){
-	
-	
-	
-	http.onreadystatechange=function(){
-	
-		if(http.readystate==4 && http.status == 200){
-		document.write();
-			var decodeJSON = JSON.parse(http.responseText);
-			
-			if(decodeJSON.status == false){
-				alert("KARTU YANG ANDA DAFTARKAN TIDAK VALID");
-			}
-			
-		}
-		//document.write(decodeJSON.status);
-	}
-	
-	http.open("GET","proses_kartu.php?card_number="+document.getElementById("card_number")
-		+"&card_name=" + document.getElementById("card_name")
-		+"&card_expired=" + document.getElementById("card_expired")
-		,true
-		);
-		
-	http.send();
+function toEditProfile(){
+	window.location = "edit_profile.php";
+}
+
+function getCookie(c_name)
+//FUNGSI PENGAMBIL COOCIE
+{
+var c_value = document.cookie;
+var c_start = c_value.indexOf(" " + c_name + "=");
+if (c_start == -1)
+  {
+  c_start = c_value.indexOf(c_name + "=");
+  }
+if (c_start == -1)
+  {
+  c_value = null;
+  }
+else
+  {
+  c_start = c_value.indexOf("=", c_start) + 1;
+  var c_end = c_value.indexOf(";", c_start);
+  if (c_end == -1)
+  {
+c_end = c_value.length;
+}
+c_value = unescape(c_value.substring(c_start,c_end));
+}
+return c_value;
+}
+
+function checkSubmit(){
 	
 }
 
@@ -132,6 +138,20 @@ function remove(id)
 }
 </script>
 <body>
+
+<?php
+	// setcookie('user1','asu',time()+3600*24*30);
+	// setcookie("IdCustomer", '1', time()+3600*24*30);
+	// setcookie('username','asusampas',time()+3600*24*30);
+	// setcookie("email","ampas@ampas.com",time()+3600*24*30);
+	// setcookie("password","ampasampas",time()+3600*24*30);
+	// setcookie("alamat","jalan sesuatu",time()+3600*24*30);
+	// setcookie("provinsi","jawa Barat",time()+3600*24*30);
+	// setcookie("kobupaten","bandung",time()+3600*24*30);
+	// setcookie("kodepos","14350",time()+3600*24*30);
+	// setcookie("handphone","08988204004",time()+3600*24*30);
+?>
+
 <div id="lightbox">	
 		<div class="loginpoptop"><!--pop up-->
 		<h4 id="loginHeader">LOGIN</h4>
@@ -226,51 +246,71 @@ function remove(id)
 	<div class = "sidebar">
 		
 			<p class = "searchtitle"> Search it! </p>
-			
+		<form action="hasilsearch.php" method="get">
 		<div class = "kategori">
-			<select>
+			<select name="kategori">
 				<option value="all">All</option>
-				<option value="jacket">Jacket</option>
-				<option value="tshirt">T-shirt</option>
-				<option value="sweater">Sweater</option>
-				<option value="misc">Misc.</option>
-				<option value="pokemon">Pokemon</option>
+				<option value="Jaket">Jacket</option>
+				<option value="TShirt">T-shirt</option>
+				<option value="Sweater">Sweater</option>
+				<option value="Misc">Misc.</option>
+				<option value="Pokemon">Pokemon</option>
 			</select>
-			<input type="text" id="user" required placeholder = "e.g. Mylo Xyloto" /></br>
+			<input type="text" id="user" name="key" required placeholder = "e.g. Mylo Xyloto" /></br>
 	</div>
 	
 	<div class = "kategori">
 	<label> Price Range: </label>
-	<select>
-				<option value="all">< Rp50.000 </option>
-				<option value="jacket">Rp50.000 - Rp100.000</option>
-				<option value="tshirt">Rp100.001 - Rp150.000</option>
-				<option value="sweater">> Rp150.000</option>
+	<select name="range">
+				<option value=1>< Rp50.000 </option>
+				<option value=2>Rp50.000 - Rp100.000</option>
+				<option value=3>Rp100.001 - Rp150.000</option>
+				<option value=4>> Rp150.000</option>
 				
 			</select>
 	</div>
 	<div class = "kategori">
-	<input type="button" value="Search!"></input>
+	<input type="submit" value="Search!"></input>
 	</div>
+	</form>
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> BECOME A COLDPLAYER!<label></br></br>
+		<label> Profile Anda<label></br></br>
 		</div>
 			<div class = "registerspace">
-			<label>Card Number </label> <input type="text" id="card_number" required placeholder = "0123456789101213" /></br>
+			<label>Username : <?php echo $_COOKIE["username"] ?></label></br>
+			</div>
+			<div class = "registerspace">
+			<label>Nama Lengkap : <?php echo $_COOKIE["user1"] ?></label></br>
+			</div>
+			<div class = "registerspace">
+			<label>Nomor Handphone : <?php echo $_COOKIE["handphone"] ?></label></br>
+			</div>
+			<div class = "registerspace">
+			<label>Alamat : <?php echo $_COOKIE["alamat"] ?></label></br>
+			</div>
+			<div class = "registerspace">
+			<label>Provinsi : <?php echo $_COOKIE["provinsi"] ?></label></br>
+			</div>
+			<div class = "registerspace">
+			<label>Kota / Kabupaten : <?php echo $_COOKIE["kobupaten"] ?></label></br>
+			</div>
+			<div class = "registerspace">
+			<label>Kodepos : <?php echo $_COOKIE["kodepos"] ?></label></br>
+			</div>
+			<div class = "registerspace">
+			<label>Email : <?php echo $_COOKIE["email"] ?></label></br>
+			</div>
+			<div class = "registerspace">
+			<label>Jumlah Transaksi : <?php 
+				
+			?>
+			</label></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Name On Card</label> <input type="text" id="card_name" required placeholder = "Chris Martin" /><label id="nama_label"></label></br>
-			</div>
-			
-			<div class = "registerspace">
-			<label>expired date</label> <input type="text" id="card_expired" required placeholder = "08/12/2003" /></br>
-			</div>
-			
-			<div class = "registerspace">
-			<input type="button" id="submit" value = "Register credit card!" onclick="daftar_kartu()"></br>
+			<input type="button" value = "Edit" onclick="toEditProfile()"></br>
 			</div>
 			  
 			</div>

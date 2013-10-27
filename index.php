@@ -7,7 +7,6 @@
 	
 </article><!-- /#featured -->
 <?php include "footer.php";?>
-
 </div>
 </body>
 </html>

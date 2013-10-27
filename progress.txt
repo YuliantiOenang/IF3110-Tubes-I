@@ -5,6 +5,6 @@ ceha bikin shopping bag terus search bar nya ditambahin jadi bisa nyari barang b
 
 kiki bikin layout buat sidebar, kan di tiap halaman mau ada sidebarnya. terus siap-siap aja bikin layout buat detail barang. terus yg image slider coba-coba dulu aja. kayanya buat di home mau pake itu aja buat nampilin 3 barang terbanyak dijualnya gimana?
 
-ope bikin spek-spek kecil (kaya harusnya klo user belum login ga bisa ke halaman profile atau kalo udah login ga bisa ke halaman registrasi), halaman detail barang. benerin lagi halaman barangnya jadi beneran ngambil dari database barang (bukan tahu ama tempe doang) sama mau coba bikin paginasi. 
+ope bikin spek-spek kecil v(kaya harusnya klo user belum login ga bisa ke halaman profile atau kalo udah login ga bisa ke halaman registrasi), halaman detail barang v. benerin lagi halaman barangnya jadi beneran ngambil dari database barang v (bukan tahu ama tempe doang) sama mau coba bikin paginasi. 
 
 sementara itu dulu aja. besok kalo mau kumpul sms lg aja pd bisa nya jam berapa. aku besok mau pergi tp belum tau jg jam berapa. yo. 

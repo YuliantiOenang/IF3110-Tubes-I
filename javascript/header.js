@@ -119,7 +119,7 @@ function auth(user,pass){
 					localStorage.wbduser= user;
 					localStorage.wbdlogintime=new Date().getTime();
 					var s = "<li><a href=\"profile.php\">Profile</a></li>";
-					s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');localStorage.removeItem('wbduserlogin');\">Logout</a></li>";
+					s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');localStorage.removeItem('wbdlogintime');\">Logout</a></li>";
 					document.getElementById("log").innerHTML=s;
 					document.getElementById("banner").innerHTML+="<p>Selamat datang, <b>"+localStorage.wbduser+"</b>!</p>";
 				break;
@@ -137,7 +137,7 @@ if(typeof(Storage)!=="undefined"){
 	if(localStorage.wbduser && localStorage.wbdlogintime){
 		if(hitunghari(Number(localStorage.wbdlogintime),new Date().getTime())<=30){
 			var s = "<li><a href=\"profile.php\">Profile</a></li>";
-			s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');localStorage.removeItem('wbduserlogin');\">Logout</a></li>";
+			s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');localStorage.removeItem('wbdlogintime');\">Logout</a></li>";
 			document.getElementById("log").innerHTML=s;
 			document.getElementById("banner").innerHTML+="<p>Selamat datang, <b>"+localStorage.wbduser+"</b>!</p>";
 		}else{
@@ -152,7 +152,7 @@ if(typeof(Storage)!=="undefined"){
 		document.getElementById("log").innerHTML=s;
 	}
 }else{
-	document.getElementById("menubar").innerHTML="Maaf, browser kamu tidak support localStorage sehingga informasi username tidak dapat disimpan...";
+	document.getElementById("menubar").innerHTML="Maaf, browser kamu tidak support Web Storage sehingga informasi username tidak dapat disimpan...";
 }
 function hitunghari(timestamp1,timestamp2){
     var difference = timestamp2 - timestamp1;

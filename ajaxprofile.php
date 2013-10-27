@@ -1,5 +1,9 @@
 <?php
-if(isset($_POST['username'])){ $username = $_POST['username']; }
+if(isset($_POST['username'])){
+	$username = $_POST['username']; 
+}else{
+	echo "Gagal mengambil data user!";
+}
 include "koneksi.inc.php";
 $perintah = "select * from anggota where username = '".$username."'";
 $hasil = mysql_query($perintah,$koneksi);

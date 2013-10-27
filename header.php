@@ -12,14 +12,14 @@
 	<h1><span><a href="index.php">RuSerBa<br><strong>Ruko Serba Ada</strong></a></span></h1>
  	<nav><ul id="menubar">
 		<li><a href="index.php">Home</a></li>
-		<li><a href="halamanbarang.php" onmouseover="slidedown(true)" onmouseup="slidedown(false)">Kategori Barang</a>
+		<li><a href="#" onmouseover="slidedown(true)" onmouseup="slidedown(false)">Kategori Barang</a>
 			<ul class="sub-menu">	
 			<?php 
 				include "koneksi.inc.php";
 				$query2 = "select * from barang group by kategori";
 				$hasil2 = mysql_query($query2,$koneksi);
 				while($row = mysql_fetch_array($hasil2)){
-				echo '<li><a href="#">'.$row["kategori"].'</a></li>';
+				echo '<li><a href="halamanbarang.php?kategori='.$row["kategori"].'">'.$row["kategori"].'</a></li>';
 				}
 			?>
 			</ul>
@@ -45,4 +45,4 @@
 </form>
 </div>
 <!-- import script dari file javascript -->
-<script src="javascript/home.js"></script>
+<script src="javascript/header.js"></script>

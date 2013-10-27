@@ -1,5 +1,21 @@
 <?php include "header.php";?>
 <?php include "sidebar.php";?>
+<article id="featured" class="body">
+		<h2 id="headername"></h2>
+		<div id="info"></div>
+			<span id="foto"></span>
+			<pre id="nama">Nama Lengkap 	:</pre>
+			<pre id="nomorhp">Nomor Hp		:</pre>
+			<pre id="alamat">Alamat		:</pre>
+			<pre id="provinsi">Provinsi		:</pre>
+			<pre id="kota">Kota			:</pre>
+			<pre id="kodepos">Kode Pos		:</pre>
+			<pre id="email">Email			:</pre>
+			<pre id="usernamep">Username		:</pre>
+		<form method="action" action="editprofile.php">
+		<input type="submit" value="Edit Profile">
+		</form>
+</article><!-- /#featured -->
 <script>
 if(typeof(Storage)!=="undefined"){
 	if(localStorage.wbduser){
@@ -27,29 +43,15 @@ if(typeof(Storage)!=="undefined"){
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("username="+localStorage.wbduser);
 	}else{
-	
+		var s = "<strong>Maaf, halaman ini tidak bisa diakses jika kamu belum login.</strong><br>";
+		s += "<p>Halaman akan segera dialihkan ke halaman registrasi...</p>";
+		document.getElementById("featured").innerHTML = s;
+		setTimeout("window.location='registerform.php'",3000);
 	}
 }else{
-	document.getElementById("menubar").innerHTML="Sorry, your browser does not support web storage...";
+	document.getElementById("menubar").innerHTML="Maaf, browser kamu tidak support Web Storage sehingga informasi username tidak dapat disimpan...";
 }
 </script>
-<article id="featured" class="body">
-		<h2 id="headername"></h2>
-		<div id="info"></div>
-			<span id="foto"></span>
-			<pre><h2 id="nama">   </h2></pre>
-			<pre><h3 id="usernamep">   @</h3></pre><hr>
-			<pre><h3>Basic Info</h3></pre>
-			<pre id="nomorhp">Nomor Hp		:  </pre>
-			<pre id="alamat">Alamat		:  </pre>
-			<pre id="provinsi">Provinsi		:  </pre>
-			<pre id="kota">Kota			:  </pre>
-			<pre id="kodepos">Kode Pos		:  </pre>
-			<pre id="email">Email			:  </pre>
-		<form method="action" action="editprofile.php">
-		<input type="submit" value="Edit Profile">
-		</form>
-</article><!-- /#featured -->
 <?php include "footer.php";?>
 
 </div>

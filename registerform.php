@@ -119,7 +119,7 @@
 </head>
 <body>
 	<?php include "header.php"; ?>
-	<?php include "sidebar.php"; ?>
+	<?php include "sidebar.php";?>
 		<form id="registerform" method="post" action="register.php">
 		<strong><h2>Pendaftaran Anggota Baru Ruserba</h2></strong><br>
 		<pre>(*) Harus diisi.</pre>
@@ -135,6 +135,15 @@
 		<pre>Email*				<input type="text" name="email"id="email" onkeyup="validate(email.value,5,null)"/><span id="validasiEmail"></span></pre>
 		<pre><input type="checkbox" name="setuju" id="cek" onclick="readysubmit(9,'1')"> Saya menyetujui semua persyaratan yang berlaku</pre>
 		<input type="submit" value="Daftar" id="masuk" disabled> <a href='index.php'>Kembali</a></form>
+		<script>
+if(typeof(Storage)!=="undefined"){
+	if(localStorage.wbduser){
+		window.location="index.php";
+	}
+}else{
+	document.getElementById("menubar").innerHTML="Maaf, browser kamu tidak support Web Storage sehingga informasi username tidak dapat disimpan...";
+}
+</script>
 	<?php include "footer.php"; ?>
 </body>
 </html>

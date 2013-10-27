@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 25, 2013 at 11:23 AM
+-- Generation Time: Oct 27, 2013 at 04:39 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.6-1ubuntu1.4
 
@@ -42,10 +42,10 @@ CREATE TABLE IF NOT EXISTS `barang` (
 --
 
 INSERT INTO `barang` (`id`, `id_kategori`, `gambar`, `nama_barang`, `harga_barang`, `keterangan`, `jumlah_barang`) VALUES
-(3, 1, '', 'Beras', 8500, 'Ini beras per 1 kg', 1000000),
-(4, 1, '', 'Gula Pasir', 12000, 'Ini gula pasir per 1 kg', 1000000),
-(5, 1, '', 'Minyak Goreng', 11000, 'Minyak Goreng per 1 liter', 1000000),
-(6, 1, '', 'Telur Ayam', 15000, 'Telur Ayam per 1 kg', 1000000),
+(3, 1, '', 'Beras', 8500, 'Ini beras per 1 kg', 999955),
+(4, 1, '', 'Gula Pasir', 12000, 'Ini gula pasir per 1 kg', 25),
+(5, 1, '', 'Minyak Goreng', 11000, 'Minyak Goreng per 1 liter', 999988),
+(6, 1, '', 'Telur Ayam', 15000, 'Telur Ayam per 1 kg', 999877),
 (7, 2, '', 'Blackberry CDMA 9930 Hitam', 1500000, '', 100),
 (8, 2, '', 'Acer Liquid E2', 2500000, '', 125),
 (9, 2, '', 'Samsung Galaxy S4', 7000000, '', 90),
@@ -70,15 +70,26 @@ INSERT INTO `barang` (`id`, `id_kategori`, `gambar`, `nama_barang`, `harga_baran
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang_cart`
+-- Table structure for table `barang_card`
 --
 
-CREATE TABLE IF NOT EXISTS `barang_cart` (
+CREATE TABLE IF NOT EXISTS `barang_card` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_barang` int(11) NOT NULL,
-  `id_cart` int(11) NOT NULL,
+  `id_card` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `jumlah_barang` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `tgl_pembelian` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `barang_card`
+--
+
+INSERT INTO `barang_card` (`id`, `id_barang`, `id_card`, `status`, `jumlah_barang`, `id_user`, `tgl_pembelian`) VALUES
+(9, 6, 1, 0, 123, 4, '2013-10-27 01:38:40');
 
 -- --------------------------------------------------------
 
@@ -93,21 +104,16 @@ CREATE TABLE IF NOT EXISTS `card` (
   `name` varchar(100) NOT NULL,
   `expired_date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Table structure for table `cart`
+-- Dumping data for table `card`
 --
 
-CREATE TABLE IF NOT EXISTS `cart` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `keterangan` varchar(100) NOT NULL,
-  `isKirim` tinyint(1) NOT NULL,
-  `id_card` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+INSERT INTO `card` (`id`, `id_user`, `card_number`, `name`, `expired_date`) VALUES
+(1, 4, '082031', 'ganteng', '0000-00-00'),
+(2, 4, '12839101', 'ahay', '2014-09-12'),
+(3, 9, '2131', 'iseng', '2014-12-09');
 
 -- --------------------------------------------------------
 
@@ -153,14 +159,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `kabupaten` varchar(100) NOT NULL,
   `isCreditCard` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `nama_lengkap`, `HP`, `alamat`, `provinsi`, `kodepos`, `email`, `password`, `kota`, `kabupaten`, `isCreditCard`) VALUES
-(4, 'habibie', 'Habibie Faried', '08561435232', 'Jl. Pelesiran', 'Jawa Barat', 40116, 'habibiefaried@gmail.com', 'habibie', 'Bandung', '-', 0);
+(4, 'habibie', 'Habibie Faried', '08561435232', 'Jl. Pelesirann', 'Jawa Barat', 40114, 'habibiefaried@gmail.com', 'habibie', 'Bandung', '-', 1),
+(7, 'iskandar', 'Iskandar Setiadi', '00000', 'Jl. Tubis', 'Jawa Barat', 40117, 'iseng@test.com', 'iskandar', 'Bandung', 'Bandung', 0),
+(8, 'haha', 'haha', '0856', 'JL. haha', 'haha', 18124, 'haha@haha.com', 'haha', 'haha', 'haha', 0),
+(9, 'iseng', 'iseng', '08961', 'Jl. iseng', 'iseng', 15123, 'iseng@iseng.com', 'iseng', 'iseng', 'iseng', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

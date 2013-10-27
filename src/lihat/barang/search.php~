@@ -6,10 +6,7 @@
 </head>
 <body>
 
-<form action="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari" method="GET">
-Cari Barang : <input type="text" name="search"><br>
-<input type="submit"><br>
-</form>
+<h3> Hasil Pencarian untuk keyword <font color="green"><?=$data['nama_barang'];?></font> </h3>
 
 <table border = 1>
 <tr>
@@ -56,7 +53,7 @@ Halaman :
 for ($i=0; $i<$data['jmlPage']; $i++)
 {
 ?>
-	 <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/index?page=<?=$i;?>"> <?=$i;?> </a>
+	 <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?page=<?=$i;?>&search=<?=$data['nama_barang']?>"> <?=$i;?> </a>
 <?
 }
 ?>

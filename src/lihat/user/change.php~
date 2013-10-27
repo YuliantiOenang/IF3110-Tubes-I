@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title> Ini laman registrasi </title>
+	<title> Ini laman ganti indentitas </title>
 </head>
 <body>
-<form action="#" method="POST">
-	Username : <input type="text" name="username"><br>
-	Password : <input type="password" name="password"><br>
+<form action="" method="POST">
+	Username : <input type="text" name="username" value="<?=$_SESSION['username'];?>"><br>
+	Password : <input type="password" name="password" value=""><br>
 	Confirm Password : <input type="password" name="confirm"><br>
 	Nama Lengkap: <input type="text" name="nama_lengkap"><br>
 	HP : <input type="text" name="HP"><br>

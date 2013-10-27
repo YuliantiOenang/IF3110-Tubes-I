@@ -1,13 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<meta charset="UTF-8">
 	<title> Gallery </title>
 </head>
 <body>
 
-<form action="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari" method="POST">
+<form action="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari" method="GET">
 Cari Barang : <input type="text" name="search"><br>
-<input type="submit" name="submit" value="Cari"><br>
+<input type="submit"><br>
 </form>
 
 <table border = 1>
@@ -50,6 +51,7 @@ while($row = mysql_fetch_object($data['barang']))
 ?>
 <table>
 
+Halaman : 
 <?php
 for ($i=0; $i<$data['jmlPage']; $i++)
 {

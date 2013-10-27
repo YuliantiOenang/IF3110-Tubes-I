@@ -5,7 +5,7 @@
 	<title> Ini laman registrasi </title>
 </head>
 <body>
-<form action="#" method="POST">
+<form action="" method="POST">
 	Username : <input type="text" name="username"><br>
 	Password : <input type="password" name="password"><br>
 	Confirm Password : <input type="password" name="confirm"><br>

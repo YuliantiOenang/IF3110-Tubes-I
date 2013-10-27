@@ -18,7 +18,7 @@ class User
 	{
 		if (isset($_SESSION['username']))
 		{
-			if ((isset($var['submit'])) && ($var['username']!='') && ($var['password']!='') && ($var['nama_lengkap']!='') && ($var['HP']!='') && ($var['alamat']!='') && ($var['provinsi']!='') && ($var['kota']!='') && ($var['kabupaten']!='') && ($var['kodepos']!='') && ($var['email']!=''))
+			if ((isset($var['submit'])) && ($var['username']!='') && ($var['password']!='') && ($var['nama_lengkap']!='') && ($var['HP']!='') && ($var['alamat']!='') && ($var['provinsi']!='') && ($var['kota']!='') && ($var['kodepos']!='') && ($var['email']!=''))
 			{
 				$_SESSION['username'] = $var['username']; //username akan disimpan
 				$_SESSION['nama_lengkap'] = $var['nama_lengkap']; //nama lengkap
@@ -29,9 +29,8 @@ class User
 				$_SESSION['email'] = $var['email'];
 				$_SESSION['password'] = $var['password'];
 				$_SESSION['kota'] = $var['kota'];
-				$_SESSION['kabupaten'] = $var['kabupaten'];
 				$m = new User_Model();
-				$m->updateInfo($var['username'],$var['password'],$var['nama_lengkap'],$var['HP'],$var['alamat'],$var['provinsi'],$var['kota'],$var['kabupaten'],$var['kodepos'],$var['email']);
+				$m->updateInfo($var['username'],$var['password'],$var['nama_lengkap'],$var['HP'],$var['alamat'],$var['provinsi'],$var['kota'],$var['kodepos'],$var['email']);
 				header("Location: ".SITE_ROOT.NAME_ROOT."/index.php/user");
 			}
 			else
@@ -47,28 +46,107 @@ class User
 	{
 		if (!isset($_SESSION['username']))
 		{
-			if ((isset($var['submit'])) && ($var['username']!='') && ($var['password']!='') && ($var['nama_lengkap']!='') && ($var['HP']!='') && ($var['alamat']!='') && ($var['provinsi']!='') && ($var['kota']!='') && ($var['kabupaten']!='') && ($var['kodepos']!='') && ($var['kodepos']!=''))
-			{
-				$u = new User_Model();
-				if ($u->isBolehDaftar($var['username']))
-				{
-					$u->addUser($var['username'],$var['password'],$var['nama_lengkap'],$var['HP'],$var['alamat'],$var['provinsi'],$var['kota'],$var['kabupaten'],$var['kodepos'],$var['email'],0);
-					echo "Registrasi Berhasil<br>";
-					echo "Saatnya untuk registrasi kartu kredit <a href='".SITE_ROOT.NAME_ROOT."/index.php/user/addCreditCard'> disini </a><br>";
-					echo "Anda juga bisa skip untuk langsung <a href='".SITE_ROOT.NAME_ROOT."/index.php/user/login'>login</a>"; 
-				}
-				else echo "Username telah digunakan";			
-			}
-			else
-			{
+            if (isset($var['submit'])) {
+                $u = new User_Model();
+                $u->addUser($var['username'],$var['password'],$var['nama_lengkap'],$var['HP'],$var['alamat'],$var['provinsi'],$var['kota'],$var['kodepos'],$var['email'],0);
+                $ret = $u->isUserExists($var['username'],$var['password']); // tidak null karena baru ditambahkan
+                $_SESSION['id'] = $ret->id;
+				$_SESSION['username'] = $ret->username; //username akan disimpan
+				$_SESSION['nama_lengkap'] = $ret->nama_lengkap; //nama lengkap
+				$_SESSION['HP'] = $ret->HP;
+				$_SESSION['alamat'] = $ret->alamat;
+				$_SESSION['provinsi'] = $ret->provinsi;
+				$_SESSION['kodepos'] = $ret->kodepos;
+				$_SESSION['email'] = $ret->email;
+				$_SESSION['password'] = $ret->password;
+				$_SESSION['kota'] = $ret->kota;
+				$_SESSION['isCreditCard'] = $ret->isCreditCard;
+                echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php/user";	
+            } else {
 				$v = new View('user/register');
 				$v->render();
-			}
+            }
 		}
 		else header("Location: ".SITE_ROOT.NAME_ROOT."/index.php/user");
 	}
     
-
+    public function validation(array $var)
+    {
+        $isValid = true; // inisialisasi
+        $u = new User_Model();
+        
+        switch($var['method']) {
+            case 'checkEmail': // validasi untuk email
+            $atPositionOne = strpos($var['value'], '@');
+            if ($atPositionOne <= 0) $isValid = false; // @ di posisi pertama atau tidak ditemukan
+            
+            $restStringOne = substr($var['value'], $atPositionOne + 1);
+            $atPositionTwo = strpos($restStringOne, '.');
+            if ($atPositionTwo <= 0) $isValid = false; // . di posisi pertama atau tidak ditemukan
+            
+            $restStringTwo = substr($restStringOne, $atPositionTwo + 1);
+            if (strpos($restStringOne, '@') === true|| strpos($restStringTwo, '.') === true) $isValid = false;
+            if (strlen($restStringTwo) < 2) $isValid = false; // jika panjang karakter setelah '.' kurang dari 2
+            
+            if ($isValid) { // kondisi benar
+                if ($var['value'] == $var['valueTwo']) echo "Failure: Email dan Password harus berbeda!";
+                else if (!$u->isBolehDaftarEmail($var['value'])) echo "Failure: Email sudah pernah digunakan!";
+                else echo "Success: Email bernilai benar!";
+            } else {
+                echo "Failure: '".$var['value']."' bukanlah email yang valid!";
+            }
+            break;
+            
+            case 'checkUsername': // validasi untuk username
+            
+            if (strlen($var['value']) >= 5) { // kondisi benar
+                if ($var['value'] == $var['valueTwo']) echo "Failure: Username dan Password harus berbeda!";
+                else if (!$u->isBolehDaftarUsername($var['value'])) echo "Failure: Username sudah pernah digunakan!";
+                else echo "Success: Username bernilai benar!";
+            } else {
+                echo "Failure: '".$var['value']."' kurang dari 5 karakter!";
+            }
+            break;
+            
+            case 'checkPassword': // validasi untuk password
+            if (strlen($var['value']) < 8) {
+                echo "Failure: Password kurang dari 8 karakter!";
+            } else if ($var['value'] == $var['valueTwo']) {
+                echo "Failure: Email dan Password harus berbeda!";
+            } else if ($var['value'] == $var['valueThree']) {
+                echo "Failure: Username dan Password harus berbeda!";
+            } else {
+                echo "Success: Password bernilai benar!";
+            }
+            break;
+            
+            case 'checkConfirm': // validasi untuk konfirmasi password
+            if ($var['value'] == $var['valueTwo']) {
+                echo "Success: Password konfirmasi bernilai benar!";
+            } else {
+                echo "Failure: Konfirmasi password berbeda dengan password awal!";
+            }
+            break;
+            
+            case 'checkNamaLengkap': // validasi untuk nama lengkap
+            if (strpos($var['value'], ' ') === false) $isValid = false; // spasi tidak ditemukan
+            
+            if ($isValid) {
+                $restString = substr($var['value'], strpos($var['value'], ' ') + 1);
+                if (strlen($restString) <= 0 || !preg_match("/^[a-z]$/i", $restString[0])) $isValid = false; // menjamin adanya karakter lain dibelakang
+            }
+            
+            if ($isValid) {
+                echo "Success: Nama lengkap bernilai benar!";           
+            } else {
+                echo "Failure: Nama lengkap harus terdiri atas minimal dua karakter!";  
+            }
+            break;
+            
+            default: exit;
+        }
+    }
+    
 	public function login(array $var)
 	{
 		if (isset($_SESSION['username']))
@@ -92,10 +170,8 @@ class User
 				$_SESSION['email'] = $ret->email;
 				$_SESSION['password'] = $ret->password;
 				$_SESSION['kota'] = $ret->kota;
-				$_SESSION['kabupaten'] = $ret->kabupaten;
 				$_SESSION['isCreditCard'] = $ret->isCreditCard;
                 echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php/user";
-				//header("Location: ".SITE_ROOT.NAME_ROOT."/index.php/user");
 			} else {
                 echo "Failure: Username / Password anda salah!";
             }

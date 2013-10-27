@@ -17,7 +17,7 @@ class User_Model
 		return $this->database->fetch();
 	}
 
-	public function isBolehDaftar($username)
+	public function isBolehDaftarUsername($username)
 	{
 		$username = mysql_real_escape_string(stripslashes($username));
 		$query = "SELECT * FROM user where username='".$username."'";
@@ -26,17 +26,27 @@ class User_Model
 		if ($ret->username != null) return false;
 		else return true; //boleh daftar karena username tidak ada
 	}
-
-	public function addUser($username, $password, $nama_lengkap, $HP, $alamat, $provinsi, $kota,$kabupaten, $KodePos, $email,$isCreditCard)
+    
+	public function isBolehDaftarEmail($email)
 	{
-		$query = "INSERT INTO user (username,nama_lengkap,HP,alamat,provinsi,kota,kabupaten,kodepos,email,password,isCreditCard) VALUES ('".$username."','".$nama_lengkap."','".$HP."','".$alamat."','".$provinsi."','".$kota."','".$kabupaten."','".$KodePos."','".$email."','".$password."','".$isCreditCard."')";
+		$email = mysql_real_escape_string(stripslashes($email));
+		$query = "SELECT * FROM user where email='".$email."'";
+		$this->database->query($query);
+		$ret = $this->database->fetch();
+		if ($ret->email != null) return false;
+		else return true; //boleh daftar karena username tidak ada
+	}
+
+	public function addUser($username, $password, $nama_lengkap, $HP, $alamat, $provinsi, $kota, $KodePos, $email,$isCreditCard)
+	{
+		$query = "INSERT INTO user (username,nama_lengkap,HP,alamat,provinsi,kota,kodepos,email,password,isCreditCard) VALUES ('".$username."','".$nama_lengkap."','".$HP."','".$alamat."','".$provinsi."','".$kota."','".$KodePos."','".$email."','".$password."','".$isCreditCard."')";
 		$this->database->query($query);
 		$_SESSION['id'] = mysql_insert_id(); //session ID ditanam
 	}
 	
-	public function updateInfo($username, $password, $nama_lengkap, $HP, $alamat, $provinsi, $kota,$kabupaten, $KodePos, $email)
+	public function updateInfo($username, $password, $nama_lengkap, $HP, $alamat, $provinsi, $kota, $KodePos, $email)
 	{
-		$query = "UPDATE user SET username='".$username."', password='".$password."', nama_lengkap='".$nama_lengkap."', HP='".$HP."', alamat='".$alamat."', provinsi='".$provinsi."', kota='".$kota."', kabupaten='".$kabupaten."', kodepos='".$KodePos."', email='".$email."' where id=".$_SESSION['id'];
+		$query = "UPDATE user SET username='".$username."', password='".$password."', nama_lengkap='".$nama_lengkap."', HP='".$HP."', alamat='".$alamat."', provinsi='".$provinsi."', kota='".$kota."', kodepos='".$KodePos."', email='".$email."' where id=".$_SESSION['id'];
 		$this->database->query($query);
 	}
 

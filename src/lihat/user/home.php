@@ -5,7 +5,7 @@
 	<title> Ini laman Login </title>
 </head>
 <body>
-Selamat Datang, anda berada pada laman user<br>
+Selamat Datang <?=$_SESSION['username'];?>, anda berada pada laman user<br>
 Untuk lihat-lihat barang, klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang"> ini </a><br>
 Untuk Logout, klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/logout"> ini </a><br>
 Untuk mengedit data personal, silahkan klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/change"> ini</a><br>
@@ -19,8 +19,7 @@ Password : *****<br>
 Nama Lengkap : <?=$_SESSION['nama_lengkap'];?><br>
 Nomor HP : <?=$_SESSION['HP'];?><br>
 Alamat : <?=$_SESSION['alamat'];?> <br>
-Kabupaten : <?=$_SESSION['kabupaten'];?><br>
-Kota : <?=$_SESSION['kota'];?><br>
+Kota / Kabupaten : <?=$_SESSION['kota'];?><br>
 Provinsi : <?=$_SESSION['provinsi'];?><br>
 Kodepos : <?=$_SESSION['kodepos'];?><br>
 Email : <?=$_SESSION['email'];?><br>

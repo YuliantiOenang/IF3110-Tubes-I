@@ -156,7 +156,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `kota` varchar(100) NOT NULL,
-  `kabupaten` varchar(100) NOT NULL,
   `isCreditCard` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
@@ -165,11 +164,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `nama_lengkap`, `HP`, `alamat`, `provinsi`, `kodepos`, `email`, `password`, `kota`, `kabupaten`, `isCreditCard`) VALUES
-(4, 'habibie', 'Habibie Faried', '08561435232', 'Jl. Pelesirann', 'Jawa Barat', 40114, 'habibiefaried@gmail.com', 'habibie', 'Bandung', '-', 1),
-(7, 'iskandar', 'Iskandar Setiadi', '00000', 'Jl. Tubis', 'Jawa Barat', 40117, 'iseng@test.com', 'iskandar', 'Bandung', 'Bandung', 0),
-(8, 'haha', 'haha', '0856', 'JL. haha', 'haha', 18124, 'haha@haha.com', 'haha', 'haha', 'haha', 0),
-(9, 'iseng', 'iseng', '08961', 'Jl. iseng', 'iseng', 15123, 'iseng@iseng.com', 'iseng', 'iseng', 'iseng', 1);
+INSERT INTO `user` (`id`, `username`, `nama_lengkap`, `HP`, `alamat`, `provinsi`, `kodepos`, `email`, `password`, `kota`, `isCreditCard`) VALUES
+(4, 'habibie', 'Habibie Faried', '08561435232', 'Jl. Pelesirann', 'Jawa Barat', 40114, 'habibiefaried@gmail.com', 'habibie', 'Bandung', 1),
+(7, 'iskandar', 'Iskandar Setiadi', '00000', 'Jl. Tubis', 'Jawa Barat', 40117, 'iseng@test.com', 'iskandar', 'Bandung', 0),
+(8, 'haha', 'haha', '0856', 'JL. haha', 'haha', 18124, 'haha@haha.com', 'haha', 'haha', 0),
+(9, 'iseng', 'iseng', '08961', 'Jl. iseng', 'iseng', 15123, 'iseng@iseng.com', 'iseng', 'iseng', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

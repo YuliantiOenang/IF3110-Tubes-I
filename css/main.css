@@ -278,7 +278,7 @@ pre {
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px;
-	width: 960px;
+	width: 700px;
  
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -298,6 +298,12 @@ pre {
 	-moz-border-radius: 20px;
 }
 
+#featured .view img {
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+}
+
 #featured figure img {display: block; float: right;}
  
 #featured h2 {color: #C74451; font-size: 1.714em; margin-bottom: 0.333em;}
@@ -315,7 +321,7 @@ pre {
 	overflow: hidden;
 	padding: 20px;
 	text-align: left;
-	width: 960px;
+	width: 700px;
  
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -323,6 +329,23 @@ pre {
 }
 
 #registerform h2 {color: #C74451; font-size: 1.714em; margin-bottom: 0.333em;}
+
+
+/***** Sidebar *****/
+#sidebar {
+	background: #fff;
+	font-style: normal;
+	margin-bottom: 2em;
+	overflow: hidden;
+	padding: 20px;
+	text-align: left;
+	float: right;
+    width: 200px;
+ 
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
 
 
 /***** About *****/
@@ -410,7 +433,7 @@ pre {
 	overflow: hidden;
 	position: relative;
 	text-align: center;
-	box-shadow: 1px 1px 2px #e6e6e6;
+	box-shadow: 0px 1px 2px #e6e6e6;
 	cursor: default;
 	background: #fff;
 }

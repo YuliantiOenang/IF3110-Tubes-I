@@ -1,4 +1,5 @@
 <?php include "header.php";?>
+<?php include "sidebar.php";?>
 <article id="featured" class="body">
 		<h2>Featured Product</h2>
 		<h3><a href="#">Kategori Makanan</a></h3>
@@ -6,6 +7,7 @@
 	
 </article><!-- /#featured -->
 <?php include "footer.php";?>
+
 </div>
 </body>
 </html>

@@ -4,6 +4,7 @@
 <head><title>Pendaftaran Kartu Kredit</title></head>
 <body>
 	<?php include "header.php"; ?>
+	<?php include "sidebar.php"; ?>
 	<form id="registerform" method="post" action="registercard.php">
 	<strong><h2>Pendaftaran Kartu Kredit</h2></strong><br>
 	<p><?php echo $owner; ?> Bisa mendaftarkan kartu kredit sekarang atau nanti</p>

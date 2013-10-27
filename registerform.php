@@ -119,6 +119,7 @@
 </head>
 <body>
 	<?php include "header.php"; ?>
+	<?php include "sidebar.php"; ?>
 		<form id="registerform" method="post" action="register.php">
 		<strong><h2>Pendaftaran Anggota Baru Ruserba</h2></strong><br>
 		<pre>(*) Harus diisi.</pre>

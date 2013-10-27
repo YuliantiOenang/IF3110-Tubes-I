@@ -1,5 +1,8 @@
 body {
-	background:linear-gradient(white, white, #CCCCCC);
+	background:-moz-linear-gradient(#FFFFFF, #FFFFFF, #F8F8F8, #D8D8D8);
+	background:-o-linear-gradient(#FFFFFF, #FFFFFF, #F8F8F8, #D8D8D8);
+	background:-webkit-linear-gradient(#FFFFFF, #FFFFFF, #F8F8F8, #D8D8D8);
+	background:linear-gradient(#FFFFFF, #FFFFFF, #F8F8F8, #D8D8D8);
 	margin:0;
 	padding:0px 0px 16px 0px;
 }
@@ -67,14 +70,14 @@ div, form, h1, li, p, ul {
 	float:left;
 	font-family:arial;
 	font-size:28px;
-	margin-top:-122px;
+	margin-top:-108px;
 }
 
 #subtitle {
 	color:white;
 	float:right;
 	font-size:18px;
-	margin-top:-8px;
+	margin-top:-78px;
 	padding-right:3px;
 }
 
@@ -150,8 +153,8 @@ div, form, h1, li, p, ul {
 	width:1146px;
 }
 
-#textinside{
-	margin-left:5cm;
+#content_title {
+	margin-bottom:22px;
 }
 
 #footer {

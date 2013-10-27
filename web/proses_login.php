@@ -18,53 +18,33 @@
 				{
 				$idmember=$baris[1];
 				$getID=$baris[0];
+				$kota=$baris[2];
+				$kodepos=$baris[3];
+				$email=$baris[4];
+				$hp=$baris[5];
+				$username=$baris[7];
+				$provinsi=$baris[8];
+				$alamat=$baris[9];
+				
+				
 				}
-								$_SESSION["user"] = $idmember;
-								$_SESSION["id"] = $getID;
+
 								setcookie("user1", $idmember, time()+3600*24*30);
-								setcookie("user2", $getID, time()+3600*24*30);
+								setcookie("IdCustomer", $getID, time()+3600*24*30);
+								setcookie("kobupaten", $kota, time()+3600*24*30);
+								setcookie("kodepos", $kodepos, time()+3600*24*30);
+								setcookie("email", $email, time()+3600*24*30);
+								setcookie("handphone", $hp, time()+3600*24*30);
+								setcookie("username", $username, time()+3600*24*30);
+								setcookie("provinsi", $provinsi, time()+3600*24*30);
+								setcookie("alamat", $alamat, time()+3600*24*30);
+								
 								$return = array();
 								$return['nama'] = $idmember;
 								$return['id'] = $getID;
 
 								echo json_encode($return);
-								
-								//header("location: index.php");
-								//echo $_SESSION["user"];
-                                
-                                /* $ip=$_COOKIE['ip'];
-                                $noip=$_COOKIE['noip'];
-                                echo $ip;
-                                echo $noip;
-                                $query3 = "SELECT * 
-                                    FROM tabel_keranjang_sementara
-                                    where (ip='$ip' && noip='$noip')";
-                                $hasil3 = mysql_query($query3) or die("Kesalahan pada queryaaaaaaa!");
-                                if ($hasil3)
-                                {
-                                    while ($barisdata = mysql_fetch_array($hasil3)) {
-                                        $idbuku = $barisdata["idbuku"];
-                                        $jmlbeli = $barisdata["jmlbeli"];
-                                        $query2 = "INSERT into tabel_keranjang_user values ('','$idmember','$idbuku','$jmlbeli')";
-                                        $hasil2 = mysql_query($query2) or die("Kesalahan pada querybbbbbbb!");
-                                    }
-                                    $query4 = "delete from tabel_keranjang_sementara where (ip='$ip' && noip='$noip')";
-                                    $hasil4 = mysql_query($query4) or die("Kesalahan pada querybbbbbbb!");
-                                }
-                                
-                                setcookie(ip,'');
-                                setcookie(noip,'');
-                                if (isset($_COOKIE['posisi']) && ($_COOKIE['posisi']=='cekout'))
-                                {
-                                    header("location: bayar.php");
-                                    //echo "cookie posisi";
-                                }
-                                else 
-                                {
-                                    header("location: index.php");
-                                    //echo "gfagal";
-                                } */
-			
+	
 		}
 		else
 		{		

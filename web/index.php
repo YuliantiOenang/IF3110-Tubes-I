@@ -160,7 +160,7 @@ function remove(id)
 				if(!isset($_COOKIE['user1']))
 				{
 				?>
-				<img src = "images/signup.png" class = "signup" id="signup"></img>
+				<img src = "images/signup.png" class = "signup" id="signup" onclick="window.location='registrasi.php'"></img>
 				<?php
 				}
 				?>

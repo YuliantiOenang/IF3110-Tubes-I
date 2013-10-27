@@ -54,7 +54,13 @@
 						</a>
 					</li>
 					<li id="nav_hor">|</li>
-					<li id="nav_hor"><a href="#"><b>MASUK</b></a></li>
+					<li id="nav_hor">
+						<a href="login.php" onclick="return login()">
+							<b>
+								MASUK
+							</b>
+						</a>
+					</li>
 					<li id="nav_hor">|</li>
 					<li id="nav_hor"><a href="register.php"><b>DAFTAR</b></a></li>
 				</ul>

@@ -1,7 +1,10 @@
 function login() {
+	var x = window.innerWidth/2 - 250;
+	var y = window.innerHeight/2 - 63;
 	newwindow = window.open('login.php', 'name', 'height=125, width=500');
+	newwindow.moveTo(x,y)
 	if (window.focus) {
-		newwindow.focus()
+		newwindow.focus();
 	}
 	return false;
 }

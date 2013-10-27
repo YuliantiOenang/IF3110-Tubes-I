@@ -227,46 +227,29 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> TOP THREE JACKETS<label></br>
+		<label> Shopping Bag<label></br>
 		</div>
-		
-			<div class = "toppreview">
-				<div class = "previmage">
-					
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-					
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-			</div>
-			<div class = "toppreview">
-				<div class = "previmage">
+		<?php
+			include "config/connect.php";
+			
+			
+				$count=0;
+				$hasil = mysql_query("SELECT peralatan.no_alat, peralatan.foto, peralatan.nama, peralatan.harga, keranjang.jumlah,keranjang.pesan FROM keranjang,peralatan where id_customer='".$_COOKIE['IdCustomer']."' and peralatan.no_alat=keranjang.id_alat");
 				
+				while(($baris=mysql_fetch_row($hasil)))
+				{
+				echo "<div class = 'toppreview'>
+				<div class = 'previmage'>
+					<img src='".$baris[1]."' class='resizeimage'>
 				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-				</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-				</div>
-			<div class = "toppreview">
-				<div class = "previmage">
-				
-				</div>
-				<p class = "copyrightext"> Mylo Xyloto Jacket </br>
-					  Rp175.000 </label> </br> </p>
-				</div>
+				<p class = 'copyrightext'> ".$baris[2]." </br>
+					  Rp".$baris[3]." </label> </br> Pesan : ".$baris[5]." </br> Jumlah: ".$baris[4]." </p>
+				</div>";
+				}
+			
+		?>
 			<div class = "checkout">
-			<input type="button" value="Checkout"></input>
+			<input type="button" value="Detail Pembayaran" onclick="window.location='pembayaran.php'"></input>
 			</div>
 	</div>
 	</div>

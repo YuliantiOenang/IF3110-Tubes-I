@@ -150,7 +150,7 @@ function remove(id)
 				?>
 				</div>
 				<div >
-					<img src = "images/cart.png" class = "cart" ></img>
+					<img src = "images/cart.png" class = "cart" onclick="window.location='shoppingbag.php'"></img>
 				</div>
 			</div>
 			<div class = "signupplace">

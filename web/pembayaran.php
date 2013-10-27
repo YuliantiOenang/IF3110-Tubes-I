@@ -240,25 +240,44 @@ function remove(id)
 			<label>Harga</label>
 			</div>
 		</div>
+		
 		<div class= "bayar"> 
-			<div class= "isibayar">
-			</div>
-			<div class= "isibayar">
-			</div>
-			<div class= "isibayar">
-			</div>
+		<?php
+			include "config/connect.php";
+			
+				$total=0;
+				$hasil = mysql_query("SELECT peralatan.no_alat, peralatan.foto, peralatan.nama, peralatan.harga, keranjang.jumlah,keranjang.pesan FROM keranjang,peralatan where id_customer='".$_COOKIE['IdCustomer']."' and peralatan.no_alat=keranjang.id_alat");
+				
+				while(($baris=mysql_fetch_row($hasil)))
+				{
+				
+				echo "<div class= 'isibayar'>
+						".$baris[2]."
+					</div>
+					<div class= 'isibayar'>
+					".$baris[4]."
+					</div>
+					<div class= 'isibayar'>
+					".$baris[3]."
+					</div>";
+					$total+=$baris[3]*$baris[4];
+				}
+			
+		?>
+			
 		</div>
 		<div class= "bayar"> 
 		<div class= "isitotal">
 		<label>Total</label>
 			</div>
 			<div class= "isibayar">
+			<?php echo $total; ?>
 			</div>
 			
 			
-		</div>	
+		</div>	</br>
 			<div class = "registerspace">
-			<input type="button" value = "Confirm"></br>
+			<input type="button" value = "Confirm" onclick="window.location='payment.php'";></br>
 			</div>
 			
 			 

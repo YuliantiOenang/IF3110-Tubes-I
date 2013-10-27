@@ -252,11 +252,15 @@ function remove(id)
 			 
 			</div>
 			  <div class = "detail">
+					<form method="GET" action="addCart.php">
 					<p> Nama Produk : <?php echo $nama;?></p>
 					<p> Harga Produk : <?php echo "Rp.".$kategori;?></p>
 					<p> Deskripsi : <?php echo $deskripsi;?></p>
-					<label> Jumlah Beli : </label> <input type="text" id="user" /></br></br>
-					<input type="button" value="Add to Cart"></input>
+					<input hidden name='id' value="<?php echo $_GET['id']; ?>"></input>
+					<label> Jumlah Beli : </label> <input type="text" id="user" name="jumlah"/></br></br>
+					<label> Permintaan Khusus : </label> <input type="text" id="user" name="permintaan"/></br></br>
+					<input type="submit" value="Add to Cart"></input>
+					</form>
 				</div>
 			</div>
 			</div>

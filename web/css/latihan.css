@@ -346,3 +346,26 @@ float : left;
 margin-left : auto;
 margin-right : auto;
 }
+
+.bayar {
+width : 600px;
+height : 30px;
+margin-left : 20px;
+}
+
+.isibayar {
+width : 198px;
+height : 28px;
+border : 1px solid black;
+float:left;
+background-color : yellow;
+}
+
+.isitotal {
+width : 398px;
+height : 28px;
+border : 1px solid black;
+float:left;
+background-color : yellow;
+}
+

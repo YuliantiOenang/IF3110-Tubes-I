@@ -1,5 +1,5 @@
 <?php
-	include("db.php");
+	include(dirname(__FILE__)."/db.php");
 
 	//fungsi-fungsi transaksi barang
 	

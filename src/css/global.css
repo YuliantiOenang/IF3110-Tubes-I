@@ -1,0 +1,47 @@
+.header{
+	border-bottom: solid black 1px;
+}
+
+/* elemen table-like div */
+
+.row{
+	vertical-align:top;
+	padding-top:.25em;
+	display: block;
+	width: 100%;
+}
+
+.cell{
+	vertical-align:top;
+	display:inline-block;
+}
+
+.cell33{
+	vertical-align:top;
+	display:inline-block;
+	width: 33%;
+}
+
+.cell66{
+	vertical-align:top;
+	display:inline-block;
+	width: 66%;
+}
+
+.cell25{
+	vertical-align:top;
+	display:inline-block;
+	width: 25%;
+}
+
+.cell50{
+	vertical-align:top;
+	display:inline-block;
+	width: 50%;
+}
+
+.cell75{
+	vertical-align:top;
+	display:inline-block;
+	width: 75%;
+}

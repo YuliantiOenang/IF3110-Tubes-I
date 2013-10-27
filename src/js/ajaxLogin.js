@@ -6,29 +6,31 @@ function onLoginClick(strUrl, formName) {
     var xmlHttpRequest = false;
     var self = this;
     
-    if (window.XMLHttpRequest) {
+    if (window.XMLHttpRequest) { // jika menggunakan browser selain IE
         self.xmlHttpRequest = new XMLHttpRequest();
-    } else if (window.ActiveXObject) { // if IE
+    } else if (window.ActiveXObject) { // jika menggunakan browser IE
         self.xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    self.xmlHttpRequest.open('POST', strUrl, true);
+    self.xmlHttpRequest.open('POST', strUrl, true); // URL tempat POST akan di-directkan
     self.xmlHttpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     self.xmlHttpRequest.onreadystatechange = function() {
-        if (self.xmlHttpRequest.readyState == 4) {
-            if (self.xmlHttpRequest.responseText.substring(0,7) == "Success") {
-                window.location.replace(self.xmlHttpRequest.responseText.substring(9));
+        if (self.xmlHttpRequest.readyState == 4) { // Menunggu sampai POST selesai dilakukan
+            var str = self.xmlHttpRequest.responseText;
+            var n = str.indexOf("Success");
+            if (n != -1) {
+                window.location.replace(self.xmlHttpRequest.responseText.substring(n + 9));
             } else alert(self.xmlHttpRequest.responseText);
         }
     }
     
-    self.xmlHttpRequest.send(getString(formName));
+    self.xmlHttpRequest.send(getString(formName)); // Melakukan proses pengiriman POST
 }
 
 function getString(formName) {
-    var form = document.forms[formName]; // mendapat form dari dokumen
+    var form = document.forms[formName]; // Mendapat form dari dokumen
     var qstr = "";
     
-    function getElement(name, value) { // mendapat nilai-nilai dari form
+    function getElement(name, value) { // Mendapat nilai-nilai dari form
         qstr += (qstr.length > 0 ? "&" : "")
             + escape(name).replace(/\+/g, "%2B") + "="
             + escape(value ? value : "").replace(/\+/g, "%2B");

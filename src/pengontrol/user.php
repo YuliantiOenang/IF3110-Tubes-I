@@ -97,7 +97,7 @@ class User
                 echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php/user";
 				//header("Location: ".SITE_ROOT.NAME_ROOT."/index.php/user");
 			} else {
-                echo "Failure : Username / Password anda salah!";
+                echo "Failure: Username / Password anda salah!";
             }
 		}
 	}

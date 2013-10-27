@@ -1,5 +1,5 @@
 create table user(
-	user_id int auto_increment,
+	id_user int auto_increment,
 	username varchar(256) not null,
 	email varchar(256) not null,
 	password varchar(256) not null,

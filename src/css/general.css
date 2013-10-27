@@ -3,6 +3,7 @@ body {
 	background:-o-linear-gradient(#FFFFFF, #FFFFFF, #F8F8F8, #D8D8D8);
 	background:-webkit-linear-gradient(#FFFFFF, #FFFFFF, #F8F8F8, #D8D8D8);
 	background:linear-gradient(#FFFFFF, #FFFFFF, #F8F8F8, #D8D8D8);
+	background-repeat:no-repeat;
 	margin:0;
 	padding:0px 0px 16px 0px;
 }

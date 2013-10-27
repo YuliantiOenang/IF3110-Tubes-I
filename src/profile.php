@@ -4,6 +4,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/general.css"></link>
 		<meta charset="UTF-8"></meta>
+		<script src="js/login.js"></script>
 		<title>
 			Profil Diri
 		</title>
@@ -26,13 +27,13 @@
 			<div id="header_bottom">
 				<ul id="nav_bar">
 					<li id="nav_hor_wrap"></li>
-					<li id="nav_hor_wrap"><a href="category.php">KATEGORI 1</a></li>
-					<li id="nav_hor_wrap"><a href="category.php">KATEGORI 2</a></li>
-					<li id="nav_hor_wrap"><a href="category.php">KATEGORI 3</a></li>
-					<li id="nav_hor_wrap"><a href="category.php">KATEGORI 4</a></li>
-					<li id="nav_hor_wrap"><a href="category.php">KATEGORI 5</a></li>
+					<li id="nav_hor_wrap"><a href="category.php">MAKANAN</a></li>
+					<li id="nav_hor_wrap"><a href="category.php">PAKAIAN</a></li>
+					<li id="nav_hor_wrap"><a href="category.php">FURNITUR</a></li>
+					<li id="nav_hor_wrap"><a href="category.php">ALAT DAPUR</a></li>
+					<li id="nav_hor_wrap"><a href="category.php">LAIN-LAIN</a></li>
 					<li id="search">
-						<form action="#" method="post">
+						<form action="search.php" method="post">
 							<input id="text_field" type="text" name="name"></input>
 							<input id="button" type="submit" value="CARI"></input>
 						</form>

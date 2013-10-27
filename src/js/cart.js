@@ -27,12 +27,16 @@ function refreshCart(){
 			cart.innerHTML = "";
 			var total = 0;
 			
+			// bikin title row 
+			
 			var hrow = createRow();
 			hrow.appendChild(createCell(50, "<b>Nama Barang</b>"));
 			hrow.appendChild(createCell(25, "<b>Jumlah Beli</b>"));
 			hrow.appendChild(createCell(25, "<b>Total Harga</b>"));
 			
 			cart.appendChild(hrow);
+			
+			// isi row2 barang
 			
 			for (i = 0; i < response.barang.length; i++){
 				var barang = response.barang[i];
@@ -42,11 +46,13 @@ function refreshCart(){
 				
 				var row = createRow();
 				row.appendChild(createCell(50, barang.nama));
-				row.appendChild(createCell(25, "<a class='editlink' href='javascript:edit(" + barang.id + ");'>"+bag[barang.id] + "</a>"));
+				row.appendChild(createCell(25, "<a class='editlink' href='javascript:editItem(" + barang.id + ");'>"+bag[barang.id] + "</a>"));
 				row.appendChild(createCell(25, "Rp. " + harga));
 				
 				cart.appendChild(row);
 			}
+			
+			// bikin row total harga
 			
 			hrow = createRow();
 			hrow.appendChild(createCell(50, "Total Harga"));
@@ -55,6 +61,8 @@ function refreshCart(){
 			
 			cart.appendChild(document.createElement("hr"));
 			cart.appendChild(hrow);
+			
+			cart.innerHTML += "<input type='button' value='Lakukan Pembelian' onclick='commit_buy()' />";
 			
 		}else{
 			cart.innerHTML = "error " + response.details;
@@ -66,8 +74,15 @@ function refreshCart(){
 	sendAjax(request, "cart.php", callback);
 }
 
-function edit(id){
-
+function editItem(id){
+	if (localStorage.getItem("shoppingbag") === null) return;
+	
+	var bag = JSON.parse(localStorage.shoppingbag);
+	jumlah = bag[id];
+	
+	if(jumlah==undefined) return;
+	
+	editCart(id, jumlah, refreshCart);
 }
 
 function createRow(){

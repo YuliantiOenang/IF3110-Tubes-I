@@ -46,10 +46,10 @@ while($row = mysql_fetch_object($data['barang']))
 		}
 		?>
 	</tr>	
-<?
+<?php
 }
 ?>
-<table>
+</table>
 
 Halaman : 
 <?php
@@ -57,7 +57,7 @@ for ($i=0; $i<$data['jmlPage']; $i++)
 {
 ?>
 	 <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/index?page=<?=$i;?>"> <?=$i;?> </a>
-<?
+<?php
 }
 ?>
 

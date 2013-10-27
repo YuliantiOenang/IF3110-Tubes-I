@@ -63,12 +63,11 @@
 		return $success;
 	}
 	
-	// handle ajax
-	if (isset($_POST["ajax"])){
-		header("Content-type: text/plain");
+	function handleTransactionAjax(){
+		// handle ajax untuk aksi2 transaksi
+		// syarat: $_POST["ajax"] terdefinisi
 		
 		$request = json_decode($_POST["ajax"], true);
-		
 		$response = array("status" => "error");
 		
 		switch($request["action"]){
@@ -83,8 +82,12 @@
 				if(buy($request["list"]))
 					$response["status"] = "ok";
 			break;
+			default:
+				return null;
+			break;
 		}
 		
-		exit(json_encode($response));
+		return json_encode($response);
 	}
+	
 ?>

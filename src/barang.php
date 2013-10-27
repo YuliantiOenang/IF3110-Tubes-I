@@ -1,11 +1,20 @@
 <?php
 
-if(!isset($_GET["id"])){
+include("lib/transaksi_lib.php");
+include("lib/search_lib.php");
+
+if(isset($_POST["ajax"])){
+	$response = handleTransactionAjax();
+	if ($response != null){
+		exit($response);
+	}
+	
+	exit();	
+}else if(!isset($_GET["id"])){
 	header("Location: index.php");
 }
 
-include("lib/transaksi_lib.php");
-include("lib/search_lib.php");
+
 
 $barang = searchId($_GET["id"]);
 if ($barang == null) header("Location: index.php");
@@ -25,7 +34,6 @@ if ($barang == null) header("Location: index.php");
 <?php
 	include("header.php");
 ?>
-<br/>
 <?php
 	echo '<div class="barang">';
 	echo '<div class="row title">'.$barang->nama.'</div>';

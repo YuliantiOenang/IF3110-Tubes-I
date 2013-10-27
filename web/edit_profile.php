@@ -277,7 +277,7 @@ function remove(id)
 		
 		<div class = "logohead">
 			<div >
-				<img src = "images/logo.png" class = "logo">
+				<a href="index.php"><img src = "images/logo.png" class = "logo"></a>
 				</img>
 				</div>
 			<div class = "loginplace">
@@ -298,7 +298,7 @@ function remove(id)
 				?>
 				</div>
 				<div >
-					<img src = "images/cart.png" class = "cart" ></img>
+					<img src = "images/cart.png" class = "cart" onclick="window.location='shoppingbag.php'"></img>
 				</div>
 			</div>
 			<div class = "signupplace">
@@ -308,18 +308,19 @@ function remove(id)
 				if(!isset($_COOKIE['user1']))
 				{
 				?>
-				<img src = "images/signup.png" class = "signup" id="signup"></img>
+				<img src = "images/signup.png" class = "signup" id="signup" onclick="window.location='registrasi.php'"></img>
 				<?php
 				}
 				?>
 					
 				</div> 
 				
-			<p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1']; ?></p>
+			<a href="see_profile.php"><p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1'].""; ?></p></a>
 			</div>
 		</div>
 		<div class = "menu">
 				<div>
+					
 					<img src = "images/jacket.png" class = "jacket"></img>
 				</div>
 				<div>
@@ -387,19 +388,19 @@ function remove(id)
 			<label>Confirm change Password</label> <input type="password" id="conf_password" required placeholder = "1234"></br>
 			</div>
 			<div class = "registerspace">
-			<label>Alamat</label> <input type="text" id="alamat" placeholder = "Jl. Ganesha No.10 Bandung" value =<?php echo $_COOKIE["alamat"]?> defaultValue = <?php echo $_COOKIE["alamat"]?>></br>
+			<label>Alamat</label> <input type="text" id="alamat" placeholder = "Jl. Ganesha No.10 Bandung" value ="<?php if(isset($_COOKIE["alamat"])) echo $_COOKIE["alamat"];?>" defaultValue = <?php if(isset($_COOKIE["alamat"])) echo $_COOKIE["alamat"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Provinsi</label> <input type="text" id="provinsi" placeholder = "Jawa Barat" value =<?php echo $_COOKIE["provinsi"]?> defaultValue = <?php echo $_COOKIE["provinsi"]?>></br>
+			<label>Provinsi</label> <input type="text" id="provinsi" placeholder = "Jawa Barat" value ="<?php if(isset($_COOKIE["provinsi"])) echo $_COOKIE["provinsi"];?>" defaultValue = <?php if(isset($_COOKIE["provinsi"])) echo $_COOKIE["provinsi"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Kota/Kabupaten</label> <input type="text" id="kobupaten" placeholder = "Sumur Bandung" value =<?php echo $_COOKIE["kobupaten"]?> defaultValue = <?php echo $_COOKIE["kobupaten"]?>></br>
+			<label>Kota/Kabupaten</label> <input type="text" id="kobupaten" placeholder = "Sumur Bandung" value ="<?php if(isset($_COOKIE["kobupaten"])) echo $_COOKIE["kobupaten"];?>" defaultValue = <?php if(isset($_COOKIE["kobupaten"])) echo $_COOKIE["kobupaten"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Kode Pos</label> <input type="text" id="kodepos" placeholder = "40124" value =<?php echo $_COOKIE["kodepos"]?> defaultValue = <?php echo $_COOKIE["kodepos"]?>></br>
+			<label>Kode Pos</label> <input type="text" id="kodepos" placeholder = "40124" value ="<?php if(isset($_COOKIE["kodepos"])) echo $_COOKIE["kodepos"];?>" defaultValue = <?php if(isset($_COOKIE["kodepos"])) echo $_COOKIE["kodepos"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Nomor Handphone</label> <input type="text" id="handphone" placeholder = "08180000000" value =<?php echo $_COOKIE["handphone"]?> defaultValue = <?php echo $_COOKIE["handphone"]?>></br>
+			<label>Nomor Handphone</label> <input type="text" id="handphone" placeholder = "08180000000" value ="<?php if(isset($_COOKIE["handphone"])) echo $_COOKIE["handphone"];?>" defaultValue = <?php if(isset($_COOKIE["handphone"])) echo $_COOKIE["handphone"]?>></br>
 			</div>
 			<div class = "registerspace">
 			<input type="button" value = "Save" onclick="checkSubmit()"><label id="pesan"></label></br>

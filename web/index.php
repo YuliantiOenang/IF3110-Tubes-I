@@ -129,7 +129,7 @@ function remove(id)
 		
 		<div class = "logohead">
 			<div >
-				<img src = "images/logo.png" class = "logo">
+				<a href="index.php"><img src = "images/logo.png" class = "logo"></a>
 				</img>
 				</div>
 			<div class = "loginplace">
@@ -167,11 +167,12 @@ function remove(id)
 					
 				</div> 
 				
-			<p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1']; ?></p>
+			<a href="see_profile.php"><p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1'].""; ?></p></a>
 			</div>
 		</div>
 		<div class = "menu">
 				<div>
+					
 					<img src = "images/jacket.png" class = "jacket"></img>
 				</div>
 				<div>
@@ -236,7 +237,7 @@ function remove(id)
 		<div class = "topthreecat">
 			<?php
 				$count=0;
-				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Jaket' order by terbayar.jumlah desc");
+				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Jaket' group by peralatan.nama order by terbayar.jumlah desc");
 				while(($baris=mysql_fetch_row($hasil)) && $count<3)
 				{
 				echo "<div class = 'toppreview'>
@@ -256,7 +257,7 @@ function remove(id)
 		<div class = "topthreecat">
 			<?php
 				$count=0;
-				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Sweater' order by terbayar.jumlah desc");
+				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Sweater' group by peralatan.nama order by terbayar.jumlah desc");
 				while(($baris=mysql_fetch_row($hasil)) && $count<3)
 				{
 				echo "<div class = 'toppreview'>
@@ -276,7 +277,7 @@ function remove(id)
 		<div class = "topthreecat">
 			<?php
 				$count=0;
-				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='TShirt' order by terbayar.jumlah desc");
+				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='TShirt' group by peralatan.nama order by terbayar.jumlah desc");
 				while(($baris=mysql_fetch_row($hasil)) && $count<3)
 				{
 				echo "<div class = 'toppreview'>
@@ -296,7 +297,7 @@ function remove(id)
 		<div class = "topthreecat">
 			<?php
 				$count=0;
-				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Misc' order by terbayar.jumlah desc");
+				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Misc' group by peralatan.nama order by terbayar.jumlah desc");
 				while(($baris=mysql_fetch_row($hasil)) && $count<3)
 				{
 				echo "<div class = 'toppreview'>
@@ -316,7 +317,7 @@ function remove(id)
 		<div class = "topthreecat">
 			<?php
 				$count=0;
-				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Pokemon' order by terbayar.jumlah desc");
+				$hasil = mysql_query("SELECT peralatan.no_alat,peralatan.nama,peralatan.harga,terbayar.jumlah,peralatan.foto FROM `terbayar`,`peralatan` where peralatan.no_alat=terbayar.id_barang and peralatan.kategori='Pokemon' group by peralatan.nama order by terbayar.jumlah desc");
 				while(($baris=mysql_fetch_row($hasil)) && $count<3)
 				{
 				echo "<div class = 'toppreview'>

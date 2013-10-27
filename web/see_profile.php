@@ -174,11 +174,11 @@ function remove(id)
 
 		</div>
 <div class = "main">
-	<div class = "header">
+		<div class = "header">
 		
 		<div class = "logohead">
 			<div >
-				<img src = "images/logo.png" class = "logo">
+				<a href="index.php"><img src = "images/logo.png" class = "logo"></a>
 				</img>
 				</div>
 			<div class = "loginplace">
@@ -199,7 +199,7 @@ function remove(id)
 				?>
 				</div>
 				<div >
-					<img src = "images/cart.png" class = "cart" ></img>
+					<img src = "images/cart.png" class = "cart" onclick="window.location='shoppingbag.php'"></img>
 				</div>
 			</div>
 			<div class = "signupplace">
@@ -209,18 +209,19 @@ function remove(id)
 				if(!isset($_COOKIE['user1']))
 				{
 				?>
-				<img src = "images/signup.png" class = "signup" id="signup"></img>
+				<img src = "images/signup.png" class = "signup" id="signup" onclick="window.location='registrasi.php'"></img>
 				<?php
 				}
 				?>
 					
 				</div> 
 				
-			<p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1']; ?></p>
+			<a href="see_profile.php"><p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1'].""; ?></p></a>
 			</div>
 		</div>
 		<div class = "menu">
 				<div>
+					
 					<img src = "images/jacket.png" class = "jacket"></img>
 				</div>
 				<div>
@@ -240,7 +241,6 @@ function remove(id)
 		</div>
 	
 </div>
-
 
 <div class = "bodymain">
 	<div class = "sidebar">
@@ -285,26 +285,29 @@ function remove(id)
 			<label>Nama Lengkap : <?php echo $_COOKIE["user1"] ?></label></br>
 			</div>
 			<div class = "registerspace">
-			<label>Nomor Handphone : <?php echo $_COOKIE["handphone"] ?></label></br>
+			<label>Nomor Handphone : <?php if(isset($_COOKIE["handphone"]))echo $_COOKIE["handphone"]; ?></label></br>
 			</div>
 			<div class = "registerspace">
-			<label>Alamat : <?php echo $_COOKIE["alamat"] ?></label></br>
+			<label>Alamat : <?php if(isset($_COOKIE["alamat"]))echo $_COOKIE["alamat"] ;?></label></br>
 			</div>
 			<div class = "registerspace">
-			<label>Provinsi : <?php echo $_COOKIE["provinsi"] ?></label></br>
+			<label>Provinsi : <?php if(isset($_COOKIE["provinsi"])) echo $_COOKIE["provinsi"] ?></label></br>
 			</div>
 			<div class = "registerspace">
-			<label>Kota / Kabupaten : <?php echo $_COOKIE["kobupaten"] ?></label></br>
+			<label>Kota / Kabupaten : <?php if(isset($_COOKIE["kobupaten"])) echo $_COOKIE["kobupaten"] ?></label></br>
 			</div>
 			<div class = "registerspace">
-			<label>Kodepos : <?php echo $_COOKIE["kodepos"] ?></label></br>
+			<label>Kodepos : <?php if(isset($_COOKIE["kodepos"])) echo $_COOKIE["kodepos"] ?></label></br>
 			</div>
 			<div class = "registerspace">
 			<label>Email : <?php echo $_COOKIE["email"] ?></label></br>
 			</div>
 			<div class = "registerspace">
 			<label>Jumlah Transaksi : <?php 
+				include "config/connect.php";
 				
+				$mysql=mysql_query("select id_costumer from terbayar where id_costumer='".$_COOKIE['IdCustomer']."'");
+				echo mysql_num_rows($mysql);
 			?>
 			</label></br>
 			</div>

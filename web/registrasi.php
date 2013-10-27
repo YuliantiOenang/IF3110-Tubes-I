@@ -206,11 +206,11 @@ function remove(id)
 
 		</div>
 <div class = "main">
-	<div class = "header">
+		<div class = "header">
 		
 		<div class = "logohead">
 			<div >
-				<img src = "images/logo.png" class = "logo">
+				<a href="index.php"><img src = "images/logo.png" class = "logo"></a>
 				</img>
 				</div>
 			<div class = "loginplace">
@@ -231,7 +231,7 @@ function remove(id)
 				?>
 				</div>
 				<div >
-					<img src = "images/cart.png" class = "cart" ></img>
+					<img src = "images/cart.png" class = "cart" onclick="window.location='shoppingbag.php'"></img>
 				</div>
 			</div>
 			<div class = "signupplace">
@@ -241,18 +241,19 @@ function remove(id)
 				if(!isset($_COOKIE['user1']))
 				{
 				?>
-				<img src = "images/signup.png" class = "signup" id="signup"></img>
+				<img src = "images/signup.png" class = "signup" id="signup" onclick="window.location='registrasi.php'"></img>
 				<?php
 				}
 				?>
 					
 				</div> 
 				
-			<p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1']; ?></p>
+			<a href="see_profile.php"><p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1'].""; ?></p></a>
 			</div>
 		</div>
 		<div class = "menu">
 				<div>
+					
 					<img src = "images/jacket.png" class = "jacket"></img>
 				</div>
 				<div>
@@ -272,7 +273,6 @@ function remove(id)
 		</div>
 	
 </div>
-
 
 <div class = "bodymain">
 	<div class = "sidebar">

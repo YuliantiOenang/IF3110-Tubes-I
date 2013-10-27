@@ -2,7 +2,7 @@
 // Dongkol Ampas Bro - 27 October 2013
 // @version 1.0.0
 
-function onLoginClick(strUrl, formName, responseDiv) {
+function onLoginClick(strUrl, formName) {
     var xmlHttpRequest = false;
     var self = this;
     
@@ -15,11 +15,10 @@ function onLoginClick(strUrl, formName, responseDiv) {
     self.xmlHttpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     self.xmlHttpRequest.onreadystatechange = function() {
         if (self.xmlHttpRequest.readyState == 4) {
-            updatePage("Login Berhasil", responseDiv);
+            if (self.xmlHttpRequest.responseText.substring(0,7) == "Success") {
+                window.location.replace(self.xmlHttpRequest.responseText.substring(9));
+            } else alert(self.xmlHttpRequest.responseText);
         }
-		else{
-			updatePage("Please wait...", responseDiv);
-		}
     }
     
     self.xmlHttpRequest.send(getString(formName));
@@ -50,8 +49,4 @@ function getString(formName) {
     }
 
     return qstr;
-}
-
-function updatePage(str, responseDiv) {
-    document.getElementById(responseDiv).innerHTML = str;
 }

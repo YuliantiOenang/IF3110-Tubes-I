@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function form_making(){
+var compare = window.opener.document.getElementById("result").innerHTML;
+localStorage.id = document.getElementById("id").value;
+localStorage.pass =document.getElementById("pass").value;
+//lakukan koneksi ke server
+		var xmlhttp;
+		if (window.XMLHttpRequest){
+			// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		 }
+		else{
+		// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200){
+				//window.opener.document.getElementById("result").innerHTML=xmlhttp.responseText;
+				localStorage.IsLogin = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("POST","Login.php",false);
+		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		var data ='id='+localStorage.id+'&pass='+localStorage.pass;
+		xmlhttp.send(data);
+		var i=0;
+		if(localStorage.IsLogin==true){
+			//localStorage.IsLogin = true;
+			window.opener.document.getElementById('LoginB').style.visibility="hidden";
+			window.opener.document.getElementById('LogoutB').style.visibility="visible";
+			window.opener.document.getElementById('new_id').style.visibility="hidden";
+			window.opener.document.getElementById("result").innerHTML="You are logged in as "+localStorage.id;		
+		}
+		else{
+		window.opener.document.getElementById("result").innerHTML="Id tidak ditemukan/Passwor Anda Salah"
+		
+		}
+
+window.close();
+}
+function close_form(){
+localStorage.removeItem(id);
+localStorage.removeItem(pass);
+window.close();
+}
+</script>
+</head>
+<body>
+<form>
+ID  	 : <input type="text" name="ID" id="id"><br>
+Password :<input type="password" name="Password" id="pass">
+
+</form>
+<button type="button" onclick="form_making()">Login</button>
+<button type="button" onclick="close_form()">Cancel</button>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+function Login(){
+	var win = open('test.html', 'example', 'width=300,height=300');
+	win.focus();
+	//wait till popup close
+/////
+/*
+	localStorage.IsLogin = true;
+	localStorage.ID = id;
+	document.getElementById('LoginB').style.visibility="hidden";
+	document.getElementById('LogoutB').style.visibility="visible";
+	document.getElementById("result").innerHTML="You are logged in as "+localStorage.ID;
+*/
+/////
+	
+}
+
+function LogOut(){
+	localStorage.IsLogin= false;
+	localStorage.id = "Null";
+	document.getElementById('LogoutB').style.visibility="hidden";
+	document.getElementById('LoginB').style.visibility="visible";
+	document.getElementById("result").innerHTML="You are logged out";
+	document.getElementById('new_id').style.visibility="visible";
+	sessionStorage.clear();
+	}
+
+function Inisialisasi(){
+	if(typeof(Storage)!=="undefined"){
+		if (localStorage.IsLogin){
+			if(localStorage.IsLogin == true){
+				document.getElementById('new_id').style.visibility="hidden";
+					document.getElementById('LoginB').style.visibility="hidden";
+					document.getElementById('LogoutB').style.visibility="visible";
+					document.getElementById("result").innerHTML="You are logged in as "+localStorage.id;
+			
+				}
+				else{//belumlogin
+					document.getElementById('LoginB').style.visibility="visible";
+					document.getElementById('LogoutB').style.visibility="hidden";
+					document.getElementById('new_id').style.visibility="visible";
+					document.getElementById("result").innerHTML="To log in please click the log in button";		
+				}
+			}
+		else{//islogin belum ada
+			localStorage.IsLogin= false;
+			localStorage.id = "Null";
+			document.getElementById('LoginB').style.visibility="visible";
+			document.getElementById('LogoutB').style.visibility="hidden";	
+			document.getElementById("result").innerHTML="page baru pertama di load";
+		}
+	}
+	else{
+	  document.getElementById("result").innerHTML="Sorry, your browser does not support web storage...";
+	}
+} 
+</script>
+</head>
+<body onload=Inisialisasi()>
+<input id="LoginB" style="visibility:visible" type="button" value="Log in" onclick="Login()">
+<input id="LogoutB" style="visibility:visible" type="button" value="Log out" onclick="LogOut()">
+<a id ='new_id' style="visibility:visible" href="Register.php">Create new id</a>
+<form> 
+Search Item: <input type="search" name="search" id="searchbar" >
+</form>
+<div id="result"></div>
+<div id="searchbar_result"></div>
+<p>Click the button to see the effect.</p>
+</body>
+</html>

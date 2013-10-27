@@ -7,13 +7,13 @@
 	$email = $_GET["user"];
 	$password = $_GET["pass"];
 
-	$hasil = mysql_query("SELECT email FROM customer where email='$email'");
+	$hasil = mysql_query("SELECT email FROM customer where username='$email'");
 	if(mysql_num_rows($hasil)!=0)
 	{
-			$hasil = mysql_query("SELECT password FROM customer WHERE email = '$email' and password= '$password'");
+			$hasil = mysql_query("SELECT password FROM customer WHERE username = '$email' and password= '$password'");
 			if(mysql_num_rows($hasil)!=0)
 			{
-				 $hasil = mysql_query("SELECT * FROM customer where email='$email'");
+				 $hasil = mysql_query("SELECT * FROM customer where username='$email'");
 				while($baris=mysql_fetch_row($hasil))
 				{
 				$idmember=$baris[1];

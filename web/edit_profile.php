@@ -7,6 +7,121 @@
 </head>
 <script src="js/AjaxCreateObject.js" language="javascript"></script>
 <script type="text/javascript">
+
+function getCookie(c_name)
+//FUNGSI PENGAMBIL COOCIE
+{
+var c_value = document.cookie;
+var c_start = c_value.indexOf(" " + c_name + "=");
+if (c_start == -1)
+  {
+  c_start = c_value.indexOf(c_name + "=");
+  }
+if (c_start == -1)
+  {
+  c_value = null;
+  }
+else
+  {
+  c_start = c_value.indexOf("=", c_start) + 1;
+  var c_end = c_value.indexOf(";", c_start);
+  if (c_end == -1)
+  {
+c_end = c_value.length;
+}
+c_value = unescape(c_value.substring(c_start,c_end));
+}
+return c_value;
+}
+
+function checkSubmit(){
+	var can_submit = true;
+	var ada_berubah = false;
+	//setcookie("user1",asu,time()+10000000); 
+	
+	document.getElementById("pesan").innerHTML = "";
+	
+	//CHECK PASSWORD
+	if(document.getElementById("password").value == ""){
+		alert("Password Tidak Boleh Kosong");
+		document.getElementById("pesan").innerHTML += "Password tidak boleh kosong.\n"
+		can_submit = false;
+	}else{
+		if(document.getElementById("password").value != document.getElementById("conf_password").value){
+			alert("Password yang anda masukkan tidak sama dengan konfirmasi password");
+			can_submit = false;
+		}else{
+			if(document.getElementById("password").value.length < 8){
+				alert("Panjang password minimal 8 karakter");
+				can_submit = false;
+			}else{
+				if(document.getElementById("password").value == getCookie("username")){
+					alert("password tidak boleh sama dengan username");
+					can_submit = false;
+				}else{
+					//document.getElementById("pesan").innerHTML = getCookie("email");
+					if(document.getElementById("password").value == getCookie("email")){
+						alert("Password tidak boleh sama dengan email");
+						can_submit = false;
+					}
+				}
+			}
+		}
+	}
+	
+	if(document.getElementById("nama_lengkap").value != document.getElementById("nama_lengkap").defaultValue){
+		
+		var cekNama = document.getElementById("nama_lengkap").value;
+		cekNama.trim();
+		var arrNama = cekNama.split(" ");
+		
+		
+		if(arrNama.length > 1 && arrNama[1] != ""){
+			ada_berubah = true;
+		}else{
+			alert("Nama tidak valid, kurang dari 2 kata");
+		}
+	}
+	
+	if(document.getElementById("password").value != getCookie("password")){
+		ada_berubah = true;
+	}
+	
+	if(document.getElementById("alamat").value != document.getElementById("alamat").defaultValue){
+		ada_berubah = true;
+	}
+	
+	if(document.getElementById("provinsi").value != document.getElementById("provinsi").defaultValue){
+		ada_berubah = true;
+	}
+	
+	if(document.getElementById("kecamatan").value != document.getElementById("kecamatan").defaultValue){
+		ada_berubah = true;
+	}
+	
+	if(document.getElementById("kodepos").value != document.getElementById("kodepos").defaultValue){
+		ada_berubah = true;
+	}
+	
+	if(document.getElementById("handphone").value != document.getElementById("handphone").defaultValue){
+		ada_berubah = true;
+	}
+	
+	if(!ada_berubah){
+		alert("Tidak ada data yang berubah");
+		can_submit = false;
+	}
+	
+	if(can_submit){
+		//kirim data
+		
+		http.open("POST","kirim_edit.php",true);
+		http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		//http.send()
+	}
+	
+}
+
 function popClik()
 {
 	
@@ -103,6 +218,19 @@ function remove(id)
 }
 </script>
 <body>
+
+<?php
+	setcookie('user1','asu',time()+3600*24*30);
+	setcookie('username','asusampas',time()+3600*24*30);
+	setcookie("email","ampas@ampas.com",time()+3600*24*30);
+	setcookie("password","ampasampas",time()+3600*24*30);
+	setcookie("alamat","jalan sesuatu",time()+3600*24*30);
+	setcookie("provinsi","jawa Barat",time()+3600*24*30);
+	setcookie("kecamatan","bandung",time()+3600*24*30);
+	setcookie("kodepos","14350",time()+3600*24*30);
+	setcookie("handphone","08988204004",time()+3600*24*30);
+?>
+
 <div id="lightbox">	
 		<div class="loginpoptop"><!--pop up-->
 		<h4 id="loginHeader">LOGIN</h4>
@@ -230,37 +358,31 @@ function remove(id)
 		<label> EDIT PROFILE<label></br></br>
 		</div>
 			<div class = "registerspace">
-			<label>Username </label> <input type="text" id="user" required placeholder = "e.g. cmartin" /></br>
+			<label>Nama Lengkap</label> <input type="text" id="nama_lengkap" placeholder = "Chris Martin" value =<?php echo $_COOKIE["user1"]?> defaultValue = <?php echo $_COOKIE["user1"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Password</label> <input type="password" id="user" required placeholder = "1234" /></br>
+			<label>Change Password</label> <input type="password" id="password" required placeholder = "1234"></br>
 			</div>
 			<div class = "registerspace">
-			<label>Confirm Password</label> <input type="password" id="user" required placeholder = "1234" /></br>
+			<label>Confirm change Password</label> <input type="password" id="conf_password" required placeholder = "1234"></br>
 			</div>
 			<div class = "registerspace">
-			<label>Nama Lengkap</label> <input type="text" id="user" required placeholder = "Chris Martin" /></br>
+			<label>Alamat</label> <input type="text" id="user" required placeholder = "Jl. Ganesha No.10 Bandung" value =<?php echo $_COOKIE["alamat"]?> defaultValue = <?php echo $_COOKIE["alamat"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Email</label> <input type="text" id="user" required placeholder = "cmartin@coldplay.com" /></br>
+			<label>Provinsi</label> <input type="text" id="user" required placeholder = "Jawa Barat" value =<?php echo $_COOKIE["provinsi"]?> defaultValue = <?php echo $_COOKIE["provinsi"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Alamat</label> <input type="text" id="user" required placeholder = "Jl. Ganesha No.10 Bandung" /></br>
+			<label>Kecamatan</label> <input type="text" id="user" required placeholder = "Sumur Bandung" value =<?php echo $_COOKIE["kecamatan"]?> defaultValue = <?php echo $_COOKIE["kecamatan"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Provinsi</label> <input type="text" id="user" required placeholder = "Jawa Barat" /></br>
+			<label>Kode Pos</label> <input type="text" id="user" required placeholder = "40124" value =<?php echo $_COOKIE["kodepos"]?> defaultValue = <?php echo $_COOKIE["kodepos"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Kecamatan</label> <input type="text" id="user" required placeholder = "Sumur Bandung" /></br>
+			<label>Nomor Handphone</label> <input type="text" id="user" required placeholder = "08180000000" value =<?php echo $_COOKIE["handphone"]?> defaultValue = <?php echo $_COOKIE["handphone"]?>></br>
 			</div>
 			<div class = "registerspace">
-			<label>Kode Pos</label> <input type="text" id="user" required placeholder = "40124" /></br>
-			</div>
-			<div class = "registerspace">
-			<label>Nomor Telepon</label> <input type="text" id="user" required placeholder = "08180000000" /></br>
-			</div>
-			<div class = "registerspace">
-			<input type="button" value = "Save"></br>
+			<input type="button" value = "Save" onclick="checkSubmit()"><label id="pesan"></label></br>
 			</div>
 			
 			 

@@ -12,7 +12,8 @@ function addCart(id_barang){
 	
 	var data = {"action" : "add", "id_barang" : id_barang, "jumlah" : jumlah};
 	
-	var callback = function(response){	
+	var callback = function(response){
+	
 		if(response.status == "ok"){
 			var bag;
 			if (localStorage.getItem("shoppingbag") === null){
@@ -35,5 +36,5 @@ function addCart(id_barang){
 		}
 	};
 	
-	sendAjax(data, "lib/transaksi_lib.php", callback);
+	sendAjax(data, "barang.php", callback);
 }

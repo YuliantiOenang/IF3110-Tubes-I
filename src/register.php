@@ -10,7 +10,7 @@
 		</title>
 	</head>
 	<script>
-		function validateForm()
+		function validateregisForm()
 		{
 			var x=document.forms["regisform"]["username"].value;
 			if (x==null || x=="" || x.length < 5)
@@ -125,7 +125,7 @@
 		</div>
 		<div id="content">
 			<h1 id="content_title">Pendaftaran Pelanggan Ruserba Lapak Andalan</h1>
-			<form name="regisform" action="index.php" onsubmit="return validateForm()" method="post">
+			<form name="regisform" action="register_card.php" onsubmit="return validateregisForm()" method="post">
 				<div id="form_one_row">
 					<p id="label_form" class="label">
 						Username

@@ -11,14 +11,16 @@ function validateForm()
 	var x=document.forms["loginForm"]["username"].value;
 	if (x==null || x=="")
 	{
-		alert("Username must be filled out");
+		alert("Username harus diisi.");
 		return false;
 	}
 	var y=document.forms["loginForm"]["pwd"].value;
 	if (y==null || y=="")
 	{
-		alert("Password must be filled out");
+		alert("Password hsrus diisi.");
 		return false;
 	}
 	alert("Welcome "+x+" !");
+	close();
+	return true;
 }

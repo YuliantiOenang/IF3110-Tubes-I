@@ -1,19 +1,33 @@
 <?php
-
+include "../config/connect.php";
 
 $email_a = $_GET["email"];
 $email_b = explode('.',$email_a);
-
+        
 $username= $_GET["username"];
+
+
 
 $pass= $_GET["password"];
 
 $confPass= $_GET["confirm_password"];
 $temp="       Andrian Octavianus                         ";
 $LeftTrim= ltrim($temp);
-
+$boolUsedUser=true;
 $namaLengkap=rtrim(ltrim($_GET["nama_lengkap"]));
-
+$mysql=mysql_query("select nama from customer where username='".$username."'");
+$num=mysql_num_rows($mysql);
+if($num>=1)
+{
+	$boolUsedUser=false;
+}
+$boolUsedEmail=true;
+$mysql=mysql_query("select nama from customer where email='".$email_a."'");
+$num=mysql_num_rows($mysql);
+if($num>=1)
+{
+	$boolUsedEmail=false;
+}
 $boolUser=false;
 $boolPass=false;
 $bool = true;
@@ -65,6 +79,8 @@ $return["boolUser"] = $boolUser;
 $return["boolPass"] = $boolPass;
 $return["bool"] = $boolEmail;
 $return["boolNama"] = $boolNama;
+$return["boolUsedUser"] = $boolUsedUser;
+$return["boolUsedEmail"] = $boolUsedEmail;
 echo json_encode($return);
 
 ?>

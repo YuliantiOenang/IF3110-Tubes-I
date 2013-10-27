@@ -29,8 +29,9 @@ function checkSubmit(){
 			var boolPass = decodeJSON.boolPass;
 			var bool = decodeJSON.bool;
 			var boolNama = decodeJSON.boolNama;
-			
-			
+			var boolUsedUser=decodeJSON.boolUsedUser;
+			var boolUsedEmail=decodeJSON.boolUsedEmail;
+			 
 			var echo = http.responseText;
 			var response = echo.substr(0,4);
 			document.getElementById("nama_label").innerHTML = echo;
@@ -70,6 +71,14 @@ function checkSubmit(){
 				}else{
 					document.getElementById("email_label").innerHTML = "";
 				}
+ 				if(!boolUsedUser)
+				{
+					document.getElementById("user_error").innerHTML = "USERNAME SUDAH DIPAKAI";
+				}
+				if(!boolUsedEmail)
+				{
+					document.getElementById("email_label").innerHTML = "EMAIL SUDAH DIPAKAI";
+				}  
 			}
 		}
 	}
@@ -301,50 +310,53 @@ function remove(id)
 		<div class = "topfivetitle">
 		<label> BECOME A COLDPLAYER!<label></br></br>
 		</div>
+		
 			<div class = "registerspace">
-			<label>Username </label> <input type="text" id="username" onkeyup="checkSubmit()" required placeholder = "e.g. cmartin" /><label id="user_error"></label></br>
+			<form action="signup.php" method="POST">
+			<label>Username </label> <input type="text"  name ="username" id="username" onkeyup="checkSubmit()" required placeholder = "e.g. cmartin" /><label id="user_error"></label></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Nama Lengkap</label> <input type="text" id="nama_lengkap" onkeyup="checkSubmit()" required placeholder = "Chris Martin" /><label id="nama_label"></label></br>
+			<label>Nama Lengkap</label> <input type="text" id="nama_lengkap" name="nama_lengkap" onkeyup="checkSubmit()" required placeholder = "Chris Martin" /><label id="nama_label"></label></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Nomor Handphone</label> <input type="text" id="handphone" onkeyup="checkSubmit()" required placeholder = "083820666910" /></br>
+			<label>Nomor Handphone</label> <input type="text" id="handphone" name="handphone" onkeyup="checkSubmit()" placeholder = "083820666910" /></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Alamat </label> <input type="text" id="alamat" onkeyup="checkSubmit()" required placeholder = "Jl. Jend. Katamso Gg. Sukadamai No. 1" /></br>
+			<label>Alamat </label> <input type="text" id="alamat" name="alamat" onkeyup="checkSubmit()" placeholder = "Jl. Jend. Katamso Gg. Sukadamai No. 1" /></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Provinsi </label> <input type="text" id="provinsi" onkeyup="checkSubmit()" required placeholder = "Jawa Barat" /></br>
+			<label>Provinsi </label> <input type="text" id="provinsi" name="provinsi" onkeyup="checkSubmit()" placeholder = "Jawa Barat" /></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Kota/Kabupaten</label> <input type="text" id="kobupaten" onkeyup="checkSubmit()" required placeholder = "Bandung" /></br>
+			<label>Kota/Kabupaten</label> <input type="text" id="kobupaten" name="kobupaten" onkeyup="checkSubmit()" placeholder = "Bandung" /></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Kodepos </label> <input type="text" id="kodepos" onkeyup="checkSubmit()" required placeholder = "14045" /></br>
+			<label>Kodepos </label> <input type="text" id="kodepos" name="kodepos" onkeyup="checkSubmit()"  placeholder = "14045" /></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Password</label> <input type="password" id="password" onkeyup="checkSubmit()" required placeholder = "1234" /><label id="pass_label"></label></br>
+			<label>Password</label> <input type="password" id="password" name="password" onkeyup="checkSubmit()" required placeholder = "1234" /><label id="pass_label"></label></br>
 			</div>
 			<div class = "registerspace">
 			<label>Confirm Password</label> <input type="password" id="confirm_password" onkeyup="checkSubmit()" required placeholder = "1234" /><label id="conf_pass_label"></label></br>
 			</div>
 			<div class = "registerspace">
-			<label>Email</label> <input type="text" id="email" onkeyup="checkSubmit()" required placeholder = "cmartin@coldplay.com" /><label id="email_label"></label></br>
+			<label>Email</label> <input type="text" id="email" name="email" onkeyup="checkSubmit()" required placeholder = "cmartin@coldplay.com" /><label id="email_label"></label></br>
 			</div>
 			<div class = "registerspace">
-			<input type="button" id="submit" value = "Register!" disabled></br>
+			<input type="submit" id="submit" value = "Register!" disabled></br>
 			</div>
-			
+			</form>
 			 
 			  
 			</div>
+			
 			</div>
 			
 			

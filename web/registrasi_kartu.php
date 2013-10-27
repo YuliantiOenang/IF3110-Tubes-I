@@ -9,74 +9,7 @@
 <script type="text/javascript">
 
 function checkSubmit(){
-			
-			
-	var username = document.getElementById("username").value;
-	var password = document.getElementById("password").value;
-	var confirm_password = document.getElementById("confirm_password").value;
-	var nama_lengkap = document.getElementById("nama_lengkap").value;
-	var email = document.getElementById("email").value;
-	
-	
 
-	//document.getElementById("pesan").innerHTML = "sadf";
-	
-	http.onreadystatechange=function(){
-		if(http.readystate=4 && http.status == 200){
-			
-			var decodeJSON = JSON.parse(http.responseText);
-			var boolUser = decodeJSON.boolUser;
-			var boolPass = decodeJSON.boolPass;
-			var bool = decodeJSON.bool;
-			var boolNama = decodeJSON.boolNama;
-			
-			
-			var echo = http.responseText;
-			var response = echo.substr(0,4);
-			document.getElementById("nama_label").innerHTML = echo;
-			//document.getElementById("pesan").innerHTML = echo;
-			//response = "true";
-			
-			//document.getElementById("pesan").innerHTML = response;
-			
-			if(boolUser && boolPass && bool && boolNama){
-				document.getElementById("user_error").innerHTML = "";
-				document.getElementById("pass_label").innerHTML = "";
-				document.getElementById("conf_pass_label").innerHTML = "";
-				document.getElementById("nama_label").innerHTML = "";
-				document.getElementById("email_label").innerHTML = "";
-				document.getElementById("submit").disabled = false;
-				//document.getElementById("pesan").innerHTML = "sadf"
-			}else{
-				document.getElementById("submit").disabled = true;
-				var errorMessage = "";
-				if(!boolNama){
-					document.getElementById("user_error").innerHTML = "ERROR PADA USERNAME";
-				}else{
-					document.getElementById("user_error").innerHTML = "";
-				}
-				if(!boolPass){
-					document.getElementById("conf_pass_label").innerHTML = "PASSWORD TIDAK SAMA";
-				}else{
-					document.getElementById("conf_pass_label").innerHTML = "";
-				}
-				if(!boolUser){
-					document.getElementById("nama_label").innerHTML = "ERROR PADA NAMA";
-				}else{
-					document.getElementById("nama_label").innerHTML = "";
-				}
-				if(!bool){
-					document.getElementById("email_label").innerHTML = "Kesalahan Pada Email";
-				}else{
-					document.getElementById("email_label").innerHTML = "";
-				}
-			}
-		}
-	}
-	http.open("GET","Registrasi/validasi.php?username=" + username + "&password=" + password
-		+"&confirm_password=" + confirm_password + "&nama_lengkap=" + nama_lengkap
-		+ "&email=" + email,true);
-	http.send();
 }
 
 function popClik()
@@ -269,80 +202,52 @@ function remove(id)
 	<div class = "sidebar">
 		
 			<p class = "searchtitle"> Search it! </p>
-		<form action="hasilsearch.php" method="get">
+			
 		<div class = "kategori">
-			<select name="kategori">
+			<select>
 				<option value="all">All</option>
-				<option value="Jaket">Jacket</option>
-				<option value="TShirt">T-shirt</option>
-				<option value="Sweater">Sweater</option>
-				<option value="Misc">Misc.</option>
-				<option value="Pokemon">Pokemon</option>
+				<option value="jacket">Jacket</option>
+				<option value="tshirt">T-shirt</option>
+				<option value="sweater">Sweater</option>
+				<option value="misc">Misc.</option>
+				<option value="pokemon">Pokemon</option>
 			</select>
-			<input type="text" id="user" name="key" required placeholder = "e.g. Mylo Xyloto" /></br>
+			<input type="text" id="user" required placeholder = "e.g. Mylo Xyloto" /></br>
 	</div>
 	
 	<div class = "kategori">
 	<label> Price Range: </label>
-	<select name="range">
-				<option value=1>< Rp50.000 </option>
-				<option value=2>Rp50.000 - Rp100.000</option>
-				<option value=3>Rp100.001 - Rp150.000</option>
-				<option value=4>> Rp150.000</option>
+	<select>
+				<option value="all">< Rp50.000 </option>
+				<option value="jacket">Rp50.000 - Rp100.000</option>
+				<option value="tshirt">Rp100.001 - Rp150.000</option>
+				<option value="sweater">> Rp150.000</option>
 				
 			</select>
 	</div>
 	<div class = "kategori">
-	<input type="submit" value="Search!"></input>
+	<input type="button" value="Search!"></input>
 	</div>
-	</form>
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
 		<label> BECOME A COLDPLAYER!<label></br></br>
 		</div>
 			<div class = "registerspace">
-			<label>Username </label> <input type="text" id="username" onkeyup="checkSubmit()" required placeholder = "e.g. cmartin" /><label id="user_error"></label></br>
+			<label>Card Number </label> <input type="text" id="card_number" onkeyup="checkSubmit()" required placeholder = "0123456789101213" /></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Nama Lengkap</label> <input type="text" id="nama_lengkap" onkeyup="checkSubmit()" required placeholder = "Chris Martin" /><label id="nama_label"></label></br>
+			<label>Name On Card</label> <input type="text" id="name_on_card" onkeyup="checkSubmit()" required placeholder = "Chris Martin" /><label id="nama_label"></label></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Nomor Handphone</label> <input type="text" id="handphone" onkeyup="checkSubmit()" required placeholder = "083820666910" /></br>
+			<label>expired date</label> <input type="text" id="expired_date" onkeyup="checkSubmit()" required placeholder = "08/12/2003" /></br>
 			</div>
 			
 			<div class = "registerspace">
-			<label>Alamat </label> <input type="text" id="alamat" onkeyup="checkSubmit()" required placeholder = "Jl. Jend. Katamso Gg. Sukadamai No. 1" /></br>
+			<input type="button" id="submit" value = "Register credit card!"></br>
 			</div>
-			
-			<div class = "registerspace">
-			<label>Provinsi </label> <input type="text" id="provinsi" onkeyup="checkSubmit()" required placeholder = "Jawa Barat" /></br>
-			</div>
-			
-			<div class = "registerspace">
-			<label>Kota/Kabupaten</label> <input type="text" id="kobupaten" onkeyup="checkSubmit()" required placeholder = "Bandung" /></br>
-			</div>
-			
-			<div class = "registerspace">
-			<label>Kodepos </label> <input type="text" id="kodepos" onkeyup="checkSubmit()" required placeholder = "14045" /></br>
-			</div>
-			
-			<div class = "registerspace">
-			<label>Password</label> <input type="password" id="password" onkeyup="checkSubmit()" required placeholder = "1234" /><label id="pass_label"></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Confirm Password</label> <input type="password" id="confirm_password" onkeyup="checkSubmit()" required placeholder = "1234" /><label id="conf_pass_label"></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Email</label> <input type="text" id="email" onkeyup="checkSubmit()" required placeholder = "cmartin@coldplay.com" /><label id="email_label"></label></br>
-			</div>
-			<div class = "registerspace">
-			<input type="button" id="submit" value = "Register!" disabled></br>
-			</div>
-			
-			 
 			  
 			</div>
 			</div>

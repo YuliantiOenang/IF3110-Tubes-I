@@ -28,12 +28,12 @@ if(count($namaLeng)>1){
 	}
 }
 
-if(strlen($username)>5 && $username!=$pass)
+if(strlen($username)>4 && $username!=$pass)
 {
 	$boolNama=true;
 }
 
-if($pass==$confPass&& $pass!= "" & confPass!="")
+if($pass==$confPass&& $pass!= "" && $confPass!="")
 {
 	$boolPass=true;
 }

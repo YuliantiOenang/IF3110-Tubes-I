@@ -4,6 +4,8 @@ html, body{
 	text-align:center;
 	background: #000;
 	padding: 0; margin: 0;
+	font-family: Sans;
+	font-size: 11pt;
 }
 
 .outer{
@@ -21,6 +23,13 @@ html, body{
 	background: url(../image/header.jpg) no-repeat;
 	position : relative;
 }
+
+.content{
+	padding: 1.5em;
+	font-size: 11pt;
+}
+
+/* bagian header-float (login, signup) */
 
 .header-float{
 	width: 100%;
@@ -43,7 +52,11 @@ html, body{
 
 .header-float a:hover{
 	color: #fc0;
+	text-decoration: none;
 }
+
+
+/* bagian header */
 
 .header{
 	width: 100%;
@@ -51,14 +64,7 @@ html, body{
 	bottom:0;
 }
 
-.content{
-	padding: 1em;
-}
-
-/* bagian header */
-
 .htitle{
-	color: white;
 	font-size: 36pt;
 	font-weight: bold;
 	padding-left: 0.25em;
@@ -66,13 +72,20 @@ html, body{
 	display:block;
 }
 
+.htitle a{
+	color: white;
+	text-decoration: none;
+}
+
+.htitle a:hover{
+	color: white;
+	text-decoration: none;
+}
+
 .menu{
 	background: rgba(0,0,0,0.75);
 	display:block;
 	overflow:visible;
-	/*opacity:0.7;
-	filter:alpha(opacity=70);
-	*/
 }
 
 .menu .item{
@@ -80,7 +93,7 @@ html, body{
 	color: #fff;
 	font-weight:bold;
 	display: inline-block;
-	padding: 0.5em;
+	padding: 0.6em;
 }
 
 .menu .item:hover{
@@ -88,6 +101,16 @@ html, body{
 }
 
 /* elemen input */
+
+a{
+	color: #f90;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
 .main-button{
 	background: #09f;
 	border: none;
@@ -97,6 +120,20 @@ html, body{
 }
 
 .main-button:hover{
+	background: #3af;
+	cursor: pointer;
+}
+
+.main-button-small{
+	background: #09f;
+	border: none;
+	padding: .75em;
+	font-weight: bold;
+	font-size:8pt;
+	color: white;
+}
+
+.main-button-small:hover{
 	background: #3af;
 	cursor: pointer;
 }

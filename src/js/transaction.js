@@ -1,7 +1,7 @@
 // DEPENDENCY: ajax.js
 
 function editCart(id_barang, defValue, edit_callback){
-	var jumlah = parseInt(prompt("Jumlah barang", defValue));
+	var jumlah = parseInt(prompt("Edit jumlah barang", defValue));
 	
 	if (isNaN(jumlah)){
 		return;
@@ -40,7 +40,7 @@ function editCart(id_barang, defValue, edit_callback){
 }
 
 function addCart(id_barang){
-	var jumlah = parseInt(prompt("Jumlah barang"));
+	var jumlah = parseInt(prompt("Tambahkan barang sejumlah:"));
 	
 	if (isNaN(jumlah)){
 		return;

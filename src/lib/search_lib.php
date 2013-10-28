@@ -12,6 +12,12 @@
 			
 			return $arr;
 		}
+		
+		function set($id, $nama, $stok, $harga, $jumlah_beli, $kategori, $deskripsi){
+			$this->id = $id; $this->nama = $nama; $this->stok = $stok; 
+			$this->harga = $harga; $this->jumlah_beli = $jumlah_beli; 
+			$this->kategori = $kategori; $this->deskripsi = $deskripsi;
+		}
 	}
 	
 	function searchAll($keyword, $page){
@@ -27,18 +33,21 @@
 		
 		global $DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME;
 		
+		$conn = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
 		$statement = $conn->prepare("SELECT * FROM barang WHERE kategori = ? LIMIT ?, 10");
-		$statement->bind_param("si", $category, $page * 10);
+		
+		$page = $page * 10;
+		
+		$statement->bind_param("si", $category, $page);
 		
 		$statement->execute();
 		
-		$barang = new Barang();
-		
-		
-		$statement->bind_result($barang->id, $barang->nama, $barang->stok, $barang->harga, $barang->jumlah_beli, $barang->kategori, $barang->deskripsi);
+		$statement->bind_result($id, $nama, $stok, $harga, $jumlah_beli, $kategori, $deskripsi);
 		$result = array();
 		while($statement->fetch()){
-			array_push($result, new Barang($row));
+			$barang = new Barang();
+			$barang->set($id, $nama, $stok, $harga, $jumlah_beli, $kategori, $deskripsi);
+			array_push($result, $barang);
 		}
 		
 		$statement->close();
@@ -130,7 +139,21 @@
 				
 			break;
 			case "category":
-			
+				$hasil = searchCategory($request["cat"], $request["page"]);
+				
+				if (count($hasil) > 0){
+					$response["status"] = "ok";
+					$response["barang"] = array();
+					
+					foreach($hasil as $barang){
+						if($barang!=null){
+							array_push($response["barang"], $barang->buildJSON());
+						}else{
+							array_push($response["barang"], null);
+						}
+					}
+				}
+				
 			break;
 			case "search":
 			

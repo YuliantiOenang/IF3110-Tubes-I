@@ -7,6 +7,30 @@
 </head>
 <script src="js/AjaxCreateObject.js" language="javascript"></script>
 <script type="text/javascript">
+
+function suggestSearch(str){
+	//document.getElementById("search_suggestion").innerHTML = str;
+	if(str.length == 0){
+		document.getElementById("search_suggestion").innerHTML="";
+		return;
+	}
+	
+	http.onreadystatechange=function(){
+		if(http.readyState == 4 && http.status == 200){
+			document.getElementById("search_suggestion").innerHTML = http.responseText;
+		}
+	}
+	
+	http.open("GET","proses_suggest_search.php?q="+str,true);
+	http.send();
+}
+
+function copySuggest(){
+	var x = document.getElementsByName("key");
+	x[0].value = document.getElementById("search_suggestion").innerHTML;
+}
+
+
 function popClik()
 {
 	
@@ -59,8 +83,8 @@ function login()
 			var lightbox = document.getElementById("lightbox");
 			var dimmer = document.getElementById("dim");
 			var signup = document.getElementById("signup");
-			var loginButton = document.getElementById("loginButton");
 			
+			var loginButton = document.getElementById("loginButton");
 			lightbox.style.visibility = 'hidden';
 			signup.style.visibility = 'hidden';
 			loginButton.src="images/logout.png";
@@ -75,7 +99,7 @@ function login()
 			catch(e)
 			{
 			document.getElementById("Error").innerHTML="Welcome,"+http.responseText;
-			var user=document.getElementById("user");
+			var user=document.getElementById("`");
 			
 			
 			}
@@ -150,9 +174,7 @@ function remove(id)
 				?>
 				</div>
 				<div >
-
-					<img src = "images/cart.png" id="cart" class = "cart" onclick="window.location='shoppingbag.php'"></img>
-
+					<img src = "images/cart.png" class = "cart" onclick="window.location='shoppingbag.php'"></img>
 				</div>
 			</div>
 			<div class = "signupplace">
@@ -214,7 +236,7 @@ function remove(id)
 				<option value="Misc">Misc.</option>
 				<option value="Pokemon">Pokemon</option>
 			</select>
-			<input type="text" id="user" name="key" required placeholder = "e.g. Mylo Xyloto" /></br>
+			<input type="text" id="user" name="key" required placeholder = "e.g. Mylo Xyloto" onkeyup="suggestSearch(this.value)" /></br>
 	</div>
 	
 	<div class = "kategori">
@@ -230,6 +252,7 @@ function remove(id)
 	<div class = "kategori">
 	<input type="submit" value="Search!"></input>
 	</div>
+	<label>Suggestion : <br><span id="search_suggestion" onclick="copySuggest()"></span></label>
 	</form>
 	</div>
 	<div class = "boddy">

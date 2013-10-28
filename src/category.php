@@ -3,6 +3,12 @@
 	include("lib/search_lib.php");
 	
 	if(isset($_POST["ajax"])){
+		$res = handleSearchAjax();
+		
+		if($res!=null){
+			exit($res);
+		}
+		
 		exit();
 	}else if(!isset($_GET["cat"])){
 		header("Location: index.php");
@@ -23,8 +29,15 @@
 <link rel="stylesheet" href="css/global.css" />
 <link rel="stylesheet" href="css/category.css" />
 
+<script>
+<?php echo "var category = '".$_GET["cat"]."';" ?>
+</script>
+
+
 <script src="js/ajax.js"></script>
 <script src="js/transaction.js"></script>
+<script src="js/category.js"></script>
+
 </head>
 <body>
 <div class="outer">
@@ -48,6 +61,8 @@
 		}
 	?>
 	</div>
+	<div id='infobottom'></div>
+	
 	</div>
 </div>
 </body>

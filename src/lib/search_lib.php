@@ -34,7 +34,7 @@
 		global $DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME;
 		
 		$conn = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
-		$statement = $conn->prepare("SELECT * FROM barang WHERE kategori = ? LIMIT ?, 10");
+		$statement = $conn->prepare("SELECT * FROM barang WHERE kategori = ? ORDER BY nama_barang ASC LIMIT ?, 10");
 		
 		$page = $page * 10;
 		

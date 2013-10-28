@@ -74,6 +74,8 @@ class User
                 echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php/user/firstcreditcard";	
             } else {
 				$v = new View('user/register');
+                $v2 = new View ('user/login');
+                $v->setData('loginView', $v2->render(false)); // rendering Login page
 				$v->render();
             }
 		}

@@ -68,3 +68,22 @@ p {
 	width:300px;
 	float:left;
 }
+
+.goodsimage{
+	width:500px;
+	float:left;
+}
+.textinput{
+	width:400px;
+	height:100px;
+	resize: none;
+}
+
+.numinput{
+	width:3em;
+}
+
+.data{
+	width:400px;
+	float:left;
+}

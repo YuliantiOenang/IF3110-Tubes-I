@@ -11,8 +11,19 @@
 
 <div class = "page_container">
 
-		<?php include ("../templates/header.php"); ?>
-		<?php include ("../templates/navigation.php"); ?>
+		<?php 
+			session_start();
+			$_SESSION['state'] = 1;
+			
+			if($_SESSION['state'] == 1){
+				include ("../templates/header.php");
+				include ("../templates/navigation.php"); 
+			}
+			else{
+				include ("templates/header.php");
+				include ("templates/navigation.php"); 
+			}
+		?>
 
 		<div class = "container">
 			<?php
@@ -33,25 +44,33 @@
 				//nyari nama category
 					$result = mysqli_query($con,"SELECT * FROM inventori NATURAL JOIN kategori WHERE id_inventori = ".$cgID);
 					$row = mysqli_fetch_array($result);
-			?>
-		</div>
-		<div class = "data";
-					<img width=500px src='../img/<?php echo $row['gambar'];?>'> <br/>;
-
-					echo "ID: ". $row['id_inventori'] . "<br/>";
-					echo "Nama Barang: ". $row['nama_inventori'] . "<br/>";
-					echo "Kategori: ".$row['nama_kategori'] . "<br/>";
-					echo "Jumlah Stok Tersisa : ".$row['jumlah'] . "<br/>";
-					echo "<form novalidate> Permintaan Khusus : <br/> <input type='text' name='tambahan'> </form>";
-					echo "<form> Quantity : <input type='number' name='quantity'> </form>";
-					
-					mysqli_close($con);
 				}
 			}
 			?>
+			<div class = "goodsimage">
+				<img width=500px src='../img/<?php echo $row['gambar'];?>'> <br/>
+			</div>
+			<div class = "data">
+				<?php echo $row['nama_inventori'];?><br/><br/>
+				<?php echo $row['description'];?><br/><br/>
+				<form novalidate> Permintaan Khusus : <br/> 
+					<textarea class="textinput" width=200 height=100 type="text" name="tambahan"></textarea>
+				</form>
+				<form> Quantity : 
+					<input class="numinput" type="number" name="quantity" size="500"><br/> 
+					<input type="image" src="../img/Cart.png">
+				</form>
+				<?php mysqli_close($con); ?>
+			</div>
 		</div>
-		
-	</div>
-		<?php include ("../templates/footer.php");?>
+		<?php 
+			if($_SESSION['state'] == 1){
+				include ("../templates/footer.php");
+			}
+			else{
+				include ("templates/footer.php");
+			} 
+		?>
+</div>
 </body>
 </html>

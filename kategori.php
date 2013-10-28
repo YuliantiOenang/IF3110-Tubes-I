@@ -44,6 +44,8 @@
     <title>Kaskong - <?php echo $_GET['id']; ?></title>
   </head>
   <body>
+    <button onclick="location.href='sort.php?<?php echo "id=".$_GET['id']."&sort=".$sortVal."&nama=".$nama."&low=".$low."&high=".$high."&sortID=1"; ?>'">Toggle Sort Nama</button>
+    <button onclick="location.href='sort.php?<?php echo "id=".$_GET['id']."&sort=".$sortVal."&nama=".$nama."&low=".$low."&high=".$high."&sortID=2"; ?>'">Toggle Sort Harga</button><br>
     <?php
       for($i = 0; $i < ceil($count/$pageValue); $i++)
         if ($i == $pageVal)

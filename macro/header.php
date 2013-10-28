@@ -33,15 +33,15 @@
 		</div>
 	</div>
 	<div id="loginPop">
-	<form id='loginForm' method="post" action="login.php" onsubmit="return (username.value != '' && password.value != '')" autocomplete="off">
+	<form id='loginForm' method="post" action="login.php" autocomplete="off">
 	<table>
 		<tr>
 			<td>Username:</td>
-			<td><input style="width: 125px;" type="text" name="username" id="username" /></td>
+			<td><input style="width: 125px;" type="text" name="username" id="username" required /></td>
         </tr>  
         <tr>
 			<td>Password:</td>
-			<td><input style="width: 125px;" type="password" name="password" id="password" /></td>
+			<td><input style="width: 125px;" type="password" name="password" id="password" required /></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right" valign="bottom"><input type="submit" id="subLog" value="Log me in!"/></td>

@@ -8,13 +8,13 @@
 
 </head>
 	<div class = "page_container">
-		<?php include ("templates/header.php"); ?>
-		<?php include ("templates/navigation.php"); ?>
+		<?php include ("templates/index/header.php"); ?>
+		<?php include ("templates/index/navigation.php"); ?>
 		
 		<div class = "container">
 			<!--<p>Toko Imba</p>-->
 		</div>
 		
-		<?php include ("templates/footer.php"); ?>
+		<?php include ("templates/index/footer.php"); ?>
 	</div>
 </html>

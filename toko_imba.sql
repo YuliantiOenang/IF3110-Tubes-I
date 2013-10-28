@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2013 at 01:09 AM
+-- Generation Time: Oct 28, 2013 at 02:26 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `inventori` (
   `id_inventori` int(10) NOT NULL AUTO_INCREMENT,
   `id_kategori` int(10) NOT NULL,
   `nama_inventori` varchar(100) NOT NULL,
+  `jumlah` int(100) NOT NULL,
   PRIMARY KEY (`id_inventori`),
   KEY `id_kategori` (`id_kategori`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -93,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
   `id_transaksi` int(10) NOT NULL AUTO_INCREMENT,
   `id_pengguna` int(10) NOT NULL,
   `id_inventori` int(10) NOT NULL,
+  `jumlah` int(100) NOT NULL,
   PRIMARY KEY (`id_transaksi`),
   KEY `id_pengguna` (`id_pengguna`),
   KEY `id_inventori` (`id_inventori`)

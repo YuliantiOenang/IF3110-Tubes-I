@@ -1,3 +1,3 @@
 <div class = "heading">
-	<p>ini header</p>
+	<img width=200 src="../img/logo.png">
 </div>

@@ -13,7 +13,7 @@ p {
 .heading {
 	width: 940px;
 	height: 100px;
-	background-color:green;
+	background-color:white;
 }
 
 .footer {
@@ -43,4 +43,15 @@ p {
 	background-color:white;
 	float: left;
 	overflow-y: scroll;
+}
+
+.logo {
+	width:600px;
+	float:left;
+}
+
+.login {
+	width:300px;
+	float:left;
+	background-color:purple;
 }

@@ -1,3 +1,9 @@
 <div class = "heading">
-	<img width=200 src="../img/logo.png">
+	<div class = "logo">
+		<img src="../img/logo.png" width=200px></img>
+	</div>
+	<div class = "login">
+		<a href="">register</a> or
+		<a href="">login</a>
+	</div>
 </div>

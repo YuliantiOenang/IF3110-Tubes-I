@@ -16,6 +16,6 @@
 			<!--<p>Toko Imba</p>-->
 		</div>
 		
-		<?php include ("templates/index/footer.php"); ?>
 	</div>
+		<?php include ("templates/index/footer.php");?>
 </html>

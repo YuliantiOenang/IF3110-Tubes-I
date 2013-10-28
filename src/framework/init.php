@@ -8,11 +8,13 @@ require SITEPATH . '/framework/' . 'template.class.php';
 //autoload class model
 function __autoload($class_name) {
     $filename = strtolower($class_name) . '.class.php';
-    $file = SITEPATH . '/app/model/' . $filename;
+    $file = SITEPATH . '/app/models/' . $filename;
  	require ($file);
 }
 
 //create new registry
 $registry = new Registry;
+//passing config
+$registry->config = $CONFIG;
 //create database registry
-//$registry->db = db::getInstance();
+$registry->database = Database::getInstance($registry);

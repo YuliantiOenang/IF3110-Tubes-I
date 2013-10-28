@@ -1,0 +1,11 @@
+/* Agar tidak mengubah non-content, selalu tambahkan "#content" sebelum elemen yang diacu. */
+#content p	{
+	color: #444;
+	line-height: 40px;
+}
+
+#content #gambar	{
+	float: right;
+	width: 200px;
+	margin: 20px;
+}

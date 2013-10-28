@@ -17,7 +17,27 @@
 	//echo $_POST['password'].'<br/>';
 	//echo $_POST['email'].'<br/>';
 	
-	//do insertion query
+	$name = $_POST['name'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$email = $_POST['email'];
 	
+	//do insertion query
+	//echo "INSERT INTO pengguna (nama_pengguna, username, password, email) VALUES ('".$name."','".$username."','".$password."','".$email."')";
+	
+	//checking if username is not available
+	$result = mysqli_query($con,"SELECT * FROM pengguna WHERE username = '".$username."'");
+	
+	$found = false;
+	while($row = mysqli_fetch_array($result)){
+		$found = true;
+		break;
+	}
+	
+	if(!$found){
+		mysqli_query($con,"INSERT INTO pengguna (nama_pengguna, username, password, email) VALUES ('".$name."','".$username."','".$password."','".$email."')");
+	} else{
+		echo "same username is found, can't register with this username";
+	}
 	mysqli_close($con);
 ?>

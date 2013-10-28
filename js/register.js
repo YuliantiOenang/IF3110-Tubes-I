@@ -17,7 +17,8 @@ function form_check()
 function checkUsername(str)
 {
 	var xmlhttp;
-	if (str == "wkwk"){
+	var nameFilter=/[A-Za-z0-9]{5,}$/;
+	if (nameFilter.test(str)){
 		isUsername = true;
 		document.getElementById("username_status").innerHTML="username is available";
 		form_check();
@@ -92,9 +93,9 @@ function checkFullName(str)
 function checkPassword(str)
 {
 	var xmlhttp;
-	if (str!=document.getElementById("password").value){
+	if (str!=document.getElementById("password").value || str==document.getElementById("username").value){
 		isPassword = false;
-		document.getElementById("password_status").innerHTML="unmatched password";
+		document.getElementById("password_status").innerHTML="unmatched password or password is same as username";
 		form_check();
 		return;
 	} else{

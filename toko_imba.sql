@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2013 at 12:29 AM
+-- Generation Time: Oct 28, 2013 at 01:09 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -19,6 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `toko_imba`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `credit_card`
+--
+
+CREATE TABLE IF NOT EXISTS `credit_card` (
+  `id_credit_card` int(10) NOT NULL AUTO_INCREMENT,
+  `credit_card_number` int(20) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `expired_date` date NOT NULL,
+  PRIMARY KEY (`id_credit_card`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -59,7 +73,15 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
   `password` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id_pengguna`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `pengguna`
+--
+
+INSERT INTO `pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `email`) VALUES
+(1, 'Griffin', '', '', ''),
+(2, 'a a', 'wkwk', 'aa', 'aa@aa.com');
 
 -- --------------------------------------------------------
 

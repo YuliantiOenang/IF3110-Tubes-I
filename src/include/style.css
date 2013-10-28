@@ -1,3 +1,12 @@
+body {
+	font-family: "Lucida Grande",'Nunito', Arial, sans-serif;
+}
+
+#container {
+	width: 920px;
+	margin: auto;
+}
+
 	nav ul ul {
 		display:none;		
 	}
@@ -13,8 +22,7 @@ nav ul {
 	list-style : none;
 	position : relative;
 	display : inline-table;		
-	padding : 0px;
-	font-family: "Lucida Grande",'Nunito';        	
+	padding : 0px;        	
 }
 	
 nav ul:after {

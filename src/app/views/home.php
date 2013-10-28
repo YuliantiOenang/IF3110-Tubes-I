@@ -3,7 +3,8 @@
 
 <body> 
 
-<?php require SITEPATH . '/app/views/header.php'?>
-
+<div id="container">
+	<?php require SITEPATH . '/app/views/header.php'?>
+</div>
 </body>
 </html>

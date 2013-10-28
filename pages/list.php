@@ -11,7 +11,7 @@
 
 		<?php 
 			session_start();
-			$_SESSION['state'] = 2;
+			$_SESSION['state'] = 1;
 			
 			if($_SESSION['state'] == 1){
 				include ("../templates/header.php");
@@ -20,8 +20,7 @@
 			else{
 				include ("templates/header.php");
 				include ("templates/navigation.php"); 
-			}
-		?>
+			}?>
 
 		<div class = "container">
 			<?php

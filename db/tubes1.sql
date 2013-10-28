@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb1
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 28, 2013 at 10:36 AM
--- Server version: 5.5.32
--- PHP Version: 5.4.6-1ubuntu1.4
+-- Host: 127.0.0.1
+-- Generation Time: Oct 28, 2013 at 02:32 PM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -111,9 +111,9 @@ CREATE TABLE IF NOT EXISTS `card` (
 --
 
 INSERT INTO `card` (`id`, `id_user`, `card_number`, `name`, `expired_date`) VALUES
-(1, 4, '082031', 'ganteng', '0000-00-00'),
-(2, 4, '12839101', 'ahay', '2014-09-12'),
-(3, 9, '2131', 'iseng', '2014-12-09');
+(1, 4, '082031465812', 'ganteng', '2013-10-30'),
+(2, 4, '128391012345', 'ahay', '2014-09-12'),
+(3, 9, '213168745676', 'iseng', '2014-12-09');
 
 -- --------------------------------------------------------
 

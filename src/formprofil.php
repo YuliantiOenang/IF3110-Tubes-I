@@ -1,5 +1,7 @@
 <?php
     $con=mysqli_connect("127.0.0.1","root","","ruserba");
+    echo $_POST["username"];
+    sha1($str);//////
 function connectsql(){
     
     global $con;
@@ -24,36 +26,42 @@ function insertsql () {
 
 if (!mysqli_query($con,$sql))
   {
-    die('Error: ' . mysqli_error($con));
+    die('Error: sql fail ' . mysqli_error($con));
   }
 echo "1 record added";
 }
 
 function checkpass(){
     if (($_POST[password] == $_POST[confirmpassword])&&(strlen($_POST[confirmpassword])>=8)&&(strlen($_POST[password])>=8)&&($_POST[password] != $_POST[username])&&($_POST[password] != $_POST[email])){
-        return true;
+        //return true;
+        echo "pass true";
     }
     else {
-        return false;
+        //return false;
+        echo "pass false";
     }
 }
 
 function checkuname(){
     if ((strlen($_POST[username]) >= 5) && ($_POST[username] != $_POST[password])) {
-        return true;
+        //return true;
+        echo "uname true";
     }
     else {
-        return false;
+        //return false;
+        echo "uname false";
     }
 }
 
 function checkfname(){
     $fname = explode(" ", $_POST[nama]); //memecah string full name dengan parameter spasi, fname[1] adalah kata kedua setelah spasi, kalau kosong berarti fullname hanya 1 kata
     if(isset($fname[1])) {
-        return true;
+        //return true;
+        echo "fname true";
     }
     else {
-        return false;
+        //return false;
+        echo "fname false";
     }
 }
 
@@ -71,20 +79,27 @@ function checkemail(){
     }
     
     if ((($j-$k) >= 1) && ((strlen($_POST_[email])-$j)>=2)&&($k >= 1)&&($_POST_[email]!=$_POST_[password])){
-        return true;
+       // return true;
+       echo "mail true";
     }
     else {
-        return false;
+        //return false;
+        echo "mail false";
     }
 }
 
 connectsql();
-if (checkemail()&&checkfname()&&checkpass()&&checkuname()){
+checkemail();
+checkfname();
+checkpass();
+checkuname();
+insertsql();
+/*if (checkemail()&&checkfname()&&checkpass()&&checkuname()){
     insertsql();
 }
 else {
 	die('Error');
-}
+}*/
 closesql()
 
 ?>

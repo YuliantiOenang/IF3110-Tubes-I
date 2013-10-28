@@ -1,6 +1,6 @@
 // AJAX Script for Validation
-// Dongkol Ampas Bro - 27 October 2013
-// @version 1.0.0
+// Dongkol Ampas Bro - 28 October 2013
+// @version 1.0.1
 
 function ajaxValidation(method, value, target) {
     var xmlHttpRequest = false;
@@ -89,8 +89,7 @@ function onRegister(strUrl) {
                                              + "&alamat=" + document.getElementById('alamat').value
                                              + "&provinsi=" + document.getElementById('provinsi').value
                                              + "&kota=" + document.getElementById('kota').value
-                                             + "&kodepos=" + document.getElementById('kodepos').value
-                                             + "&email=" + document.getElementById('email').value;                                            
+                                             + "&kodepos=" + document.getElementById('kodepos').value;                                            
             
         self.xmlHttpRequest.send(params); // Melakukan proses pengiriman POST
 }
@@ -105,12 +104,57 @@ function refreshCheck() {
     document.getElementById('confirm').value != "" &&
     document.getElementById('nama_lengkap').value != "") { // Menjamin setiap field tidak kosong
     
-        if (document.getElementById('email_response').innerHTML == "" &&
-        document.getElementById('username_response').innerHTML == "" &&
-        document.getElementById('password_response').innerHTML == "" &&
-        document.getElementById('confirm_response').innerHTML == "" &&
-        document.getElementById('nama_lengkap_response').innerHTML == "") { // Jika semua hasil valid
+        if (document.getElementById('email_response').innerHTML.trim() == "" &&
+        document.getElementById('username_response').innerHTML.trim() == "" &&
+        document.getElementById('password_response').innerHTML.trim() == "" &&
+        document.getElementById('confirm_response').innerHTML.trim() == "" &&
+        document.getElementById('nama_lengkap_response').innerHTML.trim() == "") { // Jika semua hasil valid
             document.getElementById("submit").disabled = false; 
         }
     }
+}
+
+function onChange(strUrl) {
+
+    if (document.getElementById('password').value != "" &&
+    document.getElementById('confirm').value != "" &&
+    document.getElementById('nama_lengkap').value != "") { // Menjamin setiap field tidak kosong
+    
+        if (document.getElementById('password_response').innerHTML.trim() == "" &&
+        document.getElementById('confirm_response').innerHTML.trim() == "" &&
+        document.getElementById('nama_lengkap_response').innerHTML.trim() == "") { // Jika semua hasil valid
+                var xmlHttpRequest = false;
+                var self = this;
+                    
+                if (window.XMLHttpRequest) { // jika menggunakan browser selain IE
+                    self.xmlHttpRequest = new XMLHttpRequest();
+                } else if (window.ActiveXObject) { // jika menggunakan browser IE
+                    self.xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                self.xmlHttpRequest.open('POST', strUrl, true); // URL tempat POST akan di-directkan
+                self.xmlHttpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                self.xmlHttpRequest.onreadystatechange = function() {
+                    if (self.xmlHttpRequest.readyState == 4) { // Menunggu sampai POST selesai dilakukan
+                        var str = self.xmlHttpRequest.responseText;
+                        var n = str.indexOf("Success");
+                        if (n != -1) {
+                           window.location.replace(self.xmlHttpRequest.responseText.substring(n + 9));
+                        } else alert(self.xmlHttpRequest.responseText);
+                    }
+                }
+                
+                var submitValue = true;
+                    
+                var params = "submit=" + submitValue + "&password=" + document.getElementById('password').value
+                                                     + "&nama_lengkap=" + document.getElementById('nama_lengkap').value
+                                                     + "&HP=" + document.getElementById('HP').value
+                                                     + "&alamat=" + document.getElementById('alamat').value
+                                                     + "&provinsi=" + document.getElementById('provinsi').value
+                                                     + "&kota=" + document.getElementById('kota').value
+                                                     + "&kodepos=" + document.getElementById('kodepos').value;                                            
+
+                self.xmlHttpRequest.send(params); // Melakukan proses pengiriman POST
+        }
+
+    } else alert("Field * wajib diisi!");
 }

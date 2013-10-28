@@ -18,20 +18,30 @@ class User
 	{
 		if (isset($_SESSION['username']))
 		{
-			if ((isset($var['submit'])) && ($var['username']!='') && ($var['password']!='') && ($var['nama_lengkap']!='') && ($var['HP']!='') && ($var['alamat']!='') && ($var['provinsi']!='') && ($var['kota']!='') && ($var['kodepos']!='') && ($var['email']!=''))
+			if (isset($var['submit']))
 			{
-				$_SESSION['username'] = $var['username']; //username akan disimpan
-				$_SESSION['nama_lengkap'] = $var['nama_lengkap']; //nama lengkap
-				$_SESSION['HP'] = $var['HP'];
-				$_SESSION['alamat'] = $var['alamat'];
-				$_SESSION['provinsi'] = $var['provinsi'];
-				$_SESSION['kodepos'] = $var['kodepos'];
-				$_SESSION['email'] = $var['email'];
-				$_SESSION['password'] = $var['password'];
-				$_SESSION['kota'] = $var['kota'];
-				$m = new User_Model();
-				$m->updateInfo($var['username'],$var['password'],$var['nama_lengkap'],$var['HP'],$var['alamat'],$var['provinsi'],$var['kota'],$var['kodepos'],$var['email']);
-				header("Location: ".SITE_ROOT.NAME_ROOT."/index.php/user");
+                $isChanged = false;
+                
+                if ($_SESSION['nama_lengkap'] != $var['nama_lengkap'] || $_SESSION['password'] != $var['password'] ||
+                    $_SESSION['HP'] != $var['HP'] || $_SESSION['alamat'] != $var['alamat'] || $_SESSION['provinsi'] != $var['provinsi'] ||
+                    $_SESSION['kodepos'] != $var['kodepos'] || $_SESSION['kota'] != $var['kota']) $isChanged = true;
+                
+                if (!$isChanged) {
+                    echo "Failure: Isi field tidak berubah!";
+                } else {
+                    $_SESSION['nama_lengkap'] = $var['nama_lengkap']; //nama lengkap
+                    $_SESSION['password'] = $var['password'];
+                    $_SESSION['HP'] = $var['HP'];
+                    $_SESSION['alamat'] = $var['alamat'];
+                    $_SESSION['provinsi'] = $var['provinsi'];
+                    $_SESSION['kodepos'] = $var['kodepos'];
+                    $_SESSION['kota'] = $var['kota'];
+                    
+                    $m = new User_Model();
+                    $m->updateInfo($_SESSION['username'],$var['password'],$var['nama_lengkap'],$var['HP'],$var['alamat'],$var['provinsi'],$var['kota'],$var['kodepos'],$_SESSION['email']);
+                    
+                    echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php/user";
+                }
 			}
 			else
 			{
@@ -90,7 +100,7 @@ class User
             
             if ($isValid) { // kondisi benar
                 if ($var['value'] == $var['valueTwo']) echo "Failure: Email dan Password harus berbeda!";
-                else if (!$u->isBolehDaftarEmail($var['value'])) echo "Failure: Email sudah pernah digunakan!";
+                else if (!$u->isBolehDaftarEmail($var['value']) && $var['value'] != $_SESSION['email']) echo "Failure: Email sudah pernah digunakan!";
                 else echo "Success: Email bernilai benar!";
             } else {
                 echo "Failure: '".$var['value']."' bukanlah email yang valid!";
@@ -101,7 +111,7 @@ class User
             
             if (strlen($var['value']) >= 5) { // kondisi benar
                 if ($var['value'] == $var['valueTwo']) echo "Failure: Username dan Password harus berbeda!";
-                else if (!$u->isBolehDaftarUsername($var['value'])) echo "Failure: Username sudah pernah digunakan!";
+                else if (!$u->isBolehDaftarUsername($var['value']) && $var['value'] != $_SESSION['username']) echo "Failure: Username sudah pernah digunakan!";
                 else echo "Success: Username bernilai benar!";
             } else {
                 echo "Failure: '".$var['value']."' kurang dari 5 karakter!";

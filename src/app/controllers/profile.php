@@ -5,14 +5,12 @@
  */
 Class ProfileController Extends BaseController {
 
-	public function index() {
-
-	}
-
 	/**
-	 * Menampilkan profile seseorang berdasarkan id
-	*/
-	public function customer($id) {
+	 * Menampilkan profile seseorang jika login
+	 */	
+	public function index() {
+		$id = 1; //dummy
+
 		$customer = Customer::getById($this->registry, $id);
 		if (!empty($customer)) {
 			//passing value ke template dan show

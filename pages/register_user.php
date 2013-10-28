@@ -3,25 +3,21 @@
 <!-- includes -->
 <link rel='stylesheet' type='text/css' href='../css/homepage.css' media='screen' />
 
-<script type="text/javascript" src="../js/register.js"></script>
+<script type="text/javascript" src="../js/register_user.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 
 <head>
-	<title>Register</title>	
+	<title>Register User</title>	
 
 </head>
+<body>
 	<div class = "page_container">
-		<div class = "heading">
-			<p>ini header</p>
-		</div>
 		
-		<div class = "navigation">
-			<div class = "bar_navigation">Baking</div>
-			<div class = "bar_navigation">Beverages</div>
-			<div class = "bar_navigation">Canned Goods & Soups</div>
-			<div class = "bar_navigation">Fresh Food</div>
-			<div class = "bar_navigation">Household Essentials</div>
-		</div>
+		<?php include ("../templates/header.php"); ?>
+		<?php include ("../templates/navigation.php"); ?>
+		
 		<div class = "container">
+			<h1>Register User</h1>
 			<form action="../controllers/register_user.php" method="post">
 				<p>username</p>
 				<input id="username" name="username" type="text" onkeyup="checkUsername(this.value)"></input>
@@ -41,8 +37,7 @@
 			</form>
 		</div>
 		
-		<div class = "footer">
-			<p>ini footer</p>
-		</div>
+		<?php include ("../templates/footer.php"); ?>
 	</div>
+</body>
 </html>

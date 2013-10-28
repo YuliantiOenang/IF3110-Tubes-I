@@ -1,5 +1,4 @@
 p {
-	text-align:center;
 	color:black;
 	font-family:arial;
 }
@@ -41,7 +40,7 @@ p {
 .container {
 	width: 940px;
 	height: 500px;
-	background-color:blue;
+	background-color:white;
 	float: left;
 	overflow-y: scroll;
 }

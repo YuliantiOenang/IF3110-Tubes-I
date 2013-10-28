@@ -1,7 +1,3 @@
-<?php
-	/* includes */
-	include '../includes/includes.php'; 
-	
-	/* header */
-	echo "<div class = 'heading'></div>"
-?>
+<div class = "heading">
+	<p>ini header</p>
+</div>

@@ -58,7 +58,34 @@ function checkfname(){
 }
 
 function checkemail(){
+    $mail = str_split($_POST[email]);
+    $j=0; //lokasi "."
+    $k=0;// lokasi "@"
+    for ($i=0;$i<strlen($_POST_[email]);++$i) {
+         if ($mail[$i] == "@"){
+             $k = $i;
+         }
+         else if ($mail[$i] == ".") {
+             $j= $i;
+         }
+    }
     
+    if ((($j-$k) >= 1) && ((strlen($_POST_[email])-$j)>=2)&&($k >= 1)&&($_POST_[email]!=$_POST_[password])){
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
+connectsql();
+if (checkemail()&&checkfname()&&checkpass()&&checkuname()){
+    insertsql();
+}
+else {
+	die('Error');
+}
+closesql()
+
 ?>
+

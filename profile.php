@@ -12,7 +12,7 @@ include 'macro/header.php';
 <body>
 
 <?php
-if (isset($_GET['id'])) {
+if (isset($_SESSION['user_id']) && isset($_GET['id'])) {
 	$result = mysqli_query($link, "SELECT * FROM user WHERE id='".$_GET['id']."'");
 	if (mysqli_num_rows($result) == 1) {
 		$row = mysqli_fetch_array($result);
@@ -30,6 +30,8 @@ if (isset($_GET['id'])) {
 		echo "<button type=\"button\" >Ganti kata sandi</button><br />";
 		echo "<button type=\"button\" onclick=\"location.href='regcard.php';\">Registrasi kartu kredit</button><br />";
 	}
+} else {
+	echo "<meta http-equiv='refresh' content='=0;register.php' />";
 }
 ?>
 </body>

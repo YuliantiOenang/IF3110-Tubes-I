@@ -385,3 +385,26 @@ body {
 	margin: 15px 0;
 	width: 70%;
 }
+
+#table-shopping {
+	text-align: center;
+	border-color: #fff;
+	text-shadow: none;
+	border-style: solid;
+}
+
+#total-harga {
+	text-align: right;
+	font-size: 1.1em;
+	font-weight: bolder;
+}
+
+#btn-order {
+	margin-top: 10px;
+	float: right;
+}
+
+#btn-order:after {
+	clear: both;
+	content: '';
+}

@@ -32,6 +32,8 @@ include 'macro/header.php';
 				echo "<input id=\"province\" value=\"".$row['provinsi']."\" name=\"province\" placeholder=\"provinsi\" type=\"text\" onkeypress=\"validateEmpty(this.value, 'valprovince')\"/><div id=\"valprovince\"></div><br />";
 				echo "<input id=\"postal\" value=\"".$row['kodepos']."\" name=\"postal\" placeholder=\"kode pos\" type=\"number\" onkeypress=\"validateEmpty(this.value, 'valpostal')\"/><div id=\"valpostal\"></div><br />";
 			}			
+		} else {
+			echo "<meta http-equiv='refresh' content='=0;register.php' />";
 		}
 		?>
 		<input type="submit" /><br />

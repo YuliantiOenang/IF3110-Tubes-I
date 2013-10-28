@@ -41,6 +41,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 	}
 	echo "<h1>SUCCESS!</h1><br />";
 	echo "<meta http-equiv='refresh' content='=2;index.php' />";
+} else {
+	echo "<meta http-equiv='refresh' content='=0;register.php' />";
 }
 
 ?>

@@ -70,6 +70,41 @@ function popClik()
     lightbox.style.left = window.innerWidth/2 - 100 + 'px';
 	document.getElementById("user").focus();
 }
+
+
+function cekJumlah()
+{
+	//mengambil semua variable dalam form login
+	var id = document.getElementById('idBarang').value;	
+	
+
+	var jumlah = document.getElementById('jumlahBarang').value;
+	//request ke file php
+	http.open('get', 'changeJumlah.php?id='+id+'&jumlah='+jumlah+"",true);
+	//cek hasil request 4 jika berhasil
+	http.onreadystatechange = function()
+	  {
+		
+		if (http.readyState==4 && http.status==200)
+		{
+			try
+			{
+			
+			var decodeJSON = JSON.parse(http.responseText);
+			
+			alert("Maaf barang yang ada di stok tidak cukup.\n jumlah stok "+http.responseText);
+			}
+			catch(e)
+			{
+			alert("Berhasil mengganti transaksi.");
+			}
+		}
+	  }
+	http.send(); 
+	
+	
+}
+
 function login()
 {
 	
@@ -135,6 +170,7 @@ function remove(id)
 {
     return (elem=document.getElementById(id)).parentNode.removeChild(elem);
 }
+
 </script>
 <body>
 <div id="lightbox">	
@@ -204,7 +240,7 @@ function remove(id)
 			<a href="see_profile.php"><p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1'].""; ?></p></a>
 			</div>
 		</div>
-				<div class = "menu">
+		<div class = "menu">
 				<div>
 					<a href="kategori.php?key=Jaket"><img src = "images/jacket.png" class = "jacket"></img></a>
 				</div>
@@ -267,7 +303,6 @@ function remove(id)
 		<?php
 			include "config/connect.php";
 			
-			
 				$count=0;
 				$hasil = mysql_query("SELECT peralatan.no_alat, peralatan.foto, peralatan.nama, peralatan.harga, keranjang.jumlah,keranjang.pesan FROM keranjang,peralatan where id_customer='".$_COOKIE['IdCustomer']."' and peralatan.no_alat=keranjang.id_alat");
 				
@@ -277,8 +312,15 @@ function remove(id)
 				<div class = 'previmage'>
 					<img src='".$baris[1]."' class='resizeimage'>
 				</div>
+				
 				<p class = 'copyrightext'> ".$baris[2]." </br>
-					  Rp".$baris[3]." </label> </br> Pesan : ".$baris[5]." </br> Jumlah: ".$baris[4]." </p>
+					  Rp".$baris[3]." </label> </br> Pesan : ".$baris[5]." </br> </p></br>
+					  </br></br>
+					  </br></br></br></br>
+				<input type='text' id='idBarang' value='".$baris[0]."' hidden/>
+				Jumlah: <input type='text' size=4 id='jumlahBarang' value='".$baris[4]."'/>
+				</br>
+				<input type='submit' value='change' onclick='cekJumlah()'>
 				</div>";
 				}
 			

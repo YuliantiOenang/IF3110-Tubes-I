@@ -22,7 +22,7 @@
 		if ($y->item(0)->nodeType==1)
 		{
 		//find a link matching the search text
-		  if (stristr($y->item(0)->childNodes->item(0)->nodeValue,$q) || stristr($v->item(0)->childNodes->item(0)->nodeValue,$q) || stristr($w->item(0)->childNodes->item(0)->nodeValue,$q))
+		  if (stristr($y->item(0)->childNodes->item(0)->nodeValue,$q))
 		  {
 			if ($hint=="")
 			{

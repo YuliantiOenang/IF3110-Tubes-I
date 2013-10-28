@@ -27,8 +27,8 @@ if (isset($_GET['id'])) {
 	}
 	if (isset($_SESSION['user_id']) && $_GET['id'] == $_SESSION['user_id']) {
 		echo "<button type=\"button\" onclick=\"location.href='editprofile.php';\">Ubah profil</button><br />";
-		echo "<button type=\"button\">Ganti kata sandi</button><br />";
-		echo "<button type=\"button\" onclick=\"location.href='editprofile.php';\">Registrasi kartu kredit</button><br />";
+		echo "<button type=\"button\" >Ganti kata sandi</button><br />";
+		echo "<button type=\"button\" onclick=\"location.href='regcard.php';\">Registrasi kartu kredit</button><br />";
 	}
 }
 ?>

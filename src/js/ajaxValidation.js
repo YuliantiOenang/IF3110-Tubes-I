@@ -58,7 +58,7 @@ function updatePage(str, target) {
     refreshCheck();
 }
 
-function onRegister(strUrl, formName) {
+function onRegister(strUrl) {
         var xmlHttpRequest = false;
         var self = this;
             

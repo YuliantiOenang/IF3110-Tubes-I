@@ -187,18 +187,33 @@ class User
     public function firstCreditCard(array $var) {
 		if (isset($_SESSION['id']))
 		{
-            if ($var['isCreditCard'] != 1) {
+            if ($_SESSION['isCreditCard'] != 1) {
                 if ( (isset($var['submit'])) && ($var['card_number']!='') && ($var['name']!='') && ($var['expired_date']!='') )
                 {
-                    $m = new User_Model();
-                    $m->addCreditCard($var['card_number'],$var['name'],$var['expired_date']);
-                    
-                    if (isset($_SESSION['username'])) //jika sudah login
-                    {}
-                    else session_destroy(); //jika bukan dari login, hapus semua session temporari
+                    if (is_numeric($var['card_number']) && (strlen($var['card_number']) >= 13) && (strlen($var['card_number']) <= 19)) {
+                        if (strlen($var['name']) <= 26) {
+                            $year = intval(substr($var['expired_date'], 0, 4));
+                            $month = intval(substr($var['expired_date'], 5, 2));
+                            $day = intval(substr($var['expired_date'], 8, 2)); 
+                            if (checkdate($month, $day, $year)) {
+                                $m = new User_Model();
+                                $m->addCreditCard($var['card_number'],$var['name'],$var['expired_date']);
+                                
+                                if (isset($_SESSION['username'])) //jika sudah login
+                                {}
+                                else session_destroy(); //jika bukan dari login, hapus semua session temporari
 
-                    echo "Kartu kredit berhasil ditambahkan<br>";
-                    echo "Klik <a href='".SITE_ROOT.NAME_ROOT."/index.php/user'>disini</a> untuk pergi ke laman akun anda";
+                                echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php/user"; // kembali ke halaman utama
+                            } else {
+                                echo "Failure: Tanggal yang anda masukkan bukan tanggal yang valid!";
+                            }
+                        } else {
+                            echo "Failure: Panjang nama harus kurang dari sama dengan 26 karakter!";
+                        }
+                    } else {
+                        echo "Failure: Panjang card number harus diantara 13 - 19 digit!";
+                    }
+
                 }
                 else{
                     $v = new View('user/firstcreditcard');
@@ -215,19 +230,33 @@ class User
 	public function addCreditCard(array $var){ 
 		if (isset($_SESSION['id']))
 		{
-			if ( (isset($var['submit'])) && ($var['card_number']!='') && ($var['name']!='') && ($var['expired_date']!='') )
-			{
-				$m = new User_Model();
-				$m->addCreditCard($var['card_number'],$var['name'],$var['expired_date']);
-				
-				if (isset($_SESSION['username'])) //jika sudah login
-				{}
-				else session_destroy(); //jika bukan dari login, hapus semua session temporari
+            if ( (isset($var['submit'])) && ($var['card_number']!='') && ($var['name']!='') && ($var['expired_date']!='') )
+            {
+                if (is_numeric($var['card_number']) && (strlen($var['card_number']) >= 13) && (strlen($var['card_number']) <= 19)) {
+                    if (strlen($var['name']) <= 26) {
+                        $year = intval(substr($var['expired_date'], 0, 4));
+                        $month = intval(substr($var['expired_date'], 5, 2));
+                        $day = intval(substr($var['expired_date'], 8, 2)); 
+                        if (checkdate($month, $day, $year)) {
+                            $m = new User_Model();
+                            $m->addCreditCard($var['card_number'],$var['name'],$var['expired_date']);
+                            
+                            if (isset($_SESSION['username'])) //jika sudah login
+                            {}
+                            else session_destroy(); //jika bukan dari login, hapus semua session temporari
 
-				echo "Kartu kredit berhasil ditambahkan<br>";
-				echo "Klik <a href='".SITE_ROOT.NAME_ROOT."/index.php/user'>disini</a> untuk pergi ke laman akun anda";
-			}
-			else{
+                            echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php/user"; // kembali ke halaman utama
+                        } else {
+                            echo "Failure: Tanggal yang anda masukkan bukan tanggal yang valid!";
+                        }
+                    } else {
+                        echo "Failure: Panjang nama harus kurang dari sama dengan 26 karakter!";
+                    }
+                } else {
+                    echo "Failure: Panjang card number harus diantara 13 - 19 digit!";
+                }
+
+            } else{
 				$v = new View('user/addcreditcard');
 				$v->render();
 			}

@@ -65,7 +65,7 @@
 
 	</div> -->
 	<div id="registercontent">
-<form id="registerForm" action="#" autocomplete="off" method="POST" onsubmit="onRegister('../user/register', 'registerForm'); return false;">
+<form id="registerForm" action="#" autocomplete="off" method="POST" onsubmit="onRegister('../user/register'); return false;">
     Email* : <input type="text" name="email" id="email" onkeyup="ajaxValidation('checkEmail', this.value, this.id);"><br>
     <div id="email_response" class="error_message"> </div>
     Username* : <input type="text" name="username" id="username" onkeyup="ajaxValidation('checkUsername', this.value, this.id);"><br>

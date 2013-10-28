@@ -1,8 +1,11 @@
-
-a:link {text-decoration:none; color:white;}    /* unvisited link */
-a:visited {text-decoration:none; color:white;} /* visited link */
-a:hover {text-decoration:underline;}   /* mouse over link */
-a:active {text-decoration:underline; color:blue;}  /* selected link */
+/* File CSS utama Website
+ *  Dongkol Ampas Bro
+ */
+ 
+a:link {text-decoration:none; color:white;}
+a:visited {text-decoration:none; color:white;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline; color:blue;}
 
 body{
 	background-image:url('../gambar_barang/grass.jpg');

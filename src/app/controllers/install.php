@@ -14,10 +14,14 @@ Class InstallController Extends BaseController {
 	public function make() {
 		Product::createTable($this->registry);
 		Product::insertDummy($this->registry);
+
+		Customer::createTable($this->registry);
 	}
 
 	public function clean() {
 		Product::dropTable($this->registry);
+
+		Customer::dropTable($this->registry);
 	}
 
 }

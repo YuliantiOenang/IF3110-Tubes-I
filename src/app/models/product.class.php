@@ -23,7 +23,7 @@ class Product {
 		try {
 			$dbh = $registry->database;
 			if ($dbh->exec($sql) !== false) {
-				echo 'The product table is created';
+				echo '</br> The product table is created';
 			}
 		} catch (PDOException $e) {
 			echo $e->getMessage();
@@ -54,7 +54,7 @@ class Product {
 		try {
 			$dbh = $registry->database;
 			if ($dbh->exec($sql) !== false) {
-				echo 'The product table is droped';
+				echo '</br> The product table is droped';
 			}
 		} catch (PDOException $e) {
 			echo $e->getMessage();

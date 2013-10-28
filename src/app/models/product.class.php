@@ -7,7 +7,7 @@
 class Product {
 
 	/**
-	 * Mengisi dummy dari tabel produk
+	 * Membuat tabel produk
 	 */
 	public static function createTable($registry) {
 		$sql = "CREATE TABLE IF NOT EXISTS `product` (
@@ -30,6 +30,9 @@ class Product {
 		}
 	}
 
+	/**
+	 * Menambahkan data dummy
+	 */
 	public static function insertDummy($registry) {
 		$data = array(
 					array('HTML5 for Dummies',      'Ebook', 49000, 0, 'https://www.google.com/images/srpr/logo11w.png', ''),
@@ -49,6 +52,9 @@ class Product {
 		}
 	}
 
+	/**
+	 * Menghapus tabel
+	 */
 	public static function dropTable($registry) {
 		$sql = "DROP TABLE IF EXISTS `product`";
 		try {
@@ -60,4 +66,50 @@ class Product {
 			echo $e->getMessage();
 		}
 	}
+
+	/**
+	 * Mendapatkan seluruh baris produk dengan kategori tertentu
+	 */
+	public static function getByCategory($category) {
+		try {
+			$smh = $dbh->prepare('SELECT * FROM product WHERE category = :category');
+    		$smh->execute(array('category' => $category));
+ 		
+ 			//return array of all
+   			return $smh->fetchAll();
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	/**
+	 * Mendapatkan seluruh baris produk dengan nama tertentu
+	 */
+	public static function getBySearch($keyword) {
+		try {
+			$smh = $dbh->prepare('SELECT * FROM product WHERE MATCH(product_name, description) AGAINST (:keyword IN BOOLEAN MODE)');
+    		$smh->execute(array('keyword' => $keyword));
+ 		
+ 			//return array of all
+   			return $smh->fetchAll();
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	/**
+	 * Mendapatkan seluruh baris produk dengan id tertentu
+	 */
+	public static function getById($id) {
+		try {
+			$smh = $dbh->prepare('SELECT * FROM product WHERE product_id = :id');
+    		$smh->execute(array('id' => $id));
+ 		
+ 			//return array of all
+   			return $smh->fetchAll();
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
 } /*** end of class ***/

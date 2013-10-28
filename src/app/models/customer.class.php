@@ -47,4 +47,20 @@ class Customer {
 			echo $e->getMessage();
 		}
 	}
+
+	/**
+	 * Mendapatkan seluruh baris produk dengan id tertentu
+	 */
+	public static function getById($id) {
+		try {
+			$smh = $dbh->prepare('SELECT * FROM customer WHERE customer_id = :id');
+    		$smh->execute(array('id' => $id));
+ 		
+ 			//return array of all
+   			return $smh->fetchAll();
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
 } /*** end of class ***/

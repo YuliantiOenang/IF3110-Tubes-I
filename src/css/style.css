@@ -187,6 +187,7 @@ body,h3
 {
 	display : inline;
 	list-style-type : none;
+
 	margin-right : 1%;
 }
 
@@ -295,5 +296,5 @@ body,h3
 
 #alert_login
 {
-	color : red;
+	color : red;	
 }

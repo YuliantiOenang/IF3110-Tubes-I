@@ -19,7 +19,7 @@
 	<div id='rightBox'>
 		<?php
 			if (isset($_SESSION['user_id'])) {
-				echo "<a id=\"shopbag\" href=\"#\"><img src=\"images/shopbag.png\"></a></p>";
+				echo "<a id=\"shopbag\" href=\"shoppingbag.php\"><img src=\"images/shopbag.png\"></a></p>";
 			}
 		?>
 		<div id="headerControl">

@@ -1,7 +1,7 @@
 <?php
 include "koneksi.inc.php";
 if(isset($_POST['username'])){$username=$_POST['username'];}
-if(isset($_POST['password'])){$password=$_POST['password'];}
+if(isset($_POST['password'])){$password=md5($_POST['password']);}
 if(empty($username) and empty($password)){
 	echo 2;
 }else{

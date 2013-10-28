@@ -116,12 +116,11 @@ function auth(user,pass){
 			switch(xmlhttp.responseText){
 				case '0':
 					ANIMATEPOPUPBOX.closembox();
-					localStorage.wbduser= user;
+					localStorage.wbduser = user;
 					localStorage.wbdlogintime=new Date().getTime();
-					var s = "<li><a href=\"profile.php\">Profile</a></li>";
+					var s = "<li><a href=\"profile.php\">Welcome "+localStorage.wbduser+"!</a></li>";
 					s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');localStorage.removeItem('wbdlogintime');\">Logout</a></li>";
 					document.getElementById("log").innerHTML=s;
-					document.getElementById("banner").innerHTML+="<p>Selamat datang, <b>"+localStorage.wbduser+"</b>!</p>";
 				break;
 				case '1':
 					document.getElementById("errorInfo").innerHTML='<img src="images/unlike.png" width="15" height="15"/>Invalid username passowrd!';
@@ -136,10 +135,9 @@ function auth(user,pass){
 if(typeof(Storage)!=="undefined"){
 	if(localStorage.wbduser && localStorage.wbdlogintime){
 		if(hitunghari(Number(localStorage.wbdlogintime),new Date().getTime())<=30){
-			var s = "<li><a href=\"profile.php\">Profile</a></li>";
+			var s = "<li><a href=\"profile.php\">Welcome "+localStorage.wbduser+"!</a></li>";
 			s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');localStorage.removeItem('wbdlogintime');\">Logout</a></li>";
 			document.getElementById("log").innerHTML=s;
-			document.getElementById("banner").innerHTML+="<p>Selamat datang, <b>"+localStorage.wbduser+"</b>!</p>";
 		}else{
 			alert("Waktu login kamu sudah lebih dari 30 hari.\nSilahkan login ulang");
 			localStorage.removeItem('wbduser');

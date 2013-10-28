@@ -12,7 +12,7 @@
 	<h1><span><a href="index.php">RuSerBa<br><strong>Ruko Serba Ada</strong></a></span></h1>
  	<nav><ul id="menubar">
 		<li><a href="index.php">Home</a></li>
-		<li><a href="#" onmouseover="slidedown(true)" onmouseup="slidedown(false)">Kategori Barang</a>
+		<li><a href="halamanbarang.php" onmouseover="slidedown(true)" onmouseup="slidedown(false)">Kategori Barang</a>
 			<ul class="sub-menu">	
 			<?php 
 				include "koneksi.inc.php";
@@ -25,24 +25,28 @@
 			</ul>
 		</li>
 		<div id="log"></div>
-		<li style="float:right"><button type="button">Search</button></li>
-		<li style="float:right"><input type="text" name="search" id="cari"placeholder="Cari Barang" onkeyup="searchsuggest(cari.value)">
+		<li><a href="shoppingbag.php">Shopping Bag</a></li>
+		<div id="searchbar" style="float:right">
+		<li><input type="text" name="search" id="cari"placeholder="Cari Barang" onkeyup="searchsuggest(cari.value)">
 			<ul class="suggestion" id="cariyu">	
 			</ul>
 		</li>
+		<li><button type="button">Search</button></li>
+		</div>
 	</ul></nav>
-</header><!-- /#banner -->
-<!-- buat animasi kotak login user -->
-<div id='mbox' style='display:none;'></div>
-<div id='back_mbox' style='display:none;'></div><div id='fade_mbox' style='display:none;'></div>
-<!-- kotak user login -->
-<div id="userlogin">
-<form method="post">
-	<pre><span id="errorInfo"><span/></pre>
-	<pre>Username		<input type="text" id="username" name="username"></pre>
-	<pre>Password		<input type="password" id="password" name="password"></pre>
-	<input type="button" value="Login" onclick="auth(username.value,password.value)"> <a href="registerform.php">Daftar baru!</a>
-</form>
-</div>
-<!-- import script dari file javascript -->
-<script src="javascript/header.js"></script>
+	</header><!-- /#banner -->
+	<!-- buat animasi kotak login user -->
+	<div id='mbox' style='display:none;'></div>
+	<div id='back_mbox' style='display:none;'></div><div id='fade_mbox' style='display:none;'></div>
+	<!-- kotak user login -->
+	<div id="userlogin">
+	<form method="post">
+		<pre><span id="errorInfo"><span/></pre>
+		<pre>Username		<input type="text" id="username" name="username"></pre>
+		<pre>Password		<input type="password" id="password" name="password"></pre>
+		<input type="button" value="Login" onclick="auth(username.value,password.value)"> <a href="registerform.php">Daftar baru!</a>
+	</form>
+	<div id="welcomebar"></div>
+	</div>
+	<!-- import script dari file javascript -->
+	<script src="javascript/header.js"></script>

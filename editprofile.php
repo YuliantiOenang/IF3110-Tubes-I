@@ -19,7 +19,6 @@ if(typeof(Storage)!=="undefined"){
 				document.getElementById("kodepos").value=str[5];
 				document.getElementById("email").value=str[6];
 				document.getElementById("usnm").value=str[7];
-				document.getElementById("pwd").value=str[8];
 			}
 		}
 		xmlhttp.open("POST","ajaxprofile.php",true);

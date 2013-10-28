@@ -142,7 +142,7 @@ pre {
 		-webkit-border-radius: 5px;
 	}
 	
-	#banner nav ul {list-style: none; margin: 0 auto; width: 800px;}
+	#banner nav ul {list-style: none; margin: 0 auto; width: 900px;}
 	#banner nav li {float: left; display: inline; margin: 0;}
 	
 	#banner nav a:link, #banner nav a:visited {
@@ -193,13 +193,12 @@ pre {
 		position: absolute;
 		top: 30px;
 		left: 0;
-		width: 100px;
+		width: auto;
 		z-index: 999;
 	}
 	ul#menubar li:hover ul.sub-menu {
 		color: #fff;
 		display: block;
-		transition: background .5s linear;
 	}
 	
 	ul#menubar .sub-menu {
@@ -445,7 +444,7 @@ pre {
 	overflow: hidden;
 	top: 0;
 	left: 0;
-	background-color: rgba(146,96,91,0.4);
+	background-color: rgba(146,96,91,0.9);
 	transform: translateX(-300px);
 	opacity: 0;
 }
@@ -508,4 +507,9 @@ pre {
 
 .view a.info:hover {
 	box-shadow: 0 0 1px #000;
+}
+#indikator img {
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
 }

@@ -13,7 +13,7 @@
 			<pre id="email">Email			:</pre>
 			<pre id="usernamep">Username		:</pre>
 		<form method="action" action="editprofile.php">
-		<input type="submit" value="Edit Profile">
+		<input type="submit" value="Edit Profile"> <a href="registercardform.php">Daftarkan kartu kredit saya</a>
 		</form>
 </article><!-- /#featured -->
 <script>

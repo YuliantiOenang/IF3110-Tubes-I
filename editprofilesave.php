@@ -1,14 +1,14 @@
 <?php
 include "koneksi.inc.php";
-$username=$_POST['username'];
-$password=$_POST['password'];
-$nama=$_POST['nama'];
-$nomorhp=$_POST['nomorhp'];
-$alamat=$_POST['alamat'];
-$provinsi=$_POST['provinsi'];
-$kota=$_POST['kota'];
-$kodepos=$_POST['kodepos'];
-$email=$_POST['email'];
+if(isset($_POST['username'])){$username=$_POST['username'];}
+if(isset($_POST['password'])){$password=md5($_POST['password']);}
+if(isset($_POST['nama'])){$nama=$_POST['nama'];}
+if(isset($_POST['nomorhp'])){$nomorhp=$_POST['nomorhp'];}
+if(isset($_POST['alamat'])){$alamat=$_POST['alamat'];}
+if(isset($_POST['provinsi'])){$provinsi=$_POST['provinsi'];}
+if(isset($_POST['kota'])){$kota=$_POST['kota'];}
+if(isset($_POST['kodepos'])){$kodepos=$_POST['kodepos'];}
+if(isset($_POST['email'])){$email=$_POST['email'];}
 if(isset($_FILES['foto'])){
     $file_name = $_FILES['foto']['name'];
     $file_tmp =$_FILES['foto']['tmp_name'];

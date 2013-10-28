@@ -70,16 +70,21 @@ p {
 	float:left;
 }
 
-.image{
+.goodsimage{
 	width:500px;
 	float:left;
 }
 .textinput{
 	width:400px;
 	height:100px;
+	resize: none;
 }
+
+.numinput{
+	width:3em;
+}
+
 .data{
 	width:400px;
 	float:left;
-	background-color:#b0e0e6;
 }

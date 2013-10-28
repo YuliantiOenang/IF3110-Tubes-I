@@ -47,18 +47,19 @@
 				}
 			}
 			?>
-			<div class = "image">
+			<div class = "goodsimage">
 				<img width=500px src='../img/<?php echo $row['gambar'];?>'> <br/>
 			</div>
 			<div class = "data">
-				ID: <?php echo $row['id_inventori'];?><br/>
-				Nama Barang: <?php echo $row['nama_inventori'];?><br/>
-				Kategori: <?php echo $row['nama_kategori'];?><br/><br/>
-				<?php echo $row['description'];?><br/>
+				<?php echo $row['nama_inventori'];?><br/><br/>
+				<?php echo $row['description'];?><br/><br/>
 				<form novalidate> Permintaan Khusus : <br/> 
-					<input class="textinput" width=200 height=100 type='text' name='tambahan'> 
+					<textarea class="textinput" width=200 height=100 type="text" name="tambahan"></textarea>
 				</form>
-				<form> Quantity : <input type='number' name='quantity'> </form>
+				<form> Quantity : 
+					<input class="numinput" type="number" name="quantity" size="500"><br/> 
+					<input type="image" src="../img/Cart.png">
+				</form>
 				<?php mysqli_close($con); ?>
 			</div>
 		</div>

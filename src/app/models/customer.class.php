@@ -49,15 +49,16 @@ class Customer {
 	}
 
 	/**
-	 * Mendapatkan seluruh baris produk dengan id tertentu
+	 * Mendapatkan produk dengan id tertentu
 	 */
 	public static function getById($registry, $id) {
 		try {
+			$dbh = $registry->database;
 			$smh = $dbh->prepare('SELECT * FROM customer WHERE customer_id = :id');
     		$smh->execute(array('id' => $id));
  		
- 			//return array of all
-   			return $smh->fetchAll();
+ 			//pasti cuma ada satu
+   			return $smh->fetch(PDO::FETCH_ASSOC);
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}

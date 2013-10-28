@@ -48,17 +48,20 @@ function checkdate123(){
 function comparedate (){
     $tanggal = $_POST[kadaluarsa];
     if((time()-(60*60*24)) < strtotime($var)) {
-        echo "card expired";
+        return false;
     }
     else {
-        echo "card can be used";
+        return true;
     }
 }
 
 connectsql();
-checkdate123();
-comparedate();
-insertsql();
+if (comparedate()) {
+    insertsql();    
+}
+else {
+	die ('error card expired');
+}
 closesql();
 echo "hai";
 ?>

@@ -1,4 +1,4 @@
-body
+body,h3
 {
     margin:0;
     padding:0;
@@ -53,6 +53,17 @@ body
 	float:left;
 }
 
+#welcome
+{
+	color:#000000;
+	background-color : #bbbbbb;
+	height : 45px;
+	line-height : 45px;
+	display:inline-block;
+	padding-left:5px;
+	padding-right:5px;
+}
+
 .header_item
 {
 	height:45px;
@@ -95,6 +106,7 @@ body
 	border-radius:5px;
 	box-shadow: 1px 1px 1px #888888;
 	background-color: #eeeeee;
+	margin-right : 5px;
 }
 
 .button:active
@@ -112,6 +124,7 @@ body
 	border-radius:5px;
 	box-shadow: -1px -1px 1px #888888;
 	background-color: #dddddd;
+	margin-right : 5px;
 }
 
 .text_input
@@ -120,4 +133,167 @@ body
 	height: 25px;
 	padding-left:5px;
 	padding-right:5px;
+	margin : 5px;
+}
+
+#login
+{
+	position : relative;
+	float : right;
+	right : 100px;
+	top : 100px;
+	top : 5px;
+	padding : 10px;
+	border-radius:5px;
+	background-color:#efefef;
+	box-shadow: 1px 1px 1px #888888;
+	border:1px solid #777777;
+	visibility : hidden;
+}
+
+#content_body
+{
+	width : 75%;
+	margin-left : auto;
+	margin-right : auto;
+	margin-top : 50px;
+	padding : 25 px;
+	border:1px solid #777777;
+	box-shadow: -1px -1px 5px #888888;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#content_body h3
+{
+	position:relative;
+	width : 25%;
+	background-color : #0077fd;
+	padding : 5px;
+	left : -25px;
+	margin : 10px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+.horizontal_list
+{
+	width : 80%;
+	height : 30%;
+	margin-left : auto;
+	margin-right : auto;
+	text-align : center;
+}
+
+.horizontal_list li
+{
+	display : inline;
+	list-style-type : none;
+	margin-right : 1%;
+}
+
+.content_item
+{
+	padding : 10px;
+}
+
+#detail_barang
+{
+	padding : 10px;
+	height : auto;
+}
+
+
+#detail_barang .desc
+{
+	width : 100%;
+	margin : 10px;
+}
+
+#detail_barang h4
+{
+	width : 20%;
+	padding : 5px;
+}
+
+#detail_barang label
+{
+	margin : 10px;
+	font-size : 20px;
+}
+
+#detail_barang .textbox
+{
+	height: 10%;
+	width : 50%;
+	margin : 10px;
+}
+
+#detail_barang .quantity
+{
+	width : 10%;
+	margin : 10px;
+}
+
+#detail_barang  .button
+{
+	width : 10%;
+	margin : 10px;
+	margin : 10px;
+}
+
+.barang
+{
+	width:30%;
+	height:100%;
+	float:left;
+	border-radius:5px;
+	box-shadow: 1px 1px 1px #888888;
+	border:1px solid #777777;
+	margin : 0.5%;
+	padding : 0.5%;
+	text-align:center;
+}
+
+.barang img
+{
+	height:75%;
+	max-width : 100%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+.barang a
+{
+	text-decoration : none;
+}
+
+.barang h4 {
+	margin : 0;
+	padding : 0;
+}
+
+.barang:hover
+{
+	box-shadow: -1px -1px 5px #888888;
+}
+
+#alert
+{
+	color : red;
+	font-size : 20px;
+}
+
+#hargaSatuan
+{
+	color : blue;
+}
+
+#totalHarga
+{
+	color : blue;
+}
+
+#alert_login
+{
+	color : red;
 }

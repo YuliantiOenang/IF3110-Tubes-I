@@ -30,7 +30,7 @@ body {
 	border-bottom-left-radius:5px;
 	text-indent:0px;
 	display:inline-block;
-	color:#ebebeb;
+	color:#fff;
 	font-family:Arial;
 	font-size:13px;
 	font-weight:bolder;
@@ -86,7 +86,13 @@ body {
 	padding: 15px 25px;
 }
 
-.edit-logout > a:link, a:visited {
+.edit-logout > a:link, 
+.edit-logout > a:visited, 
+.btn-right:link, 
+.btn-right:visited, 
+.btn-left:link, 
+.btn-left:visited 
+{
 	color: #fff;
 }
 
@@ -105,4 +111,131 @@ body {
 	height: 28px;
 	border: none;
 	margin-left: 9px;
+}
+
+#navbar {
+	font-size: 1.3em;
+	color: #868789;
+	margin-top: 20px;
+}
+
+#navbar > ul {
+	list-style-type:none;
+	margin:0;
+	padding: 0;
+}
+
+#navbar > ul > li {
+	display: inline;
+	padding: 0 15px;
+}
+
+#navbar > ul > li > a:link, #navbar > ul > li > a:visited , .btn-right, .btn-left{
+	color: #868789;
+	text-decoration: none;
+}
+
+#slideshow {
+	position:relative;
+	margin: 25px 0;
+	background-color: #3498DB;
+	margin-bottom: -70px;
+}
+
+#slideshow > .item {
+	position: relative;
+	padding: 40px 0;
+}
+
+.caption {
+	
+}
+
+.caption > .text {
+	position: absolute;
+	left: 61px;
+	bottom: 45px;
+	right: 61px;
+	background-color: #333;
+	opacity: 0.8;
+	color: #fff;
+	height: 42px;
+	padding-top: 10px;
+	font-size: 14px;
+}
+
+.btn-left, .btn-right {
+	position: absolute;
+	top: 200px;
+	font-size: 5em;
+	opacity: 0.8;
+}
+
+.btn-left {
+	left: 20px;
+}
+
+.btn-right {
+	right: 20px;
+}
+
+#bbuy-text {
+	margin-top: 50px;
+}
+
+#bbuy-a, #bbuy-b {
+	color: #96bf0d;
+}
+
+#bbuy-a {
+	font-size: 36px;
+}
+
+#bbuy-b {
+	font-size: 24px;
+}
+
+.product {
+	color: #333;
+}
+
+.product > .gambar {
+	border-style: solid;
+	border-color: #D6D6D7;
+	border-width: 2px;
+	padding: 20px 0;
+	max-height: 176px;
+	min-width: 186px;
+}
+
+.nama-produk {
+	font-size: 18px;
+}
+
+.asal-produk {
+	font-size: 11px;
+}
+
+#best-buy-btn {
+	position: absolute;
+	top: 130px;
+	right: 56%;
+
+	position:relative;
+	animation:myfirst 1s linear 1s infinite alternate;
+	/* Safari and Chrome: */
+	-webkit-animation:myfirst 1s linear 1s infinite alternate;
+	}
+
+	@keyframes myfirst
+	{
+	0%   { left:0px; top:0px;}
+	100% { left:50px; top:0px;}
+	}
+
+	@-webkit-keyframes myfirst /* Safari and Chrome */
+	{
+	0%   { left:0px; top:0px;}
+	100% { left:50px; top:0px;}
+	}
 }

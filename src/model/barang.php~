@@ -24,7 +24,7 @@ class Barang_Model
 	public function getAllBarang($offset)
 	{
 		//LIMIT 0, 10 
-		$query = "select barang.gambar, barang.id, barang.nama_barang, barang.harga_barang, barang.jumlah_barang from barang join kategori on barang.id_kategori=kategori.id limit ".$offset.",10";
+		$query = "select barang.id, barang.nama_barang, barang.harga_barang, barang.jumlah_barang from barang join kategori on barang.id_kategori=kategori.id limit ".$offset.",10";
 		return $this->database->query($query);
 	}
 

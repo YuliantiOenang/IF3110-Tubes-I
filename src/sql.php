@@ -12,7 +12,7 @@ class SQL
 		$user = USER_SQL;
 		$password = PASS_SQL;
 
-		$this->db = "tubes1";
+		$this->db = SQL_NAME;
 		$this->connection = mysql_connect($host,$user,$password);	
 		return TRUE;
 	}

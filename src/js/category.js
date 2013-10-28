@@ -11,7 +11,7 @@ function nextPage(){
 	if (loading || !loadable) return;
 	
 	infobottom = document.getElementById("infobottom");
-	infobottom.innerHTML = "loading...";
+	infobottom.innerHTML = "<img class='loading' src='image/loading.gif' /> loading...";
 	
 	page++;
 	var data = {"action": "category", "cat": category, "page": page};

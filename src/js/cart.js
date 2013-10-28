@@ -2,7 +2,7 @@
 
 function refreshCart(){
 	var cart = document.getElementById("cart");
-	cart.innerHTML = "refreshing...";
+	cart.innerHTML = "<img class='loading' src='image/loading.gif' /> refreshing...";
 	
 	// klo ga ada di local storage, berarti blom belanja
 	if (localStorage.getItem("shoppingbag") === null){

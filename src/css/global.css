@@ -151,6 +151,13 @@ a:hover{
 	cursor: pointer;
 }
 
+/* elemen lain */
+
+.loading{
+	width:12pt; height: 12pt;
+	vertical-align: middle;
+}
+
 /* alignment */
 
 .align-right{

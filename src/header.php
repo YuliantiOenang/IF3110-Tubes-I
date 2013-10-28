@@ -1,6 +1,6 @@
 <div class="header-wrapper">
 	<div class="header-float">
-		<a href="#">Login</a>|<a href="#">Signup</a>
+		<a href="#">Login</a>|<a href="#">Signup</a>|<a href="cart.php">Cart</a>
 	</div>
 	<div class="header">
 		<div class="htitle"><a href="index.php">Ruko Serba Ada</a></div>

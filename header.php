@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="css/main.css" type="text/css" /> 
 </head>
 <body id="index" class="home">
-	<div style="width:1000px; margin-left:auto; margin-right:auto">
+	<div style="width:1100px; margin-left:auto; margin-right:auto">
 	<header id="banner" class="body">
 	<span style="float:left"><a href="index.php"><img src="images/logo.png" alt="RuSerBa Logo" width="110" height="110"/></a></span>
 	<h1><span><a href="index.php">RuSerBa<br><strong>Ruko Serba Ada</strong></a></span></h1>

@@ -3,15 +3,18 @@
 <article id="featured" class="body">
 		<h2 id="headername"></h2>
 		<div id="info"></div>
-			<span id="foto"></span>
-			<pre id="nama">Nama Lengkap 	:</pre>
-			<pre id="nomorhp">Nomor Hp		:</pre>
-			<pre id="alamat">Alamat		:</pre>
-			<pre id="provinsi">Provinsi		:</pre>
-			<pre id="kota">Kota			:</pre>
-			<pre id="kodepos">Kode Pos		:</pre>
-			<pre id="email">Email			:</pre>
-			<pre id="usernamep">Username		:</pre>
+			<span id="foto" style="float:left"></span>
+			<pre><h4>   Nama Lengkap:</h4></pre>
+			<pre><h2 id="nama">     </h2></pre>
+			<pre><h4>   Username:</h4></pre>
+			<pre><h2 id="usernamep">     @</h2></pre><br><hr>
+			<pre><h4>Basic Info</h4></pre>
+			<pre id="nomorhp">Nomor Hp		: </pre>
+			<pre id="alamat">Alamat		: </pre>
+			<pre id="provinsi">Provinsi		: </pre>
+			<pre id="kota">Kota			: </pre>
+			<pre id="kodepos">Kode Pos		: </pre>
+			<pre id="email">Email			: </pre>
 		<form method="action" action="editprofile.php">
 		<input type="submit" value="Edit Profile"> <a href="registercardform.php">Daftarkan kartu kredit saya</a>
 		</form>

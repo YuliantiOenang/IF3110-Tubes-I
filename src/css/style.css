@@ -1,35 +1,95 @@
 #container {
 	width: 100%;
 	height: 100%;
-	background:black;
+	background:lightblue;
 	margin: 0;
 }
 
-#register_tab{
+#tab_tengah{
 	margin-top:100px;
 	margin-left:400px;
 	float:left;
 	width:520px;
-	background:lightgrey;
+	background-color:lightgrey;
 	padding:10px;
+	border:5px solid grey;
 }
 
 #edit_profile{
-	margin-left:700px;
+	width:40%;
 	float:left;
-	width:520px;
-	background:lightgrey;
+	background-color:lightgrey;
+	margin-top:100px;
 	padding:10px;
+	border:5px solid grey;
+}
+
+#kolom_tengah{
+	width:10%;
+	height:400px;
+	float:left;
 }
 
 #profilearea {
-	width:390px;
+	width:30%;
+	height:300px;
+	background-color:lightgrey;
 	float:left;
 	border:5px solid grey;
 	margin-top:100px;
 	margin-left:50px;
-	background:lightgrey;
-	padding-left:10px;
+	padding:10px;
+}
+
+.detail_shopping_bag {
+	float:left;
+}
+
+.baris {
+	float:left;
+}
+
+.kolombutton{
+	width:100%;
+	float:left;
+	margin-bottom:10px;
+}
+
+.kolom1{
+	width:120px;
+	float:left;
+	font: arial;
+	font-size:18px;
+	margin-bottom:10px;
+}
+
+.kolom2{
+	width:100px;
+	float:left;
+	margin-left:10px;
+	font: arial;
+	font-size:18px;
+	margin-bottom:10px;
+}
+
+.kolom3{
+	width:75px;
+	float:left;
+	margin-left:10px;
+}
+
+.kolom3 input{
+	width:50%;
+}
+
+.kolom4{
+	width:100px;
+	float:left;
+	margin-left:10px;
+}
+
+.kolom4 input{
+	width:100%;
 }
 
 .tampil_data{

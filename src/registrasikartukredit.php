@@ -10,7 +10,7 @@
 
 <body>
 	<div id="container">
-		<div id="register_tab">
+		<div id="tab_tengah">
 			<form name="register_form" method="post" action="registerkartukredit.php" enctype="multipart/form-data">
 				<div class="form_field">
 					<div class="field_kiri">

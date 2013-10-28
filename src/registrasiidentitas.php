@@ -10,7 +10,7 @@
 
 <body>
 	<div id="container">
-		<div id="register_tab">
+		<div id="tab_tengah">
 			<form name="register_form" method="post" action="register.php" enctype="multipart/form-data">
 				<div class="form_field">
 					<div class="field_kiri">
@@ -67,7 +67,7 @@
 						Alamat: 
 					</div>
 					<div class="field_kanan">
-						<input name="alamat" type="text"  maxlength="256">
+						<input name="alamat" type="text"  maxlength="256" onKeyUp="enableRegister()">
 					</div>
 				</div>
 				<div class="form_field">
@@ -75,7 +75,7 @@
 						Kota/Kabupaten: 
 					</div>
 					<div class="field_kanan">
-						<input name="kota_kab" type="text"  maxlength="256">
+						<input name="kota_kab" type="text"  maxlength="256" onKeyUp="enableRegister()">
 					</div>
 				</div>
 				<div class="form_field">
@@ -83,7 +83,7 @@
 						Provinsi: 
 					</div>
 					<div class="field_kanan">
-						<input name="provinsi" type="text"  maxlength="256">
+						<input name="provinsi" type="text"  maxlength="256" onKeyUp="enableRegister()">
 					</div>
 				</div>
 				<div class="form_field">
@@ -91,7 +91,7 @@
 						Kode Pos: 
 					</div>
 					<div class="field_kanan">
-						<input name="kode_pos" type="text"  maxlength="256">
+						<input name="kode_pos" type="text"  maxlength="256" onKeyUp="enableRegister()">
 					</div>
 				</div>
 				<div class="form_field">
@@ -99,7 +99,7 @@
 						Nomor HP: 
 					</div>
 					<div class="field_kanan">
-						<input name="no_hp" type="text"  maxlength="256">
+						<input name="no_hp" type="text"  maxlength="256" onKeyUp="enableRegister()">
 					</div>
 				</div>
 				<div class="form_field">

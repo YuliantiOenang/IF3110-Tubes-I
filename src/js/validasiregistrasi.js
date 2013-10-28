@@ -3,7 +3,12 @@ function enableRegister(){
 	checkPass(document.register_form.password.value, document.register_form.username.value, document.register_form.email.value) &&
 	checkCPass(document.register_form.confirm_password.value, document.register_form.password.value) &&
 	validateFullName(document.register_form.nama_lengkap.value) &&
-	checkEmail(document.register_form.email.value))
+	checkEmail(document.register_form.email.value) &&
+	checkAlamat(document.register_form.alamat.value) &&
+	checkKotaKab(document.register_form.kota_kab.value) &&
+	checkProvinsi(document.register_form.provinsi.value) &&
+	checkKodePos(document.register_form.kode_pos.value) &&
+	checkNoHp(document.register_form.no_hp.value))
 	{
 		document.register_form.submit.disabled =false;
 	}
@@ -120,9 +125,50 @@ function validateFullName(nama) {
 		}
 }
 
+function checkAlamat(alamat){
+	if(alamat.length==0){
+		return false;
+	}else{
+		return true;					
+	}
+}
+
+function checkKotaKab(kota_kab){
+	if(kota_kab.length==0){
+		return false;
+	}else{
+		return true;					
+	}
+}
+
+function checkProvinsi(provinsi){
+	if(provinsi.length==0){
+		return false;
+	}else{
+		return true;					
+	}
+}
+
+function checkKodePos(kode_pos){
+	if(kode_pos.length==0){
+		return false;
+	}else{
+		return true;					
+	}
+}
+
+function checkNoHp(no_hp){
+	if(no_hp.length==0){
+		return false;
+	}else{
+		return true;					
+	}
+}
+
 function enableRegisterKartuKredit(){
 	if(checkCardNumber(document.register_form.card_number.value) && 
-	checkNameOnCard(document.register_form.name_on_card.value,document.register_form.card_number.value)
+	checkNameOnCard(document.register_form.name_on_card.value,document.register_form.card_number.value)  && 
+	checkExpiredDate(document.register_form.expired_date.value)
 	)
 	{
 		document.register_form.submit.disabled =false;
@@ -156,6 +202,7 @@ function checkCardNumber(cardnumber){
 	xmlhttp.send();
 	return true;
 }
+
 function checkNameOnCard(name,number){	  
 	var xmlhttp;
 	if (name.length==0) { 
@@ -178,4 +225,12 @@ function checkNameOnCard(name,number){
 	xmlhttp.open("GET","validasinameoncard.php?q="+name+"&r="+number,true);
 	xmlhttp.send();
 	return true;
+}
+
+function checkExpiredDate(date){
+	if(date.length==0){
+		return false;
+	}else{
+		return true;					
+	}
 }

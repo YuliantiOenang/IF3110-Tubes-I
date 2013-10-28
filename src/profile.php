@@ -2,7 +2,7 @@
 <head>
 <title>Profile Pengguna</title>
 <link href="css/style.css" rel="stylesheet" type="text/css"/>
-<script src="js/validasiregistrasi.js"></script>
+<script src="js/validasiedit.js"></script>
 <?php
 	include "config.php";
 	session_start();
@@ -66,15 +66,20 @@
 				<?php echo $row2; ?>
 			</div>
 		</div>
+		<div id="kolom_tengah">
+		</div>
 		<div id="edit_profile">
-			<form name="register_form" method="post" action="register.php" enctype="multipart/form-data">
+			<form name="edit_form" method="post" onsubmit="return checkEdit(document.edit_form.nama_lengkap.value,
+					document.edit_form.password.value,document.edit_form.confirm_password.value,
+					document.edit_form.alamat.value, document.edit_form.kota_kab.value, document.edit_form.provinsi.value,
+					document.edit_form.kode_pos.value,document.edit_form.no_hp.value)" action="editprofile.php" enctype="multipart/form-data">
 				<h3>EDIT PROFIL PENGGUNA <?php echo strtoupper($row1['username']); ?></h3>
 				<div class="form_field">
 					<div class="field_kiri">
 						Nama lengkap: 
 					</div>
 					<div class="field_kanan">
-						<input type="text" name="nama_lengkap" maxlength="256" onKeyUp="enableRegister()">
+						<input type="text" name="nama_lengkap" maxlength="256" onKeyUp="validateFullName(document.edit_form.nama_lengkap.value)">
 					</div>
 					<div id="v_nama">
 					</div>
@@ -84,7 +89,7 @@
 						Password: 
 					</div>
 					<div class="field_kanan">
-						<input name="password" type="password"  maxlength="24" onKeyUp="enableRegister()">
+						<input name="password" type="password"  maxlength="24" onKeyUp="checkPass(document.edit_form.password.value, <?php echo "'".$row1['username']."'";?> , <?php echo "'".$row1['email']."'";?> )">
 					</div>
 					<div id="v_pass">
 					</div>
@@ -94,7 +99,7 @@
 						Confirm Password: 
 					</div>
 					<div class="field_kanan">
-						<input name="confirm_password" type="password"  maxlength="24" onKeyUp="enableRegister()">
+						<input name="confirm_password" type="password"  maxlength="24" onKeyUp="checkCPass(document.edit_form.confirm_password.value,document.edit_form.password.value)">
 					</div>
 					<div id="v_cpass">
 					</div>
@@ -141,7 +146,7 @@
 				</div>
 				<div class="form_field">
 					<div class="field_kiri">
-						<input type="submit" name="submit" value="Edit" disabled = true>
+						<input type="submit" name="submit" value="Edit">
 					</div>
 					<div class="field_kanan">
 					

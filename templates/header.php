@@ -37,7 +37,10 @@
 			}
 		?>
 	</div>
-	<?php if($_SESSION['on']){?>
+	<?php 
+	if(isset($_SESSION['on'])){
+	if($_SESSION['on']){
+	?>
 	<div class = "user">
 		<br/>
 		<?php
@@ -48,5 +51,5 @@
 				echo "<a href='pages/profile_user.php'>view/edit profile</a>";
 			} ?>
 	</div>
-	<?php } ?>
+	<?php }} ?>
 </div>

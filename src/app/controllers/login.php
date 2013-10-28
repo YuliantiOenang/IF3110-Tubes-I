@@ -10,7 +10,7 @@
 Class LoginController Extends BaseController {
 
 	public function index() {
-	    //$this->registry->template->show('error/404');
+
 	}
 
 }

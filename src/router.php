@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 'On');
+ini_set('display_errors', 'Off');
 ini_set('session.cookie_lifetime', 60 * 60 * 24 * 30); //30 hari
 session_start(); //session start
 

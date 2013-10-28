@@ -2,51 +2,54 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title> Gallery </title>
+	<title> Search </title>
+	<link href="<?=SITE_ROOT.NAME_ROOT;?>/css/table.css" rel="stylesheet"/>
 </head>
 <body>
 
 <h3> Hasil Pencarian untuk keyword <font color="green"><?=$data['nama_barang'];?></font> </h3>
 
-<table border = 1>
-<tr>
-	<th>Nama Barang</th>
-	<th>Harga</th>
-	<th>Stok</th>
-	<th>Aksi</th>
-</tr>
+<div id="table">
+<div class="header">
+	<span class="kolom satu">Nama Barang</span>
+	<span class="kolom dua">Gambar Barang</span>
+	<span class="kolom tiga">Harga</span>
+	<span class="kolom empat">Stok</span>
+	<span class="kolom lima">Aksi</span>
+</div>
 <?php
 while($row = mysql_fetch_object($data['barang']))
 {
 ?>
-	<tr>
-		<td><?=$row->nama_barang;?></td>
-		<td><?=$row->harga_barang;?></td>
+	<div class="baris">
+		<span class="kolom satu"><?=$row->nama_barang;?></span>
+		<span class="kolom dua"><img src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>" height=100px width=100px></span>
+		<span class="kolom tiga"><?=$row->harga_barang;?></span>
 		<?php
 		if ($row->jumlah_barang > 0)
 		{
 		?>
-		<td><?=$row->jumlah_barang;?></td>
-		<td><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$row->id;?>">Beli</a>
+		<span class="kolom empat"><?=$row->jumlah_barang;?></span>
+		<span class="kolom lima"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$row->id;?>">Beli</a>
 		    <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/detail?id=<?=$row->id;?>">Detail</a>
-		</td>
+		</span>
 		<?php
 		}
 		else
 		{
 		?>
-			<td>Habis</td>
-			<td>
+			<span class="kolom empat">Habis</span>
+			<span class="kolom lima">
 			  <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/detail?id=<?=$row->id;?>">Detail</a>
-			</td>
+			</span>
 		<?php		
 		}
 		?>
-	</tr>	
+	</div>
 <?php
 }
 ?>
-<table>
+</div>
 
 Halaman : 
 <?php

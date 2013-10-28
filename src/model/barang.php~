@@ -69,8 +69,10 @@ class Barang_Model
 		}
 		else $partial3 = "";
 
+		
 		//LIMIT 0, 10 
-		$query = "select kategori.name, barang.id, barang.nama_barang, barang.harga_barang, barang.jumlah_barang from barang join kategori on barang.id_kategori=kategori.id ".$partial1.$partial2.$partial3."LIMIT ".$offset.",10";
+		$query = "select barang.gambar, kategori.name, barang.id, barang.nama_barang, barang.harga_barang, barang.jumlah_barang from barang join kategori on barang.id_kategori=kategori.id ".$partial1.$partial2.$partial3." LIMIT ".$offset.",10";
+		//die($query);
 		return $this->database->query($query);
 	}
 

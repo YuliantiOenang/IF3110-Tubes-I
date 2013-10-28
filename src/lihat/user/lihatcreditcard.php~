@@ -24,7 +24,7 @@ while ($row = mysql_fetch_object($data['listCC']))
 	<span class="kolom satu"><?=$i;?></span>
 	<span class="kolom dua"><?=$row->card_number;?></span>
 	<span class="kolom tiga"><?=$row->name;?></span>
-	<span class="kolom empat"><?=$row->expired_date;?></span>
+	<span class="kolom empat"><?=$row->expired_date;?></td>
 </div>
 <?php
 }

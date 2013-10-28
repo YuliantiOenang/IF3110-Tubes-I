@@ -7,6 +7,7 @@ function validateForm1() /* for category.php */
 		return false;
 	}
 	alert("Pembelian sukses! (not implemented yet.. )");
+	return true;
 }
 
 function validateForm2() /* for merchandise.php */
@@ -18,4 +19,5 @@ function validateForm2() /* for merchandise.php */
 		return false;
 	}
 	alert("Pembelian sukses! (not implemented yet.. )");
+	return true;
 }

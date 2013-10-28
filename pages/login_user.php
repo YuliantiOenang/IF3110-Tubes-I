@@ -17,13 +17,14 @@
 		<?php include ("../templates/navigation.php"); ?>
 		
 		<div class = "container">
-			<form>
+			<form action = "../controllers/login_user.php" method = "post">
 				<p>username</p>
 				<input id="username" name="username">
 				</input>
 				<p>password</p>
 				<input id="password" name="password">
 				</input>
+				<br/><br/>
 				<button type="submit">Login</button>
 			</form>
 		</div>

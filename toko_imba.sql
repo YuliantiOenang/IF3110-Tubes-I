@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 28, 2013 at 02:26 AM
--- Server version: 5.5.24-log
--- PHP Version: 5.3.13
+-- Host: 127.0.0.1
+-- Generation Time: Oct 28, 2013 at 04:31 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -47,7 +47,16 @@ CREATE TABLE IF NOT EXISTS `inventori` (
   `jumlah` int(100) NOT NULL,
   PRIMARY KEY (`id_inventori`),
   KEY `id_kategori` (`id_kategori`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `inventori`
+--
+
+INSERT INTO `inventori` (`id_inventori`, `id_kategori`, `nama_inventori`, `jumlah`) VALUES
+(4, 200, 'Pandu pandu', 4),
+(7, 100, 'Sahe Maho', 7),
+(9, 100, 'Genta Unyu', 2);
 
 -- --------------------------------------------------------
 
@@ -59,7 +68,15 @@ CREATE TABLE IF NOT EXISTS `kategori` (
   `id_kategori` int(10) NOT NULL AUTO_INCREMENT,
   `nama_kategori` varchar(100) NOT NULL,
   PRIMARY KEY (`id_kategori`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=201 ;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
+(100, 'Unyu'),
+(200, 'Asik');
 
 -- --------------------------------------------------------
 

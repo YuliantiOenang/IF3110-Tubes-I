@@ -2,16 +2,14 @@
 	// Create connection
 	include ("connect_database.php");
 	
-	$name = $_POST['name'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$email = $_POST['email'];
 	
 	//do insertion query
 	//echo "INSERT INTO pengguna (nama_pengguna, username, password, email) VALUES ('".$name."','".$username."','".$password."','".$email."')";
 	
 	//checking if username is not available
-	$result = mysqli_query($con,"SELECT * FROM pengguna WHERE username = '".$username."'");
+	$result = mysqli_query($con,"SELECT * FROM pengguna WHERE username = '".$username."' && password = '".$password."'");
 	
 	$found = false;
 	while($row = mysqli_fetch_array($result)){
@@ -19,10 +17,10 @@
 		break;
 	}
 	
-	if(!$found){
-		mysqli_query($con,"INSERT INTO pengguna (nama_pengguna, username, password, email) VALUES ('".$name."','".$username."','".$password."','".$email."')");
+	if($found){
+		echo "Welcome";
 	} else{
-		echo "same username is found, can't register with this username";
+		echo "wrong username/password";
 	}
 	mysqli_close($con);
 ?>

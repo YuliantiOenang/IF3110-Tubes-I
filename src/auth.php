@@ -8,24 +8,36 @@
 		global $login_user_id;
 		return isset($login_user_id);
 	}
+
+	function clearClientCookie()	{
+		setcookie('hash', '', time()-100000);
+		setcookie('id', '', time()-100000);
+	}
 	
-	if (isset($_COOKIE['hash']) && isset($_COOKIE['id']))	{
+	if (isset($_COOKIE['hash']) || isset($_COOKIE['id']))	{
+		
+		// Dua-duanya harus di-set.
+		if (!isset($_COOKIE['hash']) || !isset($_COOKIE['id'])) clearClientCookie();
+		else {
+			databaseConnect();
+			$client_hash = $_COOKIE['hash'];
+			$client_id = $_COOKIE['id'];
 
-		$client_hash = $_COOKIE['hash'];
-		databaseConnect();
-		$user = getUserData($user_id);
+			$user = getUserData($client_id);
+			if (is_null($user))	clearClientCookie();
+			else	{
+				// Periksa kebenaran nilai hash pada client.
+				$server_hash = getLoginHash($user['username'], $user['password']);
 
-		// Periksa kebenaran nilai hash pada client.
-		$server_hash = md5($user['username'] . $user['password'] . $_SERVER['REMOTE_ADDR']); // Bad practice, actually...
-
-		// Cookie tidak konsisten/dipalsukan, hapus semua informasi di cookie.
-		if ($client_hash != $server_hash)	{
-			setcookie('hash', '', time()-100000);
-			setcookie('id', '', time()-100000);
-		} else {
-			// Cookie valid, buat user ID.
-			$login_user_id = $_COOKIE['id'];
+				// Cookie tidak konsisten/dipalsukan, hapus semua informasi di cookie.
+				if ($client_hash != $server_hash)	{
+					clearClientCookie();
+				} else {
+					// Cookie valid, buat user ID.
+					$login_user_id = $_COOKIE['id'];
+				}
+			}
+			databaseDisconnect();
 		}
-		databaseDisconnect();
 	}
 ?>

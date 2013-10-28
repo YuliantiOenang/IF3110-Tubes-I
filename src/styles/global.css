@@ -39,6 +39,7 @@
 	border-radius: 10px;
 	
 }
+
 #logindialog h1, #logindialog p	{
 	text-align: center;
 }
@@ -46,6 +47,11 @@
 #logindialog h1	{
 	font-family: serif;
 	font-size: 18pt;
+}
+
+#logindialog #logindialogmessage	{
+	text-align: center;
+	margin: 10px;
 }
 
 #core	{
@@ -134,4 +140,18 @@
 	line-height: 3px;
 	width: 300px;
 	clear: none;
+}
+
+#header #headerlogoutbutton	{
+	margin-left: 20px;
+}
+
+.systemmessagesmall	{
+	font: 11pt sans-serif;
+	color: #333;
+}
+
+.systemmessagesmall img	{
+	margin-right: 5px;
+	vertical-align: middle;
 }

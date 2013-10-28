@@ -4,7 +4,7 @@
 	define('DB_PASSWORD', '');
 	define('DB_NAME', 'ruserba');
 
-	$db = null;
+	if (!isset($db)) $db = null;
 
 	// Fungsi untuk melakukan koneksi ke database.
 	function databaseConnect()	{
@@ -16,6 +16,7 @@
 	function databaseDisconnect()	{
 		global $db;
 		mysqli_close($db);
+		$db = null;
 	}
 
 	// Fungsi-fungsi getter dasar.
@@ -28,6 +29,7 @@
 					foreach($row as $key => $val) $c[$key] = $val;
 					$result[] = $c;
 			}
+			if (!isset($result)) return null;
 			return $result;
 	}
 	function getUserData($user_id)	{
@@ -42,7 +44,8 @@
 				$result = fetchAssocArray($stmt);
 				$stmt->close();
 		}
-		return $result[0];
+		if (is_null($result)) return null;
+		else return $result[0];
 	}
 	function getProductData($product_id)	{
 		global $db;
@@ -56,7 +59,8 @@
 				$result = fetchAssocArray($stmt);
 				$stmt->close();
 		}
-		return $result[0];
+		if (is_null($result)) return null;
+		else return $result[0];
 	}
 	function getCategoryData($category_id)	{
 		global $db;
@@ -70,7 +74,24 @@
 				$result = fetchAssocArray($stmt);
 				$stmt->close();
 		}
-		return $result[0];
+		if (is_null($result)) return null;
+		else return $result[0];
+	}
+
+	function getUserDataFromUsername($username)	{
+		global $db;
+		if ($stmt = $db->prepare("
+			select *
+			from user
+			where username=?
+		")) {			 
+				$stmt->bind_param("i", $username);
+				$stmt->execute();
+				$result = fetchAssocArray($stmt);
+				$stmt->close();
+		}
+		if (is_null($result)) return null;
+		else return $result[0];
 	}
 
 ?>

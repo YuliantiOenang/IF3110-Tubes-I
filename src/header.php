@@ -4,9 +4,9 @@
 			<p><a href="javascript:;" id="headerloginbutton">Login</a></p>
 			<p>Pengunjung baru? <a href="register.php">Register</a></p>
 		</div>
-		<!--<div id="headerloggedin">
-			<p>Welcome!</p>
-		</div>-->
+		<div id="headerloggedin">
+			<p>Welcome <span id="headerusername"></span>!<a href="javascript:;" id="headerlogoutbutton">Logout</a></span></p>
+		</div>
 	</div>
 	<div id="headerlogo">
 		<a href="index.php"><img src="images/logo.gif" alt="Ruserba logo" /></a>

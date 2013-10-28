@@ -15,12 +15,86 @@ function createXMLHttpRequest()	{
 	return xmlhttp;
 }
 
+// Credit goes to quirksmode.org.
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
+
+function getOkSmall(message)	{
+	return "<span class=\"systemmessagesmall\"><img src=\"images/icon_ok_small.png\" alt=\"OK\" />" + message + "</span>";
+}
+
+function getWarningSmall(message)	{
+	return "<span class=\"systemmessagesmall\"><img src=\"images/icon_warning_small.png\" alt=\"Warning\" />" + message + "</span>";
+}
+
+function getErrorSmall(message)	{
+	return "<span class=\"systemmessagesmall\"><img src=\"images/icon_error_small.png\" alt=\"Error\" />" + message + "</span>";
+}
+
+function getUsername()	{
+	return readCookie("username");
+}
+
+function getUserId()	{
+	return parseInt(readCookie("id"));
+}
+
+function isLoggedIn()	{
+	return readCookie("hash") !== null && getUserId() !== null && getUsername() !== null;
+}
+
 // Fungsi-fungsi untuk core
 // ------------------------------
 
 window.addEventListener("load", function()	{
 	document.getElementById("headerloginbutton").onclick = showLogin;
+	document.getElementById("headerlogoutbutton").onclick = requestLogout;
+	updateHeaderLogin();
 });
+
+// Insialisasi komponen login dari header.
+function updateHeaderLogin()	{
+	var divloggedin = document.getElementById("headerloggedin");
+	var divnotloggedin = document.getElementById("headernotloggedin");
+	if (isLoggedIn())	{
+		divloggedin.style.display = "block"; divnotloggedin.style.display = "none";
+		// Tuliskan username.
+		document.getElementById("headerusername").innerHTML = getUsername();
+	} else {
+		divloggedin.style.display = "none"; divnotloggedin.style.display = "block";
+	}
+}
+
+function getRequestString(requestobject) {
+	var dataArray = [];
+	for (var key in requestobject) {
+		var encodedData = encodeURIComponent(key);
+		encodedData += "=";
+		encodedData += encodeURIComponent(requestobject[key]);
+		dataArray.push(encodedData);
+	}
+	return dataArray.join("&");
+}
 
 function showLogin()	{
 	var popuplayer = document.getElementById("popuplayer");
@@ -31,14 +105,40 @@ function showLogin()	{
 			<div id="logindialogclose"><a href="javascript:;" id="logindialogclosebutton"> \
 			<img src="images/close.png" alt="Close button" /></a></div> \
 			<h1>Login Form</h1> \
-			<p><input type="text" name="username" placeholder="Username" /></p> \
-			<p><input type="password" name="password" placeholder="Password" /></p>  \
-			<p><input type="submit" name="login" value="Login" /></p>  \
+			<p><input type="text" id="logindialogusername" placeholder="Username" /></p> \
+			<p><input type="password" id="logindialogpassword" placeholder="Password" /></p>  \
+			<p><input type="submit" id="logindialogbutton" value="Login" /></p>  \
+			<div id="logindialogmessage"> </div> \
 		</div>';
 	popuplayer.innerHTML = loginelmtstr;
 	document.getElementById("logindialogclosebutton").onclick = hideLogin;
+	document.getElementById("logindialogbutton").onclick = requestLogin;
 }
+
 function hideLogin()	{
 	var popuplayer = document.getElementById("popuplayer");
 	popuplayer.innerHTML = "";
+}
+
+function requestLogin()	{
+	var username = document.getElementById("logindialogusername").value;
+	var password = document.getElementById("logindialogpassword").value;
+	var reqobj = {};
+	reqobj['username'] = username;
+	reqobj['password'] = password;
+	var req = createXMLHttpRequest();
+	req.onreadystatechange = function()	{
+		if (req.readyState == 4 && req.status == 200)	{
+			var ret = JSON.parse(req.responseText);
+			if (ret.status == 1) { hideLogin(); updateHeaderLogin(); }
+			else document.getElementById("logindialogmessage").innerHTML = getErrorSmall("Login tidak berhasil dilakukan.");
+		}
+	}
+	req.open("POST","services/login_service.php",true);
+	req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	req.send(getRequestString(reqobj));
+}
+
+function requestLogout()	{
+	eraseCookie("hash"); eraseCookie("id"); eraseCookie("username"); updateHeaderLogin();
 }

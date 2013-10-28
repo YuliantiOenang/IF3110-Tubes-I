@@ -1,5 +1,9 @@
 <?php
 	session_start();
+
+	// Include library-library dasar.
+	require_once('util.php');
+
 	function getCurrentPage(){
 			$page_url = 'http';
 			if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on'){

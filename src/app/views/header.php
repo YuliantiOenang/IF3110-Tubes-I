@@ -12,7 +12,7 @@
 			</ul>
 		</li>
 		
-		<li><a href="<?php echo SITEURL . 'register/' ?>">Register</a></li>	
+		<li><a href="<?php echo SITEURL . '/register/' ?>">Register</a></li>	
 		<li><a href="">Login</a></li>			
 		<li>
 			<center><form id="cariBarang">					

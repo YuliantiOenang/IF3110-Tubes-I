@@ -5,7 +5,7 @@
 <?php require SITEPATH . '/app/views/header.php' ?>
 
 	<div id="container">
-		<form  role="form">
+		<form role="form" action="<?php echo SITEURL . '/register/check_user' ?>" method="post">
             <h1>Create Logon</h1>
             <div class="form-group">
             	<label for="username">Username: </label>

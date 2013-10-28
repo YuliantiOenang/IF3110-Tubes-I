@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2013 at 07:48 PM
+-- Generation Time: Oct 28, 2013 at 08:25 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -41,24 +41,15 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `gambar` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nama` (`nama`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Table structure for table `kartu_kredit`
+-- Dumping data for table `barang`
 --
 
-DROP TABLE IF EXISTS `kartu_kredit`;
-CREATE TABLE IF NOT EXISTS `kartu_kredit` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nomor` varchar(31) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `expired_date` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_kartu_kredit_user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+INSERT INTO `barang` (`id`, `nama`, `deskripsi`, `harga`, `kategori`, `stok`, `terjual`, `gambar`) VALUES
+(1, 'Peta', 'Peta Dora The Explorer yang bisa berbicara sendiri', 13000000, 5, 10, 0, 'images/1.png'),
+(2, 'Tas', 'Tas Dora The Explorer yang dapat berbicara sendiri', 25000000, 5, 10, 0, 'images/2.jpg');
 
 -- --------------------------------------------------------
 
@@ -112,6 +103,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `kota` varchar(255) NOT NULL,
   `provinsi` varchar(255) NOT NULL,
   `kodepos` varchar(15) NOT NULL,
+  `kredit_nama` varchar(255) DEFAULT NULL,
+  `kredit_nomor` varchar(31) DEFAULT NULL,
+  `kredit_expired_date` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`,`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -119,12 +113,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `kartu_kredit`
---
-ALTER TABLE `kartu_kredit`
-  ADD CONSTRAINT `fk_kartu_kredit_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order`
@@ -136,8 +124,8 @@ ALTER TABLE `order`
 -- Constraints for table `order_barang`
 --
 ALTER TABLE `order_barang`
-  ADD CONSTRAINT `fk_order_barang_order_id` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_order_barang_barang_id` FOREIGN KEY (`barang_id`) REFERENCES `barang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_order_barang_barang_id` FOREIGN KEY (`barang_id`) REFERENCES `barang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_order_barang_order_id` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

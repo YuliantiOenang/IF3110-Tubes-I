@@ -199,7 +199,7 @@ body {
 	color: #333;
 }
 
-.product > .gambar {
+.product .gambar {
 	border-style: solid;
 	border-color: #D6D6D7;
 	border-width: 2px;
@@ -216,6 +216,20 @@ body {
 	font-size: 11px;
 }
 
+.nama-produk-b, .harga, .buy-bar {
+	text-align: left;
+	padding-bottom: 10px;
+}
+
+.nama-produk-b {
+	font-size: 24px;
+	color: #96bf0d;
+}
+
+.harga {
+	font-size: 14px;
+}
+
 #best-buy-btn {
 	position: absolute;
 	top: 130px;
@@ -225,17 +239,35 @@ body {
 	animation:myfirst 1s linear 1s infinite alternate;
 	/* Safari and Chrome: */
 	-webkit-animation:myfirst 1s linear 1s infinite alternate;
-	}
 
 	@keyframes myfirst
 	{
-	0%   { left:0px; top:0px;}
-	100% { left:50px; top:0px;}
+	0%   {left:0px; top:0px;}
+	100% {left:50px; top:0px;}
 	}
 
 	@-webkit-keyframes myfirst /* Safari and Chrome */
 	{
-	0%   { left:0px; top:0px;}
-	100% { left:50px; top:0px;}
+	0%   {left:0px; top:0px;}
+	100% {left:50px; top:0px;}
 	}
+}
+
+#dagangan {
+	margin-top: 30px;
+}
+
+.buy-box {
+	color: #bebebe;
+}
+
+.buy-button {
+	position: relative;
+	background-color: transparent;
+	border: none;
+	background-image: url('../img/btn_cart.png');
+	background-repeat: no-repeat;
+	width: 35px;
+	left: 8px;
+	top: 4px;
 }

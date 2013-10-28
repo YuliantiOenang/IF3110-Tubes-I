@@ -35,11 +35,14 @@
 				if (mysqli_connect_errno($con)){
 					echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				}
-
+				$cat = 100;
+				if (isset($_GET['cat'])) {
+					$cat = $_GET['cat'];
+				}
 				//check data posted
-				echo "<h2>Category: " . getFormalName($_GET['cat'])."</h2><br/>";
+				echo "<h2>Category: " . getFormalName($cat)."</h2><br/>";
 				
-				$category = $_GET['cat'];
+				$category = $cat;
 				
 				$result = mysqli_query($con,"SELECT * FROM kategori NATURAL JOIN inventori WHERE nama_kategori = '".$category."'");
 				
@@ -49,7 +52,7 @@
 					echo "ID: ". $row['id_inventori'] . "<br/>";
 					echo "Nama: ". $row['nama_inventori'] . "<br/>";
 					echo "Kategori: ". getFormalName($row['nama_kategori']) . "<br/>";
-					echo "<a href='detail.php?gid=". $row['id_inventori'] ."'>Lihat</a>" . "<br/>";
+					echo "<a href='details.php?gid=". $row['id_inventori'] ."'>Lihat</a>" . "<br/>";
 				}
 				
 				if(!$found){

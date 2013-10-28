@@ -1,23 +1,7 @@
 <?php
     $con=mysqli_connect("127.0.0.1","root","","ruserba");
     echo $_POST["username"];
-   
-   $uname= $_POST["username"];
-   $pass= sha1($_POST["password"]);
-   $pass1= $_POST["password"];
-   $nama= $_POST["nama"];
-   $email= $_POST["email"];
-   $alamat= $_POST["alamat"];
-   $provinsi= $_POST["provinsi"];
-   $kota= $_POST["kota"];
-   $kodepos= $_POST["kodepos"];
-   $hp= $_POST["handphone"];
-   //$conf1=sha1($_POST["confirmpassword"]) ;
-   $conf=$_POST["confirmpassword"] ;
-   
-   echo $pass1;
-   echo $nama;
-   echo $email;
+    sha1($str);//////
 function connectsql(){
     
     global $con;
@@ -36,20 +20,9 @@ function closesql() {
   
 function insertsql () {
     global $con;
-	global $uname;
-	global $pass;
-	global $nama;
-	global $email;
-	global $alamat;
-	global $provinsi;
-	global $kota;
-	global $kodepos;
-	global $hp;
-	
-	
     $sql="INSERT INTO card (username ,password ,nama_lengkap , email , alamat, provinsi,kota,kodepos,nohp)
             VALUES
-            ('$uname','$pass1','$nama','$email','$alamat','$provinsi','$kota','$kodepos','$hp')";
+            ('$_POST[username]','$_POST[password]','$_POST[nama]','$_POST[email]','$_POST[alamat]','$_POST[provinsi]','$_POST[kota]','$_POST[kodepos]','$_POST[handphone]')";
 
 if (!mysqli_query($con,$sql))
   {
@@ -59,86 +32,44 @@ echo "1 record added";
 }
 
 function checkpass(){
-		global $uname;
-	global $pass1;
-	global $nama;
-	global $email;
-	global $alamat;
-	global $provinsi;
-	global $kota;
-	global $kodepos;
-	global $hp;
-	global $conf;
-    if (($pass1 == $conf)&&(strlen($pass1)>=8)&&($pass1 != $uname)&&($pass1 != $email)){
-        return true;
-        
+    if (($_POST[password] == $_POST[confirmpassword])&&(strlen($_POST[confirmpassword])>=8)&&(strlen($_POST[password])>=8)&&($_POST[password] != $_POST[username])&&($_POST[password] != $_POST[email])){
+        //return true;
+        echo "pass true";
     }
     else {
-        return false;
-        
+        //return false;
+        echo "pass false";
     }
-	
-	
 }
 
 function checkuname(){
-	global $uname;
-	global $pass1;
-	global $nama;
-	global $email;
-	global $alamat;
-	global $provinsi;
-	global $kota;
-	global $kodepos;
-	global $hp;
-	global $conf;
-    if ((strlen($uname) >= 5) && ($uname != $pass1)) {
-        return true;
-        
+    if ((strlen($_POST[username]) >= 5) && ($_POST[username] != $_POST[password])) {
+        //return true;
+        echo "uname true";
     }
     else {
-        return false;
-        
+        //return false;
+        echo "uname false";
     }
 }
 
 function checkfname(){
-	global $uname;
-	global $pass1;
-	global $nama;
-	global $email;
-	global $alamat;
-	global $provinsi;
-	global $kota;
-	global $kodepos;
-	global $hp;
-	global $conf;
-    $fname = explode(" ", $nama); //memecah string full name dengan parameter spasi, fname[1] adalah kata kedua setelah spasi, kalau kosong berarti fullname hanya 1 kata
+    $fname = explode(" ", $_POST[nama]); //memecah string full name dengan parameter spasi, fname[1] adalah kata kedua setelah spasi, kalau kosong berarti fullname hanya 1 kata
     if(isset($fname[1])) {
-        return true;
-        
+        //return true;
+        echo "fname true";
     }
     else {
-        return false;
-        
+        //return false;
+        echo "fname false";
     }
 }
 
 function checkemail(){
-	global $uname;
-	global $pass1;
-	global $nama;
-	global $email;
-	global $alamat;
-	global $provinsi;
-	global $kota;
-	global $kodepos;
-	global $hp;
-	global $conf;
-    $mail = str_split($email);
+    $mail = str_split($_POST[email]);
     $j=0; //lokasi "."
     $k=0;// lokasi "@"
-    for ($i=0;$i<strlen($email);++$i) {
+    for ($i=0;$i<strlen($_POST_[email]);++$i) {
          if ($mail[$i] == "@"){
              $k = $i;
          }
@@ -147,24 +78,28 @@ function checkemail(){
          }
     }
     
-    if ((($j-$k) >= 1) && (($i-$j)>=2)&&($k >= 1)&&($email!=$pass1)){
-        return true;
-       
+    if ((($j-$k) >= 1) && ((strlen($_POST_[email])-$j)>=2)&&($k >= 1)&&($_POST_[email]!=$_POST_[password])){
+       // return true;
+       echo "mail true";
     }
     else {
-        return false;
-        
-		    }	
+        //return false;
+        echo "mail false";
+    }
 }
 
 connectsql();
-
-if (checkemail()&&checkfname()&&checkpass()&&checkuname()){
+checkemail();
+checkfname();
+checkpass();
+checkuname();
+insertsql();
+/*if (checkemail()&&checkfname()&&checkpass()&&checkuname()){
     insertsql();
 }
 else {
 	die('Error');
-}
+}*/
 closesql()
 
 ?>

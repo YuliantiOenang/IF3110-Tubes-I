@@ -11,17 +11,23 @@
        </head>
     <body>
         
+        
+        
             <div class="body">
                 
                  
                 <div class="registerform">  
                     <form name="register" action="formprofil.php"  method="get" accept-charset="utf-8">  
-                        <label for="username">Username</label>
-                        <input type="text" name="username" placeholder="username" required>  
+                        <label for="username" onkeyup="validuname(username,password)">Username</label>
+                        <input type="text" name="username" placeholder="username" required>  <span id="validHint"></span>
                         
                         <br>
                         <label for="password">Password</label>
-                        <input type="password" name="password" placeholder="password" required>  
+                        <input type="password" name="password" placeholder="password" required> 
+                        
+                        <br>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="email" required>  
                         
                         <br>
                         <label for="confirmpassword">Confirm Password</label>  

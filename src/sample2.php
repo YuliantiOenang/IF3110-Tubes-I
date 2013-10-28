@@ -10,10 +10,9 @@
 	// Include begin.
 	require_once('begin.php');
 ?>
-<?php
-databaseConnect();
-var_dump(getUserDataFromUsername('john'));
-?>
+<div>
+	<image src=
+</div>
 <?php
 	require_once('end.php');
 ?>

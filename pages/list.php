@@ -51,9 +51,6 @@
 				
 				$category = $_GET['cat'];	
 				echo "<h2>Category: " . getFormalName($category)."</h2><br/>";
-				
-				echo "Perhatikan saat user membeli sebuah barang maka jumlah barang dalam basis data dikurangi. Ketika barang ada didalam shopping bag dan belum dibeli maka jumlah barang dalam basis data tidak dikurangi. <br/><br/>";
-				
 							
 				$result = mysqli_query($con,"SELECT * FROM kategori NATURAL JOIN inventori WHERE nama_kategori = '".$category."'");
 				
@@ -75,7 +72,11 @@
 						
 					echo "<img src='../img/". $row['gambar'] ."'> <br/>";
 					echo "Nama: <a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
-					echo "Harga: Rp10000 <br/>";
+					echo "Harga: Rp".$row['harga']." <br/>";
+					?>
+						<input type='text' value='0' onkeyup='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></input>
+						<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
+					<?php
 				}
 				
 				//PAGINASI
@@ -93,9 +94,15 @@
 
 			?>
 		</div>
-		
+		<?php 
+			if($_SESSION['state'] == 1){
+				include ("../templates/footer.php");
+			}
+			else{
+				include ("templates/footer.php");
+			} 
+		?>
 	</div>
-		<?php include ("../templates/footer.php");?>
 </html>
 
 <script type="text/javascript" src="../js/check_item_available.js"></script>

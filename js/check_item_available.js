@@ -1,4 +1,4 @@
-function checkItem(str)
+function checkItem(str, id)
 {
 	var xmlhttp;
 	if (window.XMLHttpRequest){
@@ -12,13 +12,15 @@ function checkItem(str)
 	
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
-			if(xmlhttp.responseText > 0){
-				document.getElementById("item_status").innerHTML = "item is available";
+			if(str == "" || isNaN(str) || parseInt(str) < 0){
+				document.getElementById("item_status" + id).innerHTML = "number not valid";
+			} else if(parseInt(xmlhttp.responseText) >= parseInt(str)){
+				document.getElementById("item_status" + id).innerHTML = "item is available";
 			} else{
-				document.getElementById("item_status").innerHTML = "item is not available";
-			}
+				document.getElementById("item_status" + id).innerHTML = "item is not available";
+			} 
 		}
 	}
-	xmlhttp.open("GET","../controllers/check_item_available.php?q="+str,true);
+	xmlhttp.open("GET","../controllers/check_item_available.php?q="+id,true);
 	xmlhttp.send();
 }

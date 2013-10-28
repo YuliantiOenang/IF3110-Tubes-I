@@ -63,7 +63,14 @@
 				<?php mysqli_close($con); ?>
 			</div>
 		</div>
+		<?php 
+			if($_SESSION['state'] == 1){
+				include ("../templates/footer.php");
+			}
+			else{
+				include ("templates/footer.php");
+			} 
+		?>
 </div>
-		<?php include ("../templates/footer.php");?>
 </body>
 </html>

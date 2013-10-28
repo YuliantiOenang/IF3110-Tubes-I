@@ -6,7 +6,13 @@ $q=$_GET["q"];
 include ("connect_database.php");
 
 //checking if item count > 0
-$result = mysqli_query($con,"SELECT harga FROM inventori WHERE id_inventori = ".$q);
+$result = mysqli_query($con,"SELECT * FROM inventori WHERE id_inventori = ".$q);
 
-echo $result->num_rows;
+$data = null;
+while($row = mysqli_fetch_array($result)){
+	$data = $row;
+	break;
+}
+
+echo $data['jumlah'];
 ?>

@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
 <html>
-	<?PHP include 'macro/header.php'?>
-	<link rel="stylesheet" type="text/css" href="css/homePage.css">
+	<?php
+		include 'db.php';
+		include 'macro/header.php';
+	?>
 	<body>
 		<div id="homeContent">	
 		<ul id="itemPic">

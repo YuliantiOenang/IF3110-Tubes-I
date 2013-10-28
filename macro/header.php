@@ -1,12 +1,7 @@
-<?php
-
-include "db.php"
-
-?>
-
 <head>
 	<title>KasKong</title>
 	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/homePage.css">
 	<script src="script/header_home.js"></script>
 	<script src="validate.js"></script>
 </head>
@@ -56,4 +51,3 @@ include "db.php"
 	</div>
 	<h3>Barang? Boleh sama... Kualitas? Dijamin <i>Oeh</i> punya!</h3>
 </div>
-?>

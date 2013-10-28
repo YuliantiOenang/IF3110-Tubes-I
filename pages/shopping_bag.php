@@ -42,6 +42,7 @@
 			}
 		}
 		?>
+		
 		<div class = "goodsimage">
 			<img width=500px src='../img/<?php echo $row['gambar'];?>'> <br/>
 		</div>
@@ -51,11 +52,10 @@
 			<form novalidate> Permintaan Khusus : <br/> 
 				<textarea class="textinput" width=200 height=100 type="text" name="tambahan"></textarea>
 			</form>
-			<form> Quantity :
+			<form> Quantity : 
 				<input class="numinput" type="number" name="quantity" size="500"><br/> 
-				<input type="image" src="../img/addtocart.png">
+				<input type="image" src="../img/Cart.png">
 			</form>
-			<button onclick="window.location.href='.php'">Click me</button>
 			<?php mysqli_close($con); ?>
 		</div>
 	</div>

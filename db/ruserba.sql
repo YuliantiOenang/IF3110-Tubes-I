@@ -45,7 +45,7 @@ CREATE TABLE `barang` (
 
 LOCK TABLES `barang` WRITE;
 /*!40000 ALTER TABLE `barang` DISABLE KEYS */;
-INSERT INTO `barang` VALUES (1,4,'Apel',3390,'100 gram','Buah yang berkhasiat untuk menjauhkan dokter dari Anda.',0,132,'apel.jpg','apel_thumb.jpg'),(2,3,'Brokoli',1390,'100 gram','Sayuran yang mengandung banyak vitamin C dan serat. Menurut Wikipedia, sebaiknya diolah dengan cara dikukus agar nutrisinya tetap terjaga.',0,95,'sayur_brokoli.jpg','sayur_brokoli_thumb.jpg');
+INSERT INTO `barang` VALUES (1,4,'Apel',3390,'100 gram','Buah yang berkhasiat untuk menjauhkan dokter dari Anda.',0,132,'buah_apel.jpg','buah_apel_thumb.jpg'),(2,3,'Brokoli',1390,'100 gram','Sayuran yang mengandung banyak vitamin C dan serat. Menurut Wikipedia, sebaiknya diolah dengan cara dikukus agar nutrisinya tetap terjaga.',0,95,'sayur_brokoli.jpg','sayur_brokoli_thumb.jpg');
 /*!40000 ALTER TABLE `barang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-28  5:39:02
+-- Dump completed on 2013-10-28  9:12:10

@@ -49,7 +49,6 @@ p {
 
 .container {
 	width: 940px;
-	height: 500px;
 	background-color:#dddddd;
 	float: left;
 	overflow-y: scroll;
@@ -60,9 +59,27 @@ p {
 	float:left;
 }
 
+.mask {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display:none;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup {
+	position: relative;
+	width: 500px;
+	height: 280px;
+	top: 25%;
+	left: 30%;
+	background-color:rgba(20, 20, 200, 1.0);
+}
+
 .login {
 	width:300px;
 	float:left;
+	margin:0px 0 0 0;
 }
 
 .user {
@@ -70,16 +87,21 @@ p {
 	float:left;
 }
 
-.image{
+.goodsimage{
 	width:500px;
 	float:left;
 }
 .textinput{
 	width:400px;
 	height:100px;
+	resize: none;
 }
+
+.numinput{
+	width:3em;
+}
+
 .data{
 	width:400px;
 	float:left;
-	background-color:#b0e0e6;
 }

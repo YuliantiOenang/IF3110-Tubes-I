@@ -6,7 +6,7 @@
 	$password = $_POST['password'];
 	
 	//checking if username is not available
-	$result = mysqli_query($con,"SELECT * FROM pengguna WHERE username = '".$username."' && password = '".$password."'");
+	$result = mysqli_query($con,"SELECT * FROM pengguna WHERE username = '".$username."' && password = '".sha1($password)."'");
 	
 	$found = false;
 	if($result->num_rows > 0) $found = true;

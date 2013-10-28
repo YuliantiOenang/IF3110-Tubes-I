@@ -35,4 +35,7 @@
 			} 
 		?>
 	</div>
+	<?php
+		include ("pages/mask.php");
+	?>
 </html>

@@ -1,10 +1,17 @@
+<?php
+	if($_SESSION['state'] == 2){
+		echo "<script type='text/javascript' src='js/general.js'></script>";
+	} else
+		echo "<script type='text/javascript' src='../js/general.js'></script>";
+?>
+
 <div class = "heading">
 	<div class = "logo">
 		<?php 
 			if($_SESSION['state'] == 2)
-				echo "<a href='index.php'><img src='img/logo.png' width=200px></img></a>";
+				echo "<a href='index.php'><img src='img/logo.png' width=200px/></a>";
 			else
-				echo "<a href='../index.php'><img src='../img/logo.png' width=200px></img></a>";
+				echo "<a href='../index.php'><img src='../img/logo.png' width=200px/></a>";
 		?>
 	</div>
 	<div class = "login">
@@ -30,9 +37,11 @@
 			} 
 			
 			if(!$active){
-				if($_SESSION['state'] == 2)
-					echo "<a href='pages/register_user.php'>register</a> or <a href='pages/login_user.php'>login</a>";
-				else
+				if($_SESSION['state'] == 2){
+					echo "<a href='pages/register_user.php'>register</a> or ";?>
+					<div onclick="doPopUp()" style='background:red;height:30px'>login</div>
+				<?php
+				} else
 					echo "<a href='../pages/register_user.php'>register</a> or <a href='../pages/login_user.php'>login</a>";
 			}
 		?>

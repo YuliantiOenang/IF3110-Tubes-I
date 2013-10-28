@@ -16,12 +16,14 @@ function form_check()
 function checkCardNumber (str)
 {
 	var xmlhttp;
-	var cardNumberFilter=/[0-9]{16,16}$/;
-	if (cardNumberFilter.test(str)){
-		isCardNumber = true;
-		document.getElementById("card_number_status").innerHTML="Card Number is available";
+	var cardNumberFilter=/[0-9]{16,}$/;
+	if (str.length > 16){
+		isCardNumber = false;
+		document.getElementById("card_number_status").innerHTML="Card Number is invalid";
 		form_check();
 		return;
+	} else if (cardNumberFilter.test(str)){
+	
 	} else if (str == ""){
 		isCardNumber = false;
 		document.getElementById("card_number_status").innerHTML="Card Number input is empty";
@@ -44,10 +46,16 @@ function checkCardNumber (str)
 	}
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
-			document.getElementById("card_number_status").innerHTML=xmlhttp.responseText;
+			if(xmlhttp.responseText == 0){
+				isCardNumber = true;
+				document.getElementById("card_number_status").innerHTML = "username is available";
+			} else{
+				document.getElementById("card_number_status").innerHTML = "username is not available";
+			}
+			form_check();;
 		}
 	}
-	//xmlhttp.open("GET","getcustomer.asp?q="+str,true);
+	xmlhttp.open("GET","getcustomer.asp?q="+str,true);
 	xmlhttp.send();
 }
 

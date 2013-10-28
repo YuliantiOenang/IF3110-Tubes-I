@@ -85,7 +85,7 @@ class Product {
 	/**
 	 * Mendapatkan seluruh baris produk dengan nama tertentu
 	 */
-	public static function getBySearch($keyword) {
+	public static function getBySearch($registry, $keyword) {
 		try {
 			$smh = $dbh->prepare('SELECT * FROM product WHERE MATCH(product_name, description) AGAINST (:keyword IN BOOLEAN MODE)');
     		$smh->execute(array('keyword' => $keyword));
@@ -100,7 +100,7 @@ class Product {
 	/**
 	 * Mendapatkan seluruh baris produk dengan id tertentu
 	 */
-	public static function getById($id) {
+	public static function getById($registry, $id) {
 		try {
 			$smh = $dbh->prepare('SELECT * FROM product WHERE product_id = :id');
     		$smh->execute(array('id' => $id));

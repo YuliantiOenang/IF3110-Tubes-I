@@ -14,7 +14,7 @@ class Customer {
 					`customer_id` INT(9) NOT NULL AUTO_INCREMENT,
 					`username` VARCHAR(16) NOT NULL,
 					`email` VARCHAR(32) NOT NULL ,
-					`password` CHAR(32) NOT NULL ,
+					`password` CHAR(64) NOT NULL ,
 					`fullname` VARCHAR(32) NOT NULL ,
 					`phone` VARCHAR(16) ,
 					`address` VARCHAR(256) ,
@@ -51,13 +51,27 @@ class Customer {
 	/**
 	 * Mendapatkan seluruh baris produk dengan id tertentu
 	 */
-	public static function getById($id) {
+	public static function getById($registry, $id) {
 		try {
 			$smh = $dbh->prepare('SELECT * FROM customer WHERE customer_id = :id');
     		$smh->execute(array('id' => $id));
  		
  			//return array of all
    			return $smh->fetchAll();
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	/**
+	 * Menambah customer baru
+	 */
+	public static function addCustomer($registry, $customer) {
+		try {
+			$dbh = $registry->database;
+			$sth = $dbh->prepare("INSERT INTO customer (username, email, password, fullname, phone, address, city, province, postcode) values (:username, :email, :password, :fullname, :phone, :address, :city, :province, :postcode)"); 
+
+			return $sth->execute($customer) !== false;
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}

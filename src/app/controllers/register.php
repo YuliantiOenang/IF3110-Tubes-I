@@ -26,4 +26,23 @@ Class RegisterController Extends BaseController {
 	public function card() {
 		$this->registry->template->show('register/credit_card');
 	}
+
+	/**
+	 * Asumsi seluruh data sudah valid, sudah divalidasi oleh AJAX
+	 * Dalam real world tidak boleh ada asumsi seperti
+	 * Selanjutnya masukkan ke database
+	 */
+	public function new_customer() {
+		$customer['username'] = $_POST["username"];
+		$customer['email'] = $_POST["email"];
+		$customer['password'] = hash('sha256', ($_POST["password"]));
+		$customer['fullname'] = $_POST["fullname"];
+		$customer['phone'] = $_POST["phone"];
+		$customer['address'] = $_POST["address"];
+		$customer['city'] = $_POST["city"];
+		$customer['province'] = $_POST["province"];
+		$customer['postcode'] = $_POST["postcode"];
+
+		Customer::addCustomer($this->registry, $customer);
+	}
 }

@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="css/homePage.css">
 	<script src="script/header_home.js"></script>
 	<script src="validate.js"></script>
+	<script src="change.js"></script>
 </head>
 <div id="headerMenu">
 	<a href="index.php">

@@ -12,27 +12,31 @@
 	{
 	$hint="";
 	for($i=0; $i<($x->length); $i++)
-	  {
-	  $y=$x->item($i)->getElementsByTagName('title');
+	{
+	  $y=$x->item($i)->getElementsByTagName('name');
+	  $v=$x->item($i)->getElementsByTagName('price');
+	  $w=$x->item($i)->getElementsByTagName('category');
 	  $z=$x->item($i)->getElementsByTagName('url');
-	  if ($y->item(0)->nodeType==1)
+	  
+	  
+		if ($y->item(0)->nodeType==1)
 		{
 		//find a link matching the search text
-		if (stristr($y->item(0)->childNodes->item(0)->nodeValue,$q))
+		  if (stristr($y->item(0)->childNodes->item(0)->nodeValue,$q))
 		  {
-		  if ($hint=="")
+			if ($hint=="")
 			{
-			$hint="<a href='" . 
-			$z->item(0)->childNodes->item(0)->nodeValue . 
-			"' target='_blank'>" . 
-			$y->item(0)->childNodes->item(0)->nodeValue . "</a>";
+				$hint="<a href='" . 
+				$z->item(0)->childNodes->item(0)->nodeValue . 
+				"' target='_blank'>" . 
+				$y->item(0)->childNodes->item(0)->nodeValue . "</a>";
 			}
 		  else
 			{
-			$hint=$hint . "<br /><a href='" . 
-			$z->item(0)->childNodes->item(0)->nodeValue . 
-			"' target='_blank'>" . 
-			$y->item(0)->childNodes->item(0)->nodeValue . "</a>";
+				$hint=$hint . "<br /><a href='" . 
+				$z->item(0)->childNodes->item(0)->nodeValue . 
+				"' target='_blank'>" . 
+				$y->item(0)->childNodes->item(0)->nodeValue . "</a>";
 			}
 		  }
 		}

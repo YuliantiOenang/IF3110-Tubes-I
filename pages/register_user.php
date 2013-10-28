@@ -3,9 +3,6 @@
 <!-- includes -->
 <link rel='stylesheet' type='text/css' href='../css/homepage.css' media='screen' />
 
-<script type="text/javascript" src="../js/register_user.js"></script>
-<script type="text/javascript" src="../js/general.js"></script>
-
 <head>
 	<title>Register User</title>	
 
@@ -71,4 +68,8 @@
 		?>
 	</div>
 </body>
+
+<script type="text/javascript" src="../js/register_user.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
+
 </html>

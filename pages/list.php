@@ -34,12 +34,21 @@
 					elseif($name == "household")
 						return "Household Essentials";
 				}
+				?>
+				<form action="search.php" method="get">
+					Nama: <input type="text" name="query_name" size="30" onkeyup="showResult(this.value)">
+					<div id="livesearch"></div>
+					Harga: <input type="text" name="query_price" size="30"><br/>
+					Kategori: <select name="query_category">
+					  <option value="baking">Baking</option>
+					  <option value="beverages">Beverages</option>
+					  <option value="cansoups">Canned Goods & Soups</option>
+					  <option value="household">Household Essentials</option>
+					</select>
+					<input type="submit" value="Submit">
+				</form>
 				
-				echo '<form>
-<input type="text" size="30" onkeyup="showResult(this.value)">
-<div id="livesearch"></div>
-</form>';
-				
+				<?php
 				// Create connection
 				$con=mysqli_connect("127.0.0.1","root","","toko_imba");
 

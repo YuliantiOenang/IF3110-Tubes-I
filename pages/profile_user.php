@@ -7,13 +7,27 @@
 <script type="text/javascript" src="../js/general.js"></script>
 
 <head>
-	<title>Register User</title>	
+	<title>Profile User</title>	
 
 </head>
 <body>
+	<?php
+		//check if user is logged
+		$continue = true; 
+		session_start();
+		if(isset($_SESSION['on'])){
+			if(!$_SESSION['on']){
+				echo "<meta http-equiv='refresh' content='=0;register_user.php' />";
+				$continue = false;
+			}
+		} else{
+			echo "<meta http-equiv='refresh' content='=0;register_user.php' />";
+			$continue = false;
+		}
+	?>
+	<?php if($continue){ ?>
 	<div class = "page_container">
 		<?php 
-			session_start();
 			$_SESSION['state'] = 1;
 			
 			if($_SESSION['state'] == 1){
@@ -75,5 +89,6 @@
 			} 
 		?>
 	</div>
+	<?php } ?>
 </body>
 </html>

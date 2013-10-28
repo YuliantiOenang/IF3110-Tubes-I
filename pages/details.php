@@ -11,8 +11,19 @@
 
 <div class = "page_container">
 
-		<?php include ("../templates/header.php"); ?>
-		<?php include ("../templates/navigation.php"); ?>
+		<?php 
+			session_start();
+			$_SESSION['state'] = 1;
+			
+			if($_SESSION['state'] == 1){
+				include ("../templates/header.php");
+				include ("../templates/navigation.php"); 
+			}
+			else{
+				include ("templates/header.php");
+				include ("templates/navigation.php"); 
+			}
+		?>
 
 		<div class = "container">
 			<?php
@@ -43,8 +54,10 @@
 				ID: <?php echo $row['id_inventori'];?><br/>
 				Nama Barang: <?php echo $row['nama_inventori'];?><br/>
 				Kategori: <?php echo $row['nama_kategori'];?><br/><br/>
-				<?php echo s$row['description'];?><br/>
-				<form class ="additional" novalidate> Permintaan Khusus : <br/> <input type='text' name='tambahan'> </form>
+				<?php echo $row['description'];?><br/>
+				<form novalidate> Permintaan Khusus : <br/> 
+					<input class="textinput" width=200 height=100 type='text' name='tambahan'> 
+				</form>
 				<form> Quantity : <input type='number' name='quantity'> </form>
 				<?php mysqli_close($con); ?>
 			</div>

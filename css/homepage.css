@@ -75,7 +75,10 @@ p {
 	width:500px;
 	float:left;
 }
-
+.textinput{
+	width:400px;
+	height:100px;
+}
 .data{
 	width:400px;
 	float:left;

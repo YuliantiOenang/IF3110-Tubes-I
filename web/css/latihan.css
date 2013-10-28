@@ -3,7 +3,7 @@ height : auto;
 }
 
 body { 
-background-color:black;
+background-color:white;
 height : 100%;
 }
 
@@ -17,30 +17,95 @@ border:0px ;
 
 }
 
-.header {
-background-color:#99d9ea;
-border-radius:25px;
-border:0px;
-height:150px; 
-width:100%;
+@media all and (max-width:801px) and (min-width:0px){
+	.header {
+		background-color:#cbaabc;
+		border-radius:25px;
+		border:0px;
+		height:150px; 
+		width:100%;
+	}	
 }
 
-.logohead {
-background-color:#99d9ea;
-border:0px;
-height:70%;
-border-radius:25px;
+@media all and (min-width:802px) and (max-width:1920px){
+	.header {
+		background-color:#99d9ea;
+		border-radius:25px;
+		border:0px;
+		height:150px; 
+		width:100%;
+	}	
+}
+
+@media all and (max-width:801px) and (min-width:0px){
+	.logohead {
+		background-color:#cbaabc;
+		border:0px;
+		height:70%;
+		border-radius:25px;
+	}
+}
+
+@media all and (min-width:802px) and (max-width:1920px){
+	.logohead {
+		background-color:#99d9ea;
+		border:0px;
+		height:70%;
+		border-radius:25px;
+	}
 }
 
 .logo {
 
-/* background-color:green; */
-border:1px;
-height:100%;
-width:32%;
-float: left;
-border-radius:25px;
-margin-left : 10px;
+	/* background-color:green; */
+	border:1px;
+	height:100%;
+	width:22%;
+	float: left;
+	border-radius:25px;
+	margin-left : 10px;
+	margin-top : 10px;
+	transform: rotate(5deg);
+	
+	animation:logoanimation 3s;
+	-webkit-animation:logoanimation 3s;
+
+	animation-timing-function:linear;
+	-webkit-animation-timing-function:linear;
+	
+	animation-play-state:running;
+	-webkit-animation-play-state:running;
+	
+	animation-iteration-count:infinite;
+	-webkit-animation-iteration-count:infinite;
+
+}
+
+.logo:hover {
+
+	animation:logoanimation 3s;
+	-webkit-animation:logoanimation 3s;
+
+	animation-timing-function:linear;
+	-webkit-animation-timing-function:linear;
+	
+	animation-play-state:paused;
+	-webkit-animation-play-state:paused;
+	
+	animation-iteration-count:infinite;
+	-webkit-animation-iteration-count:infinite;
+}
+
+@keyframes logoanimation{
+		0%	{transform : rotate(5deg);}
+		50% {transform : rotate(10deg);}
+		100% {transform : rotate(5deg);}
+	}
+	
+@-webkit-keyframes logoanimation{
+	0%	{transform : rotateZ(5deg);}
+	50% {transform : rotateZ(10deg);}
+	100% {transform : rotateZ(5deg);}
 }
 
 .cart {
@@ -51,12 +116,24 @@ width:20%;
 float: right;
 }
 
-.menu {
-background-color:#99d9ea;
-border:0px;
-height:30%;
-width:100%;
-border-radius:25px;
+@media all and (max-width:801px) and (min-width:0px){
+	.menu {
+		background-color:#cbaabc;
+		border:0px;
+		height:30%;
+		width:100%;
+		border-radius:25px;
+	}
+}
+
+@media all and (min-width:802px) and (max-width:1920px){
+	.menu {
+		background-color:#99d9ea;
+		border:0px;
+		height:30%;
+		width:100%;
+		border-radius:25px;
+	}	
 }
 
 .jacket {
@@ -103,23 +180,50 @@ width:20%;
 float:left;
 }
 
-.loginplace {
-background-color:#99d9ea;
-border:0px;
-height:50%;
-width:60%;
-float: right;
-border-radius:25px;
+@media all and (max-width:801px) and (min-width:0px){
+	.loginplace {
+		background-color:#cbaabc;
+		border:0px;
+		height:50%;
+		width:60%;
+		float: right;
+		border-radius:25px;
+	}
 }
 
-.signupplace{
-background-color:#99d9ea;
-border:0px;
-height:50%;
-width:60%;
-float: right;
-margin-bottom:0px;
-border-radius:25px;
+@media all and (min-width:802px) and (max-width:1920px){
+	.loginplace {
+		background-color:#99d9ea;
+		border:0px;
+		height:50%;
+		width:60%;
+		float: right;
+		border-radius:25px;
+	}
+}
+
+@media all and (max-width:801px) and (min-width:0px){
+	.signupplace{
+		background-color:#cbaabc;
+		border:0px;
+		height:50%;
+		width:60%;
+		float: right;
+		margin-bottom:0px;
+		border-radius:25px;
+	}
+}
+
+@media all and (min-width:802px) and (max-width:1920px){
+	.signupplace{
+		background-color:#99d9ea;
+		border:0px;
+		height:50%;
+		width:60%;
+		float: right;
+		margin-bottom:0px;
+		border-radius:25px;
+	}
 }
 
 .signup{
@@ -192,24 +296,28 @@ color:red;
 }
 
 .sidebar {
-width: 20%;
-height : 95%;
+width: 300px;
+height : 500px;
 border : solid 5px blue;
 border-radius : 15px;
 margin-top : 10px;
-min-height : 500px;
+
 background-color : #99d9ea;
 float : left;
+position:fixed;
+top:150px;
 }
 
 .boddy {
 width: 79%;
 height : 100%;
 min-height : 525px;
-
+position:relative;
+top : 150px;
+left:310px;
 
 float : left;
-background-color : white;
+z-index:2
 }
 
 .bodymain {
@@ -221,24 +329,26 @@ float : left;
 .footer {
 width : 100%;
 height : 20%;
-background-color : red;
+
 float: left;
 border-radius : 20px;
+
 }
 
 .info {
 width : 100%;
 height : 70%;
-background-color : blue;
+
 border-radius : 10px;
 }
 
 .copyright {
 width : 100%;
 height : 20%;
-background-color : blue;
+
 border-radius : 20px;
 float: left;
+
 }
 
 .copyrightext {
@@ -265,13 +375,14 @@ margin-top : 5px;
 margin-left : 20px;
 height : 10%;
 width : 100%;
+float:left;
 
 }
 
 .topthreecat {
 width : 100%;
 height : 230px;
-background-color : blue; 
+margin-top : 10px;
 }
 
 .resizeimage {
@@ -284,9 +395,10 @@ width : 100%;
 
 .toppreview {
 width : 200px;
-height : 230px;
+height : 270px;
 background-color : #99d9ea;
 margin-left : 50px;
+border-radius : 10px;
 float : left; 
 }
 
@@ -305,6 +417,7 @@ height : 150px;
 background-color : red;
 margin-left : auto;
 margin-right : auto;
+margin-top : 5px;
 }
 
 .detail {
@@ -343,8 +456,8 @@ border : 5px solid blue;
 width : 100%;
 height : 50px;
 float : left;
-margin-left : auto;
-margin-right : auto;
+margin-top : 10px;
+margin-left : 10px;
 }
 
 .bayar {
@@ -368,4 +481,10 @@ border : 1px solid black;
 float:left;
 background-color : yellow;
 }
+
+.bag {
+width : 100%;
+float: left;
+}
+
 

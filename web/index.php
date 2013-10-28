@@ -99,7 +99,7 @@ function login()
 			catch(e)
 			{
 			document.getElementById("Error").innerHTML="Welcome,"+http.responseText;
-			var user=document.getElementById("`");
+			var user=document.getElementById("user");
 			
 			
 			}

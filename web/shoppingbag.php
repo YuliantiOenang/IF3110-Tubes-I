@@ -18,6 +18,29 @@ if(!isset($_COOKIE['user1']))
 </head>
 <script src="js/AjaxCreateObject.js" language="javascript"></script>
 <script type="text/javascript">
+
+function suggestSearch(str){
+	//document.getElementById("search_suggestion").innerHTML = str;
+	if(str.length == 0){
+		document.getElementById("search_suggestion").innerHTML="";
+		return;
+	}
+	
+	http.onreadystatechange=function(){
+		if(http.readyState == 4 && http.status == 200){
+			document.getElementById("search_suggestion").innerHTML = http.responseText;
+		}
+	}
+	
+	http.open("GET","proses_suggest_search.php?q="+str,true);
+	http.send();
+}
+
+function copySuggest(){
+	var x = document.getElementsByName("key");
+	x[0].value = document.getElementById("search_suggestion").innerHTML;
+}
+
 function popClik()
 {
 	
@@ -219,7 +242,7 @@ function remove(id)
 				<option value="Misc">Misc.</option>
 				<option value="Pokemon">Pokemon</option>
 			</select>
-			<input type="text" id="user" name="key" required placeholder = "e.g. Mylo Xyloto" /></br>
+			<input type="text" id="user" name="key" required placeholder = "e.g. Mylo Xyloto" onkeyup="suggestSearch(this.value)" /></br>
 	</div>
 	
 	<div class = "kategori">
@@ -235,6 +258,7 @@ function remove(id)
 	<div class = "kategori">
 	<input type="submit" value="Search!"></input>
 	</div>
+	<label>Suggestion : <br><span id="search_suggestion" onclick="copySuggest()"></span></label>
 	</form>
 	</div>
 	<div class = "boddy">

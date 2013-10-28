@@ -19,6 +19,28 @@ if(!isset($_COOKIE['user1']))
 <script src="js/AjaxCreateObject.js" language="javascript"></script>
 <script type="text/javascript">
 
+function suggestSearch(str){
+	//document.getElementById("search_suggestion").innerHTML = str;
+	if(str.length == 0){
+		document.getElementById("search_suggestion").innerHTML="";
+		return;
+	}
+	
+	http.onreadystatechange=function(){
+		if(http.readyState == 4 && http.status == 200){
+			document.getElementById("search_suggestion").innerHTML = http.responseText;
+		}
+	}
+	
+	http.open("GET","proses_suggest_search.php?q="+str,true);
+	http.send();
+}
+
+function copySuggest(){
+	var x = document.getElementsByName("key");
+	x[0].value = document.getElementById("search_suggestion").innerHTML;
+}
+
 function daftar_kartu(){
 	
 	
@@ -271,32 +293,34 @@ function remove(id)
 	<div class = "sidebar">
 		
 			<p class = "searchtitle"> Search it! </p>
-			
+		<form action="hasilsearch.php" method="get">
 		<div class = "kategori">
-			<select>
+			<select name="kategori">
 				<option value="all">All</option>
-				<option value="jacket">Jacket</option>
-				<option value="tshirt">T-shirt</option>
-				<option value="sweater">Sweater</option>
-				<option value="misc">Misc.</option>
-				<option value="pokemon">Pokemon</option>
+				<option value="Jaket">Jacket</option>
+				<option value="TShirt">T-shirt</option>
+				<option value="Sweater">Sweater</option>
+				<option value="Misc">Misc.</option>
+				<option value="Pokemon">Pokemon</option>
 			</select>
-			<input type="text" id="user" required placeholder = "e.g. Mylo Xyloto" /></br>
+			<input type="text" id="user" name="key" required placeholder = "e.g. Mylo Xyloto" onkeyup="suggestSearch(this.value)" /></br>
 	</div>
 	
 	<div class = "kategori">
 	<label> Price Range: </label>
-	<select>
-				<option value="all">< Rp50.000 </option>
-				<option value="jacket">Rp50.000 - Rp100.000</option>
-				<option value="tshirt">Rp100.001 - Rp150.000</option>
-				<option value="sweater">> Rp150.000</option>
+	<select name="range">
+				<option value=1>< Rp50.000 </option>
+				<option value=2>Rp50.000 - Rp100.000</option>
+				<option value=3>Rp100.001 - Rp150.000</option>
+				<option value=4>> Rp150.000</option>
 				
 			</select>
 	</div>
 	<div class = "kategori">
-	<input type="button" value="Search!"></input>
+	<input type="submit" value="Search!"></input>
 	</div>
+	<label>Suggestion : <br><span id="search_suggestion" onclick="copySuggest()"></span></label>
+	</form>
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">

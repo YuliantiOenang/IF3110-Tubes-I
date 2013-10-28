@@ -11,11 +11,11 @@
 	//VALUES ('Peter', 'Griffin')");
 
 	//check data posted
-	echo "Submit query".'<br/>';
-	echo $_POST['name'].'<br/>';
-	echo $_POST['username'].'<br/>';
-	echo $_POST['password'].'<br/>';
-	echo $_POST['email'].'<br/>';
+	//echo "Submit query".'<br/>';
+	//echo $_POST['name'].'<br/>';
+	//echo $_POST['username'].'<br/>';
+	//echo $_POST['password'].'<br/>';
+	//echo $_POST['email'].'<br/>';
 	
 	//do insertion query
 	

@@ -91,7 +91,29 @@ function searchsuggest(text)
 			document.getElementById("cariyu").innerHTML=xmlhttp.responseText;
 		}
 	}
-	xmlhttp.open("GET","search.php?cari="+text,true);
+	xmlhttp.open("GET","search.php?cari="+text+"&suggest=true",true);
+	xmlhttp.send();
+}
+function search(text)
+{
+	var xmlhttp;
+	if (text.length==0){ return; }
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("featured").innerHTML="<h2>Hasil pencarian dengan kata kunci \""+text+"\"</h2>"+xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET","search.php?cari="+text+"&suggest=false",true);
 	xmlhttp.send();
 }
 function auth(user,pass){

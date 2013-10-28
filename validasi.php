@@ -5,11 +5,13 @@ if (isset($_GET['pass'])) $pass = $_GET['pass'];
 include "koneksi.inc.php";
 switch ($type) {
 	case 1://Full name validator 
+		sleep(2);
 		$regex = '/^([A-Za-z]{1,10})+([ ][A-Za-z]{1,20})+$/';
 		if(preg_match($regex, $data))echo 0;
 		else echo 1;
 	break;
 	case 2://username validator
+		sleep(2);
 		$sql="SELECT * FROM anggota WHERE username = '".$data."'";
 		$regex = '/^([A-Za-z0-9]{5,20})$/';
 		$result = mysql_query($sql,$koneksi);
@@ -21,6 +23,7 @@ switch ($type) {
 		else echo 3;
 	break;
 	case 3://password validator
+		sleep(2);
 		$samewithpass = false;
 		if($pass==$data){$samewithpass = true;}
 		if(strlen($data)>7  && !$samewithpass){echo 0;}
@@ -31,10 +34,12 @@ switch ($type) {
 			}
 	break;
 	case 4://copassword validator
+		sleep(2);
 		if($pass==$data){echo 0;}
 		else echo 1;
 	break;
 	case 5://email validator
+		sleep(2);
 		$regex = '/^[a-z0-9]+([\._-][a-z0-9]+)*@[a-z0-9]+([\.-][a-z0-9]+)*(\.[a-z]{2,3})$/'; 
 		if (preg_match($regex, $data)) {
 			//echo $data . " is a valid email. We can accept it.";

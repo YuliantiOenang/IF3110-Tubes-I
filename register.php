@@ -19,8 +19,7 @@ if(!empty($username) and !empty($password)){
 			if(typeof(Storage)!=="undefined"){
 				localStorage.wbduser="<? echo $username; ?>";
 				localStorage.wbdlogintime=new Date().getTime();
-				alert("Pendaftaran berhasil");
-				window.location.href="../tubeswbd1/registercardform.php";
+				window.location="registercardform.php";
 			}else{
 				document.write("Maaf, browser kamu tidak support localStorage sehingga informasi username tidak dapat disimpan...");
 				document.write("<a href='index.php'>Kembali ke halaman utama</a>");

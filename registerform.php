@@ -19,6 +19,7 @@
 		var xmlhttp;
 		var validpic = '<img src="images/like.png" width="15" height="15"/>';
 		var invalidpic = '<img src="images/unlike.png" width="15" height="15"/>';
+		var wait = '<img src="images/ajaxLoader.gif" width="15" height="15"/>';
 		var valid = false;
 		var temp = ""+text;
 		if (temp.length==0)
@@ -110,6 +111,24 @@
 		    			}
 		    		break;
 		    	}
+		    }else{
+		    	switch(num){
+		    		case 1:
+		    			document.getElementById("validasiNama").innerHTML=wait;
+		    		break;
+		    		case 2:
+		    			document.getElementById("validasiUser").innerHTML=wait;
+		    		break;
+		    		case 3:
+		    			document.getElementById("validasiPass").innerHTML=wait;
+		    		break;
+		    		case 4:
+		    			document.getElementById("validasiCoPass").innerHTML=wait;
+		    		break;
+		    		case 5:
+		    			document.getElementById("validasiEmail").innerHTML=wait;
+		    		break;
+		    	}
 		    }
 		 }
 		xmlhttp.open("GET","validasi.php?q="+temp+"&num="+num+"&pass="+pas,true);
@@ -123,16 +142,16 @@
 		<form id="registerform" method="post" action="register.php">
 		<strong><h2>Pendaftaran Anggota Baru Ruserba</h2></strong><br>
 		<pre>(*) Harus diisi.</pre>
-		<pre>Username*			<input type="text" name="username" id="usnm" onkeyup="validate(usnm.value,2,pwd.value)" onblur="validate(usnm.value,2,pwd.value)"/><span id="validasiUser"></span></pre>
-		<pre>Password*			<input type="password" name="password"id="pwd" onkeyup="validate(pwd.value,3,usnm.value)" onblur="validate(pwd.value,3,usnm.value)"/><span id="validasiPass"></span></pre>
-		<pre>Confirm Password*		<input type="password" name="password"id="pwd2" onkeyup="validate(pwd2.value,4,pwd.value)" onblur="validate(pwd2.value,4,pwd.value)"/><span id="validasiCoPass"></span></pre>
-		<pre>Nama Lengkap*		<input type="text" name="nama" id="nama" onkeyup="validate(nama.value,1,'budi')"  onblur="validate(nama.value,1,'budi')"/><span id="validasiNama"></span></pre>
+		<pre>Username*			<input type="text" name="username" id="usnm" onblur="validate(usnm.value,2,pwd.value)" onblur="validate(usnm.value,2,pwd.value)"/><span id="validasiUser"></span></pre>
+		<pre>Password*			<input type="password" name="password"id="pwd" onblur="validate(pwd.value,3,usnm.value)" onblur="validate(pwd.value,3,usnm.value)"/><span id="validasiPass"></span></pre>
+		<pre>Confirm Password*		<input type="password" name="password"id="pwd2" onblur="validate(pwd2.value,4,pwd.value)" onblur="validate(pwd2.value,4,pwd.value)"/><span id="validasiCoPass"></span></pre>
+		<pre>Nama Lengkap*		<input type="text" name="nama" id="nama" onblur="validate(nama.value,1,'budi')"  onblur="validate(nama.value,1,'budi')"/><span id="validasiNama"></span></pre>
 		<pre>Nomor HP				<input type="text" name="nohp"></pre>
 		<pre>Alamat				<input type="textarea" name="alamat"></pre>
 		<pre>Provinsi				<input type="text" name="provinsi"></pre>
 		<pre>Kota					<input type="text" name="kota"></pre>
 		<pre>Kode Pos				<input type="text" name="kodepos"></pre>
-		<pre>Email*				<input type="text" name="email"id="email" onkeyup="validate(email.value,5,null)"  onblur="validate(email.value,5,null)"/><span id="validasiEmail"></span></pre>
+		<pre>Email*				<input type="text" name="email"id="email" onblur="validate(email.value,5,null)"  onblur="validate(email.value,5,null)"/><span id="validasiEmail"></span></pre>
 		<pre><input type="checkbox" name="setuju" id="cek" onclick="readysubmit(9,'1')"> Saya menyetujui semua persyaratan yang berlaku</pre>
 		<input type="submit" value="Daftar" id="masuk" disabled> <a href='index.php'>Kembali</a></form>
 		<script>

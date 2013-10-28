@@ -27,11 +27,11 @@
 		<div id="log"></div>
 		<li><a href="shoppingbag.php">Shopping Bag</a></li>
 		<div id="searchbar" style="float:right">
-		<li><input type="text" name="search" id="cari"placeholder="Cari Barang" onkeyup="searchsuggest(cari.value)">
+		<li><input type="text" name="search" id="cari" placeholder="Cari Barang" onkeyup="searchsuggest(cari.value)">
 			<ul class="suggestion" id="cariyu">	
 			</ul>
 		</li>
-		<li><button type="button">Search</button></li>
+		<li><button type="button" onclick="search(cari.value)">Search</button></li>
 		</div>
 	</ul></nav>
 	</header><!-- /#banner -->

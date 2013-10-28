@@ -15,8 +15,8 @@
 			<pre id="kota">Kota			: </pre>
 			<pre id="kodepos">Kode Pos		: </pre>
 			<pre id="email">Email			: </pre>
-		<form method="action" action="editprofile.php">
-		<input type="submit" value="Edit Profile"> <a href="registercardform.php">Daftarkan kartu kredit saya</a>
+		<form method="post" action="editprofile.php">
+		<input type="submit" value="Edit Profile"> <span id="cekkartu"></span>
 		</form>
 </article><!-- /#featured -->
 <script>
@@ -45,6 +45,7 @@ if(typeof(Storage)!=="undefined"){
 		xmlhttp.open("POST","ajaxprofile.php",true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("username="+localStorage.wbduser);
+		cekkartu(localStorage.wbduser);
 	}else{
 		var s = "<strong>Maaf, halaman ini tidak bisa diakses jika kamu belum login.</strong><br>";
 		s += "<p>Halaman akan segera dialihkan ke halaman registrasi...</p>";
@@ -53,6 +54,28 @@ if(typeof(Storage)!=="undefined"){
 	}
 }else{
 	document.getElementById("menubar").innerHTML="Maaf, browser kamu tidak support Web Storage sehingga informasi username tidak dapat disimpan...";
+}
+function cekkartu(username){
+	var xmlhttp;
+	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}else{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function(){
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			if(xmlhttp.responseText=="error"){
+				document.getElementById("cekkartu").innerHTML="Gagal mengambil data kartu kredit dari database.";
+			}else if(xmlhttp.responseText=="notregistered"){
+				document.getElementById("cekkartu").innerHTML="<a href='registercardform.php'>Daftarkan kartu kredit saya</a>";
+			}else{
+				document.getElementById("cekkartu").innerHTML="Nomor kartu kredit Anda : "+xmlhttp.responseText;
+			}
+		}
+	}
+	xmlhttp.open("POST","cekkartukredit.php",true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("username="+username);
 }
 </script>
 <?php include "footer.php";?>

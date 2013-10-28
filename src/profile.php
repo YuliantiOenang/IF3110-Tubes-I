@@ -14,12 +14,48 @@
 		<div id="content">
 			<h1>Profil Diri</h1>
 			<form name="profileform" action="edit_profile.php" method="post">
+				<?php
+				$con=mysqli_connect("localhost","root","","ruserba");
+						// Check connection
+						if (mysqli_connect_errno())
+						  {
+						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+						  } 
+				$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='karakuri'");				
+				$row = mysqli_fetch_array($result);
+				
+				function submitedit()
+				{
+						$con=mysqli_connect("localhost","root","","ruserba");
+						// Check connection
+						if (mysqli_connect_errno())
+						  {
+						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+						  }
+						
+						$sql ="UPDATE customer SET NamaLengkap='$_POST[namalengkap]' ,Password='$_POST[changepassword]' 
+								,NomorHP='$_POST[nomorhp]' ,Alamat='$_POST[alamat]' ,Kota='$_POST[kota]' ,Provinsi='$_POST[provinsi]' ,KodePos='$_POST[kodepos]' WHERE IdName='karakuri'" ;
+						if(!mysqli_query($con,$sql))
+						{
+							die('Error' . mysqli_error($con));
+						}
+						mysqli_close($con);
+				}
+				if(isset($_REQUEST['sub']))
+				{
+					submitedit();
+				}
+				?>
+				
 				<div id="form_one_row">
 					<p id="label_form" class="label">
 						Username
 					</p>
 					<p id="label_form" class="partition">
 						:
+					</p>
+					<p id="label_form" class="label">
+						<?php echo $row['IdName']; ?>
 					</p>
 				</div>
 				<div id="form_one_row">
@@ -29,6 +65,9 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<p id="label_form" class="label">
+						<?php echo $row['NamaLengkap']; ?>
+					</p>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -36,6 +75,9 @@
 					</p>
 					<p id="label_form" class="partition">
 						:
+					</p>
+					<p id="label_form" class="label">
+						<?php echo $row['NomorHP']; ?>
 					</p>
 				</div>
 				<div id="form_one_row">
@@ -45,6 +87,9 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<p id="label_form" class="label">
+						<?php echo $row['Alamat']; ?>
+					</p>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -52,6 +97,9 @@
 					</p>
 					<p id="label_form" class="partition">
 						:
+					</p>
+					<p id="label_form" class="label">
+						<?php echo $row['Kota']; ?>
 					</p>
 				</div>
 				<div id="form_one_row">
@@ -61,6 +109,9 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<p id="label_form" class="label">
+						<?php echo $row['Provinsi']; ?>
+					</p>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -68,6 +119,9 @@
 					</p>
 					<p id="label_form" class="partition">
 						:
+					</p>
+					<p id="label_form" class="label">
+						<?php echo $row['KodePos']; ?>
 					</p>
 				</div>
 				<div id="form_one_row">
@@ -77,6 +131,9 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<p id="label_form" class="label">
+						<?php echo $row['Email']; ?>
+					</p>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -85,7 +142,12 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
+					<p id="label_form" class="label">
+						<?php echo $row['Transaksi']; ?>
+					</p>
 				</div>
+				
+				<?php mysqli_close($con); ?>
 				<div id="form_one_row">
 					<input id="submit" type="submit" value="EDIT"></input>
 				</div>

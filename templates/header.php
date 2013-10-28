@@ -2,9 +2,9 @@
 	<div class = "logo">
 		<?php 
 			if($_SESSION['state'] == 2)
-				echo "<img src='img/logo.png' width=200px></img>";
+				echo "<a href='index.php'><img src='img/logo.png' width=200px></img></a>";
 			else
-				echo "<img src='../img/logo.png' width=200px></img>";
+				echo "<a href='../index.php'><img src='../img/logo.png' width=200px></img></a>";
 		?>
 	</div>
 	<div class = "login">
@@ -37,6 +37,10 @@
 			}
 		?>
 	</div>
+	<?php 
+	if(isset($_SESSION['on'])){
+	if($_SESSION['on']){
+	?>
 	<div class = "user">
 		<br/>
 		<?php
@@ -47,4 +51,5 @@
 				echo "<a href='pages/profile_user.php'>view/edit profile</a>";
 			} ?>
 	</div>
+	<?php }} ?>
 </div>

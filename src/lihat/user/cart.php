@@ -32,13 +32,13 @@ while ($row = mysql_fetch_object($data['listBarang']))
 	if ($row->status == 0)
 	{
 	?>
-		<font color="red">Barang belum dikirim</font>
+		<font color="red">Barang belum dibayar / dibeli</font>
 	<?php
 	}
 	else
 	{
 	?>
-		<font color="green">Barang sudah dikirim</font>
+		<font color="green">Barang sudah dibayar / dibeli</font>
 	<?php
 	}
 	?>

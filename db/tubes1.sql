@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2013 at 02:32 PM
+-- Generation Time: Oct 28, 2013 at 08:32 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
 --
 
 INSERT INTO `barang` (`id`, `id_kategori`, `gambar`, `nama_barang`, `harga_barang`, `keterangan`, `jumlah_barang`) VALUES
-(3, 1, 'sembako/beras.jpg', 'Beras', 8500, 'Ini beras per 1 kg', 999955),
+(3, 1, 'sembako/beras.jpg', 'Beras', 8500, 'Ini beras per 1 kg', 999954),
 (4, 1, 'sembako/gulapasir.jpg', 'Gula Pasir', 12000, 'Ini gula pasir per 1 kg', 25),
 (5, 1, 'sembako/minyakgoreng.jpg', 'Minyak Goreng', 11000, 'Minyak Goreng per 1 liter', 999988),
 (6, 1, 'sembako/telurayam.jpg', 'Telur Ayam', 15000, 'Telur Ayam per 1 kg', 999877),
@@ -82,14 +82,15 @@ CREATE TABLE IF NOT EXISTS `barang_card` (
   `id_user` int(11) NOT NULL,
   `tgl_pembelian` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `barang_card`
 --
 
 INSERT INTO `barang_card` (`id`, `id_barang`, `id_card`, `status`, `jumlah_barang`, `id_user`, `tgl_pembelian`) VALUES
-(9, 6, 1, 0, 123, 4, '2013-10-27 01:38:40');
+(9, 6, 1, 0, 123, 4, '2013-10-27 01:38:40'),
+(10, 3, 4, 0, 1, 7, '2013-10-28 12:05:35');
 
 -- --------------------------------------------------------
 
@@ -104,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `card` (
   `name` varchar(100) NOT NULL,
   `expired_date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `card`
@@ -113,7 +114,9 @@ CREATE TABLE IF NOT EXISTS `card` (
 INSERT INTO `card` (`id`, `id_user`, `card_number`, `name`, `expired_date`) VALUES
 (1, 4, '082031465812', 'ganteng', '2013-10-30'),
 (2, 4, '128391012345', 'ahay', '2014-09-12'),
-(3, 9, '213168745676', 'iseng', '2014-12-09');
+(3, 9, '213168745676', 'iseng', '2014-12-09'),
+(4, 7, '1223456789012', 'Iskandar Setiadi', '2012-01-31'),
+(5, 7, '2345678901234', 'Iskandar Setiadi', '2013-12-31');
 
 -- --------------------------------------------------------
 
@@ -166,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `username`, `nama_lengkap`, `HP`, `alamat`, `provinsi`, `kodepos`, `email`, `password`, `kota`, `isCreditCard`) VALUES
 (4, 'habibie', 'Habibie Faried', '08561435232', 'Jl. Pelesirann', 'Jawa Barat', 40114, 'habibiefaried@gmail.com', 'habibie', 'Bandung', 1),
-(7, 'iskandar', 'Iskandar Setiadi', '00000', 'Jl. Tubis', 'Jawa Barat', 40117, 'iseng@test.com', 'iskandar', 'Bandung', 0),
+(7, 'iskandar', 'Iskandar Setiadi', '00000', 'Jl. Tubis', 'Jawa Barat', 40117, 'iseng@test.com', 'iskandar', 'Bandung', 1),
 (8, 'haha', 'haha', '0856', 'JL. haha', 'haha', 18124, 'haha@haha.com', 'haha', 'haha', 0),
 (9, 'iseng', 'iseng', '08961', 'Jl. iseng', 'iseng', 15123, 'iseng@iseng.com', 'iseng', 'iseng', 1);
 

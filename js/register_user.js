@@ -163,16 +163,22 @@ function checkUsername(str)
 {
 	var xmlhttp;
 	var nameFilter=/[A-Za-z0-9]{5,}$/;
-	if (nameFilter.test(str)){
-		form_check();
-	} else if (str.length == 0){
+	
+	if (str.length == 0){
 		isUsername = false;
 		document.getElementById("username_status").innerHTML="input is empty";
 		form_check();
 		return;
+	} else if (str.length < 5){
+		isUsername = false;
+		document.getElementById("username_status").innerHTML="input is less than 5 digits";
+		form_check();
+		return;
+	} else if(nameFilter.test(str)){
+		
 	} else{
 		isUsername = false;
-		document.getElementById("username_status").innerHTML="username is already used";
+		document.getElementById("username_status").innerHTML="username is not available";
 		form_check();
 		return;
 	}
@@ -193,6 +199,7 @@ function checkUsername(str)
 			} else{
 				document.getElementById("username_status").innerHTML = "username is not available";
 			}
+			form_check();
 		}
 	}
 	xmlhttp.open("GET","../controllers/name_checker.php?q="+str,true);

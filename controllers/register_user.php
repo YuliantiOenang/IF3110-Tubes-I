@@ -17,7 +17,8 @@
 	}
 	
 	if(!$found){
-		mysqli_query($con,"INSERT INTO pengguna (nama_pengguna, username, password, email) VALUES ('".$name."','".$username."','".$password."','".$email."')");
+		mysqli_query($con,"INSERT INTO pengguna (nama_pengguna, username, password, email) VALUES ('".$name."','".$username."','".sha1($password)."','".$email."')");
+		header('Location: ../index.php');
 	} else{
 		echo "same username is found, can't register with this username";
 	}

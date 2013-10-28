@@ -49,7 +49,6 @@ p {
 
 .container {
 	width: 940px;
-	height: 500px;
 	background-color:#dddddd;
 	float: left;
 	overflow-y: scroll;

@@ -1,80 +1,13 @@
 <!DOCTYPE html> 
+<?php session_start(); ?>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/latihan.css"> <!--pemanggilan file css-->
-<?php
-if(!isset($_COOKIE['user1']))
-{
-	?>
-			<script type="text/javascript">
-						window.alert("Maaf Anda harus LOGIN terlebih dahulu");
-						window.location="index.php";
-						</script>
-		<?php
-}
 
-?>
 </head>
 <script src="js/AjaxCreateObject.js" language="javascript"></script>
 <script type="text/javascript">
-
-function suggestSearch(str){
-	//document.getElementById("search_suggestion").innerHTML = str;
-	if(str.length == 0){
-		document.getElementById("search_suggestion").innerHTML="";
-		return;
-	}
-	
-	http.onreadystatechange=function(){
-		if(http.readyState == 4 && http.status == 200){
-			document.getElementById("search_suggestion").innerHTML = http.responseText;
-		}
-	}
-	
-	http.open("GET","proses_suggest_search.php?q="+str,true);
-	http.send();
-}
-
-function copySuggest(){
-	var x = document.getElementsByName("key");
-	x[0].value = document.getElementById("search_suggestion").innerHTML;
-}
-
-function toEditProfile(){
-	window.location = "edit_profile.php";
-}
-
-function getCookie(c_name)
-//FUNGSI PENGAMBIL COOCIE
-{
-var c_value = document.cookie;
-var c_start = c_value.indexOf(" " + c_name + "=");
-if (c_start == -1)
-  {
-  c_start = c_value.indexOf(c_name + "=");
-  }
-if (c_start == -1)
-  {
-  c_value = null;
-  }
-else
-  {
-  c_start = c_value.indexOf("=", c_start) + 1;
-  var c_end = c_value.indexOf(";", c_start);
-  if (c_end == -1)
-  {
-c_end = c_value.length;
-}
-c_value = unescape(c_value.substring(c_start,c_end));
-}
-return c_value;
-}
-
-function checkSubmit(){
-	
-}
-
 function popClik()
 {
 	
@@ -152,6 +85,40 @@ function login()
 	http.send(); 
 	
 }
+
+function cekJumlah()
+{
+	//mengambil semua variable dalam form login
+	var id = document.getElementById('idBarang').value;	
+	
+
+	var jumlah = document.getElementById('jumlahBarang').value;
+	//request ke file php
+	http.open('get', 'addCart2.php?id='+id+'&jumlah='+jumlah+"&permintaan=standart",true);
+	//cek hasil request 4 jika berhasil
+	http.onreadystatechange = function()
+	  {
+		
+		if (http.readyState==4 && http.status==200)
+		{
+			try
+			{
+			
+			var decodeJSON = JSON.parse(http.responseText);
+			
+			alert("Maaf barang yang ada di stok tidak cukup.\n jumlah stok "+http.responseText);
+			}
+			catch(e)
+			{
+			alert("Berhasil daftar ke keranjang.");
+			}
+		}
+	  }
+	http.send(); 
+	
+	
+}
+
 function logout()
 {
 window.location="logout.php";
@@ -169,22 +136,9 @@ function remove(id)
 {
     return (elem=document.getElementById(id)).parentNode.removeChild(elem);
 }
+
 </script>
 <body>
-
-<?php
-	// setcookie('user1','asu',time()+3600*24*30);
-	// setcookie("IdCustomer", '1', time()+3600*24*30);
-	// setcookie('username','asusampas',time()+3600*24*30);
-	// setcookie("email","ampas@ampas.com",time()+3600*24*30);
-	// setcookie("password","ampasampas",time()+3600*24*30);
-	// setcookie("alamat","jalan sesuatu",time()+3600*24*30);
-	// setcookie("provinsi","jawa Barat",time()+3600*24*30);
-	// setcookie("kobupaten","bandung",time()+3600*24*30);
-	// setcookie("kodepos","14350",time()+3600*24*30);
-	// setcookie("handphone","08988204004",time()+3600*24*30);
-?>
-
 <div id="lightbox">	
 		<div class="loginpoptop"><!--pop up-->
 		<h4 id="loginHeader">LOGIN</h4>
@@ -217,6 +171,7 @@ function remove(id)
 			<div class = "loginplace">
 				<div>
 				<?php
+				
 				if(!isset($_COOKIE['user1']))
 				{
 				?>
@@ -232,7 +187,14 @@ function remove(id)
 				?>
 				</div>
 				<div >
+				<?php
+				if(isset($_COOKIE['user1']))
+				{
+				?>
 					<img src = "images/cart.png" class = "cart" onclick="window.location='shoppingbag.php'"></img>
+				<?php
+				}
+				?>
 				</div>
 			</div>
 			<div class = "signupplace">
@@ -274,6 +236,7 @@ function remove(id)
 	
 </div>
 
+
 <div class = "bodymain">
 	<div class = "sidebar">
 		
@@ -309,52 +272,138 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> Profile Anda<label></br></br>
+		<label> SEARCH RESULTS<label></br></br>
+		<form method="get" action="kategori.php">
+		<input type="key" name="key" hidden value="<?php echo $_GET['key'] ?>"/>
+		<select name="sort">
+			<option selected="<?php if (isset($_GET['sort']) and $_GET['sort']=='nama') echo "true"; else if(!isset($_GET['sort'])) echo 'false' ?>" value="nama"> Nama Barang </option>
+			<option selected="<?php if (isset($_GET['sort']) and $_GET['sort']=='harga') echo "true"; else echo 'false' ?>" value="harga">Harga Barang</option>
+		</select>
+		<input type="submit" value="Sort">
+		</form>
 		</div>
-			<div class = "registerspace">
-			<label>Username : <?php echo $_COOKIE["username"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Nama Lengkap : <?php echo $_COOKIE["user1"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Nomor Handphone : <?php if(isset($_COOKIE["handphone"]))echo $_COOKIE["handphone"]; ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Alamat : <?php if(isset($_COOKIE["alamat"]))echo $_COOKIE["alamat"] ;?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Provinsi : <?php if(isset($_COOKIE["provinsi"])) echo $_COOKIE["provinsi"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Kota / Kabupaten : <?php if(isset($_COOKIE["kobupaten"])) echo $_COOKIE["kobupaten"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Kodepos : <?php if(isset($_COOKIE["kodepos"])) echo $_COOKIE["kodepos"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Email : <?php echo $_COOKIE["email"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Jumlah Transaksi : <?php 
-				include "config/connect.php";
-				
-				$mysql=mysql_query("select id_costumer from terbayar where id_costumer='".$_COOKIE['IdCustomer']."'");
-				echo mysql_num_rows($mysql);
-			?>
-			</label></br>
-			</div>
+		
+		<?php
+		
+		include "config/connect.php";
+		$counter=0;
+		
+		if(isset($_GET['key']))
+		{
+			if(isset($_GET['sort']))
+			{
+				$hasil = mysql_query("select nama, kategori,harga,deskripsi,foto,no_alat from peralatan where kategori='".$_GET['key']."' order by ".$_GET['sort']."");	
+				$hasil_temp="select nama, kategori,harga,deskripsi,foto,no_alat from peralatan where kategori='".$_GET['key']."' order by ".$_GET['sort']."";
+				$_SESSION['hasil']=$hasil_temp;
+					while(($baris=mysql_fetch_row($hasil)))
+					{
+						$_SESSION['nama'.$counter]=$baris[0];
+						$_SESSION['harga'.$counter]=$baris[2];
+						$_SESSION['foto'.$counter]=$baris[4];
+						$_SESSION['id'.$counter]=$baris[5];
+						$counter++;
+					}
+			}
+			else
+			{
+				$hasil = mysql_query("select nama, kategori,harga,deskripsi,foto,no_alat from peralatan where kategori='".$_GET['key']."' order by nama");	
+				$hasil_temp="select nama, kategori,harga,deskripsi,foto,no_alat from peralatan where kategori='".$_GET['key']."' order by nama";
+				$_SESSION['hasil']=$hasil_temp;
+					while(($baris=mysql_fetch_row($hasil)))
+					{
+						$_SESSION['nama'.$counter]=$baris[0];
+						$_SESSION['harga'.$counter]=$baris[2];
+						$_SESSION['foto'.$counter]=$baris[4];
+						$_SESSION['id'.$counter]=$baris[5];
+						$counter++;
+					}
+			}
+			//$_SESSION['hasil']=$hasil;
+		}
+		
+		else
+		{
+		$hasil=$_SESSION['hasil'];
+		//session_unset();
+		$_SESSION['hasil']=$hasil;
+		}
+		if(!isset($_GET['page']))
+		{
+			$i=0;
+			while($i<$counter && $i<10 && isset($_SESSION['nama'.$i]))
+			{
 			
-			<div class = "registerspace">
-			<input type="button" value = "Edit" onclick="toEditProfile()"></br>
+			echo '<div class = "searchres">
+					<div class = "previmage">
+						<img src= "'.$_SESSION["foto".$i].'" class="resizeimage"><img>
+					</div>
+					<a href="detailbarang.php?id='.$_SESSION['id'.$i].'"><p class = "copyrightext"> '.$_SESSION["nama".$i].'</a> </br>
+						  Rp'.$_SESSION["harga".$i].' </label> </br> </p>
+					<laabel>jumlah :</label><input type="text" size=4 id="jumlahBarang"/>
+					<input type="text" id="idBarang" value="'.$_SESSION['id'.$i].'" hidden/>
+					<input type="button" onclick="cekJumlah()" value="Beli"></input>
+					</div>';
+			$i++;
+			}
+		}
+		else
+		{
+			$counter=0;
+			$batas=($_GET['page']*10)+10;
+			$counter=$_GET['page']*10;
+			while($counter<$batas && isset($_SESSION['nama'.$counter]))
+			{
+			echo '<div class = "searchres">
+					<div class = "previmage">
+						<img src= "'.$_SESSION["foto".$counter].'" class="resizeimage"><img>
+					</div>
+					<a href="detailbarang.php?id='.$_SESSION['id'.$counter].'"><p class = "copyrightext"> '.$_SESSION["nama".$counter].' </a></br>
+						  Rp'.$_SESSION["harga".$counter].' </label> </br> </p>
+						  					<laabel>jumlah :</label><input type="text" size=4 id="jumlahBarang"/>
+					<input type="text" id="idBarang" value="'.$_SESSION['id'.$counter].'" hidden/>
+					<input type="button" onclick="cekJumlah()" value="Beli"></input>
+					
+				</div>';
+			$counter++;
+			}
+		}
+		?>
+			 <div class = "searchnext">
+			 <?php
+			
+			 $hasil_temp=$_SESSION['hasil'];
+			 $hasil=mysql_query($_SESSION['hasil']);
+			 $num_rows = mysql_num_rows($hasil);
+			 
+			 if($num_rows%10!=0 && $num_rows>10)
+			 {
+				$tambah=1;
+			 }
+			 else
+			 {
+				$tambah=0;
+			 }
+			 $jumlahPage=$num_rows/10 + $tambah;
+			 if(isset($_GET['sort']))
+			 {
+				$sort=$_GET['sort'];
+			 }
+			 else
+			 {
+				$sort="nama";
+			 }
+			 $i=0;
+			 echo "Page : ";
+			 for($i=1;$i<$jumlahPage;$i++)
+			{
+			echo '<a href="kategori.php?page='.$i.'&sort='.$sort.'&key='.$_GET['key'].'">'.$i.'  </a>';
+			}
+			?>
 			</div>
 			  
-			</div>
-			</div>
+	</div>
+</div>
 			
-			
-			
-	
 	<div class = "footer">
 		<div class = "info">
 

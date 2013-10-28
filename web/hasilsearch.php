@@ -1,4 +1,6 @@
 <!DOCTYPE html> 
+<?php 
+				session_start();?>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -158,7 +160,6 @@ function remove(id)
 			<div class = "loginplace">
 				<div>
 				<?php
-				session_start();
 				if(!isset($_COOKIE['user1']))
 				{
 				?>
@@ -203,28 +204,25 @@ function remove(id)
 		</div>
 		<div class = "menu">
 				<div>
-					
-					<img src = "images/jacket.png" class = "jacket"></img>
+					<a href="kategori.php?key=Jaket"><img src = "images/jacket.png" class = "jacket"></img></a>
 				</div>
 				<div>
-					<img src = "images/jacket.png" class = "tshirt"></img>
+					<a href="kategori.php?key=Sweater"><img src = "images/sweaters.png" class = "tshirt"></img>
 				</div>
 				<div >
-					<img src = "images/jacket.png" class = "wristband"></img>
+					<a href="kategori.php?key=TShirt"><img src = "images/tshirt.png" class = "wristband"></img></a>
 				</div>
 				<div>
-					<img src = "images/jacket.png"  class = "emblem"></img>
+					<a href="kategori.php?key=Misc"><img src = "images/misc.png"  class = "emblem"></img></a>
 				</div>
 				<div>
-					<img src = "images/jacket.png"  class = "pokemon"></img>
+					<a href="kategori.php?key=Pokemon"><img src = "images/pokemon.png"  class = "pokemon"></img></a>
 				</div>
 		</div>
 		<div class = "main">
 		</div>
 	
 </div>
-
-
 <div class = "bodymain">
 		<div class = "sidebar">
 		

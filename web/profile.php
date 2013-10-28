@@ -205,22 +205,21 @@ function remove(id)
 			<a href="see_profile.php"><p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1'].""; ?></p></a>
 			</div>
 		</div>
-		<div class = "menu">
+				<div class = "menu">
 				<div>
-					
-					<img src = "images/jacket.png" class = "jacket"></img>
+					<a href="kategori.php?key=Jaket"><img src = "images/jacket.png" class = "jacket"></img></a>
 				</div>
 				<div>
-					<img src = "images/jacket.png" class = "tshirt"></img>
+					<a href="kategori.php?key=Sweater"><img src = "images/sweaters.png" class = "tshirt"></img>
 				</div>
 				<div >
-					<img src = "images/jacket.png" class = "wristband"></img>
+					<a href="kategori.php?key=TShirt"><img src = "images/tshirt.png" class = "wristband"></img></a>
 				</div>
 				<div>
-					<img src = "images/jacket.png"  class = "emblem"></img>
+					<a href="kategori.php?key=Misc"><img src = "images/misc.png"  class = "emblem"></img></a>
 				</div>
 				<div>
-					<img src = "images/jacket.png"  class = "pokemon"></img>
+					<a href="kategori.php?key=Pokemon"><img src = "images/pokemon.png"  class = "pokemon"></img></a>
 				</div>
 		</div>
 		<div class = "main">

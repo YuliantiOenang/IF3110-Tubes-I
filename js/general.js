@@ -7,3 +7,7 @@ function loadPage(href)
 	}
 	return xmlhttp.responseText;
 }
+
+function doPopUp(){
+	document.getElementById("mask").style.display = "block";
+}

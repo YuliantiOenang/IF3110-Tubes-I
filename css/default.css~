@@ -1,0 +1,37 @@
+/*Global*/
+
+html 					{height:100%;min-height:100%;margin:0;padding:0;}
+body				{height:100%;min-height:100%;margin:0;padding:0;background-color:#f0f0f0;}
+h1,h2,h3,h4			{margin:0px;}
+hr					{margin-top:3px;}
+a					{margin:0;}
+select			{background-color:#eee;border:1px solid #ddd;}
+
+a:link 				{color:#000;text-decoration:none;}
+a:visited 			{color:#000;text-decoration:none;}
+a:hover				{color:#000;text-decoration:underline;font-weight:bold;}
+a:active			{color:#000;text-decoration:underline;font-weight:bold;}
+
+th			{background:#ccc}
+td			{font-size:0.9em;}
+tr:nth-child(even)	{background: #DDD}
+tr:nth-child(odd)	{background: #FFF}
+
+ul			{line-height:40px;margin:0;padding:0;clear:both;}
+li			{border:1px solid black;list-style-type:none;display:inline-block;margin:0px;padding:0px 10px;}
+input			{font-size:1.2em;}
+select			{font-size:1.4em;width:100px;}
+
+/*Class*/
+.sidebar			{width:180px;background-color:#fafafe;border: 1px solid #aaa;padding:5px;margin:5px;margin-bottom:15px;}
+.kotak				{display:table-cell;width:70px;text-align:right;padding:10px;}
+
+/*Id*/
+#header				{margin:0 auto;width:100%;height:100px;background:#111;border-bottom: 5px solid #555;color:white;}
+#branding			{margin:0 auto;width:1000px;padding:10px;}
+#bottomHeader		{margin:0 auto;width:100%;height:40px;background:#222;color:#fff;}
+#bottomHeaderContent{margin:0 auto;width:1000px;padding:0px;}
+#content			{margin:10px auto;width:980px;background-color:#f7f7f7;padding:10px;border: 1px solid #aaa;min-height:600px;}
+#contentLeft		{margin:0;width:205px;float:left;}
+#contentRight		{margin:0;width:770px;display:table;}
+#mainContent		{width:720px;background-color:#fafafe;border: 1px solid #aaa;min-height:400px;padding:20px;margin:5px;}

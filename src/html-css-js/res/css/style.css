@@ -408,3 +408,7 @@ body {
 	clear: both;
 	content: '';
 }
+
+#btn-register-cc {
+	width: 200px;
+}

@@ -20,7 +20,8 @@ while ($row = mysql_fetch_object($data['listCC']))
 <?php
 }
 ?>
-</select>
+</select><br>
+Deskripsi Tambahan : <textarea name="deskripsi_tambahan" id="deskripsi_tambahan"></textarea><br>
 <input type="hidden" name="id_barang" value="<?=$data['id_barang'];?>"><br>
 <input type="submit" value="submit" name="submit">
 </form>

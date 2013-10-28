@@ -96,9 +96,9 @@ class Barang_Model
 		return $this->database->fetch();
 	}
 
-	public function Beli($id_barang, $id_card, $jumlah_barang)
+	public function Beli($id_barang, $id_card, $jumlah_barang, $deskripsi_tambahan)
 	{
-		$query = "INSERT INTO barang_card (id_barang,id_card,status,jumlah_barang,id_user) VALUES ('".$id_barang."','".$id_card."','"."0"."','".$jumlah_barang."','".$_SESSION['id']."')";
+		$query = "INSERT INTO barang_card (id_barang,id_card,status,jumlah_barang,id_user,deskripsi_tambahan) VALUES ('".$id_barang."','".$id_card."','"."0"."','".$jumlah_barang."','".$_SESSION['id']."','".$deskripsi_tambahan."')";
 		$this->database->query($query);
 		
 		$row = $this->getOnlyBarangID($id_barang);
@@ -110,7 +110,7 @@ class Barang_Model
 
 	public function generateCart()
 	{
-		$query = "SELECT barang_card.tgl_pembelian, barang_card.status, barang_card.jumlah_barang,card.card_number,barang.nama_barang from barang JOIN barang_card JOIN card ON barang_card.id_user=".$_SESSION['id']." AND barang_card.id_barang = barang.id AND barang_card.id_card = card.id AND card.id_user =".$_SESSION['id'];
+		$query = "SELECT barang_card.tgl_pembelian, barang_card.status, barang_card.jumlah_barang, barang_card.deskripsi_tambahan, card.card_number,barang.nama_barang from barang JOIN barang_card JOIN card ON barang_card.id_user=".$_SESSION['id']." AND barang_card.id_barang = barang.id AND barang_card.id_card = card.id AND card.id_user =".$_SESSION['id'];
 		return $this->database->query($query);
 	}
 }

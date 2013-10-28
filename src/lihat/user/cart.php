@@ -13,6 +13,7 @@ Ini laman belanjaan<br>
 	<th>Quantity</th>
 	<th>Kartu Kredit</th>
 	<th>Tanggal Pembelian</th>
+    <th>Deskripsi Tambahan</th>
 	<th>Status</th>
 </tr>
 <?php
@@ -27,6 +28,7 @@ while ($row = mysql_fetch_object($data['listBarang']))
 	<td><?=$row->jumlah_barang;?></td>
 	<td><?=$row->card_number;?></td>
 	<td><?=$row->tgl_pembelian;?></td>
+    <td><?=$row->deskripsi_tambahan;?></td>
 	<td>
 	<?php
 	if ($row->status == 0)

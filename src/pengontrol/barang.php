@@ -26,7 +26,7 @@ class Barang
 					}
 					else
 					{
-						$m->Beli($var['id_barang'],$var['kartu'],$var['qty']);
+						$m->Beli($var['id_barang'],$var['kartu'],$var['qty'], $var['deskripsi_tambahan']);
 						echo "Transaksi berhasil, anda akan diredirect ke laman pembelian untuk mengecek";
 						header("Refresh: 2;url=".SITE_ROOT.NAME_ROOT."/index.php/user/cart");
 					}

@@ -13,8 +13,19 @@
 <body>
 	<div class = "page_container">
 		
-		<?php include ("../templates/header.php"); ?>
-		<?php include ("../templates/navigation.php"); ?>
+		<?php 
+			session_start();
+			$_SESSION['state'] = 1;
+			
+			if($_SESSION['state'] == 1){
+				include ("../templates/header.php");
+				include ("../templates/navigation.php"); 
+			}
+			else{
+				include ("templates/header.php");
+				include ("templates/navigation.php"); 
+			}
+		?>
 		
 		<div class = "container">
 			<form action = "../controllers/login_user.php" method = "post">
@@ -29,7 +40,14 @@
 			</form>
 		</div>
 		
-		<?php include ("../templates/footer.php"); ?>
+		<?php 
+			if($_SESSION['state'] == 1){
+				include ("../templates/footer.php");
+			}
+			else{
+				include ("templates/footer.php");
+			} 
+		?>
 	</div>
 </body>
 </html>

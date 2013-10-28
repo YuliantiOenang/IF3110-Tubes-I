@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 28, 2013 at 04:31 AM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Host: localhost
+-- Generation Time: Oct 28, 2013 at 07:14 AM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.3.13
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -45,18 +45,11 @@ CREATE TABLE IF NOT EXISTS `inventori` (
   `id_kategori` int(10) NOT NULL,
   `nama_inventori` varchar(100) NOT NULL,
   `jumlah` int(100) NOT NULL,
+  `gambar` varchar(200) NOT NULL,
+  `description` varchar(1000) NOT NULL,
   PRIMARY KEY (`id_inventori`),
   KEY `id_kategori` (`id_kategori`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
-
---
--- Dumping data for table `inventori`
---
-
-INSERT INTO `inventori` (`id_inventori`, `id_kategori`, `nama_inventori`, `jumlah`) VALUES
-(4, 200, 'Pandu pandu', 4),
-(7, 100, 'Sahe Maho', 7),
-(9, 100, 'Genta Unyu', 2);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -68,15 +61,14 @@ CREATE TABLE IF NOT EXISTS `kategori` (
   `id_kategori` int(10) NOT NULL AUTO_INCREMENT,
   `nama_kategori` varchar(100) NOT NULL,
   PRIMARY KEY (`id_kategori`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=201 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
-(100, 'Unyu'),
-(200, 'Asik');
+(1, 'Baking');
 
 -- --------------------------------------------------------
 
@@ -90,16 +82,13 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `nomor_hp` int(50) NOT NULL,
+  `alamat` varchar(200) NOT NULL,
+  `provinsi` varchar(100) NOT NULL,
+  `kota_kabupaten` varchar(100) NOT NULL,
+  `kode_pos` int(10) NOT NULL,
   PRIMARY KEY (`id_pengguna`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `pengguna`
---
-
-INSERT INTO `pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `email`) VALUES
-(1, 'Griffin', '', '', ''),
-(2, 'a a', 'wkwk', 'aa', 'aa@aa.com');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -115,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
   PRIMARY KEY (`id_transaksi`),
   KEY `id_pengguna` (`id_pengguna`),
   KEY `id_inventori` (`id_inventori`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Constraints for dumped tables

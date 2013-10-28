@@ -30,7 +30,7 @@
 			// Create connection
 			$con=mysqli_connect("127.0.0.1","root","","toko_imba");
 			//check ada ga gidnya
-			$gid=$_GET['gid'];
+			$gid = $_GET['gid'];
 			if(isset($gid)){
 			//cek numeric apa nggak
 				if(!is_numeric($gid)){

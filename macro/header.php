@@ -1,6 +1,5 @@
 <?PHP
   echo "<head>
-    <base href=\"http://localhost/kaskong/\" target=\"_self\">
     <title>KasKong</title>
     <link rel=\"stylesheet\" type=\"text/css\" href=\"css/header.css\">
     <script src=\"script/header_home.js\"></script>

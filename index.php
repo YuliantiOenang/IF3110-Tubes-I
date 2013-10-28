@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-		<?PHP include 'macro/header.php'?>
+	<?PHP include 'macro/header.php'?>
 	<link rel="stylesheet" type="text/css" href="css/homePage.css">
 	<body>
 		<div id="homeContent">	

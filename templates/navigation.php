@@ -1,6 +1,6 @@
-<div class = "navigation">	
-	<?php 
-		
+<div class = "navigation">
+	
+	<?php 		
 		if($_SESSION['state'] == 1){?>
 			<div class = "bar_navigation"><a href="../pages/list.php?cat=baking">Baking</a></div>
 			<div class = "bar_navigation"><a href="../pages/list.php?cat=beverages">Beverages</a></div>

@@ -94,4 +94,17 @@
 		else return $result[0];
 	}
 
+	function getCategory()	{
+		global $db;
+		if ($stmt = $db->prepare("
+			select *
+			from kategori
+		")) {
+				$stmt->execute();
+				$result = fetchAssocArray($stmt);
+				$stmt->close();
+		}
+		return $result;
+	}
+
 ?>

@@ -4,7 +4,7 @@
 <link rel='stylesheet' type='text/css' href='../css/homepage.css' media='screen' />
 
 <head>
-	<title>Toko Imba></title>
+	<title>Toko Imba</title>
 </head>
 
 <body>
@@ -33,11 +33,16 @@
 				//nyari nama category
 					$result = mysqli_query($con,"SELECT * FROM inventori NATURAL JOIN kategori WHERE id_inventori = ".$cgID);
 					$row = mysqli_fetch_array($result);
+			?>
+		</div>
+		<div class = "data";
+					<img width=500px src='../img/<?php echo $row['gambar'];?>'> <br/>;
+
 					echo "ID: ". $row['id_inventori'] . "<br/>";
 					echo "Nama Barang: ". $row['nama_inventori'] . "<br/>";
 					echo "Kategori: ".$row['nama_kategori'] . "<br/>";
 					echo "Jumlah Stok Tersisa : ".$row['jumlah'] . "<br/>";
-					echo "<form class = 'form' novalidate> Permintaan Khusus : <br/> <input type='text' name='tambahan'> </form>";
+					echo "<form novalidate> Permintaan Khusus : <br/> <input type='text' name='tambahan'> </form>";
 					echo "<form> Quantity : <input type='number' name='quantity'> </form>";
 					
 					mysqli_close($con);

@@ -42,53 +42,47 @@
 			<h3>Minuman</h3>
 			<div class="content_item">
 				<ul class="horizontal_list">
-					<li>
-					<div class="barang">
-						<img src="img/items/aqua.jpg" />
-						<h4>Beras</h4>
-						<div>Rp. 9.000,00</div>
-					</div>
-					</li>
-					<li>
-					<div class="barang">
-						<img src="img/items/sirup.jpg" />
-						<h4>Beras</h4>
-						<div>Rp. 9.000,00</div>
-					</div>
-					</li>
-					<li>
-					<div class="barang">
-						<img src= "img/items/bir.jpg" />
-						<h4>Beras</h4>
-						<div>Rp. 9.000,00</div>
-					</div>
-					</li>
+					<?php
+					$query = "SELECT * FROM barang WHERE kategori=1 ORDER BY stok DESC LIMIT 0,3";
+					$result = mysql_query($query, $link);
+					if(mysql_num_rows($result)>0) {
+						while($row = mysql_fetch_array($result)) {
+							echo '<li>';
+							echo '<div class="barang">';
+							echo '<a href="detail.php?id='.$row['id_barang'].'">';
+							$array = explode(',',$row['url_gambar']);
+							echo '<img src="'.$array[0].'" />';
+							echo '<h4>'.$row['nama_barang'].'</h4>';
+							echo '<div>'.$row['harga'].'</div>';
+							echo '</a>';
+							echo '</div>';
+							echo '</li>';
+						}
+					}
+				?>
 				</ul>
 			</div>
 			<h3>Alat Tulis</h3>
 			<div class="content_item">
 				<ul class="horizontal_list">
-					<li>
-					<div class="barang">
-						<img src="img/items/pen.jpg" />
-						<h4>Beras</h4>
-						<div>Rp. 9.000,00</div>
-					</div>
-					</li>
-					<li>
-					<div class="barang">
-						<img src="img/items/paper.jpg" />
-						<h4>Beras</h4>
-						<div>Rp. 9.000,00</div>
-					</div>
-					</li>
-					<li>
-					<div class="barang">
-						<img src= "img/items/ruler.jpg" />
-						<h4>Beras</h4>
-						<div>Rp. 9.000,00</div>
-					</div>
-					</li>
+					<?php
+					$query = "SELECT * FROM barang WHERE kategori=2 ORDER BY stok DESC LIMIT 0,3";
+					$result = mysql_query($query, $link);
+					if(mysql_num_rows($result)>0) {
+						while($row = mysql_fetch_array($result)) {
+							echo '<li>';
+							echo '<div class="barang">';
+							echo '<a href="detail.php?id='.$row['id_barang'].'">';
+							$array = explode(',',$row['url_gambar']);
+							echo '<img src="'.$array[0].'" />';
+							echo '<h4>'.$row['nama_barang'].'</h4>';
+							echo '<div>'.$row['harga'].'</div>';
+							echo '</a>';
+							echo '</div>';
+							echo '</li>';
+						}
+					}
+				?>
 				</ul>
 			</div>
 			<h3>Kebersihan</h3>

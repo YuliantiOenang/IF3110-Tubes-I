@@ -298,3 +298,47 @@ body,h3
 {
 	color : red;	
 }
+
+#searchBox
+{
+	height : 10%;
+}
+
+#searchBox .input_harga
+{
+	
+}
+
+#paginasi .horizontal_list
+{
+	height : auto;
+}
+
+.search_item_result
+{
+	margin:auto;
+	width : 70%;
+}
+
+.search_item_result img
+{
+	height : 10%;
+}
+
+.search_item_result h4
+{
+	padding:0;
+	margin:0;
+}
+
+.search_item_result p
+{
+	padding:0;
+	margin:0;
+	color : #333333;
+}
+
+.search_item_result a
+{
+	text-decoration:none;
+}

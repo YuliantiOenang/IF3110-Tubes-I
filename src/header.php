@@ -187,8 +187,8 @@
 ?>
 	<a href="#" >Shopping Bag</a> 
 </div>
-<form id="search">
-	<input type="text" class="text_input" />
+<form id="search" action="search.php">
+	<input name="name" type="text" class="text_input" />
 	<input type="submit" class="button" value="search"></input>
 </form>
 </div>

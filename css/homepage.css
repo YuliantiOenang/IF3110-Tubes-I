@@ -70,3 +70,14 @@ p {
 	width:300px;
 	float:left;
 }
+
+.image{
+	width:500px;
+	float:left;
+}
+
+.data{
+	width:400px;
+	float:left;
+	background-color:#b0e0e6;
+}

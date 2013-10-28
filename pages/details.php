@@ -33,25 +33,23 @@
 				//nyari nama category
 					$result = mysqli_query($con,"SELECT * FROM inventori NATURAL JOIN kategori WHERE id_inventori = ".$cgID);
 					$row = mysqli_fetch_array($result);
-			?>
-		</div>
-		<div class = "data";
-					<img width=500px src='../img/<?php echo $row['gambar'];?>'> <br/>;
-
-					echo "ID: ". $row['id_inventori'] . "<br/>";
-					echo "Nama Barang: ". $row['nama_inventori'] . "<br/>";
-					echo "Kategori: ".$row['nama_kategori'] . "<br/>";
-					echo "Jumlah Stok Tersisa : ".$row['jumlah'] . "<br/>";
-					echo "<form novalidate> Permintaan Khusus : <br/> <input type='text' name='tambahan'> </form>";
-					echo "<form> Quantity : <input type='number' name='quantity'> </form>";
-					
-					mysqli_close($con);
 				}
 			}
 			?>
+			<div class = "image">
+				<img width=500px src='../img/<?php echo $row['gambar'];?>'> <br/>
+			</div>
+			<div class = "data">
+				ID: <?php echo $row['id_inventori'];?><br/>
+				Nama Barang: <?php echo $row['nama_inventori'];?><br/>
+				Kategori: <?php echo $row['nama_kategori'];?><br/><br/>
+				<?php echo s$row['description'];?><br/>
+				<form class ="additional" novalidate> Permintaan Khusus : <br/> <input type='text' name='tambahan'> </form>
+				<form> Quantity : <input type='number' name='quantity'> </form>
+				<?php mysqli_close($con); ?>
+			</div>
 		</div>
-		
-	</div>
+</div>
 		<?php include ("../templates/footer.php");?>
 </body>
 </html>

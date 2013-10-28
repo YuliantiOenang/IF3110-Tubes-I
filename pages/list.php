@@ -65,7 +65,7 @@
 						}
 					}
 						
-					echo "<img src='../". $row['gambar'] ."'> <br/>";
+					echo "<img src='../img/". $row['gambar'] ."'> <br/>";
 					echo "Nama: <a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
 					echo "Harga: Rp10000 <br/>";
 					echo '<form name="input" action="beli.php" method="post">

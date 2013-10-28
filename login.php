@@ -13,6 +13,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			$_SESSION['user_id'] = $row['id'];
 			$_SESSION['username'] = $row['username'];
 			$_SESSION['nama'] = $row['nama'];
+			if ($row['kredit_nomor'] == NULL) {
+				$_SESSION['card'] = 0;
+			} else {
+				$_SESSION['card'] = 1;
+			}
 			
 			echo "<h1>Success</h1>";
 			echo "<p>We are now redirecting you to the member area.</p>";

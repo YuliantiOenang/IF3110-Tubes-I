@@ -5,9 +5,10 @@
 	<link rel="stylesheet" type="text/css" href="css/homePage.css">
 	<script src="script/header_home.js"></script>
 	<script src="validate.js"></script>
+	<script src="change.js"></script>
 </head>
 <div id="headerMenu">
-	<a href="">
+	<a href="index.php">
 		<img id='logo' src="images/logo.png">
 	</a>
 	<li><a href="kategori.php?id=1">Makanan</a></li>
@@ -33,9 +34,9 @@
 		?>
 		</div>
 	</div>
-  <div id="search">
+  <div id="searchDiv">
   <form id='searchForm' method="post" autocomplete="off" action="search.php">
-    <input autofocus required style="width: 100px;" type="text" name="itemName" placeholder="Nama Item"/>
+    <input id="searchBox" autofocus required style="width: 100px;" type="text" name="itemName" placeholder="Nama Item"/>
       <select required name="kategori" form='searchForm'>
         <option value="" disabled selected>Kategori</option>
         <option value="1">Makanan</option>
@@ -54,7 +55,7 @@
     	<table>
     		<tr>
     			<td>Username:</td>
-    			<td><input autofocus style="width: 125px;" type="text" name="username" id="username" required/></td>
+    			<td><input style="width: 125px;" type="text" name="username" id="username" required/></td>
             </tr>  
             <tr>
     			<td>Password:</td>

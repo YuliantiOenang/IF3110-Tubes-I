@@ -10,11 +10,21 @@ include 'macro/header.php';
 ?>
 
 <body>
-	<form method="post" action="edit.php" onsubmit="return validateEdit()" name="regform">
+	
+	<form method="post" action="edit.php" onsubmit="return (isChanged(name.value, telephone.value, address.value, city.value, province.value, postal.value) && validateEdit())" name="regform">
 		<?php
 		if (isset($_SESSION['user_id'])) {
 			if ($result = mysqli_query($link, "SELECT * FROM user WHERE id='".$_SESSION['user_id']."'")) {
 				$row = mysqli_fetch_array($result);
+				echo "<script type=\"text/javascript\">";
+				echo "function isChanged(nama, tel, add, cit, prov, posta) {
+						if (nama == '".$row['nama']."' && tel == '".$row['hp']."' && add == '".$row['alamat']."' && cit == '".$row['kota']."' && prov == '".$row['provinsi']."' && posta == '".$row['kodepos']."') {
+							var r = confirm(\"Tidak ada perubahan dilakukan, lanjutkan?\");
+							return r;
+						}
+						return true;
+					}";
+				echo "</script>";
 				echo "<input id=\"name\" value=\"".$row['nama']."\" name=\"name\" placeholder=\"nama lengkap\" type=\"text\" onkeypress=\"if(this.value != '') validateName(this.value, 'fullname');\"/><div id=\"fullname\"></div><br />";			
 				echo "<input id=\"telephone\" value=\"".$row['hp']."\" name=\"telephone\" placeholder=\"telepon\" type=\"tel\" onkeypress=\"validateEmpty(this.value, 'valtelephone')\" /><div id=\"valtelephone\"></div><br />";
 				echo "<textarea id=\"address\" name=\"address\" onkeypress=\"validateEmpty(this.value, 'valaddress')\">".$row['alamat']."</textarea><div id=\"valaddress\"></div><br />";

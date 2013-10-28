@@ -42,14 +42,20 @@
 				if (mysqli_connect_errno($con)){
 					echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				}
+				//echo "SELECT * FROM kategori NATURAL JOIN inventori WHERE LOWER(nama_kategori) LIKE '".$_GET['query_category']."' AND harga LIKE ".$_GET['query_price']." AND LOWER(nama_inventori) LIKE '%LOWER(". $_GET['query_name'] .")%'";
+				$result = mysqli_query($con,"SELECT * FROM kategori NATURAL JOIN inventori WHERE LOWER(nama_kategori) LIKE '".$_GET['query_category']."' AND harga LIKE ".$_GET['query_price']." AND LOWER(nama_inventori) LIKE '%". $_GET['query_name'] ."%'");
 				
-				$result = mysqli_query($con,"SELECT * FROM kategori NATURAL JOIN inventori WHERE nama_kategori LIKE '".$_GET['query_category']."' AND harga LIKE ".$_GET['query_price']." AND nama_inventori LIKE '". $_GET['query_name'] ."'");
-				
+				$found = false;
 				while($row = mysqli_fetch_array($result)){
+					$found = true;
 					echo "<img src='../img/". $row['gambar'] ."'> <br/>";
 					echo "Nama: <a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
 					echo "Harga: Rp".$row['harga']." <br/>";
 					echo "Kategori: ". getFormalName($row['nama_kategori'])."<br/>";
+				}
+				
+				if(!$found){
+					echo "No results found.";
 				}
 			?>
 		</div>

@@ -6,6 +6,7 @@ include "db.php"
 
 <head>
 	<title>KasKong</title>
+
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<script src="script/header_home.js"></script>
 </head>
@@ -33,22 +34,45 @@ include "db.php"
 		</div>
 	</div>
 	<div id="loginPop">
-	<form id='loginForm' method="post" autocomplete="off">
-	<table>
-		<tr>
-			<td>Username:</td>
-			<td><input style="width: 125px;" type="text" name="user" /></td>
-        </tr>  
-        <tr>
-			<td>Password:</td>
-			<td><input style="width: 125px;" type="password" name="pass" /></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="right" valign="bottom"><input type="submit" id="subLog" value="Log me in!"/></td>
-		</tr>
-	</table>
+  	<form id='loginForm' method="post" autocomplete="off">
+    	<table>
+    		<tr>
+    			<td>Username:</td>
+    			<td><input style="width: 125px;" type="text" name="user" /></td>
+            </tr>
+            <tr>
+    			<td>Password:</td>
+    			<td><input style="width: 125px;" type="password" name="pass" /></td>
+    		</tr>
+    		<tr>
+    			<td colspan="2" align="right" valign="bottom"><input type="submit" id="subLog" value="Log me in!"/></td>
+    		</tr>
+    	</table>
     </form>
 	</div>
+  <div id="searchPop">
+  <form id='searchForm' method="post" autocomplete="off">
+      <table>
+        <tr>
+          <td><input style="width: 100px;" type="text" name="itemName" placeholder="Nama Item"/></td>
+          <td>
+          <select name="kategori" form='searchForm'>
+            <option value="0">Pilih Kategori</option>
+            <option value="1">Makanan</option>
+            <option value="2">Minuman</option>
+            <option value="3">Pakaian</option>
+            <option value="4">Rumah</option>
+            <option value="5">Plus-Plus</option>
+          </select>
+        </tr>
+        <tr>
+          <input placeholder="Harga Min" style="width: 100px;" type="number" name="rangeMin" step="10000" min=0 max=2000000000> to 
+          <input placeholder="Harga Max" style="width: 100px;" type="number" name="rangeMax" step="10000" min=0 max=2000000000>
+          <input type="submit">
+        </tr>
+      </table>
+    </form>
+  </div>
 	<h3>Barang? Boleh sama... Kualitas? Dijamin <i>Oeh</i> punya!</h3>
 </div>
 ?>

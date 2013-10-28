@@ -4,7 +4,7 @@ session_start();
 $dbhost = "localhost";
 $dbname = "kaskong";
 $dbuser = "root";
-$dbpass = "";
+$dbpass = "root";
 
 $link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 

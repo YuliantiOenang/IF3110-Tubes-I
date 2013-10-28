@@ -5,9 +5,6 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
-	//do insertion query
-	//echo "INSERT INTO pengguna (nama_pengguna, username, password, email) VALUES ('".$name."','".$username."','".$password."','".$email."')";
-	
 	//checking if username is not available
 	$result = mysqli_query($con,"SELECT * FROM pengguna WHERE username = '".$username."' && password = '".$password."'");
 	
@@ -19,6 +16,11 @@
 	
 	if($found){
 		echo "Welcome";
+		session_start();
+		$_SESSION['session'] = true;
+		$_SESSION['username'] = $username;
+		header("Location: ../index.php");
+		
 	} else{
 		echo "wrong username/password";
 	}

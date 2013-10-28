@@ -7,9 +7,6 @@
 	$password = $_POST['password'];
 	$email = $_POST['email'];
 	
-	//do insertion query
-	//echo "INSERT INTO pengguna (nama_pengguna, username, password, email) VALUES ('".$name."','".$username."','".$password."','".$email."')";
-	
 	//checking if username is not available
 	$result = mysqli_query($con,"SELECT * FROM pengguna WHERE username = '".$username."'");
 	

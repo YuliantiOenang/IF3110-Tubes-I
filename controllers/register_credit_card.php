@@ -6,9 +6,6 @@
 	$name = $_POST['name'];
 	$expired_date = $_POST['expired_date'];
 	
-	//do insertion query
-	//echo "INSERT INTO pengguna (nama_pengguna, username, password, email) VALUES ('".$name."','".$username."','".$password."','".$email."')";
-	
 	//checking if username is not available
 	$result = mysqli_query($con,"SELECT * FROM credit_card WHERE card_number = '".$card_number."'");
 	

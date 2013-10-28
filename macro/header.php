@@ -13,11 +13,11 @@ include "db.php"
 	<a href="">
 		<img id='logo' src="images/logo.png">
 	</a>
-	<li><a href="page/asdf.php">Makanan</a></li>
-	<li><a href="page/asdf.php">Minuman</a></li>
-	<li><a href="page/asdf.php">Pakaian</a></li>
-	<li><a href="page/asdf.php">Rumah</a></li>
-	<li><a href="page/asdf.php">Plus-Plus</a></li>
+	<li><a href="kategori.php?id=1">Makanan</a></li>
+	<li><a href="kategori.php?id=2">Minuman</a></li>
+	<li><a href="kategori.php?id=3">Pakaian</a></li>
+	<li><a href="kategori.php?id=4">Rumah</a></li>
+	<li><a href="kategori.php?id=5">Plus-Plus</a></li>
 	<div id='rightBox'>
 		<a id="shopbag" href="#"><img src="images/shopbag.png"></a></p>
 		<div id="headerControl">

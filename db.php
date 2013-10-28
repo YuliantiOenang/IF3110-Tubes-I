@@ -1,15 +1,14 @@
 <?php
-session_start();
+  session_start();
 
-$dbhost = "localhost";
-$dbname = "kaskong";
-$dbuser = "root";
-$dbpass = "";
+  $dbhost = "localhost";
+  $dbname = "kaskong";
+  $dbuser = "root";
+  $dbpass = "";
 
-$link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+  $link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-if (mysqli_connect_errno()) {
-	printf("MySQL connect failed: %s\n", mysqli_connect_error());
-	exit();
-}
-?>
+  if (mysqli_connect_errno()) {
+  	printf("MySQL connect failed: %s\n", mysqli_connect_error());
+  	exit();
+  }

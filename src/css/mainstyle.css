@@ -2,8 +2,8 @@
  *  Dongkol Ampas Bro
  */
  
-a:link {text-decoration:none; color:white;}
-a:visited {text-decoration:none; color:white;}
+a:link {text-decoration:none; color:cyan;}
+a:visited {text-decoration:none; color:cyan;}
 a:hover {text-decoration:underline;}
 a:active {text-decoration:underline; color:blue;}
 
@@ -18,7 +18,7 @@ body{
 	border:10px ridge #804000;
 	margin:0px;
 	text-align:center;
-	font-family:arial;
+	font-family:"Bradley Hand ITC";
 	color:green;
 	font-size:30px;
 	background-image:url('../gambar_barang/backgroundtopheader.jpg');
@@ -34,9 +34,11 @@ body{
 	border-top:0px;
 	margin:0px;
 	text-align:center;
-	font-family:calibri;
+	font-family:"Bradley Hand ITC";
 	color:white;
 	font-size:15px;
+	text-decoration:bold;
+	word-spacing:30px;
 	background-image:url('../gambar_barang/backgroundpilihbarang.jpg');
 }
 
@@ -55,7 +57,7 @@ body{
 	padding:10px;
 	margin:0px;
 	text-align:right;
-	font-family:arial;
+	font-family:"Bradley Hand ITC";
 	color:green;
 	font-size:20px;
 	background-image:url('../gambar_barang/woodfence.jpg');
@@ -114,7 +116,7 @@ body{
 	font-family:"Book Antiqua";
 }
 
-#registercontent{
+.basiccontent{
 	position:relative;
 	right:-100px;
 	width:600px;
@@ -127,6 +129,7 @@ body{
 	color:white;
 	font-size:20px;
 	background-image:url('../gambar_barang/backgroundpilihbarang.jpg');
+	background-repeat:no-repeat;
 }
 
 #registerkreditcontent{
@@ -143,3 +146,7 @@ body{
 	font-size:20px;
 	background-color:cyan;
 }
+
+#profilecontent{height:540px;}
+#addcreditcardcontent{height:150px;}
+#largecontent{height:800px;width:800px;}

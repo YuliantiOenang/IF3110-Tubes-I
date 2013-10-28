@@ -3,34 +3,44 @@
 <head>
 <meta charset="UTF-8">
 	<title> Ini laman registrasi </title>
-    <link href="../../css/profile.css" rel="stylesheet"/>
-    <link href="../../css/mainstyle.css" rel="stylesheet"/>
-    <script src="../../js/ajaxValidation.js" type="text/javascript"></script>
+    <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/loginPopup.css" rel="stylesheet"/>
+	<link href="<?=SITE_ROOT.NAME_ROOT;?>/css/profile.css" rel="stylesheet"/>
+    <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/mainstyle.css" rel="stylesheet"/>
+    <script src="<?=SITE_ROOT.NAME_ROOT;?>/js/ajaxValidation.js" type="text/javascript"></script>
+    <script src="<?=SITE_ROOT.NAME_ROOT;?>/js/ajaxLogin.js" type="text/javascript"></script>
 </head>
 <body>
 	<div id="header">
 		<div id="toplogo">
-			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home"><img id="logo" src="../../gambar_barang/logoruserba.jpg" alt="home"></a>
+			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home"><img id="logo" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/logoruserba.jpg" alt="home"></a>
 		</div>
 		<div id="logintop">
+			<?php
+				if ($_SESSION['username'] == null)
+				{
+			?>
 			<a href="#login_popup"><strong>Login</strong></a>
 			<br><br>
 			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/register"><strong>Register</strong></a>
+			<?php
+				} else {
+			?>
+			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/logout"><strong>Logout</strong></a>
+			<br><br>
+			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user"><strong>Profile</strong></a>
+			<?php
+				}
+			?>
 			<p id ="search">Cari Barang: <input type="text" size="100"> <input type="submit" value="Search"></p>
-			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/cart"><img id="tasbelanja" src="../../gambar_barang/tasbelanja.jpg" alt="Tas Belanja"></a>	
+			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/cart"><img id="tasbelanja" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/tasbelanja.jpg" alt="Tas Belanja"></a>	
 		</div>
 		<div id="kategori">
-			 <p><span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery">Sembako</a></span>
-				<span class="underline">____</span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery">Handphone</a></span>
-				<span class="underline">____</span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery">Peralatan Elektronik</a></span>
-				<span class="underline">____</span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery">Aksesoris Komputer</a></span>
-				<span class="underline">____</span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery">Perabotan Rumah</a></span>
-				<span class="underline">____</span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery">Alat Tulis</a></span>
+			 <p><span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>Sembako</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>Handphone</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>PeralatanElektronik</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>AksesorisKomputer</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>PerabotanRumah</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>AlatTulis</strong></a></span>
 			 <p>
 		</div>
 	</div>
@@ -64,7 +74,7 @@
 		</form>
 
 	</div> -->
-	<div id="registercontent">
+	<div class="basiccontent">
 <form id="registerForm" action="#" autocomplete="off" method="POST" onsubmit="onRegister('../user/register'); return false;">
     Email* : <input type="text" name="email" id="email" onkeyup="ajaxValidation('checkEmail', this.value, this.id);"><br>
     <div id="email_response" class="error_message"> </div>
@@ -85,5 +95,9 @@
     * = Wajib diisi
 	</div>
 </form>
+<div id="login_popup">
+    <div id="popup">
+    <?=$data['loginView'];?>
+</div>
 </body>
 </html>

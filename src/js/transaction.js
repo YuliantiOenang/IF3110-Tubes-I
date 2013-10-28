@@ -1,5 +1,20 @@
 // DEPENDENCY: ajax.js
 
+function formatCurrency(cash){
+	cash = cash.toString();
+	str = "";
+	l = cash.length;
+	
+	for (var i = 0; i < l; i++){
+		str = cash[l - i - 1] + str;
+		if((i % 3 == 2) && (i != l -1)){
+			str = "." + str;
+		}
+	}
+	
+	return str;
+}
+
 function editCart(id_barang, defValue, edit_callback){
 	var jumlah = parseInt(prompt("Edit jumlah barang", defValue));
 	

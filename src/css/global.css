@@ -212,3 +212,15 @@ a:hover{
 	display:inline-block;
 	width: 75%;
 }
+
+.cell15{
+	vertical-align:top;
+	display:inline-block;
+	width: 15%;
+}
+
+.cell35{
+	vertical-align:top;
+	display:inline-block;
+	width: 35%;
+}

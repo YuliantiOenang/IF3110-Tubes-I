@@ -1,3 +1,4 @@
+// DEPENDENCIES: transaction.js
 var page = 0; var loadable = true; var loading = false;
 
 document.addEventListener('scroll', function (event) {
@@ -32,7 +33,7 @@ function nextPage(){
 			infobottom.innerHTML = "";
 		}else{
 			loadable = false;
-			infobottom.innerHTML = "Semua barang sudah ditampilkan";
+			infobottom.innerHTML = "semua barang sudah ditampilkan";
 		}
 	};
 	
@@ -42,11 +43,11 @@ function nextPage(){
 }
 
 function createRow(id, nama, harga, deskripsi){
-	var s = '<div class="row">';
-	s+='<div class="cell25 imgcell" ><img class="imgbarang" src="image/' + id + '.jpg" /></div>';
-	s+='<div class="cell75"><div class="table">';
+	var s = '<div class="row rowbarang">';
+	s+='<div class="cell33 imgcell" ><img class="imgbarang" src="image/' + id + '.jpg" /></div>';
+	s+='<div class="cell66"><div class="table">';
 	s+='<div class="row title"><a href="barang.php?id=' + id + '" />' + nama + '</a></div>';
-	s+='<div class="row">Rp. ' + harga + '</div>';
+	s+='<div class="row">Rp. ' + formatCurrency(harga) + '</div>';
 	s+='<div class="row">' + deskripsi + '</div>';
 	s+='<div class="row"><input type="button" value="Tambahkan ke Keranjang" class="main-button-small" onclick="addCart(' + id + ')" /></div>';
 	s+='</div></div></div>';

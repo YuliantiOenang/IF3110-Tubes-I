@@ -1,10 +1,25 @@
 .imgbarang{
-	width: 110px; height: 110px;
+	width: 90px; height: 90px;
+}
+
+#infobottom{
+	width: 100%; text-align: center;
+	padding:0.5em 0;
+	background: #ccc;
+	color: #666;
+	font-weight: bold;
+	
 }
 
 #cattable {
-	width: 500px;
+	width: 100%;
 	margin:0;
+}
+
+#cattable .rowbarang{
+	width: 300px;
+	display: inline-block;
+	margin-right: 10px;
 }
 
 h3{

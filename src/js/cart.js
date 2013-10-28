@@ -1,4 +1,4 @@
-//DEPENDENCIES: ajax.js, login.js
+//DEPENDENCIES: ajax.js, login.js, transaction.js
 
 function refreshCart(){
 	var cart = document.getElementById("cart");
@@ -31,8 +31,8 @@ function refreshCart(){
 			
 			var hrow = createRow();
 			hrow.appendChild(createCell(50, "<b>Nama Barang</b>"));
-			hrow.appendChild(createCell(25, "<b>Jumlah Beli</b>"));
-			hrow.appendChild(createCell(25, "<b>Total Harga</b>"));
+			hrow.appendChild(createCell(15, "<b>Jumlah</b>"));
+			hrow.appendChild(createCell(35, "<b>Total Harga</b>"));
 			
 			cart.appendChild(hrow);
 			
@@ -46,8 +46,8 @@ function refreshCart(){
 				
 				var row = createRow();
 				row.appendChild(createCell(50, barang.nama));
-				row.appendChild(createCell(25, "<a class='editlink' href='javascript:editItem(" + barang.id + ");'>"+bag[barang.id] + "</a>"));
-				row.appendChild(createCell(25, "Rp. " + harga));
+				row.appendChild(createCell(15, "<a class='editlink' href='javascript:editItem(" + barang.id + ");'>"+bag[barang.id] + "</a>"));
+				row.appendChild(createCell(35, "Rp. " + formatCurrency(harga)));
 				
 				cart.appendChild(row);
 			}
@@ -56,8 +56,8 @@ function refreshCart(){
 			
 			hrow = createRow();
 			hrow.appendChild(createCell(50, "Total Harga"));
-			hrow.appendChild(createCell(25, " "));
-			hrow.appendChild(createCell(25, "Rp. " + total));
+			hrow.appendChild(createCell(15, " "));
+			hrow.appendChild(createCell(35, "Rp. " + formatCurrency(total)));
 			
 			cart.appendChild(document.createElement("hr"));
 			cart.appendChild(hrow);

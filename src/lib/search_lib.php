@@ -20,6 +20,22 @@
 		}
 	}
 	
+	function formatCurrency($cash){
+		$cash = (string) $cash;
+		$str = "";
+		$l = strlen($cash);
+		
+		for($i = 0; $i < $l; $i++){
+			$str = $cash[$l - $i -1].$str;
+			
+			if (($i % 3 == 2) && ($i != $l-1))
+				$str = ".".$str;
+		}
+		
+		return $str;
+		
+	}
+	
 	function searchAll($keyword, $page){
 		// mengambil barang yg punya keyword tertentu (entah nama, kategori, deskripsi, dll).
 		// page dimulai dari 0, 1 page 10 barang

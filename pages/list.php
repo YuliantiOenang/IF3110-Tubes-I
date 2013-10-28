@@ -34,12 +34,12 @@
 					elseif($name == "household")
 						return "Household Essentials";
 				}
-				
-				echo '<form>
-<input type="text" size="30" onkeyup="showResult(this.value)">
-<div id="livesearch"></div>
-</form>';
-				
+				?>
+				<form>
+					<input type="text" size="30" onkeyup="showResult(this.value)">
+					<div id="livesearch"></div>
+				</form>
+				<?php
 				// Create connection
 				$con=mysqli_connect("127.0.0.1","root","","toko_imba");
 

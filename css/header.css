@@ -1,14 +1,14 @@
 #headerMenu>li		{
-	background:linear-gradient(rgba(180,180,180,1),rgba(255,255,255,1),rgba(255,255,255,0));
+	background:linear-gradient(rgba(180,180,180,1),rgba(100,100,100,1),rgba(255,255,255,0));
 	list-style-type:none;float:center;display:inline-block;padding:5px 5px;}
 hr					{display: block;}
 h3					{color:#000;}
 a					{margin:0;text-decoration:none;}
-a:visited 			{color:#222;text-decoration:none;}
-a:hover				{color:#000;text-decoration:underline;font-weight:bold;}
-a:active			{color:#000;text-decoration:underline;font-weight:bold;}
+a:visited 			{color:#aaa;text-decoration:none;}
+a:hover				{color:#fff;text-decoration:underline;font-weight:bold;}
+a:active			{color:#fff;text-decoration:underline;font-weight:bold;}
 #headerMenu			{width:100%;height:100px;padding:5px 10px 5px 10px; color:white;background: repeating-radial-gradient(circle,rgba(0,200,200,0.9),rgba(0,255,255,0));}
-#searchDiv			{display:inline;float:right;}
+#searchDiv			{display:inline;}
 #logo {float:left;margin-right:10px}
 #shopbag img{-webkit-transition-property: transform; -webkit-transition-duration: 0.3s;margin-right:10px;float:right;}
 #headerControl{margin-top:20px;float:right;}

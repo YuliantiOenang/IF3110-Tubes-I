@@ -1,7 +1,7 @@
 <div class = "navigation">
-	<div class = "bar_navigation">Baking</div>
-	<div class = "bar_navigation">Beverages</div>
-	<div class = "bar_navigation">Canned Goods & Soups</div>
-	<div class = "bar_navigation">Fresh Food</div>
-	<div class = "bar_navigation">Household Essentials</div>
+	<div class = "bar_navigation"><a href="pages/list.php?cat=baking">Baking</a></div>
+	<div class = "bar_navigation"><a href="pages/list.php?cat=beverages">Beverages</a></div>
+	<div class = "bar_navigation"><a href="pages/list.php?cat=cansoups">Canned Goods & Soups</a></div>
+	<div class = "bar_navigation"><a href="pages/list.php?cat=fresh">Fresh Food</a></div>
+	<div class = "bar_navigation"><a href="pages/list.php?cat=household">Household Essentials</a></div>
 </div>

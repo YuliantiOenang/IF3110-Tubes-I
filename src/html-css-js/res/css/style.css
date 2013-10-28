@@ -199,6 +199,12 @@ body {
 	color: #333;
 }
 
+.product a:link, 
+.product a:visited {
+	color: #333;
+	text-decoration: none;
+}
+
 .product .gambar {
 	border-style: solid;
 	border-color: #D6D6D7;

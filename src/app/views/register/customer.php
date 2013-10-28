@@ -5,7 +5,7 @@
         <?php require SITEPATH . '/app/views/header.php' ?>
 
 		<form action="<?php echo SITEURL . '/register/new_customer' ?>" method="post">
-            <h2>Register</h2>
+            <h2>Customer Register</h2>
             <div class="form-group">
                 <label for="username">Username: </label>
                 <input type="text" id="username" name="username" class="form-control"/>

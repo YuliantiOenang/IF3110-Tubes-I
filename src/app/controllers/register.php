@@ -33,16 +33,62 @@ Class RegisterController Extends BaseController {
 	 * Selanjutnya masukkan ke database
 	 */
 	public function new_customer() {
-		$customer['username'] = $_POST["username"];
-		$customer['email'] = $_POST["email"];
-		$customer['password'] = hash('sha256', ($_POST["password"]));
-		$customer['fullname'] = $_POST["fullname"];
-		$customer['phone'] = $_POST["phone"];
-		$customer['address'] = $_POST["address"];
-		$customer['city'] = $_POST["city"];
-		$customer['province'] = $_POST["province"];
-		$customer['postcode'] = $_POST["postcode"];
+		//validasi sedikit
+		if (empty($_POST["username"]) or empty($_POST["email"]) or empty($_POST["password"]) or empty($_POST["fullname"])) {
+			header("Location: " . SITEURL); die(); //redirect
+		} else {
+			$customer['username'] = $_POST["username"];
+			$customer['email'] = $_POST["email"];
+			$customer['password'] = hash('sha256', ($_POST["password"]));
+			$customer['fullname'] = $_POST["fullname"];
+			$customer['phone'] = $_POST["phone"];
+			$customer['address'] = $_POST["address"];
+			$customer['city'] = $_POST["city"];
+			$customer['province'] = $_POST["province"];
+			$customer['postcode'] = $_POST["postcode"];
+	
+			if (Customer::addCustomer($this->registry, $customer)) {
+				//redirect
+				header("Location: " . SITEURL . "/register/card/"); die();
+				//http_redirect (SITEURL . '/register/card', array ('username' => $customer['username']), true, HTTP_REDIRECT_POST );
+			} else {
+				header("Location: " . SITEURL . "/register/failed" ); die();
+			}
+		}
+	}
 
-		Customer::addCustomer($this->registry, $customer);
+	/**
+	 * Registrasi kartu kredit
+	 * Asumsi selalu valid
+	 */
+
+	public function new_creditcard() {
+		//validasi sedikit
+		if (empty($_POST["card_name"]) or empty($_POST["card_number"]) or empty($_POST["card_expired"])) {
+			header("Location: " . SITEURL); die();
+		} else {
+			$customer['card_name'] = $_POST["card_name"];
+			$customer['card_number'] = $_POST["card_number"];
+			$customer['card_expired'] = $_POST["card_expired"];
+	
+			if (Customer::updateCreditCard($this->registry, $customer)) {
+				//redirect
+				header("Location: " . SITEURL . "/register/success" ); die();
+			} else {
+				header("Location: " . SITEURL . "/register/failed" ); die();
+			}
+		}
+	}
+
+	public function success()
+	{
+		$this->registry->template->message = "Pendaftaran customer baru sukses. Silahkan login di kanan atas";
+		$this->registry->template->show('common');
+	}
+
+	public function failed()
+	{
+		$this->registry->template->message = "Registrasi gagal, mohon maaf. Akan segera kami perbaiki.";
+		$this->registry->template->show('common');
 	}
 }

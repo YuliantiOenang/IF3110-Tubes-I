@@ -78,4 +78,19 @@ class Customer {
 		}
 	}
 
+	/**
+	 * Mengupdate credit card
+	 */
+	public static function updateCreditcard($registry, $customer) {
+		try {
+			$dbh = $registry->database;
+			$sth = $dbh->prepare("UPDATE customer SET card_number = :card_number, card_name = :card_name, card_expired = :card_expired	WHERE username = :username"); 
+
+			return $sth->execute($customer) !== false;
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
+
 } /*** end of class ***/

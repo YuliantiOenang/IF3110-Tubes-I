@@ -36,34 +36,24 @@
 					echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				}
 
-				//mysqli_query($con,"INSERT INTO pengguna (id_pengguna, nama_pengguna)
-				//VALUES ('Peter', 'Griffin')");
-
 				//check data posted
-				echo $_GET['cat']."<br/>";
-				//echo "Submit query".'<br/>';
-				//echo $_POST['name'].'<br/>';
-				//echo $_POST['username'].'<br/>';
-				//echo $_POST['password'].'<br/>';
-				//echo $_POST['email'].'<br/>';
+				echo "<h2>Category: " . getFormalName($_GET['cat'])."</h2><br/>";
 				
 				$category = $_GET['cat'];
-				// $name = $_POST['name'];
-				// $username = $_POST['username'];
-				// $password = $_POST['password'];
-				// $email = $_POST['email'];
 				
-				//do insertion query
-				//echo "INSERT INTO pengguna (nama_pengguna, username, password, email) VALUES ('".$name."','".$username."','".$password."','".$email."')";
+				$result = mysqli_query($con,"SELECT * FROM kategori NATURAL JOIN inventori WHERE nama_kategori = '".$category."'");
 				
-				//checking if username is not available
-				$result = mysqli_query($con,"SELECT * FROM kategori INNER JOIN inventori WHERE nama_kategori = '".$category."'");
-				
+				$found = false;
 				while($row = mysqli_fetch_array($result)){
+					$found = true;
 					echo "ID: ". $row['id_inventori'] . "<br/>";
 					echo "Nama: ". $row['nama_inventori'] . "<br/>";
 					echo "Kategori: ". getFormalName($row['nama_kategori']) . "<br/>";
 					echo "<a href='detail.php?gid=". $row['id_inventori'] ."'>Lihat</a>" . "<br/>";
+				}
+				
+				if(!$found){
+					echo "No result found.";
 				}
 				mysqli_close($con);
 

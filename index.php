@@ -21,11 +21,11 @@
 				include ("templates/navigation.php"); 
 			}
 		?>
+		
 		<div class = "container">
 			<!--<p>Toko Imba</p>-->
 		</div>
 		
-	</div>
 		<?php 
 			if($_SESSION['state'] == 1){
 				include ("../templates/footer.php");
@@ -34,4 +34,5 @@
 				include ("templates/footer.php");
 			} 
 		?>
+	</div>
 </html>

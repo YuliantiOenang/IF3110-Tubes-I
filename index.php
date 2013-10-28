@@ -8,9 +8,10 @@
 
 </head>
 	<div class = "page_container">
+
 		<?php include ("templates/index/header.php"); ?>
 		<?php include ("templates/index/navigation.php"); ?>
-		
+
 		<div class = "container">
 			<!--<p>Toko Imba</p>-->
 		</div>

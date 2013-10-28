@@ -2,13 +2,11 @@
 <html>
 <!-- includes -->
 <link rel='stylesheet' type='text/css' href='../css/homepage.css' media='screen' />
-
 <head>
 	<title>Toko Imba</title>	
 
 </head>
 	<div class = "page_container">
-
 		<?php include ("../templates/header.php"); ?>
 		<?php include ("../templates/navigation.php"); ?>
 
@@ -65,13 +63,9 @@
 						}
 					}
 						
-					echo "<img src='../". $row['gambar'] ."'> <br/>";
+					echo "<img src='../img/". $row['gambar'] ."'> <br/>";
 					echo "Nama: <a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
 					echo "Harga: Rp10000 <br/>";
-					echo '<form name="input" action="beli.php?id='. $row['id_inventori'] .'&cat='.$category.'" method="post">
-						Jumlah: <input type="text" name="jumlah" value="0">
-						<input type="submit" value="Beli">
-						</form>';
 				}
 				
 				//PAGINASI
@@ -93,6 +87,8 @@
 	</div>
 		<?php include ("../templates/footer.php");?>
 </html>
+
+<script type="text/javascript" src="../js/check_item_available.js"></script>
 
 <script>
 function showResult(str)

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2013 at 07:14 AM
+-- Generation Time: Oct 28, 2013 at 07:48 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -88,7 +88,14 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
   `kota_kabupaten` varchar(100) NOT NULL,
   `kode_pos` int(10) NOT NULL,
   PRIMARY KEY (`id_pengguna`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `pengguna`
+--
+
+INSERT INTO `pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `email`, `nomor_hp`, `alamat`, `provinsi`, `kota_kabupaten`, `kode_pos`) VALUES
+(4, 'wkwk', 'aaa', 'aa', 'aa@aa.com', 12198, 'asaunu', 'asausah', 'asahsua', 1111);
 
 -- --------------------------------------------------------
 

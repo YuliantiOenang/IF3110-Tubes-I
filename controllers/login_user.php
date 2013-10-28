@@ -9,18 +9,14 @@
 	$result = mysqli_query($con,"SELECT * FROM pengguna WHERE username = '".$username."' && password = '".$password."'");
 	
 	$found = false;
-	while($row = mysqli_fetch_array($result)){
-		$found = true;
-		break;
-	}
+	if($result->num_rows > 0) $found = true;
 	
 	if($found){
 		echo "Welcome";
 		session_start();
-		$_SESSION['session'] = true;
+		$_SESSION['on'] = true;
 		$_SESSION['username'] = $username;
 		header("Location: ../index.php");
-		
 	} else{
 		echo "wrong username/password";
 	}

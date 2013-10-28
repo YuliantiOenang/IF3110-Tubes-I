@@ -7,12 +7,20 @@
 		<?php
 			session_start();
 			$data = null;
-			if(isset($_SESSION['session'])){
+			$active = false;
+			if(isset($_SESSION['on'])){
 				if(isset($_SESSION['username'])){
-					$data = $_SESSION['username'];
-					echo "You are logged as ".$data;
+					if($_SESSION['on']){
+						$data = $_SESSION['username'];
+						echo "You are logged as ".$data;
+						echo "<br/><a href='controllers/logout.php'>log out</a>";
+						$_SESSION['state'] = 1;
+						$active = true;
+					}
 				}
-			} else{
+			}
+			
+			if(!$active){
 				echo "<a href='pages/register_user.php'>register</a> or <a href='pages/login_user.php'>login</a>";
 			}
 		?>

@@ -412,3 +412,16 @@ body {
 #btn-register-cc {
 	width: 200px;
 }
+
+#sort-bar {
+	padding-top: 25px;
+}
+
+#sort-box {
+	background-color: #3AC0A8;
+	border: none;
+	color: #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;	
+}

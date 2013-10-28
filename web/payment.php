@@ -1,5 +1,31 @@
 <?php
   include "config/connect.php";
+  if($_GET['jumlah'] == 0)
+  {
+  ?>
+				<script type="text/javascript">
+							window.alert("Tidak ada barang yang di beli");
+							window.location="pembayaran.php";
+				</script>
+	<?php
+  }
+  
+  $cekCreditCard= mysql_query("select card_number from customer where no_customer='".$_COOKIE['IdCustomer']."'");
+	  while($cardNum=mysql_fetch_row($cekCreditCard))
+	  {
+		$haveCard=$cardNum[0];
+	  }
+	if($haveCard=='')
+	{
+		?>
+				<script type="text/javascript">
+							window.alert("Maaf Anda belum mendaftarkan kartu kredit anda");
+							window.location="registrasi_kartu.php?status=payment";
+				</script>
+		<?php
+	}
+	
+  
   $bool=true;
 			$mysql1=mysql_query("select id_alat from keranjang where id_customer='".$_COOKIE['IdCustomer']."'");
 			while($baris=mysql_fetch_row($mysql1))
@@ -51,7 +77,7 @@
 			{
 				?>
 				<script type="text/javascript">
-							window.alert("Gagal membeli");
+							window.alert("Gagal membeli, terdapat kesalahan dalam akses database");
 							window.location="index.php";
 				</script>
 			<?php

@@ -135,6 +135,7 @@ function remove(id)
 			<div class = "loginplace">
 				<div>
 				<?php
+				session_start();
 				if(!isset($_COOKIE['user1']))
 				{
 				?>
@@ -150,7 +151,14 @@ function remove(id)
 				?>
 				</div>
 				<div >
+				<?php
+				if(isset($_COOKIE['user1']))
+				{
+				?>
 					<img src = "images/cart.png" class = "cart" onclick="window.location='shoppingbag.php'"></img>
+				<?php
+				}
+				?>
 				</div>
 			</div>
 			<div class = "signupplace">

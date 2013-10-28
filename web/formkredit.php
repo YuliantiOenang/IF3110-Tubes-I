@@ -3,7 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/latihan.css"> <!--pemanggilan file css-->
+<?php
+if(!isset($_COOKIE['user1']))
+{
+	?>
+			<script type="text/javascript">
+						window.alert("Maaf Anda harus LOGIN terlebih dahulu");
+						window.location="index.php";
+						</script>
+		<?php
+}
 
+?>
 </head>
 <script src="js/AjaxCreateObject.js" language="javascript"></script>
 <script type="text/javascript">

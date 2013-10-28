@@ -3,7 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/latihan.css"> <!--pemanggilan file css-->
+<?php
+if(!isset($_COOKIE['user1']))
+{
+	?>
+			<script type="text/javascript">
+						window.alert("Maaf Anda harus LOGIN terlebih dahulu");
+						window.location="index.php";
+						</script>
+		<?php
+}
 
+?>
 </head>
 <script src="js/AjaxCreateObject.js" language="javascript"></script>
 <script type="text/javascript">
@@ -247,6 +258,7 @@ function remove(id)
 			include "config/connect.php";
 			
 				$total=0;
+				$jumlahBarang=0;
 				$hasil = mysql_query("SELECT peralatan.no_alat, peralatan.foto, peralatan.nama, peralatan.harga, keranjang.jumlah,keranjang.pesan FROM keranjang,peralatan where id_customer='".$_COOKIE['IdCustomer']."' and peralatan.no_alat=keranjang.id_alat");
 				
 				while(($baris=mysql_fetch_row($hasil)))
@@ -262,6 +274,7 @@ function remove(id)
 					".$baris[3]."
 					</div>";
 					$total+=$baris[3]*$baris[4];
+					$jumlahBarang+=$baris[4];
 				}
 			
 		?>
@@ -278,7 +291,7 @@ function remove(id)
 			
 		</div>	</br>
 			<div class = "registerspace">
-			<input type="button" value = "Confirm" onclick="window.location='payment.php'";></br>
+			<input type="button" value = "Confirm" onclick="window.location='payment.php?jumlah=<?php echo $jumlahBarang; ?>'";></br>
 			</div>
 			
 			 

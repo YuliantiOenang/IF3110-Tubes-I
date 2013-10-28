@@ -3,7 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/latihan.css"> <!--pemanggilan file css-->
+<?php
+if(!isset($_COOKIE['user1']))
+{
+	?>
+			<script type="text/javascript">
+						window.alert("Maaf Anda harus LOGIN terlebih dahulu");
+						window.location="index.php";
+						</script>
+		<?php
+}
 
+?>
 </head>
 <script src="js/AjaxCreateObject.js" language="javascript"></script>
 <script type="text/javascript">
@@ -17,11 +28,42 @@ function daftar_kartu(){
 		if(http.readyState==4 && http.status == 200){
 			//alert(http.responseText);
 			var decodeJSON = JSON.parse(http.responseText);
-			
 			if(decodeJSON.status == false){
 				alert("KARTU YANG ANDA DAFTARKAN TIDAK VALID");
 			}else{
 				alert("Berhasil mendaftarkan kartu");
+				window.location="index.php";
+			}
+			
+		}
+		//document.write(decodeJSON.status);
+	}
+	
+	http.open("GET","proses_kartu.php?card_number="+document.getElementById("card_number").value
+		+"&card_name=" + document.getElementById("card_name").value
+		+"&card_expired=" + document.getElementById("card_expired").value
+		,true
+		);
+		
+	http.send();
+	
+}
+
+
+function daftar_kartu_pembayaran(){
+	
+	
+	
+	http.onreadystatechange=function(){
+	
+		if(http.readyState==4 && http.status == 200){
+			//alert(http.responseText);
+			var decodeJSON = JSON.parse(http.responseText);
+			if(decodeJSON.status == false){
+				alert("KARTU YANG ANDA DAFTARKAN TIDAK VALID");
+			}else{
+				alert("Berhasil mendaftarkan kartu");
+				window.location="pembayaran.php";
 			}
 			
 		}
@@ -273,7 +315,9 @@ function remove(id)
 			</div>
 			
 			<div class = "registerspace">
-			<input type="button" id="submit" value = "Register credit card!" onclick="daftar_kartu()"></br>
+			<input type="button" id="submit" value = "Register credit card!" onclick="<?php if(isset($_GET['status'])) echo 'daftar_kartu_pembayaran()'; else echo 'daftar_kartu()';?>">
+			<input type="button" value = "SKIP" onclick="window.location='index.php'"></br>
+			
 			</div>
 			  
 			</div>

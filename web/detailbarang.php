@@ -150,7 +150,14 @@ function remove(id)
 				?>
 				</div>
 				<div >
+				<?php
+				if(isset($_COOKIE['user1']))
+				{
+				?>
 					<img src = "images/cart.png" class = "cart" onclick="window.location='shoppingbag.php'"></img>
+				<?php
+				}
+				?>
 				</div>
 			</div>
 			<div class = "signupplace">
@@ -258,9 +265,15 @@ function remove(id)
 					<p> Harga Produk : <?php echo "Rp.".$kategori;?></p>
 					<p> Deskripsi : <?php echo $deskripsi;?></p>
 					<input hidden name='id' value="<?php echo $_GET['id']; ?>"></input>
+					<?php if(isset($_COOKIE['user1']))
+					{
+					?>
 					<label> Jumlah Beli : </label> <input type="text" id="user" name="jumlah"/></br></br>
 					<label> Permintaan Khusus : </label> <input type="text" id="user" name="permintaan"/></br></br>
 					<input type="submit" value="Add to Cart"></input>
+					<?php
+					}
+					?>
 					</form>
 				</div>
 			</div>

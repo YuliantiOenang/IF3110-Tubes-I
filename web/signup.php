@@ -21,8 +21,8 @@
 		setcookie("alamat",  $_POST['alamat'], time()+3600*24*30);
 		?>
 			<script type="text/javascript">
-						window.alert("Berhasil Register");
-						window.location="index.php";
+						window.alert("Berhasil Register, Silahkan daftarkan kartu kredit anda");
+						window.location="registrasi_kartu.php";
 						</script>
 		<?php
 		}

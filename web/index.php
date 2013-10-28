@@ -59,8 +59,8 @@ function login()
 			var lightbox = document.getElementById("lightbox");
 			var dimmer = document.getElementById("dim");
 			var signup = document.getElementById("signup");
-			
 			var loginButton = document.getElementById("loginButton");
+			
 			lightbox.style.visibility = 'hidden';
 			signup.style.visibility = 'hidden';
 			loginButton.src="images/logout.png";
@@ -150,7 +150,9 @@ function remove(id)
 				?>
 				</div>
 				<div >
-					<img src = "images/cart.png" class = "cart" onclick="window.location='shoppingbag.php'"></img>
+
+					<img src = "images/cart.png" id="cart" class = "cart" onclick="window.location='shoppingbag.php'"></img>
+
 				</div>
 			</div>
 			<div class = "signupplace">

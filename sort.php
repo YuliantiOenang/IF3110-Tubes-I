@@ -32,4 +32,3 @@
       $sort = 2;
   }
   echo "<script>location.href='kategori.php?id=".$id."&sort=".$sort."&nama=".$nama."&low=".$low."&high=".$high."';</script>";
-?>

@@ -34,7 +34,7 @@
 		</div>
 	</div>
   <div id="search">
-  <form id='searchForm' method="post" autocomplete="off">
+  <form id='searchForm' method="post" autocomplete="off" action="search.php">
     <input autofocus required style="width: 100px;" type="text" name="itemName" placeholder="Nama Item"/>
       <select required name="kategori" form='searchForm'>
         <option value="" disabled selected>Kategori</option>
@@ -44,9 +44,9 @@
         <option value="4">Rumah</option>
         <option value="5">Plus-Plus</option>
       </select>
-    <input placeholder="Harga Min" style="width: 100px;" type="number" name="rangeMin" step="10000" min=0 max=2000000000> to 
-    <input placeholder="Harga Max" style="width: 100px;" type="number" name="rangeMax" step="10000" min=0 max=2000000000>
-    <input type="submit">
+    <input placeholder="Harga Min" style="width: 100px;" type="number" name="rangeMin" min=0 max=2000000000> to 
+    <input placeholder="Harga Max" style="width: 100px;" type="number" name="rangeMax" min=0 max=2000000000>
+    <input type="submit" value="Search">
   </form>
   </div>
 	<div id="loginPop">

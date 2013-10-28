@@ -276,3 +276,33 @@ body {
 	left: 8px;
 	top: 4px;
 }
+
+#src-title {
+	padding: 20px;
+	font-size: 24px;
+	color: #868789;
+}
+
+.src-param {
+	font-weight: bolder;
+}
+
+#pagination {
+	font-size: 16px;
+	padding-bottom: 55px;
+}
+
+#pagination a:link, #pagination a:visited {
+	color: #868789;
+}
+
+#pagination > ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#pagination > ul > li {
+	display: inline;
+	padding: 0 15px;
+}

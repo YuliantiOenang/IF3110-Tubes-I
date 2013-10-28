@@ -15,6 +15,18 @@
 	border:5px solid grey;
 }
 
+#gambar{
+	float:left;
+	width:20%;
+	padding:5px;
+	margin-left:10px;
+}
+
+#detail_barang{
+	float:left;
+	width:75%;
+}
+
 #edit_profile{
 	width:40%;
 	float:left;

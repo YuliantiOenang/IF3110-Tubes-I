@@ -12,12 +12,16 @@ while($row2=mysql_fetch_array($result2)) {
 	$result3 = mysql_query("SELECT * FROM barang WHERE id_barang=$id_barang");
 	$row3=mysql_fetch_array($result3);
 	$jumlah = $_POST['jumlah_beli'][$i];
-	if ($jumlah > $row3['stok']) {
-		$jumlah = $row3['stok'];
+	if($jumlah<=0){
+		mysql_query("DELETE FROM detail_shopping_bag WHERE id_barang=$id_barang");
+	} else {
+		if ($jumlah > $row3['stok']) {
+			$jumlah = $row3['stok'];
+		}
+		$keterangan = "'".$_POST['keterangan'][$i]."'";
+		mysql_query("UPDATE detail_shopping_bag SET jumlah=$jumlah WHERE id_barang=$id_barang");
+		mysql_query("UPDATE detail_shopping_bag SET keterangan=$keterangan WHERE id_barang=$id_barang");
 	}
-	$keterangan = "'".$_POST['keterangan'][$i]."'";
-	mysql_query("UPDATE detail_shopping_bag SET jumlah=$jumlah WHERE id_barang=$id_barang");
-	mysql_query("UPDATE detail_shopping_bag SET keterangan=$keterangan WHERE id_barang=$id_barang");
 	$i++;
 }
 header('Location: shoppingbag.php');

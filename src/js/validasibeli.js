@@ -1,9 +1,16 @@
-function checkStok(jumlah[] ){
-	alert(jumlah[0].length);
-	return false;
-}
-
-function enableBeli(){
-	document.edit_form.beli.disabled =true;
-	return true;
+function checkStokBarang(jumlah,stok){
+	if(jumlah.length==0) {
+		alert('jumlah beli tidak boleh kosong');
+		return false;
+	} else {
+		if(jumlah<=0) {
+			alert('jumlah beli harus lebih besar dari 0');
+			return false;
+		} else if(jumlah>stok){
+			alert('jumlah beli lebih besar daripada stok. Stok barang adalah '+stok);
+			return false;
+		} else {
+			return true;
+		}
+	}
 }

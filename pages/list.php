@@ -39,14 +39,14 @@
 				if (mysqli_connect_errno($con)){
 					echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				}
-
 				//check data posted
-				echo "<h2>Category: " . getFormalName($_GET['cat'])."</h2><br/>";
+				
+				$category = $_GET['cat'];	
+				echo "<h2>Category: " . getFormalName($category)."</h2><br/>";
 				
 				echo "Perhatikan saat user membeli sebuah barang maka jumlah barang dalam basis data dikurangi. Ketika barang ada didalam shopping bag dan belum dibeli maka jumlah barang dalam basis data tidak dikurangi. <br/><br/>";
 				
-				$category = $_GET['cat'];
-				
+							
 				$result = mysqli_query($con,"SELECT * FROM kategori NATURAL JOIN inventori WHERE nama_kategori = '".$category."'");
 				
 				$start = (!isset($_GET['start']) ? 0 : $_GET['start']);

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 28, 2013 at 07:48 AM
--- Server version: 5.5.24-log
--- PHP Version: 5.3.13
+-- Host: 127.0.0.1
+-- Generation Time: Oct 28, 2013 at 09:36 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -47,9 +47,18 @@ CREATE TABLE IF NOT EXISTS `inventori` (
   `jumlah` int(100) NOT NULL,
   `gambar` varchar(200) NOT NULL,
   `description` varchar(1000) NOT NULL,
+  `harga` int(10) NOT NULL,
   PRIMARY KEY (`id_inventori`),
   KEY `id_kategori` (`id_kategori`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `inventori`
+--
+
+INSERT INTO `inventori` (`id_inventori`, `id_kategori`, `nama_inventori`, `jumlah`, `gambar`, `description`, `harga`) VALUES
+(1, 1, 'Roti Buaya', 10, '', 'Roti buaya adalah hidangan Betawi berupa roti manis berbentuk buaya. Roti buaya senantiasa hadir dalam upacara pernikahan dan kenduri tradisional Betawi. Rasakan sensasi nyata Roti Buaya di lidah Anda!', 0),
+(2, 1, 'Roti Canai', 26, '', 'Roti canai adalah sejenis roti pipih (flatbread) dengan pengaruh India, yang banyak ditemukan di Indonesia dan Malaysia. Roti ini sangat pipih karena dibuat dengan cara diputar hingga tipis, kemudian dilipat dan dipanggang dengan minyak, atau bisa pula dengan menebarkan adonan setipis mungkin di atas panggangan. Dihidangkan dengan kari kambing atau domba, roti canai akan melengkapi hari Anda dengan sempurna.', 0);
 
 -- --------------------------------------------------------
 
@@ -61,14 +70,18 @@ CREATE TABLE IF NOT EXISTS `kategori` (
   `id_kategori` int(10) NOT NULL AUTO_INCREMENT,
   `nama_kategori` varchar(100) NOT NULL,
   PRIMARY KEY (`id_kategori`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
-(1, 'Baking');
+(1, 'baking'),
+(2, 'beverages'),
+(3, 'cansoups'),
+(4, 'fresh'),
+(5, 'household');
 
 -- --------------------------------------------------------
 

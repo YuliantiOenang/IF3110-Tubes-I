@@ -5,10 +5,13 @@
 #infobottom{
 	width: 100%; text-align: center;
 	padding:0.5em 0;
-	background: #ccc;
 	color: #666;
 	font-weight: bold;
 	
+}
+
+.backgrey{
+	background: #ccc;
 }
 
 #cattable {

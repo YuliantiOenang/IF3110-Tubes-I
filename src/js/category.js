@@ -7,11 +7,22 @@ document.addEventListener('scroll', function (event) {
 	}
 });
 
+function setInfo(info){
+	infobottom = document.getElementById("infobottom");
+	infobottom.classList.add("backgrey");
+	infobottom.innerHTML = info;
+}
+
+function clearInfo(){
+	infobottom = document.getElementById("infobottom");
+	infobottom.classList.remove("backgrey");
+	infobottom.innerHTML = "";
+}
+
 function nextPage(){
 	if (loading || !loadable) return;
 	
-	infobottom = document.getElementById("infobottom");
-	infobottom.innerHTML = "<img class='loading' src='image/loading.gif' /> loading...";
+	setInfo("<img class='loading' src='image/loading.gif' /> loading...");
 	
 	page++;
 	var data = {"action": "category", "cat": category, "page": page};
@@ -30,10 +41,10 @@ function nextPage(){
 				cattable.innerHTML += row;
 			}
 			
-			infobottom.innerHTML = "";
+			clearInfo();
 		}else{
 			loadable = false;
-			infobottom.innerHTML = "semua barang sudah ditampilkan";
+			setInfo("semua barang sudah ditampilkan");
 		}
 	};
 	

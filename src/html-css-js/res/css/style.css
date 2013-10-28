@@ -361,5 +361,27 @@ body {
 	margin-top: 10px;
 	width: 250px;
 	height: 50px;
-	font-size: 0.9em;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+#data-diri p {
+	margin: 2px 0;
+}
+
+#data-diri {
+	padding: 10px 0;
+}
+
+.bolder {
+	font-weight: bolder;
+}
+
+#data-diri .teks {
+	margin-left: 17px;
+}
+
+#btn-profile {
+	margin: 15px 0;
+	width: 70%;
 }

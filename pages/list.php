@@ -80,6 +80,7 @@
 					?>
 						<input type='text' value='0' onkeyup='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></input>
 						<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
+						<button type="submit" onclick="">Add to cart</button>
 					<?php
 				}
 				

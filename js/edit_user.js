@@ -164,17 +164,18 @@ function checkUsername(str)
 	var xmlhttp;
 	var nameFilter=/[A-Za-z0-9]{5,}$/;
 	if (nameFilter.test(str)){
+		isUsername = true;
+		document.getElementById("username_status").innerHTML="username is available";
 		form_check();
-	} else if (str.length == 0){
+	} else if (str == ""){
 		isUsername = false;
 		document.getElementById("username_status").innerHTML="input is empty";
 		form_check();
 		return;
 	} else{
 		isUsername = false;
-		document.getElementById("username_status").innerHTML="username is already used";
+		document.getElementById("username_status").innerHTML="username is not available";
 		form_check();
-		return;
 	}
 	
 	if (window.XMLHttpRequest){
@@ -185,10 +186,9 @@ function checkUsername(str)
 		// code for IE6, IE5
 		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
-			if(xmlhttp.responseText == 0){
+			if(xmlhttp.responseText.equals("1")){
 				document.getElementById("username_status").innerHTML = "username is available";
 			} else{
 				document.getElementById("username_status").innerHTML = "username is not available";

@@ -1,3 +1,4 @@
 <div class = "footer">
-	<p>ini footer</p>
+	<p>Copyright © 2013 - Toko Imba</p>
+	<p>All rights reserved</p>
 </div>

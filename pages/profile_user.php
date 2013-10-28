@@ -25,19 +25,32 @@
 				$result = mysqli_query($con,"SELECT * FROM pengguna WHERE username = '".$username."'");
 				
 				$user_id = 0;
+				$data;
 				while($row = mysqli_fetch_array($result)){
 					echo "<p>Full Name : ".$row['nama_pengguna']."</p>";
-					$user_id = $row['id_pengguna'];
+					$data = $row;
 					break;
 				}
 				
+				$user_id = $data['id_pengguna'];
+				
+				//show all data profiles
+				echo "<p>Nama lengkap : ".$data['nama_pengguna']."</p>";
+				echo "<p>Email : ".$data['email']."</p>";
+				echo "<p>Nomor HP : ".$data['nomor_hp']."</p>";
+				echo "<p>Alamat : ".$data['alamat']."</p>";
+				echo "<p>Provinsi : ".$data['provinsi']."</p>";
+				echo "<p>Kota/Kabupaten : ".$data['kota_kabupaten']."</p>";
+				echo "<p>Kode Pos : ".$data['kode_pos']."</p>";
+				
+				//count transactions
 				$result = mysqli_query($con,"SELECT * FROM transaksi WHERE id_pengguna = ".$user_id);
 				
 				$count = $result->num_rows;
 				echo "<p>Total transactions : ".$count."</p>";
 				
 			?>
-			<form>
+			<form action = "edit_profil_user.php">
 				<button type="submit">Edit Profile</button>
 			</form>
 		</div>

@@ -8,10 +8,10 @@
 
 </head>
 	<div class = "page_container">
-
-		<?php include ("templates/index/header.php"); ?>
-		<?php include ("templates/index/navigation.php"); ?>
-
+		<?php $_SESSION['state'] = 2; ?>
+		<?php include ("templates/header.php"); ?>
+		<?php include ("templates/navigation.php"); ?>
+		<?php $_SESSION['state'] = 2; ?>
 		<div class = "container">
 			<!--<p>Toko Imba</p>-->
 		</div>

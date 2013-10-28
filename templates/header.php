@@ -1,11 +1,16 @@
 <div class = "heading">
 	<div class = "logo">
-		<img src="../img/logo.png" width=200px></img>
+		<?php 
+			session_start();
+			if($_SESSION['state'] == 2)
+				echo "<img src='/img/logo.png' width=200px></img>";
+			else
+				echo "<img src='../img/logo.png' width=200px></img>";
+		?>
 	</div>
 	<div class = "login">
 		<!--check if its logged-->
 		<?php
-			session_start();
 			$data = null;
 			$active = false;
 			if(isset($_SESSION['on'])){
@@ -13,15 +18,20 @@
 					if($_SESSION['on']){
 						$data = $_SESSION['username'];
 						echo "You are logged as ".$data;
-						echo "<br/><a href='../controllers/logout.php'>log out</a>";
-						$_SESSION['state'] = 2;
+						if($_SESSION['state'] == 2)
+							echo "<br/><a href='/controllers/logout.php'>log out</a>";
+						else
+							echo "<br/><a href='../controllers/logout.php'>log out</a>";
 						$active = true;
 					}
 				}
 			} 
 			
 			if(!$active){
-				echo "<a href='../pages/register_user.php'>register</a> or <a href='pages/login_user.php'>login</a>";
+				if($_SESSION['state'] == 2)
+					echo "<a href='/pages/register_user.php'>register</a> or <a href='pages/login_user.php'>login</a>";
+				else
+					echo "<a href='../pages/register_user.php'>register</a> or <a href='pages/login_user.php'>login</a>";
 			}
 		?>
 	</div>

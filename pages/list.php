@@ -9,8 +9,19 @@
 </head>
 	<div class = "page_container">
 
-		<?php include ("../templates/header.php"); ?>
-		<?php include ("../templates/navigation.php"); ?>
+		<?php 
+			session_start();
+			$_SESSION['state'] = 2;
+			
+			if($_SESSION['state'] == 1){
+				include ("../templates/header.php");
+				include ("../templates/navigation.php"); 
+			}
+			else{
+				include ("templates/header.php");
+				include ("templates/navigation.php"); 
+			}
+		?>
 
 		<div class = "container">
 			<?php

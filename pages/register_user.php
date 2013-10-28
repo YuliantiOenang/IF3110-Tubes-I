@@ -47,7 +47,7 @@
 				<p>kode pos</p>
 				<input id="kodepos" name="kodepos" type="text" onkeyup="checkKodePos(this.value)"></input>
 				<p id="kodepos_status"></p>
-				<input type = "submit" id="button_register" disabled="true"></button>
+				<button type = "submit" id="button_register" disabled="true">Register</button>
 			</form>
 		</div>
 		

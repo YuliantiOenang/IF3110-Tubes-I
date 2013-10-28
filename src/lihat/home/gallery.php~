@@ -7,9 +7,29 @@
 <body>
 
 <form action="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari" method="GET">
-Cari Barang : <input type="text" name="search"><br>
+<h3>Cari Barang</h3>
+Nama : <input type="text" name="search"><br>
+Kategori : 
+<select name="kategori">
+<option value="">--Pilih--</option>
+<?php
+while ($row = mysql_fetch_object($data['listCateg']))
+{
+?>
+<option value="<?=$row->name;?>"><?=$row->name;?></option>
+<?php
+}
+?>
+</select>
+<br>
+Harga : <input type="text" name="harga"><br>
+<input type="radio" name="operator" value="L">Less than
+<input type="radio" name="operator" value="E">Equal to
+<input type="radio" name="operator" value="G">Greater than
+<br>
 <input type="submit"><br>
 </form>
+<hr>
 
 <table border = 1>
 <tr>

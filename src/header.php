@@ -19,7 +19,6 @@
 			<div class="headertab">
 				<input type="radio" id="headertab-1" name="headertab-group-1" checked="checked" />
 				<label for="headertab-1">Kategori</label>
-
 				<div class="headertabcontent">
 					<p>Stuff for Tab One</p>
 				</div> 
@@ -28,7 +27,6 @@
 			<div class="headertab">
 				<input type="radio" id="headertab-2" name="headertab-group-1" />
 				<label for="headertab-2">Pencarian</label>
-
 				<div class="headertabcontent">
 					 <p>Stuff for Tab Two</p>
 				</div>

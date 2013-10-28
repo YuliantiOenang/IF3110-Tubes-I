@@ -1,4 +1,6 @@
 <?php
+	require_once('db.php');
+
 	$login_user_id = null;
 
 	// Fungsi untuk memeriksa apakah user sudah login.
@@ -7,7 +9,6 @@
 		return isset($login_user_id);
 	}
 	
-	require_once('db.php');
 	if (isset($_COOKIE['hash']) && isset($_COOKIE['id']))	{
 
 		$client_hash = $_COOKIE['hash'];

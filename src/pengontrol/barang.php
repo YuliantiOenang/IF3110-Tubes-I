@@ -90,6 +90,7 @@ class Barang
 		$u = new Barang_Model();
 		$v = new View('barang/detail');
 		$v->setData('detail',$u->getBarangID($var['id']));
+        $v->setData('id',$var['id']);
 		$v->render();
 	}
 }

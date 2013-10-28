@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 	<title> Lihat Belanjaan </title>
+    <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/table.css" rel="stylesheet"/>
 </head>
 <body>
 Ini laman belanjaan<br>

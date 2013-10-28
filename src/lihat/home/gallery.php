@@ -38,14 +38,15 @@ Harga : <input type="text" name="harga"><br>
 	<span class="kolom dua">Gambar Barang</span>
 	<span class="kolom tiga">Harga</span>
 	<span class="kolom empat">Stok</span>
-	<span class="kolom lima">Aksi</span>
+    <span class="kolom lima">Jumlah Beli</span>
+	<span class="kolom enam">Aksi</span>
 </div>
 <?php
 while($row = mysql_fetch_object($data['barang']))
 {
 ?>
 	<div class="baris">
-		<span class="kolom satu"><?=$row->nama_barang;?></span>
+		<span class="kolom satu"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/detail?id=<?=$row->id;?>"><?=$row->nama_barang;?></a></span>
 		<span class="kolom dua"><img src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>" height=100px width=100px></span>
 		<span class="kolom tiga"><?=$row->harga_barang;?></span>
 		<?php
@@ -53,8 +54,10 @@ while($row = mysql_fetch_object($data['barang']))
 		{
 		?>
 		<span class="kolom empat"><?=$row->jumlah_barang;?></span>
-		<span class="kolom lima"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$row->id;?>">Beli</a>
-		    <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/detail?id=<?=$row->id;?>">Detail</a>
+        <span class="kolom lima"><input type="text" name="qty" size="8"></span>
+		<span class="kolom enam">
+        <input type="button" value="Beli" onClick="">
+        <!--<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$row->id;?>">Beli</a>-->
 		</span>
 		<?php
 		}
@@ -62,9 +65,8 @@ while($row = mysql_fetch_object($data['barang']))
 		{
 		?>
 			<span class="kolom empat">Habis</span>
-			<span class="kolom lima">
-			  <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/detail?id=<?=$row->id;?>">Detail</a>
-			</span>
+            <span class="kolom lima"></span>
+            <span class="kolom enam"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$row->id;?>" disabled="true">Beli</a></span>
 		<?php		
 		}
 		?>

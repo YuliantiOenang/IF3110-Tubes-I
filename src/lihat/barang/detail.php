@@ -20,7 +20,7 @@ while($row = mysql_fetch_object($data['detail']))
 	{
 	?>
 		Stok : <?=$row->jumlah_barang;?><br>
-		<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$row->id;?>">Beli Barang</a>
+		<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$data['id'];?>">Beli Barang</a>
 	<?php	
 	}
 	?>

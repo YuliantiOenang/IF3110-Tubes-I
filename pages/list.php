@@ -9,8 +9,19 @@
 </head>
 	<div class = "page_container">
 
-		<?php include ("../templates/header.php"); ?>
-		<?php include ("../templates/navigation.php"); ?>
+		<?php 
+			session_start();
+			$_SESSION['state'] = 2;
+			
+			if($_SESSION['state'] == 1){
+				include ("../templates/header.php");
+				include ("../templates/navigation.php"); 
+			}
+			else{
+				include ("templates/header.php");
+				include ("templates/navigation.php"); 
+			}
+		?>
 
 		<div class = "container">
 			<?php
@@ -68,8 +79,8 @@
 					echo "<img src='../img/". $row['gambar'] ."'> <br/>";
 					echo "Nama: <a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
 					echo "Harga: Rp10000 <br/>";
-					echo '<form name="input" action="beli.php" method="post">
-						Jumlah: <input type="text" name="user" value="0">
+					echo '<form name="input" action="beli.php?id='. $row['id_inventori'] .'&cat='.$category.'" method="post">
+						Jumlah: <input type="text" name="jumlah" value="0">
 						<input type="submit" value="Beli">
 						</form>';
 				}

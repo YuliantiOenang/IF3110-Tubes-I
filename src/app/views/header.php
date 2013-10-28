@@ -13,7 +13,7 @@
 		</li>
 		
 		<li><a href="<?php echo SITEURL . '/register/' ?>">Register</a></li>	
-		<li><a href="">Login</a></li>			
+		<li><a href="#" onclick='loginOverlay()'>Login</a></li>			
 		<li>
 			<center><form id="cariBarang">					
 				<input type="type" placeholder="Pencarian">
@@ -21,3 +21,23 @@
 		</li>
 	</ul>
 </nav>
+
+<div id="overlay">
+     <div id="overlay-inside">
+        <form action="<?php echo SITEURL . '/login' ?>" method="post">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="username">Username: </label>
+                <input type="text" id="username" name="username" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password" class="form-control"/>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+     </div>
+</div>
+
+<!-- bisa ditaruh dibawah -->
+<script src="<?php echo SITEURL . '/include/js/login.js' ?>"></script>

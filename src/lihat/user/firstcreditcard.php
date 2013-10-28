@@ -11,6 +11,7 @@
 	Name: <input type="text" name="name"><br>
 	Expired Date : <input type="text" name="expired_date"><br>
 	<input type="submit" value="submit" name="submit">
+    <input type="button" value="skip" onClick="window.location='../user';">
 </form>
 </body>
 </html>

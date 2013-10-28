@@ -61,7 +61,7 @@ class User
 				$_SESSION['password'] = $ret->password;
 				$_SESSION['kota'] = $ret->kota;
 				$_SESSION['isCreditCard'] = $ret->isCreditCard;
-                echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php/user";	
+                echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php/user/firstcreditcard";	
             } else {
 				$v = new View('user/register');
 				$v->render();
@@ -183,6 +183,34 @@ class User
 		session_destroy();
 		header("Location: ".SITE_ROOT.NAME_ROOT."/index.php");
 	}
+    
+    public function firstCreditCard(array $var) {
+		if (isset($_SESSION['id']))
+		{
+            if ($var['isCreditCard'] != 1) {
+                if ( (isset($var['submit'])) && ($var['card_number']!='') && ($var['name']!='') && ($var['expired_date']!='') )
+                {
+                    $m = new User_Model();
+                    $m->addCreditCard($var['card_number'],$var['name'],$var['expired_date']);
+                    
+                    if (isset($_SESSION['username'])) //jika sudah login
+                    {}
+                    else session_destroy(); //jika bukan dari login, hapus semua session temporari
+
+                    echo "Kartu kredit berhasil ditambahkan<br>";
+                    echo "Klik <a href='".SITE_ROOT.NAME_ROOT."/index.php/user'>disini</a> untuk pergi ke laman akun anda";
+                }
+                else{
+                    $v = new View('user/firstcreditcard');
+                    $v->render();
+                }
+            } else {
+                header("Location: ".SITE_ROOT.NAME_ROOT."/index.php/user");
+            }
+        }
+        else
+            header("Location: ".SITE_ROOT.NAME_ROOT."/index.php/user/register");
+    }
 
 	public function addCreditCard(array $var){ 
 		if (isset($_SESSION['id']))

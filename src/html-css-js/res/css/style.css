@@ -226,6 +226,11 @@ body {
 	color: #96bf0d;
 }
 
+.nama-produk-b a:link, .nama-produk-b a:visited {
+	text-decoration: none;
+	color: #96bf0d;
+}
+
 .harga {
 	font-size: 14px;
 }
@@ -239,18 +244,18 @@ body {
 	animation:myfirst 1s linear 1s infinite alternate;
 	/* Safari and Chrome: */
 	-webkit-animation:myfirst 1s linear 1s infinite alternate;
+}
 
-	@keyframes myfirst
-	{
+@keyframes myfirst
+{
 	0%   {left:0px; top:0px;}
 	100% {left:50px; top:0px;}
-	}
+}
 
-	@-webkit-keyframes myfirst /* Safari and Chrome */
-	{
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
 	0%   {left:0px; top:0px;}
 	100% {left:50px; top:0px;}
-	}
 }
 
 #dagangan {

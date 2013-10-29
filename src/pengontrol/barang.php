@@ -56,6 +56,7 @@ class Barang
 					$u = new User_Model();
 					$v = new View('barang/beli');
                     
+                    $v->setData('listCateg',$m->getAllCategory());
                     $v->setData("listBarang",$m->generateCart());
 					$v->setData('listCC',$u->lihatCreditCard());
 
@@ -115,6 +116,7 @@ class Barang
 	{
 		$u = new Barang_Model();
 		$v = new View('barang/detail');
+        $v->setData('listCateg',$u->getAllCategory());
 		$v->setData('detail',$u->getBarangID($var['id']));
         $v->setData('id',$var['id']);
 		$v->render();

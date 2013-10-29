@@ -6,6 +6,8 @@ class User
 		if (isset($_SESSION['username']))
 		{
 			$v = new View('user/home');
+            $m = new Barang_Model();
+            $v->setData('listCateg',$m->getAllCategory());
 			$v->render();
 		}
 		else
@@ -46,6 +48,8 @@ class User
 			else
 			{
 				$v = new View('user/change');
+                $m = new Barang_Model();
+                $v->setData('listCateg',$m->getAllCategory());
 				$v->render();
 			}
 		}
@@ -75,6 +79,8 @@ class User
             } else {
 				$v = new View('user/register');
                 $v2 = new View ('user/login');
+                $m = new Barang_Model();
+                $v->setData('listCateg',$m->getAllCategory());
                 $v->setData('loginView', $v2->render(false)); // rendering Login page
 				$v->render();
             }
@@ -229,6 +235,8 @@ class User
                 }
                 else{
                     $v = new View('user/firstcreditcard');
+                    $m = new Barang_Model();
+                    $v->setData('listCateg',$m->getAllCategory());
                     $v->render();
                 }
             } else {
@@ -270,6 +278,8 @@ class User
 
             } else{
 				$v = new View('user/addcreditcard');
+                $m = new Barang_Model();
+                $v->setData('listCateg',$m->getAllCategory());
 				$v->render();
 			}
 		}
@@ -283,6 +293,8 @@ class User
 		{
 			$m = new User_Model();
 			$v = new View('user/lihatcreditcard');
+            $n = new Barang_Model();
+            $v->setData('listCateg',$n->getAllCategory());
 			$v->setData('listCC',$m->lihatCreditCard());
 			$v->render();
 		}
@@ -295,6 +307,8 @@ class User
 		{
 			$m = new Barang_Model();
 			$v = new View('user/cart');
+            $n = new Barang_Model();
+            $v->setData('listCateg',$n->getAllCategory());
 			$v->setData("listBarang",$m->generateCart());
 			$v->render();
 		}

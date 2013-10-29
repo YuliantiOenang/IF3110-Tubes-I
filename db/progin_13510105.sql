@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2013 at 01:03 PM
+-- Generation Time: Oct 29, 2013 at 01:10 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `kategori` varchar(256) NOT NULL,
   `url_gambar` varchar(256) NOT NULL,
   PRIMARY KEY (`id_barang`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
 
 --
 -- Dumping data for table `barang`
@@ -91,7 +91,23 @@ INSERT INTO `barang` (`id_barang`, `nama`, `stok`, `terjual`, `harga`, `kategori
 (27, 'Kol', 10, 0, 6000, 'sayur', 'image/27'),
 (28, 'Petai', 10, 0, 7000, 'sayur', 'image/28'),
 (29, 'Asparagus', 10, 0, 8000, 'sayur', 'image/29'),
-(30, 'Kacang Panjang', 10, 0, 4000, 'sayur', 'image/30');
+(30, 'Kacang Panjang', 10, 0, 4000, 'sayur', 'image/30'),
+(31, 'Kunyit', 10, 0, 1000, 'bumbu', 'image/31.jpg'),
+(32, 'Lada Hitam', 10, 0, 1000, 'bumbu', 'image/32.jpg'),
+(33, 'Kayu Manis', 10, 0, 2000, 'bumbu', 'image/33.jpg'),
+(34, 'Jahe', 10, 0, 3000, 'bumbu', 'image/34.jpg'),
+(35, 'Bawang Merah', 10, 0, 4000, 'bumbu', 'image/35.jpg'),
+(36, 'Bawang Putih', 10, 0, 5000, 'bumbu', 'image/36.jpg'),
+(37, 'Daun Bawang', 10, 0, 1000, 'bumbu', 'image/37.jpg'),
+(38, 'Daun Pandan', 10, 0, 2000, 'bumbu', 'image/38.jpg'),
+(39, 'Daun Salam', 10, 0, 3000, 'bumbu', 'image/39.jpg'),
+(40, 'Jintan', 10, 0, 4000, 'bumbu', 'image/40.jpg'),
+(41, 'Kemiri', 10, 0, 5000, 'bumbu', 'image/41.jpg'),
+(42, 'Ketumbar', 10, 0, 1000, 'bumbu', 'image/42.jpg'),
+(43, 'Lengkuas', 10, 0, 2000, 'bumbu', 'image/43.jpg'),
+(44, 'Serai', 10, 0, 3000, 'bumbu', 'image/44.jpg'),
+(45, 'Pala', 10, 0, 4000, 'bumbu', 'image/45.jpg'),
+(46, 'Wijen', 10, 0, 5000, 'bumbu', 'image/46.jpg');
 
 -- --------------------------------------------------------
 

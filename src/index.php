@@ -5,7 +5,7 @@
 	// Include auth.php, untuk memeriksa user sudah login atau belum.
 	require_once('auth.php');
 
-	$page_title = 'RuSerBa - Halaman Utama';
+	$page_title = 'RuSerBa - Halaman utama';
 	$css_file = 'styles/browse_product.css';
 
 	// Include begin.

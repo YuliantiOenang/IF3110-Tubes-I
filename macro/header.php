@@ -24,7 +24,7 @@
 		<div id="headerControl">
 		<?php
 			if (isset($_SESSION['user_id'])) {
-				echo "Welcome <a href=\"profile.php?id=".$_SESSION['user_id']."\">".$_SESSION['username']."!</a>";
+				echo "Welcome <a href=\"profile.php?id=".$_SESSION['user_id']."\">".$_SESSION['username']."</a>!";
 				echo "<button type=\"button\" onclick=\"location.href='logout.php';\">Logout</button><br />";
 			} else {
 				echo "<button type=\"button\" onclick=\"toggleLogin()\">Login</button>";
@@ -50,12 +50,10 @@
   </form>
   </div>
 	<div id="loginPop">
-  	<form id='loginForm' method="post" action="login.php" autocomplete="off">    		
-			Username:
-			<input style="width: 125px;" type="text" name="username" id="username" required/>
-			Password:
-			<input style="width: 125px;" type="password" name="password" id="password" required/>
-			<input type="submit" id="subLog" value="Log me in!"/>
+  	<form id='loginForm' method="post" action="login.php" autocomplete="off">
+    	Username:<input style="width: 125px;" type="text" name="username" id="username" required />
+        Password:<input style="width: 125px;" type="password" name="password" id="password" required />
+    	<input type="submit" id="subLog" value="Log me in!"/></td>
     </form>
 	</div>
 	<h3>Barang? Boleh sama... Kualitas? Dijamin <i>Oeh</i> punya!</h3>

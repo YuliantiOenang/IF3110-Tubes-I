@@ -25,7 +25,7 @@ include 'macro/header.php';
 		<button type="button" onclick="location.href='index.php'">Skip</button>
 	<?php
 	} else {
-		echo "<meta http-equiv='refresh' content='=0;register.php' />";
+		header("Location: register.php");
 	}
 	?>
 </body>

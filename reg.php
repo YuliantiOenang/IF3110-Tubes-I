@@ -2,9 +2,9 @@
 
 include "db.php";
 
-if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
+if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['email'])) {
 	$username = mysql_real_escape_string($_POST['username']);
-	$password = md5(mysql_real_escape_string($_POST['password']));
+	$password = md5(mysql_real_escape_string($_POST['password1']));
 	$email = mysql_real_escape_string($_POST['email']);
 	$name = mysql_real_escape_string($_POST['name']);
 	$telephone = mysql_real_escape_string($_POST['telephone']);
@@ -27,22 +27,22 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
 		}
 		
 		echo "<h1>SUCCESS!</h1><br />";
-		echo "<meta http-equiv='refresh' content='=2;regcard.php' />";
+		header("Location: regcard.php");
 	} else {
 		echo mysqli_error($link);
 	}
-} else if (isset($_POST['num']) && isset($_POST['name'])) {
+} else if (isset($_POST['num']) && isset($_POST['name']) && isset($_POST['date'])) {
 	$num = mysql_real_escape_string($_POST['num']);
 	$name = mysql_real_escape_string($_POST['name']);
 	
-	$regcardquery = mysqli_query($link, "UPDATE user SET kredit_nama='".$name."', kredit_nomor='".$num."' WHERE id='".$_SESSION['user_id']."'");
+	$regcardquery = mysqli_query($link, "UPDATE user SET kredit_nama='".$name."', kredit_nomor='".$num."', kredit_expired_date='".$_POST['date']."' WHERE id='".$_SESSION['user_id']."'");
 	if ($regcardquery) {
 		$_SESSION['card'] = 1;
 	}
 	echo "<h1>SUCCESS!</h1><br />";
-	echo "<meta http-equiv='refresh' content='=2;index.php' />";
+	header("Location: index.php");
 } else {
-	echo "<meta http-equiv='refresh' content='=0;register.php' />";
+	header("Location: register.php");
 }
 
 ?>

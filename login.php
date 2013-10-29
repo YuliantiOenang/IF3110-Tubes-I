@@ -30,6 +30,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	echo "<h1>Error</h1>";
 	echo "<p>Sorry, username and password must be filled</p>";  
 }
-echo "<meta http-equiv='refresh' content='=2;index.php' />";
+header("Location: index.php");
 
 ?>

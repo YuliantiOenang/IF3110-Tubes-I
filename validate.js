@@ -8,8 +8,6 @@ function validate(method, value, id) {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("POST", "validate.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xmlhttp.setRequestHeader("Content-length", param.length);
-	xmlhttp.setRequestHeader("Connection", "close");
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById(id).innerHTML = xmlhttp.responseText;
@@ -131,16 +129,13 @@ function validateOther() {
 	var d = validateEmpty(document.getElementById("province").value, "valprovince");
 	var e = validateEmpty(document.getElementById("postal").value, "valpostal");
 	var v = a && b && c && d && e;
-	if (v) return true;
-	return false;
+	return v;
 }
 
 function validateAll() {
-	validateUsername("username", document.getElementById("username").value, "valusername");
-	validateEmail("email", document.getElementById("email").value, "valemail");
 	var satu = validateOther();
 	var dua = validateName(document.getElementById("name").value, "fullname");
-	var tiga = validatePassword(document.getElementById("password").value, document.getElementById("password2").value, document.getElementById("username").value, document.getElementById("email").value, "valpasswords");
+	var tiga = validatePassword(document.getElementById("password1").value, document.getElementById("password2").value, document.getElementById("username").value, document.getElementById("email").value, "valpasswords");
 	if (satu && dua && tiga && usernamevalid && emailvalid) {
 		return true;
 	}

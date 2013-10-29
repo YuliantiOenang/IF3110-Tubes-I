@@ -12,10 +12,15 @@
 	if($result->num_rows > 0) $found = true;
 	
 	if($found){
-		echo "Welcome";
 		session_start();
+		//use session
 		$_SESSION['on'] = true;
 		$_SESSION['username'] = $username;
+		
+		//use cookie to preserve data persistance
+		setcookie("on", true, time()+3600*24*30);
+		setcookie("username", $username, time()+3600*24*30);
+		
 		header("Location: ../index.php");
 	} else{
 		echo "wrong username/password";

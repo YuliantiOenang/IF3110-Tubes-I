@@ -56,6 +56,38 @@ function checkCardNumber (str)
 	xmlhttp.send();
 }
 
+function checkDate(str){
+	checkAllDate();
+	
+	if(isDate){
+		document.getElementById("date_status").innerHTML="date is valid";
+	} else{
+		document.getElementById("date_status").innerHTML="date is not valid";
+	}
+	form_check();
+}
+
+function checkMonth(str){
+	checkAllDate();
+	
+	if(isDate){
+		document.getElementById("date_status").innerHTML="date is valid";
+	} else{
+		document.getElementById("date_status").innerHTML="date is not valid";
+	}
+	form_check();
+}
+
+function checkYear(str){
+	checkAllDate();
+	
+	if(isDate){
+		document.getElementById("date_status").innerHTML="date is valid";
+	} else{
+		document.getElementById("date_status").innerHTML="date is not valid";
+	}
+	form_check();
+}
 
 function checkAllDate()
 {

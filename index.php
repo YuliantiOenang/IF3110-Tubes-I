@@ -28,7 +28,21 @@
 		?>
 		
 		<div class = "container">
-			
+			<?php
+				//buat kategori 1
+				// Create connection
+				$con=mysqli_connect("127.0.0.1","root","","toko_imba");
+
+				// Check connection
+				if (mysqli_connect_errno($con)){
+					echo "Failed to connect to MySQL: " . mysqli_connect_error();
+				}
+				//check data posted
+				for(int i=1;i<=5;i++){
+					//$result = mysqli_query($con,"SELECT * FROM transaksi NATURAL JOIN inventori NATURAL JOIN kategori WHERE id_kategori = '".$i."'");
+					
+				}
+			?>
 			<!--<p>Toko Imba</p>-->
 		</div>
 		

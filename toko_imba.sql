@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 29, 2013 at 11:52 AM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Inang: 127.0.0.1
+-- Waktu pembuatan: 29 Okt 2013 pada 13.00
+-- Versi Server: 5.5.32
+-- Versi PHP: 5.4.19
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,13 +17,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `toko_imba`
+-- Basis data: `toko_imba`
 --
+CREATE DATABASE IF NOT EXISTS `toko_imba` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `toko_imba`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `credit_card`
+-- Struktur dari tabel `credit_card`
 --
 
 CREATE TABLE IF NOT EXISTS `credit_card` (
@@ -37,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `credit_card` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inventori`
+-- Struktur dari tabel `inventori`
 --
 
 CREATE TABLE IF NOT EXISTS `inventori` (
@@ -50,10 +52,10 @@ CREATE TABLE IF NOT EXISTS `inventori` (
   `harga` int(10) NOT NULL,
   PRIMARY KEY (`id_inventori`),
   KEY `id_kategori` (`id_kategori`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
--- Dumping data for table `inventori`
+-- Dumping data untuk tabel `inventori`
 --
 
 INSERT INTO `inventori` (`id_inventori`, `id_kategori`, `nama_inventori`, `jumlah`, `gambar`, `description`, `harga`) VALUES
@@ -62,12 +64,36 @@ INSERT INTO `inventori` (`id_inventori`, `id_kategori`, `nama_inventori`, `jumla
 (3, 1, 'Bolu Gulung', 19, '/barang/BolGul.png', 'Kue bolu yang dipanggang menggunakan loyang dangkal, diisi dengan selai   atau krim mentega kemudian digulung selagi masih panas sewaktu baru   diangkat dari oven untuk menjaga kelenturan sewaktu digulung dan tidak   patah. Gulungan bisa dibuka lagi kalau kue sudah agak dingin untuk diolesi   selai atau krim dari mentega dan setelah itu kue digulung kembali. Lengkapi waktu anda bersama keluarga dengan kudapan sehat nan nikmat ini.', 50000),
 (4, 1, 'Muffin', 29, '/barang/Muffin.png', 'Kue khas negeri Inggris dan lahir pada zaman Victoria. Roti tradisional berbentuk gulungan, bundar dan tipis ini terbuat dari adonan roti yang diberi ragi. Paling enak kue manis ini dinikmati saat musim dingin dan disajikan bersama minuman hangat seperti teh atau kopi. Roti yang biasanya disobek dulu dan diberi olesan mentega kemudian dipanggang lagi ini sering diolesi diolesi dengan selai buah buatan sendiri untuk menambah citarasa. Dapatkan citarasa global ala dapur pribadi dalam sajian roti muffin kami!', 30000),
 (5, 1, 'Baguette', 32, '/barang/FBread.png', 'Roti yang berasal dari Prancis ini adalah roti yang bentuknya lain dari roti lainnya yaitu panjang dan ukurannya yang besar, dan sangat renyah. Diameter standar baguette kami sekitar 5 atau 6 cm, dan panjang dapat mencapai 1 meter. Roti yang renyah di luar dan lembut didalam ini biasanya dipotong-potong terlebih dahulu sebelum disantap dengan berbagai pelengkap seperti mentega, keju, atau selai dan bahkan saus sphagetti. Dengan berat rata-rata 250 gram, roti ini tentu akan menyempurnakan makan pagi,siang, atau bahkan makan malam anda.', 60000),
-(6, 1, 'Roti Jala', 35, '/barang/Jala.png', 'Roti yang merupakan makananan kegemaran di Malaysia dan juga di negara-negara ASEAN seperti namanya, berbentuk seperti jala. Cocok dimakan bersama kuah, bekas tempat memasak yang mempunyai beberapa lubang biasanya digunakan bagi menghasilkan roti jala yang dimasak di atas kuali leper. Roti Jala yang sering menjadi pilihan pada perayaan istimewa ini nikmat  dihidangkan dengan kari atau gulai ayam atau daging. Puaskan lidah anda dengan sensasi melayu nan kaya dengan roti jala ini.', 36000);
+(6, 1, 'Roti Jala', 35, '/barang/Jala.png', 'Roti yang merupakan makananan kegemaran di Malaysia dan juga di negara-negara ASEAN seperti namanya, berbentuk seperti jala. Cocok dimakan bersama kuah, bekas tempat memasak yang mempunyai beberapa lubang biasanya digunakan bagi menghasilkan roti jala yang dimasak di atas kuali leper. Roti Jala yang sering menjadi pilihan pada perayaan istimewa ini nikmat  dihidangkan dengan kari atau gulai ayam atau daging. Puaskan lidah anda dengan sensasi melayu nan kaya dengan roti jala ini.', 36000),
+(7, 2, 'Coca-Cola', 10, 'barang/Buaya.png', '', 10000),
+(8, 2, 'Pepsi', 10, 'barang/Buaya.png', '', 10000),
+(9, 2, 'Beer', 10, 'barang/Buaya.png', '', 10000),
+(10, 2, 'Fanta', 10, 'barang/Buaya.png', '', 10000),
+(11, 2, 'Sprite', 10, 'barang/Buaya.png', '', 10000),
+(12, 2, 'Dr. Pepper', 10, 'barang/Buaya.png', '', 10000),
+(13, 3, 'Sarden Kalengan', 10, 'barang/Buaya.png', '', 10000),
+(14, 3, 'Sup Kalengan', 10, 'barang/Buaya.png', '', 10000),
+(15, 3, 'Buah Kalengan', 10, 'barang/Buaya.png', '', 10000),
+(16, 3, 'Kacang Kalengan', 10, 'barang/Buaya.png', '', 10000),
+(17, 3, 'Sayur Kalengan', 10, 'barang/Buaya.png', '', 10000),
+(18, 3, 'Daging Kalengan', 10, 'barang/Buaya.png', '', 10000),
+(19, 4, 'Daging', 10, 'barang/Buaya.png', '', 10000),
+(20, 4, 'Seafood', 10, 'barang/Buaya.png', '', 10000),
+(21, 4, 'Telur', 10, 'barang/Buaya.png', '', 10000),
+(22, 4, 'Sayur', 10, 'barang/Buaya.png', '', 10000),
+(23, 4, 'Buah', 10, 'barang/Buaya.png', '', 10000),
+(24, 4, 'Kacang', 10, 'barang/Buaya.png', '', 10000),
+(25, 5, 'Palu', 10, 'barang/Buaya.png', '', 10000),
+(26, 5, 'Screwdriver', 10, 'barang/Buaya.png', '', 10000),
+(27, 5, 'Sapu', 10, 'barang/Buaya.png', '', 10000),
+(28, 5, 'Ember', 10, 'barang/Buaya.png', '', 10000),
+(29, 5, 'Gayung', 10, 'barang/Buaya.png', '', 10000),
+(30, 5, 'Obeng', 10, 'barang/Buaya.png', '', 10000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
@@ -77,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `kategori` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
@@ -90,7 +116,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Struktur dari tabel `pengguna`
 --
 
 CREATE TABLE IF NOT EXISTS `pengguna` (
@@ -108,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `pengguna`
+-- Dumping data untuk tabel `pengguna`
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `email`, `nomor_hp`, `alamat`, `provinsi`, `kota_kabupaten`, `kode_pos`) VALUES
@@ -117,7 +143,7 @@ INSERT INTO `pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE IF NOT EXISTS `transaksi` (
@@ -128,20 +154,56 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
   PRIMARY KEY (`id_transaksi`),
   KEY `id_pengguna` (`id_pengguna`),
   KEY `id_inventori` (`id_inventori`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=59 ;
 
 --
--- Constraints for dumped tables
+-- Dumping data untuk tabel `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `id_pengguna`, `id_inventori`, `jumlah`) VALUES
+(29, 4, 1, 3),
+(30, 4, 2, 4),
+(31, 4, 3, 5),
+(32, 4, 4, 6),
+(33, 4, 5, 7),
+(34, 4, 6, 8),
+(35, 4, 7, 9),
+(36, 4, 8, 10),
+(37, 4, 9, 11),
+(38, 4, 10, 12),
+(39, 4, 11, 13),
+(40, 4, 12, 14),
+(41, 4, 13, 15),
+(42, 4, 14, 16),
+(43, 4, 15, 17),
+(44, 4, 16, 18),
+(45, 4, 17, 19),
+(46, 4, 18, 20),
+(47, 4, 19, 21),
+(48, 4, 20, 22),
+(49, 4, 21, 23),
+(50, 4, 22, 24),
+(51, 4, 23, 25),
+(52, 4, 24, 26),
+(53, 4, 25, 27),
+(54, 4, 26, 28),
+(55, 4, 27, 29),
+(56, 4, 28, 30),
+(57, 4, 29, 31),
+(58, 4, 30, 32);
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `inventori`
+-- Ketidakleluasaan untuk tabel `inventori`
 --
 ALTER TABLE `inventori`
   ADD CONSTRAINT `inventori_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
 
 --
--- Constraints for table `transaksi`
+-- Ketidakleluasaan untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`),

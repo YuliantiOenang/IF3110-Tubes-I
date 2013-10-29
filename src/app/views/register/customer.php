@@ -19,8 +19,8 @@ $_SESSION['form_token'] = $form_token;
 		<form action="<?php echo SITEURL . '/register/new_customer' ?>" method="post">
             <h2>Customer Register</h2>
             <div class="form-group">
-                <label for="username">Username: </label>
-                <input type="text" id="username" name="username"  maxlength="16" class="form-control"/>
+                <label for="username">Username: <span id="username-info"></span></label>
+                <input type="text" id="username" name="username"  maxlength="16" onkeyup="checkUsername()" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="email">Email: </label>
@@ -62,5 +62,7 @@ $_SESSION['form_token'] = $form_token;
             <button type="submit" class="btn">Register</button>
         </form>
 	</div>
+
+<script src="<?php echo SITEURL . '/include/js/register.js' ?>"></script>
 </body>
 </html>

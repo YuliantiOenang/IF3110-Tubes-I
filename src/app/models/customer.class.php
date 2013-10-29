@@ -82,6 +82,21 @@ class Customer {
 	}
 
 	/**
+	 * Memeriksa apakah user tersebut ada
+	 */
+	public static function isExist($registry, $user) {
+		try {
+			$dbh = $registry->database;
+			$smh = $dbh->prepare('SELECT customer_id FROM customer WHERE username = :username');
+    		$smh->execute(array('username' => $user));
+ 			
+   			return $smh->fetchColumn();
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	/**
 	 * Menambah customer baru
 	 * Mereturn id dari customer
 	 */

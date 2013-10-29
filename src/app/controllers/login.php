@@ -12,8 +12,8 @@ Class LoginController Extends BaseController {
 	public function index() {
 		if (session_id() == '') session_start();
 
-		$user = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-		$pass = hash('sha256', filter_var($_POST['password'], FILTER_SANITIZE_STRING));
+		$user = filter_var($_POST['login-user'], FILTER_SANITIZE_STRING);
+		$pass = hash('sha256', filter_var($_POST['login-pass'], FILTER_SANITIZE_STRING));
 
 		$id = Customer::isValid($this->registry, $user, $pass);
 

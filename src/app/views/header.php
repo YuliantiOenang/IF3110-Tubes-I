@@ -25,12 +25,12 @@
 				        <form action="<?php echo SITEURL . '/login' ?>" method="post">
 				            <h2>Login</h2>
 				            <div class="form-group">
-				                <label for="username">Username: </label>
-				                <input type="text" id="username" name="username" class="form-control"/>
+				                <label for="login-user">Username: </label>
+				                <input type="text" id="login-user" name="login-user" class="form-control"/>
 				            </div>
 				            <div class="form-group">
-				                <label for="password">Password: </label>
-				                <input type="password" id="password" name="password" class="form-control"/>
+				                <label for="login-pass">Password: </label>
+				                <input type="password" id="login-pass" name="login-pass" class="form-control"/>
 				            </div>
 				            <button type="submit" class="btn">Login</button>
 				        </form>

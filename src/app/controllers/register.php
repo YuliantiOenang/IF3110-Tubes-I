@@ -102,15 +102,26 @@ Class RegisterController Extends BaseController {
 			}
 		}
 	}
+	public function check_username($username) {
+		if (Customer::isExist($this->registry, $username) == false) {
+			echo "valid";
+		} else {
+			echo "notvalid";
+		}
+	}
 
-	public function success()
-	{
+	/**
+	 * Message jika sukses
+	 */
+	public function success() {
 		$this->registry->template->message = "Pendaftaran customer baru sukses.";
 		$this->registry->template->show('common');
 	}
 
-	public function failed()
-	{
+	/**
+	 * Message jika gagal
+	 */
+	public function failed() {
 		$this->registry->template->message = "Registrasi gagal, tolong periksa kembali data-data yang diisikan";
 		$this->registry->template->show('common');
 	}

@@ -1,6 +1,7 @@
 function setProductOrder()	{
 	var jumlah = document.getElementById("jumlahproduk");
 	var keterangan = document.getElementById("keteranganproduk");
+	var stok = document.getElementById("jumlahstok");
 	var parts = window.location.search.substr(1).split("&");
 	var $_GET = {};
 	for (var i = 0; i < parts.length; i++) {
@@ -8,10 +9,13 @@ function setProductOrder()	{
 		$_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
 	}
 	
-	setProductQuantity($_GET['product_id'], jumlah.value);
+	if(parseInt(jumlah.value) <= parseInt(stok.innerHTML)){
+		setProductQuantity($_GET['product_id'], jumlah.value);
+		document.getElementById("errorjumlah").innerHTML = getOkSmall('Penambahan produk ke shopping bag berhasil');
+	}else{
+		document.getElementById("errorjumlah").innerHTML = getErrorSmall('Jumlah stok tidak mencukupi');
+	}
 	setProductNote($_GET['product_id'], keterangan.value);
-	//alert('Hellow!');
-	alert(getProductQuantity($_GET['product_id']));
 }
 
 window.addEventListener("load", function(){

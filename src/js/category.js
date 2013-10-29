@@ -7,6 +7,20 @@ document.addEventListener('scroll', function (event) {
 	}
 });
 
+function changeSortBy(sortcat){
+	sortby = sortcat;
+	refreshCategoryPage();
+}
+
+function changeOrder(ord){
+	order = ord;
+	refreshCategoryPage();
+}
+
+function refreshCategoryPage(){
+	document.location = "category.php?cat=" + category + "&sort=" + sortby + "&order=" + order;	
+}
+
 function setInfo(info){
 	infobottom = document.getElementById("infobottom");
 	infobottom.classList.add("backgrey");
@@ -25,7 +39,7 @@ function nextPage(){
 	setInfo("<img class='loading' src='image/loading.gif' /> loading...");
 	
 	page++;
-	var data = {"action": "category", "cat": category, "page": page};
+	var data = {"action": "category", "cat": category, "page": page, "sort": sortby, "order": order};
 	
 	
 	var callback = function(response){

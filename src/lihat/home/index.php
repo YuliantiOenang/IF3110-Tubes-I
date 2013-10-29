@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 	<title> Ruserba - Home</title>
+    <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/animatedShop.css" rel="stylesheet"/>
     <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/loginPopup.css" rel="stylesheet"/>
     <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/mainstyle.css" rel="stylesheet"/>
     <script src="<?=SITE_ROOT.NAME_ROOT;?>/js/ajaxLogin.js" type="text/javascript"></script>
@@ -51,17 +52,15 @@ Untuk masuk laman akun anda, silahkan klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/in
 		</div>
 	</div>
 	<div id="homecontent">
-			<div id="pictext">
-				<img id="pichome" class="picsize" src="beras.jpg" alt="Beras">
-				<p>Beras</p>
-				<p>Rp.25.000,-</p>
-				<img id="pichome" class="picsize" src="beras.jpg" alt="Beras">
-				<p>Beras</p>
-				<p>Rp.25.000,-</p>
-				<img id="pichome" class="picsize" src="beras.jpg" alt="Beras">
-				<p>Beras</p>
-				<p>Rp.25.000,-</p>
-			</div>
+			<!--<div id="pictext">-->
+                <div class="scrollable">
+                    <div class="items">
+                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/sembako/beras.jpg" alt="Beras">
+                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/sembako/minyakgoreng.jpg" alt="Beras">
+                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/sembako/telurayam.jpg" alt="Beras">
+                    </div>
+                </div>
+			<!--</div>-->
 	</div>
 
 <div id="login_popup">

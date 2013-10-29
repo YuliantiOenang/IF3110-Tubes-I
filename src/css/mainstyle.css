@@ -83,8 +83,11 @@ body{
 }
 
 .picsize{
-	width:200px;
-	height:200px;
+	width:220px;
+	height:220px;
+    margin-top: 5px;
+    margin-left: 55px;
+    margin-right: 55px;
 }
 
 #pichome{
@@ -145,6 +148,51 @@ body{
 	color:white;
 	font-size:20px;
 	background-color:cyan;
+}
+
+/**
+  * Bagian untuk CSS3 Carousel
+  */
+  
+.scrollable {
+    width: 333px;
+    margin: 0 auto;
+    padding: 0;
+    border:10px solid #fff;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+@-webkit-keyframes hscroll {
+  0%   { margin-left: 0; }
+27.33%  { margin-left: 0 }
+33.33%  { margin-left: -333px; }
+60.66% { margin-left: -333px; }
+66.66% { margin-left: -666px; }
+94.99% { margin-left: -666px; }
+  100%  { margin-left: 0 }
+}
+
+@-moz-keyframes hscroll {
+  0%   { margin-left: 0; }
+27.33%  { margin-left: 0 }
+33.33%  { margin-left: -333px; }
+60.66% { margin-left: -333px; }
+66.66% { margin-left: -666px; }
+94.99% { margin-left: -666px; }
+  100%  { margin-left: 0 }
+}
+
+@-ms-keyframes hscroll {
+  0%   { margin-left: 0; }
+27.33%  { margin-left: 0 }
+33.33%  { margin-left: -333px; }
+60.66% { margin-left: -333px; }
+66.66% { margin-left: -666px; }
+94.99% { margin-left: -666px; }
+  100%  { margin-left: 0 }
 }
 
 #profilecontent{height:540px;}

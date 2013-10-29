@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE html>  
+
+<script type="text/javascript">
+function AjaxFunctionUser(username)
+{
+var httpxml;
+try
+  {
+  // Firefox, Opera 8.0+, Safari
+  httpxml=new XMLHttpRequest();
+  }
+catch (e)
+  {
+  // Internet Explorer
+try
+ 		{
+httpxml=new ActiveXObject("Msxml2.XMLHTTP");
+		}
+catch (e)
+	{
+try
+		{
+	httpxml=new ActiveXObject("Microsoft.XMLHTTP");
+		 }
+		catch (e)
+	{
+alert("Your browser does not support AJAX!");
+return false;
+  		}
+		}
+}
+function stateck() 
+   {
+   if(httpxml.readyState==4)
+   {
+document.getElementById("msg").innerHTML=httpxml.responseText;
+     }
+   }
+var url="username-ajax.php";
+url=url+"?username="+username;
+url=url+"&sid="+Math.random();
+httpxml.onreadystatechange=stateck;
+httpxml.open("GET",url,true);
+httpxml.send(null);
+  }
+</script>
+
+<script type="text/javascript">
+function AjaxFunctionEmail(email)
+{
+var httpxml;
+try
+  {
+  // Firefox, Opera 8.0+, Safari
+  httpxml=new XMLHttpRequest();
+  }
+catch (e)
+  {
+  // Internet Explorer
+try
+ 		{
+httpxml=new ActiveXObject("Msxml2.XMLHTTP");
+		}
+catch (e)
+	{
+try
+		{
+	httpxml=new ActiveXObject("Microsoft.XMLHTTP");
+		 }
+		catch (e)
+	{
+alert("Your browser does not support AJAX!");
+return false;
+  		}
+		}
+}
+function stateck() 
+   {
+   if(httpxml.readyState==4)
+   {
+	document.getElementById("msg2").innerHTML=httpxml.responseText;
+     }
+   }
+var url="email-ajax.php";
+url=url+"?email="+email;
+url=url+"&sid="+Math.random();
+httpxml.onreadystatechange=stateck;
+httpxml.open("GET",url,true);
+httpxml.send(null);
+  }
+</script>
+
+
+
+<html lang="en"><head>  
+<meta charset="utf-8">  
+<title>Registration Form</title>  
+<meta name="keywords" content="Registration Form" />  
+<meta name="description" content="Laman ini digunakan untuk melakukan registrasi." />  
+<link rel='stylesheet' href='js-form-validation.css' type='text/css' />  
+<script src="sample-registration-form-validation.js"></script>  
+</head>  
+<body onload="document.registration.userid.focus();">  
+<h1>Registration Form</h1>  
+<p>Use tab keys to move from one input field to the next.</p>  
+<form name='registration' onSubmit="return formValidation();" action="registrasi.php" method="post">   
+<li><label for="username">Username:</label></li>
+<li><input type="text" name="uname" onBlur="AjaxFunctionUser(this.value);" size="12" id="uname" /></li>
+<li><div id="msg"></div> </li>  
+<li><label for="pass">Password:</label></li>  
+<li><input type="password" name="pass" size="12" id="pass" /></li>
+<li><label for="cpass">Confirm Password:</label></li>  
+<li><input type="password" name="cpass" size="12" id="cpass" /></li>
+<li><label for="nama">Nama Lengkap:</label></li>  
+<li><input type="text" name="nama" size="50" id="nama" /></li>
+<li><label for="email">Email:</label></li>  
+<li><input type="text" name="uemail" onBlur="AjaxFunctionEmail(this.value);" size="50" id="uemail" /></li>
+<li><div id="msg2"></div></li>
+<li><input type=submit name="submit" value=Submit /></li>  
+</form>  
+</body>  
+</html>  

@@ -1,0 +1,116 @@
+#all
+{
+    width: 80%;
+	max-width: 1260px;
+	min-width: 780px;
+	background: #FFF;
+	margin: 0 auto;
+	height : 100%;
+}
+
+#header
+{
+   background: #E0FFFF;
+   height : 20%;
+}
+
+#logo {
+	text-align : left;
+	display:inline-block;
+	margin-left: 0.1in; 
+	margin-bottom: 0.1in;
+	margin-top: 0.1in;
+}
+#shoppingbag {
+	text-align : center;
+	display:inline-block;
+	margin-left: 0.5in; 
+	margin-bottom: 0.1in;
+	margin-top: 0.1in;
+}
+#headerright {
+	text-align : center;
+	float : right;
+	margin-right: 0.5in; 
+	margin-bottom: 0.1in;
+	margin-top: 0.1in;
+}
+#headerright a{
+	Text-align : center;
+	font-family : courier;
+	display:inline-block;
+    padding:10px;
+}
+#navigasi
+{
+	background : #9ACD32;
+	text-align: center;
+}
+ul.nav , ol.nav { 
+	list-style-type:none;
+	padding: 0;
+	margin: 0;
+}
+ul.nav 
+{
+	list-style: none;
+	margin-bottom: 15px; 
+}
+/*Border pada Navigasi Kategori*/
+ul.nav li { /*Tiap li*/
+	border-width:1px 0;
+	display:inline;
+}
+
+ul.nav a, ul.nav a:visited { 
+	text-decoration: none;
+	background: #9ACD32;
+	color: #000;
+}
+
+/*Saat Kursor diarahkan ke navigasi*/
+
+#navigasi a
+{
+	border-right: 1px solid #666;
+    color :#FFF;
+	text-decoration: none;
+	text-align : center;
+	font-family : courier;
+	display:inline-block;
+    padding:10px;
+}
+
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
+	background: #FF4500;
+	color: #FFF;
+}
+
+h3.judul {
+	color: #FF4500;
+}
+
+tr{
+	vertical-align:center;
+}
+a.linkheader{
+	color : #FF4500;
+	cursor:pointer;
+	padding:5px;
+	display:inline-block;
+	text-align : center;
+}
+a.linkprocedure{
+	border: 1px solid #666;
+	padding:5px;
+}
+#linkprosedur{
+	text-align : center;
+	color : #FF4500;
+	cursor:pointer;
+	margin: 0 auto;
+}
+img.linkprocedure{
+	display: block; 
+	margin: auto;
+}

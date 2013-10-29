@@ -20,19 +20,23 @@ Silakan registrasi. bagian yang berlabel bintang (*) wajib diisi.
 </p>
 <div id="register_form">
 	<label>Username *</label>
-	<input type="text" name="username" required>
+	<input type="text" id="username" onblur="cekUsername()" required>
+	<div id=responseUsername> </div>
 	<br>
 	<label>Email *</label>
-	<input type="email" name="email" required>
+	<input type="email" id="email" onblur="cekEmail()" required>
+	<div id=responseEmail> </div>
 	<br>
 	<label>Password *</label>
-	<input type="password" name="password" required>
+	<input type="password" id="password" required>
 	<br>
 	<label>Confirm Password *</label>
-	<input type="password" name="confirm_pwd" required>
+	<input type="password" id="confirm_pwd" onblur="cekPasswordMatch()" required>
+	<div id=responsePassword> </div>
 	<br>
 	<label>Full Name *</label>
-	<input type="text" name="fullname" required>
+	<input type="text" id="fullname" onblur="cekFullname()" required>
+	<div id=responseFullname> </div>
 	<br>
 	<label>Provinsi</label>
 	<input type="text" name="provinsi">
@@ -44,10 +48,12 @@ Silakan registrasi. bagian yang berlabel bintang (*) wajib diisi.
 	<input type="text" name="alamat">
 	<br>
 	<label>Kode Pos</label>
-	<input type="text" name="kodepos">
+	<input type="text" name="kodepos" onblur="cekAngka()">
+	<div id=responseAngka> </div>
 	<br>
 	<label>Telepon</label>
-	<input type="number" name="telepon">
+	<input type="text" name="telepon" onblur="cekAngka()">
+	<div id=responseAngka> </div>
 </div>
 <button id="button_right">Register Me!</button>
 <?php

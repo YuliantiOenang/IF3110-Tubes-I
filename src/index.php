@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$pageTitle = "Unique T-shirts designed by a frog";
+$pageTitle = "Unique T-products designed by a frog";
 $section = "home";
 include('header.php'); 
 ?>
@@ -10,9 +10,9 @@ include('header.php');
 
 				<img class="hero" src="img/mike-the-frog.png" alt="Mike the Frog says:">
 				<div class="button">
-					<a href="shirts.php">
+					<a href="products.php">
 						<h2>Hey, I&rsquo;m Mike!</h2>
-						<p>Check Out My Shirts</p>
+						<p>Check Out My products</p>
 					</a>
 				</div>
 			</div>
@@ -20,7 +20,7 @@ include('header.php');
 		</div>
 	-->
 
-		<div class="section shirts latest">
+		<div class="section products latest">
 
 			<div class="wrapper">
 

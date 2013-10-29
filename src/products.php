@@ -5,11 +5,11 @@ $pageTitle = "Produk ".$cat;
 $section = "product";
 include('header.php'); ?>
 
-		<div class="section shirts page">
+		<div class="section products page">
 
 			<div class="wrapper">
 
-				<h1>Daftar Produk</h1>
+				<h1>Daftar Produk <?php echo $cat; ?></h1>
 
 				<?php include("function.php"); ?>
 				<ul class="products">

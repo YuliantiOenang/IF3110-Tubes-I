@@ -12,11 +12,6 @@
 		<div class="wrapper">
 			<div class="top-header">
 				<h1 class="branding-title"><a href="./">Shirts 4 Mike</a></h1>
-			<!--	<ul class="nav">
-					<li class="shirts <?php if ($section == "shirts") { echo "on"; } ?>"><a href="shirts.php">Shirts</a></li>
-					<li class="contact <?php if ($section == "contact") { echo "on"; } ?>"><a href="register.php">Register</a></li>
-					<li class="cart"><a target="paypal" href="#">Shopping Cart</a></li>
-				</ul> -->
 				<div class="top-right">
 				<?php if(isset($_SESSION['username'])) { ?>
 					<p> Welcome, <a href="profil.php"><?php echo $_SESSION['username']; ?></a>
@@ -25,7 +20,8 @@
 				<?php } else { ?> 
 					<a href="register.php"> Register </a>
 					<a href="javascript:void(0)" onclick="login()"> Login </a> <br />
-					<input type="text">
+					<br />
+					<input type="text" class="search">
 				<?php } ?>
 				</div>
 			</div>

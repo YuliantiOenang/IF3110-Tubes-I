@@ -23,6 +23,9 @@ $query = mysql_query("SELECT * FROM `produk` WHERE id='".$product_id."'");
 	            $img = $row['image'];
 	            $harga = $row['harga'];
 	            $kategori = $row['kategori'];
+	            $stok = $row['stok'];
+	            $keterangan = $row['keterangan'];
+			}
 			} 
 
 
@@ -32,22 +35,21 @@ include("header.php"); ?>
 
 			<div class="wrapper">
 
-				<div class="breadcrumb"><a href="products.php?=".<?php echo $kategori; ?> ><?php echo $kategori; ?></a> &gt; <?php echo $name; ?></div>
+				<div class="breadcrumb"><a href="<?php echo "products.php?category=".$kategori; ?>" ><?php echo $kategori; ?></a> &gt; <?php echo $name; ?></div>
 
-				<div class="shirt-picture">
+				<div class="product-picture">
 					<span>
-						<img src="<?php echo $product["img"]; ?>" alt="<?php echo $product["name"]; ?>">
+						<img src="<?php echo $img; ?>" alt="<?php echo $name; ?>">
 					</span>
 				</div>
 
-				<div class="shirt-details">
+				<div class="product-details">
 
-					<h1> <?php echo $nama; ?></h1>
+					<h1> <?php echo $name; ?></h1>
 					<h2><span class="price">Harga : Rp <?php echo $harga; ?></span></h2>
+					<h2>Stok : <?php echo $stok; ?></h2>
+					<h2>Keterangan : </h2><p><?php echo $keterangan; ?></p>
 
-					
-
-					<p class="note-designer">* All shirts are designed by Mike the Frog.</p>
 
 				</div>
 

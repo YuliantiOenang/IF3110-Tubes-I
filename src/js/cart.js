@@ -2,7 +2,7 @@
 
 function refreshCart(){
 	var cart = document.getElementById("cart");
-	cart.innerHTML = "refreshing...";
+	cart.innerHTML = "<img class='loading' src='image/loading.gif' /> refreshing...";
 	
 	// klo ga ada di local storage, berarti blom belanja
 	if (localStorage.getItem("shoppingbag") === null){
@@ -45,7 +45,7 @@ function refreshCart(){
 				total += harga;
 				
 				var row = createRow();
-				row.appendChild(createCell(50, barang.nama));
+				row.appendChild(createCell(50, barang.nama + " <a class='deletelink' href='javascript:deleteItem("+barang.id+");'>[X]</a>"));
 				row.appendChild(createCell(15, "<a class='editlink' href='javascript:editItem(" + barang.id + ");'>"+bag[barang.id] + "</a>"));
 				row.appendChild(createCell(35, "Rp. " + formatCurrency(harga)));
 				
@@ -80,8 +80,24 @@ function refreshCart(){
 }
 
 function clean_cart(){
-	localStorage.removeItem("shoppingbag");
-	refreshCart();
+	if(confirm("Buang seluruh barang dari keranjang belanja?")){
+		localStorage.removeItem("shoppingbag");
+		refreshCart();
+	}
+}
+
+function deleteItem(id){
+	if (localStorage.getItem("shoppingbag") === null) return;
+	
+	if(confirm("Buang barang ini dari keranjang belanja?")){
+		var bag = JSON.parse(localStorage.shoppingbag);
+		
+		delete bag[id];
+		localStorage.shoppingbag = JSON.stringify(bag);
+		
+		refreshCart();
+		
+	}
 }
 
 function commit_buy(){

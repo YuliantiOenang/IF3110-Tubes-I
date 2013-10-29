@@ -3,6 +3,11 @@
 	<?php
 		include 'db.php';
 		include 'macro/header.php';
+		
+		if (isset($_COOKIE['user_id']) && !isset($_SESSION['user_id'])) {
+			header("Location: login.php");
+		} else {
+		
 	?>
 	<body>
 		<div id="homeContent">	
@@ -111,3 +116,6 @@
 	</div>
 	</body>
 </html>
+<?php
+}
+?>

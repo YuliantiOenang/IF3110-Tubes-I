@@ -2,6 +2,8 @@
 <html>
 <!-- includes -->
 <link rel='stylesheet' type='text/css' href='../css/homepage.css' media='screen' />
+<script type="text/javascript" src="../js/check_item_available.js"></script>
+<script type="text/javascript" src="../js/add_cart.js"></script>
 <head>
 	<title>Toko Imba</title>	
 
@@ -89,8 +91,9 @@
 					echo "Nama: <a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
 					echo "Harga: Rp".$row['harga']." <br/>";
 					?>
-						<input type='text' value='0' onkeyup='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></input>
+						<input id="amount<?php echo $row['id_inventori']; ?>" name="amount" type='text' value='0' onkeyup='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></input>
 						<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
+						<button onclick="addToCart(document.getElementById('amount<?php echo $row['id_inventori']; ?>').value, <?php echo $row['id_inventori']; ?>)">Add to cart</button>
 					<?php
 				}
 				
@@ -119,8 +122,6 @@
 		?>
 	</div>
 </html>
-
-<script type="text/javascript" src="../js/check_item_available.js"></script>
 
 <script>
 function showResult(str)

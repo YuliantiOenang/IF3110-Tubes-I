@@ -17,12 +17,7 @@ function checkCardNumber (str)
 {
 	var xmlhttp;
 	var cardNumberFilter=/[0-9]{16,}$/;
-	if (str.length > 16){
-		isCardNumber = false;
-		document.getElementById("card_number_status").innerHTML="Card Number is invalid";
-		form_check();
-		return;
-	} else if (cardNumberFilter.test(str)){
+	if (cardNumberFilter.test(str)){
 	
 	} else if (str == ""){
 		isCardNumber = false;
@@ -46,17 +41,74 @@ function checkCardNumber (str)
 	}
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			//alert(xmlhttp.responseText);
 			if(xmlhttp.responseText == 0){
 				isCardNumber = true;
-				document.getElementById("card_number_status").innerHTML = "username is available";
+				document.getElementById("card_number_status").innerHTML = "card number is available";
 			} else{
-				document.getElementById("card_number_status").innerHTML = "username is not available";
+				isCardNumber = false;
+				document.getElementById("card_number_status").innerHTML = "card number is not available";
 			}
 			form_check();;
 		}
 	}
-	xmlhttp.open("GET","getcustomer.asp?q="+str,true);
+	xmlhttp.open("GET","../controllers/credit_card_number_checker.php?q="+str,true);
 	xmlhttp.send();
+}
+
+
+function checkAllDate()
+{
+	var dates = document.getElementById("dates").value;
+	var months = document.getElementById("month").value;
+	var years = document.getElementById("year").value;
+	//alert(dates + " " + months + " " + year);
+	if(months < 1 || months > 12){
+		isDate = false;
+	} else{
+		if(months == 1 || months == 3 || months == 5 || months == 8 || months == 10 || months == 12){
+			if(dates >=1 && dates <=31){
+				isDate = true;
+			} else{
+				isDate = false;
+			}
+		} else if(months == 2){
+			var kabisat = false;
+			if(years % 400 == 0){
+				kabisat = true;
+			} else if(years % 100 != 0 && years % 4 == 0){
+				kabisat = true;
+			} else{
+				kabisat = false;
+			}
+			
+			if(!kabisat){
+				if(dates >= 1 && dates <=28){
+					isDate = true;
+				} else{
+					isDate = false;
+				}
+			} else{
+				if(dates >= 1 && dates <=29){
+					isDate = true;
+				} else{
+					isDate = false;
+				}
+			}
+		} else{
+			if(dates >=1 && dates <= 30){
+				isDate = true;
+			} else{
+				isDate = false;
+			}
+		}
+	}
+	if(isDate){
+		document.getElementById("date_status").innerHTML="date is valid";
+	} else{
+		document.getElementById("date_status").innerHTML="date is not valid";
+	}
+	form_check();
 }
 
 function checkFullName(str)

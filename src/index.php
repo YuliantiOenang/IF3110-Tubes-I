@@ -32,12 +32,12 @@
                 <!-- <a href="dashboard.html">PRODUCTS</a> -->
 				<select>
 						<option value="Select">PRODUCTS</option>
-						<option value="product1">MosquitoMissile</option>
-						<option value="product2">WaspMissile</option>
-						<option value="product3">SilkwormMissile</option>
-						<option value="product4">DragonflyMissile</option>
-						<option value="product5">HornetMissile</option>
-						<option value="product6">FirestormTorpedo</option>
+						<option value="product1">Energy</option>
+						<option value="product2">Technology</option>
+						<option value="product3">Lasers</option>
+						<option value="product4">Missiles</option>
+						<option value="product5">Shield</option>
+						<option value="product6">Food</option>
 				</select>
 				<input type="text" name="search" class="sfield" value="" align = "right">
 				<a href="javascript:win1()">LOGIN</a>
@@ -45,7 +45,6 @@
                 <a href=>SHOPPING BAG</a>
                 
                 <a href="index.html">Logout</a>
-				</form>
 
 		</div>
 		<div class = "body">

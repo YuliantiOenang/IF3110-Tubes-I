@@ -1,6 +1,6 @@
 <?php
 
-Class HomeController Extends BaseController {
+Class IndexController Extends BaseController {
 
 	public function index() {
 		//$this->registry->template->title = 'Toko Komplit';

@@ -1,6 +1,5 @@
 <head>
 	<title>KasKong</title>
-
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/homePage.css">
 	<script src="script/header_home.js"></script>
@@ -50,20 +49,12 @@
   </form>
   </div>
 	<div id="loginPop">
-  	<form id='loginForm' method="post" action="login.php" autocomplete="off">
-    	<table>
-    		<tr>
-    			<td>Username:</td>
-    			<td><input style="width: 125px;" type="text" name="username" id="username" required/></td>
-            </tr>  
-            <tr>
-    			<td>Password:</td>
-    			<td><input style="width: 125px;" type="password" name="password" id="password" required/></td>
-    		</tr>
-    		<tr>
-    			<td colspan="2" align="right" valign="bottom"><input type="submit" id="subLog" value="Log me in!"/></td>
-    		</tr>
-    	</table>
+  	<form id='loginForm' method="post" action="login.php" autocomplete="off">    		
+			Username:
+			<input style="width: 125px;" type="text" name="username" id="username" required/>
+			Password:
+			<input style="width: 125px;" type="password" name="password" id="password" required/>
+			<input type="submit" id="subLog" value="Log me in!"/>
     </form>
 	</div>
 	<h3>Barang? Boleh sama... Kualitas? Dijamin <i>Oeh</i> punya!</h3>

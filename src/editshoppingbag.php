@@ -1,8 +1,8 @@
 <?php
 include "config.php";
 session_start();
-
-$result1 = mysql_query("SELECT * FROM shopping_bag WHERE username='ditra77' and status='Belum Selesai' ");
+$username = "'".$_SESSION['id']."'";
+$result1 = mysql_query("SELECT * FROM shopping_bag WHERE username=$username and status='Belum Selesai' ");
 $row1 = mysql_fetch_array($result1);
 $id_shopping_bag = $row1['id_shopping_bag'];
 $result2 = mysql_query("SELECT * FROM detail_shopping_bag WHERE id_shopping_bag=$id_shopping_bag");

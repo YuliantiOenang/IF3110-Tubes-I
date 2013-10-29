@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "config.php";
-$_SESSION[id] = 'ditra77';
 
 if (!empty($_POST['nama_lengkap'])) {
 	$fullname = $_POST['nama_lengkap'];

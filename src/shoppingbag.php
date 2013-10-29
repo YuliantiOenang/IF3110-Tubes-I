@@ -6,7 +6,8 @@
 <?php
 	include "config.php";
 	session_start();
-	$result1 = mysql_query("SELECT * FROM shopping_bag WHERE username='ditra77' and status='Belum Selesai' ");
+	$username = "'".$_SESSION['id']."'";
+	$result1 = mysql_query("SELECT * FROM shopping_bag WHERE username=$username and status='Belum Selesai' ");
 	if ($result1!=null) {
 		$row1 = mysql_fetch_array($result1);
 		$id_shopping_bag = $row1['id_shopping_bag'];
@@ -22,7 +23,7 @@
 		<div id="tab_tengah"> 
 			<?php if (mysql_num_rows($result1)>0) { ?>
 				<form name="shopping_bag_form" method="post" action="editshoppingbag.php" enctype="multipart/form-data">
-					<h3>SHOPPING BAG PENGGUNA <?php echo strtoupper('tes'); ?></h3>
+					<h3>SHOPPING BAG PENGGUNA <?php echo strtoupper($_SESSION['id']); ?></h3>
 					<div class="detail_shopping_bag">
 						<div class="baris">
 							<div class="kolom1">

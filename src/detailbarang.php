@@ -10,7 +10,8 @@
 	$result1 = mysql_query("SELECT * FROM barang WHERE id_barang=$q");
 	if ($result1!=null) {
 		$row1 = mysql_fetch_array($result1);
-		$result2 = mysql_query("SELECT * FROM shopping_bag WHERE username='ditra77' and status='Belum Selesai'");
+		$username = "'".$_SESSION['id']."'";
+		$result2 = mysql_query("SELECT * FROM shopping_bag WHERE username=$username and status='Belum Selesai'");
 		if (mysql_num_rows($result2)>0) {
 			$row2 = mysql_fetch_array($result2);
 			$id_shopping_bag = $row2['id_shopping_bag'];

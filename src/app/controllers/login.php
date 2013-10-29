@@ -18,6 +18,9 @@ Class LoginController Extends BaseController {
 	 */
 	public function destroy() {
 		session_start();
+		// Unset all of the session variables.
+		$_SESSION = array();
+		//and destroy
 		session_destroy();
 		//redirect
 		header("Location: " . SITEURL); die();

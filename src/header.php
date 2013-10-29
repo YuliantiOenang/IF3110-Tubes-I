@@ -1,7 +1,19 @@
 <div class="header-wrapper">
-	<div class="header-float">
-		<a href="#">Login</a>|<a href="#">Signup</a>|<a href="cart.php">Cart</a>
-	</div>
+	
+	
+	<div id="hfloat" class="header-float"></div>
+	
+	<script>
+		var loginfo = getLoginInfo();
+		var hfloat = document.getElementById("hfloat");
+		if(loginfo){
+			hfloat.innerHTML = "Hello, "+loginfo.user+" |<a href='javascript:logout();'>Logout</a>|<a href='cart.php'>Cart</a>";
+		}else{
+			hfloat.innerHTML = "<a href='javascript:login();'>Login</a>|<a href='registration.php'>Signup</a>";
+		}
+	</script>
+	
+	
 	<div class="header">
 		<div class="htitle"><a href="index.php">Ruko Serba Ada</a></div>
 		<div class="menu">

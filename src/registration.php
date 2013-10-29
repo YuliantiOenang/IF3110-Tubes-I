@@ -1,7 +1,10 @@
 <html>
 
 <head>
-<script src="ajax.js"></script>
+<title>Registration</title>
+<link rel="stylesheet" href="css/global.css" />
+<link rel="stylesheet" href="css/registration.css" />
+<script src="js/ajax.js"></script>
 
 <script type="text/javascript">
 function ValidateForm(form)
@@ -65,14 +68,22 @@ if (e==g)
   alert("Password is same email address!");
   return false;
   }
-var reg = /^[a-z][0-9a-z]*([._][0-9a-z])*[@][a-z0-9]+([.][a-z]{2,})+$/;
+  
+//var reg = /^[a-z][0-9a-z]*([._][0-9a-z])*[@][a-z0-9]+([.][a-z]{2,})+$/;
+/*if (!reg.test(e)){
+	alert("Email is not valid");
+	return false;
+}*/
+
+var reg = /^.+@.+\..{2,}$/;
 if (!reg.test(e)){
 	alert("Email is not valid");
 	return false;
 }
-reg = /^[A-Z][a-z]+([\ ][A-Za-z]+)+$/;
+
+var reg = /^.+ .+$/;
 if (!reg.test(a)){
-	alert("Email is not valid");
+	alert("Name is not valid");
 	return false;
 }
 
@@ -93,54 +104,51 @@ if (!reg.test(a)){
 </head>
 
 <body>
+<div class="outer">
+	<?php
+		include("header.php");
+	?>
 
-<form id="form1" name="form1" method="post">
-<table width="274" border="0" align="center" cellpadding="2" cellspacing="0">  
-  <tr>
-    <td colspan="2">
-		<div align="center">
-		  <?php 
-		echo 'Register Here';
-		?>	
-	    </div></td>
-  </tr>
-  
-  
-  <tr>
-    <td width="95"><div align="right">Name:</div></td>
-    <td width="171"><input type="text" name="name" /></td>
-  </tr>
-  
-  <tr>
-    <td><div align="right">Address:</div></td>
-    <td><input type="text" name="address" /></td>
-  </tr>
-  <tr>
-    <td><div align="right">Contact No.:</div></td>
-    <td><input type="text" name="contact" /></td>
-  </tr>
-  <tr>
-    <td><div align="right">Email:</div></td>
-    <td><input type="text" name="email" /></td>
-  </tr>
- <tr>
-    <td><div align="right">Username:</div></td>
-    <td><input type="text" name="username" /></td>
-  </tr>
- <tr>
-    <td><div align="right">Password:</div></td>
-    <td><input type="password" name="password" /></td>
-  </tr>
-  <tr>
-    <td><div align="right">Confirm Password:</div></td>
-    <td><input type="password" name="cpassword" /></td>
-  </tr>
-  <tr>
-    <td><div align="right"></div></td>
-    <td><input name="submit" type="button" onclick="return ValidateForm()" value="Submit" /></td>
-  </tr>
-</table>
-</form>
+<div class='content'>
+	<h3>Registration</h3>
+	<form id="form1" name="form1" method="post">
+	<div class="table">
+	  <div class="row">
+		<div class="cell50">Name:</div>
+		<div class="cell50"><input type="text" name="name" /></div>
+	  </div>
+	  <div class="row">
+		<div class="cell50">Address:</div>
+		<div class="cell50"><input type="text" name="address" /></div>
+	  </div>
+	  <div class="row">
+		<div class="cell50">Contact No.:</div>
+		<div class="cell50"><input type="text" name="contact" /></div>
+	  </div>
+	  <div class="row">
+		<div class="cell50">Email:</div>
+		<div class="cell50"><input type="text" name="email" /></div>
+	  </div>
+	 <div class="row">
+		<div class="cell50">Username:</div>
+		<div class="cell50"><input type="text" name="username" /></div>
+	  </div>
+	 <div class="row">
+		<div class="cell50">Password:</div>
+		<div class="cell50"><input type="password" name="password" /></div>
+	  </div>
+	  <div class="row">
+		<div class="cell50">Confirm Password:</div>
+		<div class="cell50"><input type="password" name="cpassword" /></div>
+	  </div>
+	  <div class="row">
+		<div class="cell50"></div>
+		<div class="cell50"><input name="submit" type="button" onclick="return ValidateForm()" value="Submit" /></div>
+	  </div>
+	</div>
 
+
+	</form>
+</div></div>
 </body>
 </html>

@@ -1,9 +1,10 @@
 <?php
-
+	include("lib/db.php");
 	function addToUser($data){
 		// mengecek apakah masih bisa meng-add barang dengan id tertentu sejumlah tertentu
 		// return -1 jika sukses, dan sisa barang jika gagal
-		$conn = new mysqli("localhost", "root", "", "user");
+		global $DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME;
+		$conn = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
 		
 		$statement = $conn->prepare("SELECT * FROM member WHERE Email = ?");
 		
@@ -26,7 +27,7 @@
 				$email=$data["email"]; 
 				$username=$data["username"];
 				$password=$data["password"];
-				$statement2 = $conn->prepare("INSERT INTO member(name,address,contact,email,username,password,no_credit,nama_credit,expired_date,jumlah_transaksi)VALUES('$name', '$address', '$contact', '$email', '$username', '$password', \"\", \"\", \"\", 0)");
+				$statement2 = $conn->prepare("INSERT INTO member(name,address,contact,email,username,password,jumlah_transaksi)VALUES('$name', '$address', '$contact', '$email', '$username', '$password', 0)");
 				$statement2->execute();
 				$statement2->fetch();
 				return 0;

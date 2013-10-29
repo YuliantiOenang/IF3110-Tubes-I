@@ -133,7 +133,7 @@ function createCell(size, content){
 }
 
 function loadCartPage(){
-	//cek login dulu
+	if(redirect_login) return;
 	
 	refreshCart();
 }

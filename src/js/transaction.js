@@ -1,4 +1,4 @@
-// DEPENDENCY: ajax.js
+// DEPENDENCY: ajax.js, login.js
 
 function formatCurrency(cash){
 	cash = cash.toString();
@@ -55,6 +55,8 @@ function editCart(id_barang, defValue, edit_callback){
 }
 
 function addCart(id_barang){
+	if(redirect_login) return;
+
 	var jumlah = parseInt(prompt("Tambahkan barang sejumlah:"));
 	
 	if (isNaN(jumlah)){

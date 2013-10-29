@@ -77,7 +77,8 @@
 	<span class="kolom dua">Gambar Barang</span>
 	<span class="kolom tiga">Harga</span>
 	<span class="kolom empat">Stok</span>
-	<span class="kolom lima">Aksi</span>
+	<span class="kolom lima">Jumlah Beli</span>
+	<span class="kolom enam">Aksi</span>
 </div>
 <?php
 while($row = mysql_fetch_object($data['barang']))
@@ -92,8 +93,9 @@ while($row = mysql_fetch_object($data['barang']))
 		{
 		?>
 		<span class="kolom empat"><?=$row->jumlah_barang;?></span>
-		<span class="kolom lima"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$row->id;?>">Beli</a>
-		    <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/detail?id=<?=$row->id;?>">Detail</a>
+		<span class="kolom lima"><input type="text" name="qty" size="8" id="qty_<?=$data['id'];?>" value="0"></span>
+		<span class="kolom enam">
+		<input type="button" value="Tambah ke Cart" id="beli" onClick="onAddToCart('<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/addCart', <?=$data['id'];?>); return false;">
 		</span>
 		<?php
 		}
@@ -101,9 +103,6 @@ while($row = mysql_fetch_object($data['barang']))
 		{
 		?>
 			<span class="kolom empat">Habis</span>
-			<span class="kolom lima">
-			  <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/detail?id=<?=$row->id;?>">Detail</a>
-			</span>
 		<?php		
 		}
 		?>

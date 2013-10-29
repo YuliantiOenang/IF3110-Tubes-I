@@ -1,0 +1,23 @@
+function get_list_product($cat) {
+        mysql_connect("localhost", "root", "") or die("problem with connection...");
+        mysql_select_db("ruserba");
+        $query = mysql_query('SELECT * FROM produk ORDER BY sold DESC WHERE kategori="'.$cat.'"');
+        $num = 0;
+        while(($row = mysql_fetch_assoc($query)) && ($num <= 4)) {
+        
+            $id = $row['id'];
+            $name = $row['nama'];
+            $img = $row['image'];
+
+            $output = "";
+
+            $output = $output . "<li>";
+            $output = $output . '<a href="shirt.php?id=' . $id . '">';
+            $output = $output . '<img src="' . $img . '" alt="' . $pname . '">';
+            $output = $output . "<p>View Details</p>";
+            $output = $output . "</a>";
+            $output = $output . "</li>";
+        
+        }
+        return $output;
+}

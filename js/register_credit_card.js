@@ -55,7 +55,7 @@ function checkCardNumber (str)
 			form_check();;
 		}
 	}
-	xmlhttp.open("GET","getcustomer.asp?q="+str,true);
+	//xmlhttp.open("GET","getcustomer.asp?q="+str,true);
 	xmlhttp.send();
 }
 

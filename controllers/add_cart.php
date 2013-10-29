@@ -1,20 +1,22 @@
 <?php
-//get the q parameter from URL
-$amount=$_GET["amount"];
-$id=$_GET["id"];
+	//get the q parameter from URL
+	/*$amount=$_GET["amount"];
+	$id=$_GET["id"];
 
-//lookup all hints from array if length of q>0
-include ("connect_database.php");
+	//lookup all hints from array if length of q>0
+	include ("connect_database.php");
 
-//checking if item count > 0
-$result = mysqli_query($con,"SELECT * FROM inventori WHERE id_inventori = ".$q);
+	//checking if item count > 0
+	$data = null;
+	session_start();
 
-$data = null;
-session_start();
+	$counts = count($_SESSION['shopping_bag']);
 
-$arr = array(' ' => array($amount, $id));
+	$arr1 = $_SESSION['shopping_bag'];
+	$arr2 = array($counts => array($amount, $id));
 
-$_SESSION[];
-
-echo $data['jumlah'];
+	$result = array_merge($arr1, $arr2);
+	$SESSION['shopping_bag'] = $result;
+*/
+	echo "1";
 ?>

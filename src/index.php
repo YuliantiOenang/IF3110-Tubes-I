@@ -3,13 +3,13 @@ include("templates/header.htm");
 if (!empty($_GET['page']))
 {
 	$page = $_GET['page'];
-	$page = basename($page,".htm");
+	$page = basename($page);
 	//jika page tidak ditemukan ATAU header/footer diakses
-	if(($page == 'header') || ($page == 'footer') || (!file_exists("htm/$page.htm")))
+	if(($page == 'header') || ($page == 'footer') || (!file_exists("$page.php")))
 	{
 		$page = "index";
 	}
-	include("htm/$page.htm");
+	include("$page.php");
 }
 else
 {

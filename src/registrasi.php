@@ -11,9 +11,7 @@ if (!mysqli_query($con,$sql))
 	die('Error: ' . mysqli_error($con));
  }
 else
-{
-	//echo 'registrasi berhasil';
-	//redirect ke registrasi kartu kredit
+{	
 	header( 'Location: index.php?page=form_registrasi_kartukredit' );
 }
 

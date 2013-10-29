@@ -13,8 +13,13 @@ if (!mysqli_query($con,$sql))
 else
 {
 	//echo 'registrasi berhasil';
+	//update header
+	echo ("<script type = 'text/javascript'>
+			window.alert('registrasi berhasil')
+			window.location.href='index.php';
+			</script>");
 	//redirect ke home
-	header( 'Location: index.php' );
+	//header( 'Location: index.php?page=header' );
 }
 
 //close connection

@@ -25,6 +25,66 @@
 					unset($_SESSION["$nama"]);
 				}
 				
+			?>
+			
+			
+			<?php
+				if (isset($_POST['submitall'])){
+					
+					$success = 0;
+					
+					foreach ($_SESSION as $key=>$value)
+					{
+						$con=mysqli_connect("localhost","root","","ruserba");
+						// Check connection
+						if (mysqli_connect_errno())
+						  {
+						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+						  }
+
+						$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
+
+						$row = mysqli_fetch_array($result);
+						
+						if ($row['Banyak'] < $value){
+							echo "Stok ".$key." tidak tersedia..";
+							unset($success);
+							break;
+						} else {
+							$success = $success + $value * $row['Harga'];
+						}
+
+						mysqli_close($con);
+					}
+					
+					if (isset($success)){
+						echo "Pembelian barang berhasil!";
+						echo "<br/>";
+						echo "Total Harga : ".$success;
+						echo "<br/>";
+						
+						// update database..
+						foreach ($_SESSION as $key=>$value)
+						{
+							$con=mysqli_connect("localhost","root","","ruserba");
+							// Check connection
+							if (mysqli_connect_errno())
+							  {
+							  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+							  }
+
+							$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
+							$row = mysqli_fetch_array($result);
+							$temp = $row['Banyak'] - $value;
+							mysqli_query($con,"UPDATE Merchandise SET Banyak=". $temp ." WHERE Nama='".$key."'");
+
+							mysqli_close($con);
+							unset($_SESSION["$key"]);
+						}
+						//
+					}
+				}
+				
 				foreach ($_SESSION as $key=>$value)
 				{
 					$set = 1;
@@ -72,48 +132,6 @@
 			} else {
 				echo "Tas Belanja kosong..";
 			}
-			?>
-			
-			<?php
-				if (isset($_POST['submitall'])){
-					
-					$success = 0;
-					
-					foreach ($_SESSION as $key=>$value)
-					{
-						$con=mysqli_connect("localhost","root","","ruserba");
-						// Check connection
-						if (mysqli_connect_errno())
-						  {
-						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-						  }
-
-						$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
-
-						$row = mysqli_fetch_array($result);
-						
-						if ($row['Banyak'] < $value){
-							echo "Stok ".$key." tidak tersedia..";
-							unset($success);
-							break;
-						} else {
-							$success = $success + $value * $row['Harga'];
-						}
-
-						mysqli_close($con);
-					}
-					
-					if (isset($success)){
-						echo "Pembelian barang berhasil!";
-						echo "<br/>";
-						echo "Total Harga : ".$success;
-						echo "<br/>";
-						
-						// update database..
-						
-						//
-					}
-				}
 			?>
 			
 		</div>

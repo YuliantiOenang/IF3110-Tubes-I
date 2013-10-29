@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 	<title> Home </title>
+    <script src="<?=SITE_ROOT.NAME_ROOT;?>/js/ajaxShop.js" type="text/javascript"></script>
 </head>
 <body>
 <b>Detail Barang</b><br>
@@ -20,7 +21,9 @@ while($row = mysql_fetch_object($data['detail']))
 	{
 	?>
 		Stok : <?=$row->jumlah_barang;?><br>
-		<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$data['id'];?>">Beli Barang</a>
+        Jumlah Barang : <input type="text" name="qty" size="8" id="qty_<?=$data['id'];?>" value="0"><br>
+        Deskripsi Tambahan : <textarea name="deskripsi_tambahan" id="deskripsi_tambahan"></textarea><br>
+		<input type="button" value="Tambah ke Cart" id="beli" onClick="onAddToCart('<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/addCart', <?=$data['id'];?>); return false;">
 	<?php	
 	}
 	?>

@@ -1,6 +1,40 @@
 <?php
 class Barang
 {
+
+    public function addCart(array $var)
+    {
+        if (isset($_SESSION['username']))
+        {
+            if (isset($var['submit']))
+            {
+				//algoritma apabila barang sudah disubmit
+				$m = new Barang_Model();
+					
+				if (!is_numeric($var['id_barang'])) die("SQL Injection detected");
+
+				$row = $m->getOnlyBarangID($var['id_barang']);
+               
+				if ($row->jumlah_barang < $var['qty'] || $var['qty'] <= 0)
+				{
+					echo "Failure: Transaksi tidak berhasil, qty yang dimasukkan tidak valid.";
+				}
+				else
+				{
+                    if (isset($var['deskripsi_tambahan'])) $deskripsi_tambahan = $var['deskripsi_tambahan'];
+                    else $deskripsi_tambahan = "";
+                    // TODO : Add to cart
+					//$m->Beli($var['id_barang'],$var['kartu'],$var['qty'], $deskripsi_tambahan);
+					echo "Success: Transaksi berhasil!";
+				}
+            }
+        }
+        else
+        {
+            echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php"; // kembali ke halaman utama
+        }
+    }
+    
 	public function beli(array $var)
 	{
 		if (isset($_SESSION['username']))

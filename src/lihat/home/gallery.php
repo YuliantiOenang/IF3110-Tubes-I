@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 	<title> Gallery </title>
 	<link href="<?=SITE_ROOT.NAME_ROOT;?>/css/table.css" rel="stylesheet"/>
+    <script src="<?=SITE_ROOT.NAME_ROOT;?>/js/ajaxShop.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -54,10 +55,9 @@ while($row = mysql_fetch_object($data['barang']))
 		{
 		?>
 		<span class="kolom empat"><?=$row->jumlah_barang;?></span>
-        <span class="kolom lima"><input type="text" name="qty" size="8"></span>
+        <span class="kolom lima"><input type="text" name="qty" size="8" id="qty_<?=$row->id;?>" value="0"></span>
 		<span class="kolom enam">
-        <input type="button" value="Beli" onClick="">
-        <!--<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$row->id;?>">Beli</a>-->
+        <input type="button" value="Tambah ke Cart" id="beli" onClick="onAddToCart('<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/addCart', <?=$row->id;?>); return false;">
 		</span>
 		<?php
 		}
@@ -66,7 +66,7 @@ while($row = mysql_fetch_object($data['barang']))
 		?>
 			<span class="kolom empat">Habis</span>
             <span class="kolom lima"></span>
-            <span class="kolom enam"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli?id=<?=$row->id;?>" disabled="true">Beli</a></span>
+            <span class="kolom enam"><input type="button" value="Tambah ke Cart" id="beli" onClick="" disabled="true"></span>
 		<?php		
 		}
 		?>

@@ -11,7 +11,7 @@ function choose_top() {
 	choose_2_other();
 	choose_3_food();
 	choose_3_dress();
-	choose_3p_furniture();
+	choose_3_furniture();
 	choose_3_tool();
 	choose_3_other();
 }

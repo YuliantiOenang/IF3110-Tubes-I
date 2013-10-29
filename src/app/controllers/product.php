@@ -14,9 +14,9 @@ Class ProductController Extends BaseController {
 	}
 
 
-	public function search($keyword) {
+	public function search() {
 		$this->registry->template->CONFIG = $this->registry->config;
-		$this->registry->template->keyword = $keyword;
+		$this->registry->template->keyword = $_GET['keyword'];
 		$this->registry->template->show('listproduct');
 	}
 

@@ -2,7 +2,6 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="<?php echo SITEURL . '/include/css/style.css' ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo SITEURL . '/include/css/test.css' ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo SITEURL . '/include/css/login.css' ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo SITEURL . '/include/css/register.css' ?>">
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito">

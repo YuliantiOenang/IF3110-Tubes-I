@@ -80,10 +80,9 @@ body{
 	
 .dropdownHeader ul li a {
 		display: block; 
-		padding: 10px 40px;
+		padding: 10px 20px;
 		color: #fcfcfc; 
-		text-decoration: none;
-		panding : 0 20px;
+		text-decoration: none;		
 	}
 	
 .dropdownHeader ul li form{		
@@ -443,10 +442,10 @@ body {
         border-radius: 5px;
 }
 
-
-.logo {
-	height:40px;
-}
+.dropdownHeader ul li a img{
+	height : 46px;
+	padding-bottom: 0px;	
+}	
 
 .dropdownHeader  ul {				
 	list-style : none;
@@ -457,10 +456,11 @@ body {
 	margin-bottom:10px;
 }
 
-.dropdownHeader ul li a {
+#logo {
 	display: block;
-	padding: 10px 40px;
 	color: #fcfcfc;
 	text-decoration: none;
-	padding: 10px 20px;
+	padding: 0px;
+	margin: 0px;
+	vertical-align: middle;
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2013 at 05:47 AM
+-- Generation Time: Oct 29, 2013 at 03:35 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -46,8 +46,8 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `stok`, `harga`, `jumlah_terbe
 (2, 'Oran Berry', 2057, 20000, 504, 'Makanan', 'Menambah HP Pokemon.'),
 (3, 'Kodok Hijau', 132, 15000, 7351, 'Peralatan Sekolah', 'Peralatan wajib sekolah dasar sihir. Dapat disihir hingga 5000 kali.'),
 (4, 'Kapur', 1240, 500, 12030, 'Peralatan Sekolah', 'Peralatan wajib sekolah dasar sihir. Untuk pembuatan pentagram.'),
-(5, 'Muon Collider', 17, 2000000000, 40, 'Peralatan Sekolah', 'Collider partikel muon. Untuk lab fisika SMA.'),
-(6, 'One-Handed Sword', 13, 200000, 10058, 'Peralatan Sekolah', 'Peralatan wajib sekolah militer. Untuk SMP kelas 2-3'),
+(5, 'Muon Collider', 13, 2000000000, 44, 'Peralatan Sekolah', 'Collider partikel muon. Untuk lab fisika SMA.'),
+(6, 'One-Handed Sword', 2, 200000, 10073, 'Peralatan Sekolah', 'Peralatan wajib sekolah militer. Untuk SMP kelas 2-3'),
 (7, 'Mini GN-Drive', 134, 2000000, 271, 'Mainan', 'Miniatur sistem propulsi berbasis GN-Particle. Dapat dipasang di sepatu roda, skateboard dan sepeda.'),
 (8, 'AK-47', 1202, 300000, 25456, 'Peralatan Sekolah', 'Peralatan keamanan diri dasar wanita umur 16-23 tahun. Dapat digunakan untuk mengusir stalker.'),
 (10, 'Little Boy', 208, 100000000, 2508, 'Mainan', 'Versi Hiroshima. Hati-hati dalam penggunaan; mudah meledak.'),
@@ -75,6 +75,39 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `stok`, `harga`, `jumlah_terbe
 (32, 'Coca-Cola', 102, 5000, 1438, 'Peralatan Rumah', 'Pembersih lantai dan toilet. Hati-hati dalam menggunakan; cairan bersifat korosif.'),
 (33, 'Kopi', 1002, 3000, 3292, 'Makanan', 'Dapat diubah menjadi kode.'),
 (34, 'Lemari Rahasia', 301, 300000, 2483, 'Peralatan Rumah', 'Lemari rahasia yang ditanam di dalam dinding. Dapat digunakan untuk menyembunyikan uang, koleksi doujin, benda keramat ataupun korban pembunuhan.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE IF NOT EXISTS `member` (
+  `mem_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `contact` varchar(30) DEFAULT NULL,
+  `email` varchar(50) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(60) NOT NULL,
+  `no_credit` varchar(16) DEFAULT NULL,
+  `nama_credit` varchar(50) DEFAULT NULL,
+  `expired_date` varchar(30) DEFAULT NULL,
+  `jumlah_transaksi` int(11) NOT NULL,
+  PRIMARY KEY (`mem_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`mem_id`, `name`, `address`, `contact`, `email`, `username`, `password`, `no_credit`, `nama_credit`, `expired_date`, `jumlah_transaksi`) VALUES
+(1, 'Faiz', NULL, NULL, 'faiz@faiz.com', 'faiz', 'root', '1234567890123456', 'faizilham', '12/15', 1),
+(4, 'abcd abcd', 'asaasd', '23213', 'a@a.cc', 'abcdabcd', '12345678', NULL, NULL, NULL, 0),
+(5, 'akbar saputra', 'a', '01234', 'a@a.com', 'akbar', '12345678', NULL, NULL, NULL, 0),
+(6, 'a a', 'a', '1', 'a@e.eee', 'eeeeee', '12345678', NULL, NULL, NULL, 0),
+(7, 'abcd a', 'aa', '1', 'qwe@qe.qq', 'qwerty', '12345678', NULL, NULL, NULL, 0),
+(8, 'qwe dasd', 'adas', '123', 'asd@asd.aaa', 'zxcvb', '12345678', '1234567890123456', 'faizz', '12/14', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

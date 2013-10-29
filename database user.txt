@@ -1,6 +1,0 @@
-CREATE DATABASE user;
-
-CREATE TABLE member(mem_id int auto_increment, name varchar(30), address varchar(100), contact varchar(30), email varchar(50), username varchar(100), password varchar(60), no_credit char(16), nama_credit char(50), expired_date char(30), jumlah_transaksi int) ENGINE=MyISAM;
-
-ALTER TABLE ADD PRIMARY KEY(mem_id);
-

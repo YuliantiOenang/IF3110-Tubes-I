@@ -140,7 +140,7 @@ class Barang_Model
 
 	public function generateCart()
 	{
-		$query = "SELECT barang_card.id, barang_card.tgl_pembelian, barang_card.status, barang_card.jumlah_barang, barang_card.deskripsi_tambahan,barang.nama_barang, barang.harga_barang from barang JOIN barang_card ON barang_card.id_user=".$_SESSION['id']." AND barang_card.id_barang = barang.id AND barang_card.id_card = 0";
+		$query = "SELECT barang_card.id, barang_card.tgl_pembelian, barang_card.status, barang_card.jumlah_barang, barang_card.deskripsi_tambahan,barang.nama_barang, barang.harga_barang from barang JOIN barang_card ON barang_card.id_user=".$_SESSION['id']." AND barang_card.id_barang = barang.id";
 		return $this->database->query($query);
 	}
 

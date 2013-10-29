@@ -72,7 +72,8 @@ while ($row = mysql_fetch_object($data['listCC']))
 }
 ?>
 </select><br>
-<input type="submit" value="submit" name="submit">
+<input type="submit" value="submit" name="submit" <?php if ($total_harga == 0) echo "disabled"; ?>>
+<input type="button" value="back" onClick="history.go(-1);return reset();">
 </form>
 </body>
 </html>

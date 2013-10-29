@@ -249,7 +249,7 @@ function remove(id)
 					
 				</div> 
 				
-			<p class="welctext" id="welcome">Welcome,<a href="see_profile.php"><?php if(isset($_COOKIE['user1'])) echo "".$_COOKIE['user1'].""; ?></a></p>
+			<a href="see_profile.php"><p class="welctext" id="welcome"><?php if(isset($_COOKIE['user1'])) echo "WELCOME,".$_COOKIE['user1'].""; ?></p></a>
 			</div>
 		</div>
 		<div class = "menu">
@@ -314,7 +314,7 @@ function remove(id)
 			<div class = "registerspace">
 			<label>Username : <?php echo $_COOKIE["username"] ?></label></br></br>
 			
-			<label>Nama Lengkap &nbsp: <?php echo $_COOKIE["user1"] ?></label></br></br>
+			<label>Nama Lengkap : <?php echo $_COOKIE["user1"] ?></label></br></br>
 			
 			<label>Nomor Handphone : <?php if(isset($_COOKIE["handphone"]))echo $_COOKIE["handphone"]; ?></label></br></br>
 			

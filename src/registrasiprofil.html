@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Registrasi Profil</title>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script src="formprofil.js"> </script>
+                
+       </head>
+    <body>
+        
+        
+        
+            <div class="body">
+                
+                 
+                <div class="registerform">  
+                    <form name="register" action="formprofil.php"  method="post" >  
+                        <label for="username" onkeyup="validuname(username,password)">Username</label>
+                        <input type="text" name="username" placeholder="username"  >  <span id="validHint"></span>
+                        
+                        <br>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" placeholder="password"  > 
+                        
+                        <br>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="email"  >  
+                        
+                        <br>
+                        <label for="confirmpassword">Confirm Password</label>  
+                        <input type="password" name="confirmpassword" placeholder="password"  >
+                        
+                        <br> 
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" name="nama" placeholder="Nama anda"  > 
+                        
+                        
+                        <br> 
+                        <label for="alamat">Alamat</label>
+                        <input type="text" name="alamat" placeholder="Alamat anda"  >
+                        
+                        <br> 
+                        <label for="provinsi">Provinsi</label>
+                        <input type="text" name="provinsi" placeholder="Alamat anda"  >
+                        
+                        <br> 
+                        <label for="kota">Kota/Kabupaten</label>
+                        <input type="text" name="kota" placeholder="Kota/Kabupaten"  >
+                        
+                        <br> 
+                        <label for="kodepos">Kode Pos</label>
+                        <input type="number" name="kota" placeholder="Kode Pos"  >
+                        
+                        <br> 
+                        <label for="handphone">Nomor Handphone</label>
+                        <input type="number" name="handphone" placeholder="Tanpa +62"  >                      
+                        
+                        
+                        
+                        <br>
+                        <input type="submit" value="register">  
+                    </form>  
+                </div> 
+            </div>
+            <footer>
+            <br>
+            About us
+            </footer>    
+    </body>
+</html>

@@ -120,7 +120,8 @@ class Barang
 			$u->setData('nama_barang',$var['search']);
 			$u->setData('kategori',$var['kategori']);
 			$u->setData('harga',$var['harga']);
-			$u->setData('operator',$var['operator']);			
+			$u->setData('operator',$var['operator']);
+            $u->setData('listCateg',$m->getAllCategory());			
 
 			$u->setData('barang',$m->cariBarang($var['search'],$var['kategori'],$var['harga'],$var['operator'],$var['page']*10));
 			$u->setData('jmlPage',(($m->countCariBarang($var['search'],$var['kategori'],$var['harga'],$var['operator'])->JmlBarang)/10));

@@ -52,26 +52,13 @@
 				<form novalidate> Permintaan Khusus : <br/> 
 					<textarea class="textinput" width=200 height=100 type="text" name="tambahan"></textarea>
 				</form>
-				<form> Quantity : 
+			 Quantity : 
 					<input class="numinput" type="number" name="quantity" size="500"><br/> 
-					<input type="image" src="../img/Cart.png">
-				</form>
+					<input type="image" src="../img/addtocart.png">
+				
 				<?php mysqli_close($con); ?>
 			</div>
 
-		</div>
-		<div class = "data">
-			<?php echo $row['nama_inventori'];?><br/><br/>
-			<?php echo $row['description'];?><br/><br/>
-			<form novalidate> Permintaan Khusus : <br/> 
-				<textarea class="textinput" width=200 height=100 type="text" name="tambahan"></textarea>
-			</form>
-			<form> Quantity :
-				<input class="numinput" type="number" name="quantity" size="500"><br/> 
-			</form>
-			<a href=#><img height=30px src="../img/addtocart.png"></img></a>
-			<a href ='../pages/shopping_bag.php'><img height=30px src="../img/viewcart.png"></img></a>
-			<?php mysqli_close($con); ?>
 		</div>
 	</div>
 	<?php 

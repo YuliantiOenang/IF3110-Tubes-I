@@ -3,7 +3,7 @@
 <!-- includes -->
 <link rel='stylesheet' type='text/css' href='../css/homepage.css' media='screen' />
 
-<script type="text/javascript" src="../js/edit_user.js"></script>
+<script type="text/javascript" src="../js/edit_users.js"></script>
 <script type="text/javascript" src="../js/general.js"></script>
 
 <head>
@@ -39,28 +39,29 @@
 					break;
 				}
 			?>
-			<form action="" method="post">
+			<form action="../controllers/update_profil.php" method="post">
 				<p>nama lengkap</p>
-				<input id="name" name="name" type="text" value=<?php echo $data['nama_pengguna']?> onkeyup="checkFullName(this.value)"></input>
+				<input type="hidden" name="username" id="username" value=<?php echo $_SESSION['username']; ?> />
+				<input id="nama_pengguna" name="nama_pengguna" type="text" value=<?php echo $data['nama_pengguna'];?> onkeyup="checkFullName(this.value)" />
 				<p id="fullname_status"></p>
 				<p>email</p>
-				<input id="email" name="email" type="text" value=<?php echo $data['email']?> onkeyup="checkEmailValid(this.value)"></input>
+				<input id="email" name="email" type="text" value=<?php echo $data['email'];?> onkeyup="checkEmailValid(this.value)" />
 				<p id="email_status"></p>
 				<p>nomor handphone (min 8 digits)</p>
-				<input id="no_hp" name="no_hp" type="text" value=<?php echo $data['nomor_hp']?> onkeyup="checkNomorHP(this.value)"></input>
+				<input id="nomor_hp" name="nomor_hp" type="text" value=<?php echo $data['nomor_hp'];?> onkeyup="checkNomorHP(this.value)" />
 				<p id="nomor_hp"></p>
 				<p>alamat</p>
-				<input id="alamat" name="alamat" type="text" value=<?php echo $data['alamat']?> onkeyup="checkAddress(this.value)"></input>
+				<input id="alamat" name="alamat" type="text" value=<?php echo $data['alamat'];?> onkeyup="checkAddress(this.value)"/>
 				<p id="alamat_status"></p>
 				<p>provinsi</p>
-				<input id="provinsi" name="provinsi" type="text" value=<?php echo $data['provinsi']?>  onkeyup=""></input>
+				<input id="provinsi" name="provinsi" type="text" value=<?php echo $data['provinsi'];?> />
 				<p>kota/kabupaten</p>
-				<input id="kota_kabupaten" name="kode_kabupaten_status" value=<?php echo $data['kota_kabupaten']?> type="text" onkeyup="checkKotaKabupaten(this.value)"></input>
+				<input id="kota_kabupaten" name="kota_kabupaten" value=<?php echo $data['kota_kabupaten'];?> type="text" onkeyup="checkKotaKabupaten(this.value)" />
 				<p id="kota_kabupaten_status"></p>
 				<p>kode pos</p>
-				<input id="kodepos" name="kodepos" value=<?php echo $data['kode_pos']?> type="text" onkeyup="checkKodePos(this.value)"></input>
+				<input id="kode_pos" name="kode_pos" value=<?php echo $data['kode_pos'];?> type="text" onkeyup="checkKodePos(this.value)" />
 				<p id="kodepos_status"></p>
-				<button type = "submit" id="button_register" disabled="true">Update</button>
+				<button type = "submit" id="button_register">Update</button>
 			</form>
 			
 			

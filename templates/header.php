@@ -5,6 +5,14 @@
 		echo "<script type='text/javascript' src='../js/general.js'></script>";
 ?>
 
+<?php
+	if($_SESSION['state']== 1) {
+		include ("../templates/mask.php");
+	} else {
+		include ("templates/mask.php");
+	}	
+?>
+
 <div class = "heading">
 	<div class = "logo">
 		<?php 
@@ -14,7 +22,7 @@
 				echo "<a href='../index.php'><img src='../img/logo.png' width=200px/></a>";
 		?>
 	</div>
-	<div class = "login">
+	<div class = "registerlogin">
 		<!--check if its logged-->
 		<?php
 			$data = null;
@@ -39,10 +47,10 @@
 			if(!$active){
 				if($_SESSION['state'] == 2){
 					echo "<a href='pages/register_user.php'>register</a> or ";?>
-					<div onclick="doPopUp()" style='background:red;height:30px'>login</div>
+					<a href=# onclick="doPopUp()">login</a>
 				<?php
 				} else
-					echo "<a href='../pages/register_user.php'>register</a> or <a href='../pages/login_user.php'>login</a>";
+					echo "<a href='../pages/register_user.php'>register</a> or <a href=# onclick='doPopUp()'>login</a>";
 			}
 		?>
 	</div>

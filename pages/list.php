@@ -85,7 +85,7 @@
 						}
 					}
 						
-					echo "<img src='../img/". $row['gambar'] ."'> <br/>";
+					echo "<img width = 200px src='../img/". $row['gambar'] ."'> <br/>";
 					echo "Nama: <a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
 					echo "Harga: Rp".$row['harga']." <br/>";
 					?>

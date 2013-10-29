@@ -49,6 +49,9 @@ class Barang
 				if (isset($var['submit']))
 				{
 					// Mengubah status menjadi 1, set id_card, dan mengurangi stok
+                    $m = new Barang_Model();
+                    $m->Beli($var['kartu']);
+                    header("Refresh: 0;url=".SITE_ROOT.NAME_ROOT."/index.php/user/cart");
 				}
 				else
 				{

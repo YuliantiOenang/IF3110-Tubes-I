@@ -16,20 +16,29 @@ function onAddToCart(strUrl, id) {
         self.xmlHttpRequest.onreadystatechange = function() {
             if (self.xmlHttpRequest.readyState == 4) { // Menunggu sampai POST selesai dilakukan
                 var str = self.xmlHttpRequest.responseText;
+                
+                var m = str.indexOf("Redirect");
+                if (m != -1) {
+                     window.location.replace(self.xmlHttpRequest.responseText.substring(m + 10));
+                    exit();
+                }
+                
                 var n = str.indexOf("Success");
                 alert(self.xmlHttpRequest.responseText);
                 if (n != -1) {
                    document.getElementById('qty_' + id).value = 0;
+                   document.getElementById('deskripsi_tambahan').value = "";
                 }
+                
             }
         }
         
         var submitValue = true;
         var params;
 
-        if (document.getElementById('deskripsi_tambahan').innerHTML.trim() != "") {
+        if (document.getElementById('deskripsi_tambahan').value.trim() != "") {
             params = "submit=" + submitValue + "&id_barang=" + id + "&qty=" + document.getElementById('qty_' + id).value
-                    + "&deskripsi_tambahan=" + document.getElementById('deskripsi_tambahan').innerHTML.trim();    
+                    + "&deskripsi_tambahan=" + document.getElementById('deskripsi_tambahan').value.trim();    
         } else {
             params = "submit=" + submitValue + "&id_barang=" + id + "&qty=" + document.getElementById('qty_' + id).value;    
         }               

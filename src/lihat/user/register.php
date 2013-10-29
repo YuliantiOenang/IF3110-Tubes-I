@@ -31,39 +31,16 @@
 			<?php
 				}
 			?>
-			<form action="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari" method="GET">
-			<p id ="search"><b>Cari Barang:</b>
-			Nama : <input type="text" name="search">
-			Kategori : 
-			<select name="kategori">
-			<option value="">--Pilih--</option>
-			<?php
-			while ($row = mysql_fetch_object($data['listCateg']))
-			{
-			?>
-			<option value="<?=$row->name;?>"><?=$row->name;?></option>
-			<?php
-			}
-			?>
-			</select>
-			Harga : <input type="text" name="harga">
-			<input type="submit"><br>
-			<span id="radiobutt">
-			<input type="radio" name="operator" value="L" checked>Less than
-			<input type="radio" name="operator" value="E">Equal to
-			<input type="radio" name="operator" value="G">Greater than
-			</span>
-			</p>
-			<form>
+			<p id ="search">Cari Barang: <input type="text" size="100"> <input type="submit" value="Search"></p>
 			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/cart"><img id="tasbelanja" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/tasbelanja.jpg" alt="Tas Belanja"></a>	
 		</div>
 		<div id="kategori">
-			 <p><span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Sembako"><strong>Sembako</strong></a></span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Handphone"><strong>Handphone</strong></a></span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Peralatan+Listrik"><strong>PeralatanElektronik</strong></a></span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Aksesoris+Komputer"><strong>AksesorisKomputer</strong></a></span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Perabotan+Rumah"><strong>PerabotanRumah</strong></a></span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Alat+Tulis"><strong>AlatTulis</strong></a></span>
+			 <p><span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>Sembako</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>Handphone</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>PeralatanElektronik</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>AksesorisKomputer</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>PerabotanRumah</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>AlatTulis</strong></a></span>
 			 <p>
 		</div>
 	</div>

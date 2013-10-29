@@ -23,15 +23,15 @@ class Barang
 				{
                     if (isset($var['deskripsi_tambahan'])) $deskripsi_tambahan = $var['deskripsi_tambahan'];
                     else $deskripsi_tambahan = "";
-                    // TODO : Add to cart
-					//$m->Beli($var['id_barang'],$var['kartu'],$var['qty'], $deskripsi_tambahan);
+
+                    $m->AddCart($var['id_barang'], $var['qty'], $deskripsi_tambahan);
 					echo "Success: Transaksi berhasil!";
 				}
             }
         }
         else
         {
-            echo "Success: ".SITE_ROOT.NAME_ROOT."/index.php"; // kembali ke halaman utama
+            echo "Redirect: ".SITE_ROOT.NAME_ROOT."/index.php/user/register"; // kembali ke halaman register
         }
     }
     
@@ -48,38 +48,17 @@ class Barang
 			{
 				if (isset($var['submit']))
 				{
-					//algoritma apabila barang sudah disubmit
-					$m = new Barang_Model();
-					
-					if (!is_numeric($var['id_barang'])) die("SQL Injection detected");
-
-					$row = $m->getOnlyBarangID($var['id_barang']);
-					if ($row->jumlah_barang < $var['qty'])
-					{
-						echo "Transaksi tidak berhasil, qty yang dimasukkan melebihi stok";
-					}
-					else
-					{
-						$m->Beli($var['id_barang'],$var['kartu'],$var['qty'], $var['deskripsi_tambahan']);
-						echo "Transaksi berhasil, anda akan diredirect ke laman pembelian untuk mengecek";
-						header("Refresh: 2;url=".SITE_ROOT.NAME_ROOT."/index.php/user/cart");
-					}
+					// Mengubah status menjadi 1, set id_card, dan mengurangi stok
 				}
 				else
 				{
 					$m = new Barang_Model();
 					$u = new User_Model();
 					$v = new View('barang/beli');
-
-					if (!is_numeric($var['id'])) die("SQL Injection detected");
-
-					$row = $m->getOnlyBarangID($var['id']);
-					if ($row == null) die("Sistem mendeteksi adanya keanehan");
-
-					$v->setData('nama_barang',$row->nama_barang);
-					$v->setData('stok',$row->jumlah_barang);
+                    
+                    $v->setData("listBarang",$m->generateCart());
 					$v->setData('listCC',$u->lihatCreditCard());
-					$v->setData('id_barang',$var['id']);
+
 					$v->render();
 				}
 			}
@@ -113,6 +92,8 @@ class Barang
 	{
 		$m = new Barang_Model();
 		$u = new View('home/gallery');
+        $v2 = new View ('home/login');
+        $u->setData('loginView', $v2->render(false)); // rendering Login page
 		$u->setData('listCateg',$m->getAllCategory());
 
 		if (isset($var['sort'])) $u->setData('sort',$var['sort']);

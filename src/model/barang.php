@@ -115,21 +115,27 @@ class Barang_Model
 		return $this->database->fetch();
 	}
 
-	public function Beli($id_barang, $id_card, $jumlah_barang, $deskripsi_tambahan)
+	public function Beli($id_card)
 	{
-		$query = "INSERT INTO barang_card (id_barang,id_card,status,jumlah_barang,id_user,deskripsi_tambahan) VALUES ('".$id_barang."','".$id_card."','"."0"."','".$jumlah_barang."','".$_SESSION['id']."','".$deskripsi_tambahan."')";
+        $query = "UPDATE barang_card SET status=1, id_card='".$id_card."' where id=".$_SESSION['id'];
 		$this->database->query($query);
 		
-		$row = $this->getOnlyBarangID($id_barang);
-		$hasil = ($row->jumlah_barang) - $jumlah_barang;
+		//$row = $this->getOnlyBarangID($id_barang);
+		//$hasil = ($row->jumlah_barang) - $jumlah_barang;
 		
-		$query = "UPDATE barang SET jumlah_barang=".$hasil." where id =".$id_barang;
-		$this->database->query($query);
+		//$query = "UPDATE barang SET jumlah_barang=".$hasil." where id =".$id_barang;
+		//$this->database->query($query);
 	}
+    
+    public function AddCart($id_barang, $jumlah_barang, $deskripsi_tambahan)
+    {
+        $query = "INSERT INTO barang_card (id_barang,id_card,status,jumlah_barang,id_user,deskripsi_tambahan) VALUES ('".$id_barang."','"."0"."','"."0"."','".$jumlah_barang."','".$_SESSION['id']."','".$deskripsi_tambahan."')";
+		$this->database->query($query);
+    }
 
 	public function generateCart()
 	{
-		$query = "SELECT barang_card.id, barang_card.tgl_pembelian, barang_card.status, barang_card.jumlah_barang, barang_card.deskripsi_tambahan, card.card_number,barang.nama_barang from barang JOIN barang_card JOIN card ON barang_card.id_user=".$_SESSION['id']." AND barang_card.id_barang = barang.id AND barang_card.id_card = card.id AND card.id_user =".$_SESSION['id'];
+		$query = "SELECT barang_card.id, barang_card.tgl_pembelian, barang_card.status, barang_card.jumlah_barang, barang_card.deskripsi_tambahan, card.card_number,barang.nama_barang, barang.harga_barang from barang JOIN barang_card JOIN card ON barang_card.id_user=".$_SESSION['id']." AND barang_card.id_barang = barang.id AND barang_card.id_card = card.id AND card.id_user =".$_SESSION['id'];
 		return $this->database->query($query);
 	}
 

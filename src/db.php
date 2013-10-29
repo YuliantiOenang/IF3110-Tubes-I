@@ -2,7 +2,7 @@
 	define('DB_HOST', 'localhost');
 	define('DB_USERNAME', 'root');
 	define('DB_PASSWORD', '');
-	define('DB_NAME', 'ruserba');
+	define('DB_NAME', 'progin_13510082');
 
 	if (!isset($db)) $db = null;
 

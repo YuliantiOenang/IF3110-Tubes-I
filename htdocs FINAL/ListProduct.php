@@ -1,8 +1,48 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-<link href="style.css" rel="stylesheet" type="text/css">
+head>
+	<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="stylesearch.css" rel="stylesheet" type="text/css" media="screen" />
+	<div id="divsearch" >
+		<form id="formuser" name="formsearch" action="searchbarang.php" method="get" tag="registrasi">
+			<span id="tabuser">
+				<a href="registrasi.php" style="text-decoration:none;" > <span id="menuuser1" > <b>REGISTER &nbsp; &nbsp;  </b> </span> </a> &nbsp; &nbsp; 
+				<a href="detailProduct.php?nama=',$row['namabarang'],'" style="text-decoration:none;"> <span id="menuuser2" > <b>LOGIN  &nbsp; &nbsp;   </b> </span> </a>  &nbsp; &nbsp;
+				<a href="detailProduct.php?nama=',$row['namabarang'],'" style="text-decoration:none;"> <span id="menuuser3" > <b>PROFIL  &nbsp; &nbsp;  </b> </span> </a>  &nbsp; &nbsp; 
+			</span>
+			<span> <img id="logotroli" src="images/cartlogo.png" height="22" width="22" > </span> &nbsp;
+			<span id="cartmenu" > <b>Produk :    </b> </span> 
+			<span id="cartmenu" > <b>Rp ,-  </b> </span> 
+		</form> 
+		<form id="formsearch" name="formsearch" action="searchbarang.php" method="get" tag="registrasi">
+			<img id="logo" src="images/logo10.gif" height="60" width=auto > <br/>  <br/>
+			<span id="tabkategori">
+			<a href="detailProduct.php?nama=',$row['namabarang'],'" style="text-decoration:none;" > <span id="menukategori1" > <b>BERAS &nbsp; &nbsp;  |</b> </span> </a> &nbsp; &nbsp; 
+			<a href="detailProduct.php?nama=',$row['namabarang'],'" style="text-decoration:none;"> <span id="menukategori2" > <b>ROTI  &nbsp; &nbsp;  | </b> </span> </a>  &nbsp; &nbsp;
+			<a href="detailProduct.php?nama=',$row['namabarang'],'" style="text-decoration:none;"> <span id="menukategori3" > <b>DAGING SEGAR   &nbsp; &nbsp;  |</b> </span> </a>  &nbsp; &nbsp; 
+			<a href="detailProduct.php?nama=',$row['namabarang'],'" style="text-decoration:none;"> <span id="menukategori4" > <b>DAGING OLAHAN  &nbsp; &nbsp;  |</b> </span> </a>  &nbsp; &nbsp; 
+			<a href="detailProduct.php?nama=',$row['namabarang'],'" style="text-decoration:none;"> <span id="menukategori5" > <b>SAYUR  &nbsp; &nbsp;  |</b> </span> </a>  &nbsp; &nbsp; 
+			<a href="detailProduct.php?nama=',$row['namabarang'],'" style="text-decoration:none;"> <span id="menukategori6" > <b>BUAH </b> </span> </a>  &nbsp; &nbsp;
+			</span> </br><br/>
+			<input id="namasearch" name="namabarang" placeholder="Nama Barang" type="text"  /> 
+			<select  id="kat" value="Kategori" name="kategori">
+				<option value="" >Kategori</option>
+				<option value="beras">Beras</option>
+				<option value="roti">Roti</option>
+				<option value="daging segar">Daging Segar</option>
+				<option value="daging olahan">Daging Olahan</option>
+				<option value="buah">Buah</option>
+				<option value="sayur">Sayur</option>
+			</select>
+			<select id="harga" value="harga" name="harga">
+				<option value="0" >Harga</option>
+				<option value="1">< Rp 10.000</option>
+				<option value="2">Rp 10.000 <= harga < Rp 25.000 </option>
+				<option value="3">Rp 25.000 <= harga <  Rp 50.000 </option>
+				<option value="4">Rp 50.000 <= harga <  Rp 75.000 </option>
+				<option value="5">>= Rp 75.000</option>
+			</select>
+			<input id="tombol2"" name="search" type="submit" value="search" /> 
+		</form>
+	</div>
 </head>
 
 <body>
@@ -13,7 +53,6 @@
 		<option value="harga">harga</option>
   </select>
 </form>
-
 	<?php
 		include ("functions.php");
 		session_start();
@@ -27,8 +66,8 @@
 	?>
 		
 	<?php
-		if (isset($_GET['nama']))
-			$kategori=$_GET['nama'];
+		
+		$kategori='beras';
 		
 		/* Setup vars for query. */
 		$targetpage = "product.php"; 	

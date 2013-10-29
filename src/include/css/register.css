@@ -36,14 +36,15 @@ label {
 
 .btn {
 	color: #ddd;
-	background-color: #333;
-	border-color: #111;
+	background-color: #444;
+	border-color: #222;
 }
 
 .btn:hover,
 .btn:focus,
-.btn:active {
+.btn:active,
+.btn:disabled {
 	color: #fff;
-	background-color: #222;
+	background-color: #111;
 	border-color: #000;
 }

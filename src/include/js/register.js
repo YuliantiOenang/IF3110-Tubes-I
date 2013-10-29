@@ -1,3 +1,9 @@
+window.validUsername = false;
+window.validEmail = false;
+window.validPassword = false;
+window.validConfirmPassword = false;
+window.validFullname = false;
+
 function checkUsername() {
 	var xmlhttp = new XMLHttpRequest(); //IE7+, FF, Chrome, Safari, Opera
 
@@ -9,13 +15,19 @@ function checkUsername() {
 
   			if (x.length < 5 || x.length > 16) {
   				document.getElementById("username-info").innerHTML = " Panjang harus antara 5 sampai 16";
+  				window.validUsername = false;
   			} else if (x === document.getElementById("password").value) {
   				document.getElementById("username-info").innerHTML = " Tidak boleh sama dengan password";
+  				window.validUsername = false;
 			} else if (xmlhttp.responseText === "valid") {
 				document.getElementById("username-info").innerHTML = " Username Bisa Dipakai";
+				window.validUsername = true;
 			} else {
 				document.getElementById("username-info").innerHTML = " Username Sudah Digunakan";
+				window.validUsername = false;
 			}
+
+			updateButton();
 		}
   	}  	
 
@@ -36,15 +48,22 @@ function checkEmail() {
 
   			if (x.length > 16) {
   				document.getElementById("email-info").innerHTML = " Panjang harus kurang dari 32";
+  				window.validEmail = false;
   			} else if (!isEmailValid(x)) {
   				document.getElementById("email-info").innerHTML = " Bukan sebuah email yang valid";
+  				window.validEmail = false;
   			} else if (x === document.getElementById("password").value) {
   				document.getElementById("email-info").innerHTML = " Tidak boleh sama dengan password";
+  				window.validEmail = false;
 			} else if (xmlhttp.responseText === "valid") {
 				document.getElementById("email-info").innerHTML = " Email Bisa Dipakai";
+				window.validEmail = true;
 			} else {
 				document.getElementById("email-info").innerHTML = " Email Sudah Digunakan";
+				window.validEmail = false;
 			}
+
+			updateButton();
 		}
   	}
   	
@@ -61,12 +80,16 @@ function isEmailValid (email) {
 function checkFullname() {
 	var x = document.getElementById("fullname").value;
 	if (x.length > 64) {
-			document.getElementById("fullname-info").innerHTML = " Panjang harus kurang dari 64 karakter";
+		document.getElementById("fullname-info").innerHTML = " Panjang harus kurang dari 64 karakter";
+		window.validFullname = false;
 	} else if (isFullnameValid (x)) {
 		document.getElementById("fullname-info").innerHTML = " Fullname Bisa Dipakai";
+		window.validFullname = true;
 	} else {
 		document.getElementById("fullname-info").innerHTML = " Fullname Tidak Valid, Minimal 2 kata";
+		window.validFullname = false;
 	}
+	updateButton();
 }
 
 function isFullnameValid (fullname) {
@@ -77,14 +100,19 @@ function isFullnameValid (fullname) {
 function checkPassword() {
 	var x = document.getElementById("password").value;
 	if (x.length < 8 || x.length > 32) {
-			document.getElementById("password-info").innerHTML = " Panjang harus antara 8 sampai 32";
+		document.getElementById("password-info").innerHTML = " Panjang harus antara 8 sampai 32";
+		window.validPassword = false;
 	} else if (x === document.getElementById("username").value) {
-			document.getElementById("password-info").innerHTML = " Tidak boleh sama dengan username";
+		document.getElementById("password-info").innerHTML = " Tidak boleh sama dengan username";
+		window.validPassword = false;
 	} else if (x === document.getElementById("email").value) {
 		document.getElementById("password-info").innerHTML = " Tidak boleh sama dengan email";
+		window.validPassword = false;
 	} else {
 		document.getElementById("password-info").innerHTML = " Password bisa digunakan";
+		window.validPassword = true;
 	}
+	updateButton();
 }
 
 
@@ -92,9 +120,18 @@ function checkConfirmPassword() {
 	var x = document.getElementById("confirm-password").value;
 	if (x === document.getElementById("password").value) {
 		document.getElementById("confirm-password-info").innerHTML = " Sudah benar";
+		window.validConfirmPassword = true;
 	} else {
 		document.getElementById("confirm-password-info").innerHTML = " Harus sama dengan password";
+		window.validConfirmPassword = false;
 	}
+	updateButton();
+}
 
-	//document.getElementById("confirm-password-info").innerHTML = x;
+function updateButton () {
+	if (window.validUsername && window.validEmail && window.validPassword && window.validConfirmPassword && window.validFullname) {
+		document.getElementById("register-button").disabled = false;
+	} else {
+		document.getElementById("register-button").disabled = true;
+	}
 }

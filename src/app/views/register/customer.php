@@ -59,7 +59,7 @@ $_SESSION['form_token'] = $form_token;
                 <input type="tel" id="postcode" name="postcode"  maxlength="5" class="form-control"/>
             </div>
             <input type="hidden" name="form_token" value="<?php echo $form_token; ?>" />
-            <button type="submit" class="btn">Register</button>
+            <button type="submit" class="btn" disabled="true" id="register-button">Register</button>
         </form>
 	</div>
 

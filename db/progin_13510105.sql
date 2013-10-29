@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2013 at 02:53 PM
+-- Generation Time: Oct 29, 2013 at 03:06 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -73,7 +73,7 @@ INSERT INTO `barang` (`id_barang`, `nama`, `stok`, `terjual`, `harga`, `kategori
 (7, 'Beras Panda', 10, 0, 14000, 'beras', 'images/7.jpg'),
 (8, 'Beras VIP', 10, 0, 8000, 'beras', 'images/8.jpg'),
 (9, 'Beras Walet', 10, 0, 9000, 'beras', 'images/9.jpg'),
-(10, 'Beras Kingrice Merah Solo', 10, 1, 10000, 'beras', 'images/10.jpg'),
+(10, 'Beras Kingrice Merah Solo', 10, 3, 10000, 'beras', 'images/10.jpg'),
 (11, 'Beras Kingrice Hijau Solo', 10, 0, 11000, 'beras', 'images/11.jpg'),
 (12, 'Beras Goldrice Merah', 10, 0, 12000, 'beras', 'images/12.jpg'),
 (13, 'Beras Goldrice Hijau', 10, 0, 13000, 'beras', 'images/13.jpg'),
@@ -87,7 +87,7 @@ INSERT INTO `barang` (`id_barang`, `nama`, `stok`, `terjual`, `harga`, `kategori
 (21, 'Daun Singkong', 10, 0, 5000, 'sayur', 'images/21.jpg'),
 (22, 'Peria', 10, 0, 6000, 'sayur', 'images/22.jpg'),
 (23, 'Brokoli', 10, 0, 7000, 'sayur', 'images/23.jpg'),
-(24, 'Bok Choy', 10, 1, 8000, 'sayur', 'images/24.jpg'),
+(24, 'Bok Choy', 10, 3, 8000, 'sayur', 'images/24.jpg'),
 (25, 'Buncis', 10, 0, 4000, 'sayur', 'images/25.jpg'),
 (26, 'Wortel', 10, 0, 5000, 'sayur', 'images/26.jpg'),
 (27, 'Kol', 10, 0, 6000, 'sayur', 'images/27.jpg'),
@@ -98,7 +98,7 @@ INSERT INTO `barang` (`id_barang`, `nama`, `stok`, `terjual`, `harga`, `kategori
 (32, 'Lada Hitam', 10, 0, 1000, 'bumbu', 'images/32.jpg'),
 (33, 'Kayu Manis', 10, 0, 2000, 'bumbu', 'images/33.jpg'),
 (34, 'Jahe', 10, 0, 3000, 'bumbu', 'images/34.jpg'),
-(35, 'Bawang Merah', 10, 1, 4000, 'bumbu', 'images/35.jpg'),
+(35, 'Bawang Merah', 10, 3, 4000, 'bumbu', 'images/35.jpg'),
 (36, 'Bawang Putih', 10, 0, 5000, 'bumbu', 'images/36.jpg'),
 (37, 'Daun Bawang', 10, 0, 1000, 'bumbu', 'images/37.jpg'),
 (38, 'Daun Pandan', 10, 0, 2000, 'bumbu', 'images/38.jpg'),
@@ -111,7 +111,7 @@ INSERT INTO `barang` (`id_barang`, `nama`, `stok`, `terjual`, `harga`, `kategori
 (45, 'Pala', 10, 0, 4000, 'bumbu', 'images/45.jpg'),
 (46, 'Wijen', 10, 0, 5000, 'bumbu', 'images/46.jpg'),
 (47, 'C&H Sugar', 10, 0, 10000, 'gula', 'images/47.jpg'),
-(48, 'Tate Lyle Sugar', 10, 1, 11000, 'gula', 'images/48.jpg'),
+(48, 'Tate Lyle Sugar', 10, 3, 11000, 'gula', 'images/48.jpg'),
 (49, 'Gula Piramid Kristal', 10, 0, 12000, 'gula', 'images/49.jpg'),
 (50, 'Gula Prai', 10, 0, 13000, 'gula', 'images/50.jpg'),
 (51, 'Raja Gula', 10, 0, 14000, 'gula', 'images/51.jpg'),
@@ -129,7 +129,7 @@ INSERT INTO `barang` (`id_barang`, `nama`, `stok`, `terjual`, `harga`, `kategori
 (63, 'Sapi Australia', 10, 0, 100000, 'daging', 'images/63.jpg'),
 (64, 'Sapi USA', 10, 0, 110000, 'daging', 'images/64.jpg'),
 (65, 'Sapi New Zealand', 10, 0, 105000, 'daging', 'images/65.jpg'),
-(66, 'Sapi Lokal High Grade', 10, 1, 120000, 'daging', 'images/66.jpg'),
+(66, 'Sapi Lokal High Grade', 10, 3, 120000, 'daging', 'images/66.jpg'),
 (67, 'Rusa Lokal', 10, 0, 140000, 'daging', 'images/67.jpg'),
 (68, 'Rusa Impor', 10, 0, 160000, 'daging', 'images/68.jpg'),
 (69, 'Ayam Kampung', 10, 0, 78000, 'daging', 'images/69.jpg'),

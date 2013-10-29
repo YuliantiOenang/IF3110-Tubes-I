@@ -38,7 +38,7 @@
 			//mengeluarkan tombol Profile dan Logout
 			var username = localStorage.getItem(0);
 			document.getElementById('register_or_profile').innerHTML = 'Hello '+username+' !'
-			document.getElementById('register_or_profile').href = ""; //TO-DO halaman profile
+			document.getElementById('register_or_profile').href = "index.php?page=profil";
 			document.getElementById('login_or_logout').innerHTML = 'Logout';
 			document.getElementById('login_or_logout').href = "javascript:localStorage.clear();IsLoggedIn();";
 		}

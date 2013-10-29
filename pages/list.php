@@ -25,29 +25,35 @@
 		<div class = "container">
 			<?php
 				function getFormalName($name){
-					if($name == "baking")
-						return "Baking";
-					elseif($name == "beverages")
-						return "Beverages";
-					elseif($name == "cansoups")
-						return "Canned Goods & Soups";
-					elseif($name == "fresh")
-						return "Fresh Food";
-					elseif($name == "household")
-						return "Household Essentials";
+					if($name == "roti")
+						return "Roti";
+					elseif($name == "minuman")
+						return "Minuman";
+					elseif($name == "kalengan")
+						return "Makanan Kalengan";
+					elseif($name == "segar")
+						return "Makanan Segar";
+					elseif($name == "peralatan")
+						return "Peralatan Rumah";
 				}
+				
+				//SEARCH BAR
 				?>
 				<form action="search.php" method="get">
-					Nama: <input type="text" name="query_name" size="30" onkeyup="showResult(this.value)">
-					<div id="livesearch"></div>
-					Harga: <input type="text" name="query_price" size="30"><br/>
-					Kategori: <select name="query_category">
-					  <option value="baking">Baking</option>
-					  <option value="beverages">Beverages</option>
-					  <option value="cansoups">Canned Goods & Soups</option>
-					  <option value="household">Household Essentials</option>
-					</select>
-					<input type="submit" value="Submit">
+					<div class='sbox'>
+						<h3 class='sb_name'>Pencarian</h3>
+						<div class='sb_name'>Nama:</div><div class='sb_value'><input type="text" name="query_name" size="30" onkeyup="showResult(this.value)"></div>
+						<div id="livesearch"></div>
+						<div class='sb_name'>Harga:</div><div class='sb_value'><input type="text" name="query_price" size="30"></div>
+						<div class='sb_name'>Kategori:</div><div class='sb_value'><select name="query_category">
+						  <option value="roti">Roti</option>
+						  <option value="minuman">Minuman</option>
+						  <option value="kalengan">Makanan Kalengan</option>
+						  <option value="segar">Makanan Segar</option>
+						  <option value="peralatan">Peralatan</option>
+						</select></div>
+						<input type="submit" value="Submit">
+					</div>
 				</form>
 				
 				<?php

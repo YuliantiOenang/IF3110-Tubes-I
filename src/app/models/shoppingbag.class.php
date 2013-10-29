@@ -15,7 +15,7 @@ class ShoppingBag {
 					`product_id` INT(9) NOT NULL,
 					`request_count` INT(9) NOT NULL ,
 					`request_description` TEXT ,
-					`is_purchased` INT(1) NOT NULL ,
+					`is_purchased` INT(1) NOT NULL
 				)";
 		try {
 			$dbh = $registry->database;

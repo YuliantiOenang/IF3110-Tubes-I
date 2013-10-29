@@ -12,7 +12,12 @@ to {opacity: 0.0;margin-left: -100%;}
 
 p {
 	color:black;
-	font-family:arial;
+	font-family:Verdana;
+}
+
+html *{
+   font-family: Verdana;
+   font-size:99%;
 }
 
 .opening{
@@ -47,8 +52,10 @@ p {
 }
 
 #item_status {
+	text-align:left;
 	float:left;
 }
+
 a{
 	cursor: hand;
 	cursor: pointer;
@@ -176,21 +183,24 @@ a{
 }
 
 .pagination{
-	margin-top:400px;
+	margin-top:420px;
 }
 
 .category{
 	padding : 10px;
 	font-family:Verdana;
-	font-size:25;
+	font-size:150%;
 }
 
 .status{
 	float: left;
 }
 
-#statustext{
+#status{
 	text-align:left;
+	float:left;
+	font-family:Verdana;
+	font-size:75%;
 }
 
 #quantity{

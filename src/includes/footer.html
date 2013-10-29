@@ -1,0 +1,63 @@
+<!-- Start of Footer -->
+</div><!-- Content -->
+
+<div id="Menu">
+    <a href="index.php" title="Home Page">Home</a><br />
+    <?php # Script 18.2 - footer.html
+    // This page completes the HTML template.
+
+    // Display links based upon the login status:
+    if (isset($_SESSION['user_id'])) {
+
+    echo '<a href="logout.php" title="Logout">Logout</a><br />
+    <a href="change_password.php" title="Change Your Password">Change Password</a><br />
+    <a href="view_cart.php" title="View Your Cart">View Cart</a><br />
+    <a href="browse_prints.php" title="View Goods">View Goods</a><br />
+    <form action="search.php" method="post">
+    <fieldset>
+    <p>Search</p>
+    <p><input type="text" name="query" size="100" maxlength="100" /></p>
+    <div align="center"><input type="submit" name="submit" value="Login" /></div>
+    </fieldset>
+
+    ';
+
+    // Add links if the user is an administrator:
+    if ($_SESSION['user_level'] == 1) {
+    echo '<a href="view_users.php" title="View All Users">View Users</a><br />
+    <a href="#">Some Admin Page</a><br />
+    <a href="add_artist.php" title="Add Goods">Add Category</a><br />
+    <a href="add_print.php" title="Add Category">Add Goods</a><br />
+    ';
+    }
+
+    } else { //  Not logged in.
+    echo '<a href="register.php" title="Register for the Site">Register</a><br />
+    <a href="login.php" title="Login">Login</a><br />
+    <a href="forgot_password.php" title="Password Retrieval">Retrieve Password</a><br />
+    <form action="login.php" method="post">
+    <fieldset>
+    <p><b>Email Address:</b> <input type="text" name="email" size="20" maxlength="60" /></p>
+    <p><b>Password:</b> <input type="password" name="pass" size="20" maxlength="20" /></p>
+    <div align="center"><input type="submit" name="submit" value="Login" /></div>
+    </fieldset>
+    </form>
+    <form action="search.php" method="post">
+    <fieldset>
+    <p>Search</p>
+    <p><input type="text" name="query" size="100" maxlength="100" /></p>
+    <div align="center"><input type="submit" name="submit" value="Login" /></div>
+    </fieldset>
+    </form>
+    ';
+    }
+    ?>
+    <a href="#">Some Page</a><br />
+    <a href="#">Another Page</a><br />
+</div><!-- Menu -->
+
+</body>
+</html>
+<?php // Flush the buffered output.
+ob_end_flush();
+?>

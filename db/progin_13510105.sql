@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2013 at 01:55 PM
+-- Generation Time: Oct 29, 2013 at 02:33 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -37,8 +37,10 @@ CREATE TABLE IF NOT EXISTS `bank` (
 --
 
 INSERT INTO `bank` (`card_number`, `name_on_card`) VALUES
-('12', 'aidil'),
-('13', 'BS');
+('13510036', 'Satria'),
+('13510048', 'fakhri'),
+('13510085', 'Vijay'),
+('13510105', 'Aidil');
 
 -- --------------------------------------------------------
 
@@ -169,13 +171,6 @@ CREATE TABLE IF NOT EXISTS `kartu_kredit` (
   KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `kartu_kredit`
---
-
-INSERT INTO `kartu_kredit` (`card_number`, `name_on_card`, `expired_date`, `username`) VALUES
-('13', 'BS', '2013-10-17', 'ditra77');
-
 -- --------------------------------------------------------
 
 --
@@ -200,7 +195,9 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 --
 
 INSERT INTO `pengguna` (`username`, `fullname`, `password`, `email`, `alamat`, `kota_kab`, `provinsi`, `no_hp`, `kode_pos`) VALUES
-('ditra77', 'Aidil Syaputra', 'milan77', 'aidil.syaputra@pln.co.id', 'Jln.Cisitu Lama gang 2', 'Bandung', 'Jawa Barat', '085263867220', '45324');
+('', '', '', '', '', '', '', '', ''),
+('ditra77', 'Aidil Syaputra', 'milan77', 'aidil.syaputra@pln.co.id', 'Jln.Cisitu Lama gang 2', 'Bandung', 'Jawa Barat', '085263867220', '45324'),
+('fakhri', 'Fakhri', 'fakhri', 'fakhri.fakhri@s.itb.ac.id', 'Jl. Jalan', 'Bandung', 'Jawa Barat', '0813657727975', '40135');
 
 -- --------------------------------------------------------
 

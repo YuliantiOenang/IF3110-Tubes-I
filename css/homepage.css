@@ -13,6 +13,19 @@ p {
 	margin-bottom: 15px;
 }
 
+.sbox{                           
+	padding: 10px;
+}
+
+.sb_name{
+	padding-top: 2px;
+	padding-left: 4px;
+}
+
+.sb_value{
+	width: 30px;
+}
+
 .heading {
 	width: 940px;
 	height: 100px;

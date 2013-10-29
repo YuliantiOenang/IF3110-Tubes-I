@@ -247,7 +247,7 @@ function checkFullName(str)
 function checkPassword(str)
 {
 	var xmlhttp;
-	if (str!=document.getElementById("password").value || str==document.getElementById("username").value){
+	if (str==document.getElementById("username").value){
 		isPassword = false;
 		document.getElementById("password_status").innerHTML="unmatched password or password is same as username";
 		form_check();

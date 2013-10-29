@@ -202,7 +202,19 @@
 				
 			break;
 			case "search":
-			
+				$hasil = searchAll($request["q"], $request["page"]);
+				if (count($hasil) > 0){
+					$response["status"] = "ok";
+					$response["barang"] = array();
+					
+					foreach($hasil as $barang){
+						if($barang!=null){
+							array_push($response["barang"], $barang->buildJSON());
+						}else{
+							array_push($response["barang"], null);
+						}
+					}
+				}
 			break;
 			default:
 				return null;

@@ -63,6 +63,41 @@ function isLoggedIn()	{
 	return readCookie("hash") !== null && getUserId() !== null && getUsername() !== null;
 }
 
+function setShoppingBag(bag)	{
+	localStorage.setItem("bag", JSON.stringify(bag));
+}
+function getShoppingBag()	{
+	if (localStorage.getItem("bag") === null) setShoppingBag({});
+	return JSON.parse(localStorage.getItem("bag"));
+}
+function deleteShoppingBag()	{
+	localStorage.removeItem("bag");
+}
+function setProductQuantity(product_id, quantity)	{
+	var bag = getShoppingBag();
+	if (bag[product_id] === undefined) bag[product_id] = {};
+	bag[product_id]["quantity"] = quantity;
+	bag[product_id]["note"] = "";
+	setShoppingBag(bag);
+}
+function setProductNote(product_id, note)	{
+	var bag = getShoppingBag();
+	if (bag[product_id] === undefined) bag[product_id] = {};
+	bag[product_id]["quantity"] = 0;
+	bag[product_id]["note"] = note;
+	setShoppingBag(bag);
+}
+function getProductQuantity(product_id)	{
+	var bag = getShoppingBag();
+	if (bag[product_id] === undefined) return 0;
+	else return bag[product_id]["quantity"];
+}
+function getProductNote(product_id)	{
+	var bag = getShoppingBag();
+	if (bag[product_id] === undefined) return "";
+	else return bag[product_id]["note"];
+}
+
 // Fungsi-fungsi untuk core
 // ------------------------------
 

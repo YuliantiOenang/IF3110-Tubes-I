@@ -430,6 +430,7 @@ body {
 
 #photo {
 	box-shadow: 2px 2px 5px #888888;
+	padding-left:10px;
 }
 
 
@@ -582,28 +583,8 @@ body {
 	float:left;
 }
 
-#dashboard-title {
-	font-size:24px;
-	text-align:left;
-}
-
 #category-list {
 	text-align:left;
-}
-
-#user-result {
-	width:400px;
-	height:150px;
-}
-
-#user-result-image {
-	width:120px;
-	height:150px;
-}
-
-#user-result-name {
-	float:left;
-	height:150px;
 }
 
 #border-search {
@@ -650,19 +631,41 @@ body {
 	text-align:left;
 }
 
-.task-category-body {
-	display:block;
-	padding-bottom:25px;
+#goods-name {
+	font-size:18px;
+	text-align:left;
 }
 
-.task-category-body ul {
+#goods-result{
+	width:600px;
+	height:150px;
+}
+
+#goods-image {
+	float:left;
+	width:120px;
+	height:150px;
+}
+
+#goods-detail {
+	float:left;
+	height:200px;
+	width:480px;
+}
+
+.goods-category-body {
+	display:block;
+	padding-bottom:30px;
+}
+
+.goods-category-body ul {
 	display:none;
-	padding-left:30px;
+	padding-left:40px;
 	margin-bottom:0px;
 	font-size:18px;
 }
 
-.task-category-body:hover > ul {
+.goods-category-body:hover > ul {
 	display:block;
 }
 
@@ -705,44 +708,6 @@ body {
 	text-align:left;
 }
 
-#task-page-title {
-
-}
-
-#add-task-body {
-
-}
-
-#profile-body {
-	
-}
-
-#post-date {
-	font-size:12px;
-}
-
-#deadline_edit {
-	display:none;
-}
-
-#assignee_edit {
-	display:none;
-}
-
-#tag_edit {
-	display:none;
-}
-
-#label {
-	float:left;
-}
-
-#deadline_edit {
-	margin:0px 0px 0px 0px;
-	padding:0px 0px 0px 0px;
-	float:left;
-}
-
 #date_html {
 	margin:0px 0px 0px 0px;
 	padding-left:5px;
@@ -756,4 +721,58 @@ body {
 #create {
 	display:none;
 }
+
+#search_text {
+	width:180px;
+	height:16px;
+}
+
+#search_pricemin {
+	width:90px;
+	height:16px;
+}
+
+#search_pricemax {
+	width:90px;
+	height:16px;
+}
+
+#detail-body {
+	height:900px;
+	background-image:url("..//image//taskpage.jpg");
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	padding-top:5px;
+	text-align:center;
+}
+
+#detail-pic {
+	width:300px;
+	padding:80px 0px 0px 2px;
+	float:left;
+}
+
+#main-detail {
+	padding-top:80px;
+	width:800px;
+	float:left;
+}
+
+#detail-information {
+	font-size:14px;
+	text-align:left;
+}
+
+#buttonbayar {
+	width:60px;
+	float:left;
+}
+
+#buttoncancel {
+	width:60px;
+	float:right;
+}
+
+#cartbutton {
+	width:130px;
+	margin:0px 0px 0px 0px;
 }

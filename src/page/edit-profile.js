@@ -71,14 +71,19 @@ function check_user_name() {
 	}
 }
 
-function check_password() {
+function check_password(password) {
+	console.log(password);
 	var str = document.getElementById("gantipassword").value;
 	if(str!=""){
 		if(str.length>=8){
 			chkpassword1=true;
 			show_create_button();
+			if(str!=password){
 			document.getElementById("warning-password").innerHTML="";
-			
+			}
+			else{
+			document.getElementById("warning-password").innerHTML="Password Tidak Berubah";
+			}
 		}
 		else{
 			chkpassword1=false;
@@ -88,14 +93,18 @@ function check_password() {
 	}
 }
 
-function check_nama() {
+function check_nama(name) {
 	var str = document.getElementById("gantinama").value;
 	var str2 = document.getElementById("gantipassword").value; 
 	if(str!=""){
 		if(str.substring(0,str.lastIndexOf(' ')).length>0 && str.substring(str.lastIndexOf(' ')+1,str.length).length>0){
 			chknama=true;
 			show_create_button();
+			if(str!=name){
 			document.getElementById("warning-nama").innerHTML="";
+			}else{
+			document.getElementById("warning-nama").innerHTML="Nama Tidak Berubah";
+			}
 			
 		}
 		else{
@@ -123,12 +132,16 @@ function check_confirmpassword() {
 	}
 }
 
-function check_alamat() {
+function check_alamat(alamat) {
 	var str = document.getElementById("alamat").value;
 	if(str!=""){
 		chkalamat=true;
 		show_create_button();
-		document.getElementById("warning-alamat").innerHTML="";
+		if(str!=alamat){
+			document.getElementById("warning-alamat").innerHTML="";
+		}else{
+			document.getElementById("warning-alamat").innerHTML="Alamat Tidak Berubah";
+		}
 	}
 	else{
 		chkalamat=false;
@@ -137,12 +150,16 @@ function check_alamat() {
 	}
 }
 
-function check_provinsi() {
+function check_provinsi(provinsi) {
 	var str = document.getElementById("provinsi").value;
 	if(str!=""){
 		chkprovinsi=true;
 		show_create_button();
-		document.getElementById("warning-provinsi").innerHTML="";
+		if(str!=provinsi){
+			document.getElementById("warning-provinsi").innerHTML="";
+		}else{
+			document.getElementById("warning-provinsi").innerHTML="Provinsi Tidak Berubah";
+		}
 	}
 	else{
 		chkprovinsi=false;
@@ -151,12 +168,16 @@ function check_provinsi() {
 	}
 }
 
-function check_kabupaten() {
+function check_kabupaten(kabupaten) {
 	var str = document.getElementById("kabupaten").value;
 	if(str!=""){
 		chkkabupaten=true;
 		show_create_button();
-		document.getElementById("warning-kabupaten").innerHTML="";
+		if(str!=kabupaten){
+			document.getElementById("warning-kabupaten").innerHTML="";
+		}else{
+			document.getElementById("warning-kabupaten").innerHTML="Kabupaten Tidak Berubah";
+		}
 	}
 	else{
 		chkkabupaten=false;
@@ -165,28 +186,36 @@ function check_kabupaten() {
 	}
 }
 
-function check_alamat() {
+function check_alamat(alamat) {
 	var str = document.getElementById("alamat").value;
 	if(str!=""){
 		chkalamat=true;
 		show_create_button();
-		document.getElementById("warning-alamat").innerHTML="";
+		if(str!=alamat){
+			document.getElementById("warning-alamat").innerHTML="";
+		}else{
+			document.getElementById("warning-alamat").innerHTML="Alamat Tidak Berubah";
+		}
 	}
 	else{
 		chkalamat=false;
 		hide_create_button();
-		document.getElementById("warning-konfirmasi").innerHTML="Isi Alamat";
+		document.getElementById("warning-alamat").innerHTML="Isi Alamat";
 	}
 }
 
 
-function check_HP() {
+function check_HP(HP) {
 	var str = document.getElementById("HP").value;
 	if(str!=""){
 		if(is_only_number(str)){
 			chkHP=true;
 			show_create_button();
-			document.getElementById("warning-HP").innerHTML="";
+			if(str!=HP){
+				document.getElementById("warning-HP").innerHTML="";
+			}else{
+				document.getElementById("warning-HP").innerHTML="Nomor HP Tidak Berubah";
+			}
 			
 		}
 		else{
@@ -197,14 +226,17 @@ function check_HP() {
 	}
 }
 
-function check_pos() {
+function check_pos(pos) {
 	var str = document.getElementById("pos").value;
 	if(str!=""){
 		if(is_only_number(str)){
 			chkpos=true;
 			show_create_button();
-			document.getElementById("warning-pos").innerHTML="";
-			
+			if(str!=pos){
+				document.getElementById("warning-pos").innerHTML="";
+			}else{
+				document.getElementById("warning-pos").innerHTML="Nomor pos Tidak Berubah";
+			}
 		}
 		else{
 			chkpos=false;

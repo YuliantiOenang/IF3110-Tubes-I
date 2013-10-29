@@ -59,14 +59,22 @@ function checkHeaderValidation(){
 function filter() {
 	var x = document.getElementById("modesearch").value;
 	if (x == 2) {
-		document.getElementById("user-filtering").style.display = 'block';
+		document.getElementById("search_text").style.display = 'none';
+		document.getElementById("search_pricemin").style.display = '';
+		document.getElementById("search_pricemax").style.display = '';
 		document.getElementById("searching-header").style.paddingLeft = '0px';
 	}
 	else {
-		document.getElementById("user-filtering").style.display = 'none';
-		document.getElementById("searching-header").style.paddingLeft = '100px';
+		document.getElementById("search_text").style.display = '';
+		document.getElementById("search_pricemin").style.display = 'none';
+		document.getElementById("search_pricemax").style.display = 'none';
+		document.getElementById("searching-header").style.paddingLeft = '0px';
 	}
 }
 
 function initialize() {
+		document.getElementById("search_text").style.display = '';
+		document.getElementById("search_pricemin").style.display = 'none';
+		document.getElementById("search_pricemax").style.display = 'none';
+		document.getElementById("searching-header").style.paddingLeft = '0px';
 }

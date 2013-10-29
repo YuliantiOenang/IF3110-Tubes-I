@@ -19,63 +19,98 @@
 		<div id="index-page-body">
 		<div id="index-body">
 		<div id="left-body">
-			White Meth:
+			Makanan:
 			<div id=\"user-result\">
 				<?php
-				echo "
-					<a href=\"profile.php\"><img id=\"photo\" src=\"../image/dummy.jpg\" width=\"100\" height=\"120\"/></a>
-					<a href=\"profile.php\"><img id=\"photo\" src=\"../image/dummy.jpg\" width=\"100\" height=\"120\"/></a>
-					";
+				$con 	= getConnection();
+				$sql	= "SELECT goods_name,goods_sold FROM goods,categorymeetup WHERE cata_ID='cata0001' and categorymeetup.goods_ID=goods.goods_ID ORDER BY goods_sold DESC";
+	
+				$result = mysqli_query($con, $sql);
+				
+				$count=0;
+				while(($row	= mysqli_fetch_array($result)) && $count<3){
+				echo "<a href=\"detailbarang.php?namabarang=".$row["goods_name"]."&hasil=\"><img id=\"photo\" src=\"../image/goods/".$row["goods_name"].".jpg\" width=\"100\" height=\"120\"/></a>";
+				$count=$count+1;
+				}
 			?>
 			</div>
 			
-			Blue Meth:
+			Minuman:
 			<div id=\"user-result\">
 				<?php
-				echo "
-					<a href=\"profile.php\"><img src=\"../image/dummy.jpg\" width=\"100\" height=\"120\"/></a>
-					<a href=\"profile.php\"><img src=\"../image/dummy.jpg\" width=\"100\" height=\"120\"/></a>
-					";
+				$con 	= getConnection();
+				$sql	= "SELECT goods_name,goods_sold FROM goods,categorymeetup WHERE cata_ID='cata0002' and categorymeetup.goods_ID=goods.goods_ID ORDER BY goods_sold DESC";
+	
+				$result = mysqli_query($con, $sql);
+				
+				$result = mysqli_query($con, $sql);
+				$count=0;
+				while(($row	= mysqli_fetch_array($result)) && $count<3){
+				echo "<a href=\"detailbarang.php?namabarang=".$row["goods_name"]."&hasil=\"><img id=\"photo\" src=\"../image/goods/".$row["goods_name"].".jpg\" width=\"100\" height=\"120\"/></a>";
+				$count=$count+1;
+				}
 			?>
 			</div>
 			
-			Purple Meth:
+			Perawatan Anak-Anak:
 			<div id=\"user-result\">
 				<?php
-				echo "
-					<a href=\"profile.php\"><img id=\"photo\" src=\"../image/dummy.jpg\" width=\"100\" height=\"120\"/></a>
-					<a href=\"profile.php\"><img id=\"photo\" src=\"../image/dummy.jpg\" width=\"100\" height=\"120\"/></a>
-					";
+				$con 	= getConnection();
+				$sql	= "SELECT goods_name,goods_sold FROM goods,categorymeetup WHERE cata_ID='cata0003' and categorymeetup.goods_ID=goods.goods_ID ORDER BY goods_sold DESC";
+	
+				$result = mysqli_query($con, $sql);
+				
+				$result = mysqli_query($con, $sql);
+				$count=0;
+				while(($row	= mysqli_fetch_array($result)) && $count<3){
+				echo "<a href=\"detailbarang.php?namabarang=".$row["goods_name"]."&hasil=\"><img id=\"photo\" src=\"../image/goods/".$row["goods_name"].".jpg\" width=\"100\" height=\"120\"/></a>";
+				$count=$count+1;
+				}
 			?>
 			</div>
 			
-			Methylamine:
+			Perawatan Pribadi:
 			<div id=\"user-result\">
 				<?php
-				echo "
-					<a href=\"profile.php\"><img id=\"photo\" src=\"../image/dummy.jpg\" width=\"100\" height=\"120\"/></a>
-					<a href=\"profile.php\"><img id=\"photo\" src=\"../image/dummy.jpg\" width=\"100\" height=\"120\"/></a>
-					";
+				$con 	= getConnection();
+				$sql	= "SELECT goods_name,goods_sold FROM goods,categorymeetup WHERE cata_ID='cata0004' and categorymeetup.goods_ID=goods.goods_ID ORDER BY goods_sold DESC";
+	
+				$result = mysqli_query($con, $sql);
+				
+				$result = mysqli_query($con, $sql);
+				$count=0;
+				while(($row	= mysqli_fetch_array($result)) && $count<3){
+				echo "<a href=\"detailbarang.php?namabarang=".$row["goods_name"]."&hasil=\"><img id=\"photo\" src=\"../image/goods/".$row["goods_name"].".jpg\" width=\"100\" height=\"120\"/></a>";
+				$count=$count+1;
+				}
 			?>
 			</div>
 			
-			Pseudo:
+			Perlengkapan Rumah:
 			<div id=\"user-result\">
 				<?php
-				echo "
-					<a href=\"profile.php\"><img id=\"photo\" src=\"../image/dummy.jpg\" width=\"100\" height=\"120\"/></a>
-					<a href=\"profile.php\"><img id=\"photo\" src=\"../image/dummy.jpg\" width=\"100\" height=\"120\"/></a>
-					";
+				$con 	= getConnection();
+				$sql	= "SELECT goods_name,goods_sold FROM goods,categorymeetup WHERE cata_ID='cata0005' and categorymeetup.goods_ID=goods.goods_ID ORDER BY goods_sold DESC";
+	
+				$result = mysqli_query($con, $sql);
+				
+				$result = mysqli_query($con, $sql);
+				$count=0;
+				while(($row	= mysqli_fetch_array($result)) && $count<3){
+				echo "<a href=\"detailbarang.php?namabarang=".$row["goods_name"]."&hasil=\"><img id=\"photo\" src=\"../image/goods/".$row["goods_name"].".jpg\" width=\"100\" height=\"120\"/></a>";
+				$count=$count+1;
+				}
 			?>
 			</div>
 		</div>
 		<div id="right-body">
 			Mekanisme Pembelian:</br>
 			1.Mendaftar sebagai user.</br>
-			2.Daftarkan kartu kredit.</br>
+			2.Login.</br>
 			3.Pilih barang yang dibeli serta jumlahnya.</br>
-			4.Konfirmasi transaksi.</br>
-			5.Barang terbeli.</br>
+			4.Lihat barang yang dibeli pada cart.</br>
+			5.Konfirmasi pembelian dengan mendaftar kartu kredit.</br>
+			6.Barang yang anda pesan sudah dibeli dan akan diantar ke alamat anda.</br>
 		</div>
 		</div>
 		</div>

@@ -44,11 +44,11 @@
 				<form enctype="multipart/form-data" method="post" action="database\changeprofil.php">
 					<!--Name-->
 					<div id="spacing-nama">
-					<input type="text" id="gantinama" onKeyUp="check_nama()" name="textgantinama" value="<?php echo $profil_name;?>" /> <div id="warning-nama"></div> <br><br>
+					<input type="text" id="gantinama" onKeyUp="check_nama('<?php echo $profil_name; ?>')" name="textgantinama" value="<?php echo $profil_name;?>" /> <div id="warning-nama"></div> <br><br>
 					</div>
 					<!--Name-->
 					<div id="spacing-password">
-					<input type="password" id="gantipassword" onKeyUp="check_password()" name="textgantipassword" value="<?php echo $profil_password;?>" /><div id="warning-password"></div> <br><br>
+					<input type="password" id="gantipassword" onKeyUp="check_password('<?php echo $profil_password; ?>')" name="textgantipassword" value="<?php echo $profil_password;?>" /><div id="warning-password"></div> <br><br>
 					</div>
 					<!--HP-->
 					<div id="spacing-konfirmasipassord">
@@ -56,22 +56,22 @@
 					</div>
 					<!--Alamat-->
 					<div id="spacing-alamat">
-					<input type="text" id="alamat" onKeyUp="check_alamat()" name="textalamat" value="<?php echo $profil_address;?>" /><div id="warning-alamat"></div> <br><br>
+					<input type="text" id="alamat" onKeyUp="check_alamat('<?php echo $profil_address; ?>')" name="textalamat" value="<?php echo $profil_address;?>" /><div id="warning-alamat"></div> <br><br>
 					</div>
 					<!--Provinsi-->
 					<div id="spacing-provinsi">
-					<input type="text" id="provinsi" onKeyUp="check_provinsi()" name="textprovinsi" value="<?php echo $profil_province;?>" /><div id="warning-provinsi"></div> <br /><br>
+					<input type="text" id="provinsi" onKeyUp="check_provinsi('<?php echo $profil_province; ?>')" name="textprovinsi" value="<?php echo $profil_province;?>" /><div id="warning-provinsi"></div> <br /><br>
 					</div>
 					<!--Kabupaten-->
 					<div id="spacing-kabupaten">
-					<input type="text" id="kabupaten" onKeyUp="check_kabupaten()" name="textkabupaten" value="<?php echo $profil_district;?>" /><div id="warning-kabupaten"></div> <br /><br>
+					<input type="text" id="kabupaten" onKeyUp="check_kabupaten('<?php echo $profil_district; ?>')" name="textkabupaten" value="<?php echo $profil_district;?>" /><div id="warning-kabupaten"></div> <br /><br>
 					</div>
 					<!--Pos-->
 					<div id="spacing-pos">
-					<input type="text" id="pos" onKeyUp="check_pos()" name="textpos" value="<?php echo $profil_zipcode;?>" /><div id="warning-pos"></div> <br /><br>
+					<input type="text" id="pos" onKeyUp="check_pos('<?php echo $profil_zipcode; ?>')" name="textpos" value="<?php echo $profil_zipcode;?>" /><div id="warning-pos"></div> <br /><br>
 					</div>
 					<div id="spacing-HP">
-					<input type="text" id="HP" onKeyUp="check_HP()" name="textHP" value="<?php echo $profil_mobile;?>" /><div id="warning-HP"></div> <br /><br>
+					<input type="text" id="HP" onKeyUp="check_HP('<?php echo $profil_mobile; ?>')" name="textHP" value="<?php echo $profil_mobile;?>" /><div id="warning-HP"></div> <br /><br>
 					</div>
 					<button id="create">Confirm Edit</button>
 				</form>

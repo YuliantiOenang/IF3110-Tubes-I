@@ -103,7 +103,15 @@ Class RegisterController Extends BaseController {
 		}
 	}
 	public function check_username($username) {
-		if (Customer::isExist($this->registry, $username) == false) {
+		if (Customer::isExistUsername($this->registry, $username) == false) {
+			echo "valid";
+		} else {
+			echo "notvalid";
+		}
+	}
+
+	public function check_email($email) {
+		if (Customer::isExistEmail($this->registry, $email) == false) {
 			echo "valid";
 		} else {
 			echo "notvalid";

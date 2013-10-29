@@ -23,20 +23,20 @@ $_SESSION['form_token'] = $form_token;
                 <input type="text" id="username" name="username"  maxlength="16" onkeyup="checkUsername()" class="form-control"/>
             </div>
             <div class="form-group">
-                <label for="email">Email: </label>
-                <input type="email" id="email" name="email"  maxlength="32" class="form-control"/>
+                <label for="email">Email: <span id="email-info"></span></label>
+                <input type="email" id="email" name="email"  maxlength="32" onkeyup="checkEmail()" class="form-control"/>
             </div>
             <div class="form-group">
-                <label for="password">Password: </label>
-                <input type="password" id="password" name="password"  maxlength="32" class="form-control"/>
+                <label for="password">Password: <span id="password-info"></span></label>
+                <input type="password" id="password" name="password"  maxlength="32" onkeyup="checkPassword()" class="form-control"/>
             </div>
             <div class="form-group">
-                <label for="confirm-password">Confirm Password: </label>
-                <input type="password" id="confirm-password"  maxlength="32" class="form-control"/>
+                <label for="confirm-password">Confirm Password: <span id="confirm-password-info"></span></label>
+                <input type="password" id="confirm-password"  maxlength="32" onkeyup="checkConfirmPassword()" class="form-control"/>
             </div>
             <div class="form-group">
-                <label for="fullname">Fullname: </label>
-                <input type="text" id="fullname" name="fullname"  maxlength="64" class="form-control"/>
+                <label for="fullname">Fullname: <span id="fullname-info"></span> </label>
+                <input type="text" id="fullname" name="fullname"  maxlength="64" onkeyup="checkFullname()" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="phone">Handphone: </label>

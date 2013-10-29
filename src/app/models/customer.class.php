@@ -84,11 +84,26 @@ class Customer {
 	/**
 	 * Memeriksa apakah user tersebut ada
 	 */
-	public static function isExist($registry, $user) {
+	public static function isExistUsername($registry, $user) {
 		try {
 			$dbh = $registry->database;
 			$smh = $dbh->prepare('SELECT customer_id FROM customer WHERE username = :username');
     		$smh->execute(array('username' => $user));
+ 			
+   			return $smh->fetchColumn();
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	/**
+	 * Memeriksa apakah email tersebut ada
+	 */
+	public static function isExistEmail($registry, $email) {
+		try {
+			$dbh = $registry->database;
+			$smh = $dbh->prepare('SELECT customer_id FROM customer WHERE email = :email');
+    		$smh->execute(array('email' => $email));
  			
    			return $smh->fetchColumn();
 		} catch (PDOException $e) {

@@ -64,7 +64,7 @@
 				<div id="first_box_2"></div>
 				<div id="second_box_2"></div>
 				<div id="third_box_2"></div>
-				<div id="footnote_2"></div>
+				<div id="footnote"></div>
 			</div>
 			<div id="one_block">
 				<h1 id="content_title">

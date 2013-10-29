@@ -35,7 +35,9 @@ Untuk masuk laman akun anda, silahkan klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/in
 			<br><br>
 			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user"><strong>Profile</strong></a>
             <br><br>
-       <p id="welcometext">Welcome, <?php echo $_SESSION['username'] ?></p>
+			<p id="welcometext">Welcome, <?php echo $_SESSION['username'] ?></p>
+            <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/cart"><img id="tasbelanja" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/tasbelanja.jpg" alt="Tas Belanja"></a>        
+
 			<?php
 				}
 			?>
@@ -63,18 +65,18 @@ Untuk masuk laman akun anda, silahkan klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/in
                         </span>
                         </p>
                         </form>
-                        <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/cart"><img id="tasbelanja" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/tasbelanja.jpg" alt="Tas Belanja"></a>        
-                </div>
+        </div>
                 <div id="kategori">
-                         <p><span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang"><strong>Sembako</strong></a></span>
+                         <p>
+								<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Sembako"><strong>Sembako</strong></a></span>
                                 <span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Handphone"><strong>Handphone</strong></a></span>
                                 <span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Peralatan+Listrik"><strong>PeralatanElektronik</strong></a></span>
                                 <span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Aksesoris+Komputer"><strong>AksesorisKomputer</strong></a></span>
                                 <span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Perabotan+Rumah"><strong>PerabotanRumah</strong></a></span>
                                 <span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Alat+Tulis"><strong>AlatTulis</strong></a></span>
-                         <p>
+                         </p>
                 </div>
-        </div>
+    </div>
 	<div id="homecontent">
 			<!--<div id="pictext">-->
                 <div class="scrollable">

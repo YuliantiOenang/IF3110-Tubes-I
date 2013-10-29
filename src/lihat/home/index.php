@@ -77,14 +77,105 @@ Untuk masuk laman akun anda, silahkan klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/in
                          </p>
                 </div>
     </div>
+
 	<div id="homecontent">
-			<!--<div id="pictext">-->
+			<center><h2>Best Of Sembako</h2></center>
                 <div class="scrollable">
                     <div class="items">
-                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/sembako/beras.jpg" alt="Beras">
-                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/sembako/minyakgoreng.jpg" alt="Beras">
-                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/sembako/telurayam.jpg" alt="Beras">
+								<?php
+								while ($row = mysql_fetch_object($data['Sembako']))
+								{
+								?>
+                        	<img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>" alt="<?=$row->nama_barang;?>">
+								<?php
+								}
+								?>
                     </div>
+                </div>
+			<!--</div>-->
+	</div>
+
+	<div id="homecontent">
+			<center><h2>Best Of Handphone</h2></center>
+                <div class="scrollable">
+                    <div class="items">
+								<?php
+								while ($row = mysql_fetch_object($data['HP']))
+								{
+								?>
+                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>" alt="<?=$row->nama_barang;?>">
+								<?php
+								}
+								?> 
+                   </div>
+                </div>
+			<!--</div>-->
+	</div>
+
+	<div id="homecontent">
+			<center><h2>Best Of Peralatan Listrik</h2></center>
+                <div class="scrollable">
+                    <div class="items">
+								<?php
+								while ($row = mysql_fetch_object($data['Listrik']))
+								{
+								?>
+                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>" alt="<?=$row->nama_barang;?>">
+								<?php
+								}
+								?> 
+                   </div>
+                </div>
+			<!--</div>-->
+	</div>
+
+	<div id="homecontent">
+			<center><h2>Best Of Aksesoris Komputer</h2></center>
+                <div class="scrollable">
+                    <div class="items">
+								<?php
+								while ($row = mysql_fetch_object($data['Komputer']))
+								{
+								?>
+                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>" alt="<?=$row->nama_barang;?>">
+								<?php
+								}
+								?> 
+                   </div>
+                </div>
+			<!--</div>-->
+	</div>
+
+	<div id="homecontent">
+			<center><h2>Best Of Perabotan Rumah</h2></center>
+                <div class="scrollable">
+                    <div class="items">
+								<?php
+								while ($row = mysql_fetch_object($data['Rumah']))
+								{
+								?>
+                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>" alt="<?=$row->nama_barang;?>">
+								<?php
+								}
+								?> 
+                   </div>
+                </div>
+			<!--</div>-->
+	</div>
+
+	<div id="homecontent">
+			<center><h2>Best Of Perabotan Rumah</h2></center>
+                <div class="scrollable">
+                    <div class="items">
+								<?php
+								while ($row = mysql_fetch_object($data['Tulis']))
+								{
+								?>
+                        <img class="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>" alt="<?=$row->nama_barang;?>">
+								<?php
+								}
+								?> 
+                   </div>
                 </div>
 			<!--</div>-->
 	</div>

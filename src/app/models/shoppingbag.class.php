@@ -49,7 +49,17 @@ class ShoppingBag {
     		$smh->execute(array('id' => $id));
  		
  			//pasti cuma ada satu
-   			return $smh->fetch(PDO::FETCH_ASSOC);
+   			return $smh->fetchAll(PDO::FETCH_ASSOC);
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	public static function addItem($registry, $customer_id, $product_id) {
+		try {
+    		$dbh = $registry->database;
+			$sth = $dbh->prepare("INSERT INTO shopping_bag (customer_id, product_id, request_count, is_purchased) values (:customer_id, :product_id, 1, 0)"); 
+			return $sth->execute(array('customer_id' => $customer_id, 'product_id' => $product_id));
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}

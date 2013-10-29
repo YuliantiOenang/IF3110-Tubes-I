@@ -12,6 +12,9 @@ Class InstallController Extends BaseController {
 	}
 
 	public function make() {
+		if (session_id() == '') session_start();
+		session_destroy();
+
 		Product::createTable($this->registry);
 		Product::insertDummy($this->registry);
 
@@ -21,6 +24,9 @@ Class InstallController Extends BaseController {
 	}
 
 	public function clean() {
+		if (session_id() == '') session_start();
+		session_destroy();
+
 		Product::dropTable($this->registry);
 
 		Customer::dropTable($this->registry);

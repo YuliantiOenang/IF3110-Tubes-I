@@ -11,14 +11,18 @@
 	        } else {
 	        	$i = 0;
 	        	foreach ($items as $item) {
+	        		$product = Product::getById($registry,  $item['product_id']);
+	        		echo '</br> ';
 	        		echo '</br> Barang ke-' . $i;
-	        		echo '</br> ' . $item['product_name'];
-	        		echo '</br> ' . $item['description'];
+	        		echo '</br> Nama Barang: ' . $product['product_name'];
+	        		echo '</br> Deskripsi: ' . $product['description'];
+	        		echo '</br> Jumlah Barang: ' . $item['request_count'];
+	        		$i++;
 	        	}
 	        }
 	    ?>
 
-        <form method="post" action="<?php echo SITEURL . "/car/checkout/" ?>">
+        <form method="post" action="<?php echo SITEURL . "/cart/checkout/" ?>">
              <button  class="btn">Checkout</button>
         </form>
         

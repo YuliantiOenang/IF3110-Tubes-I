@@ -79,7 +79,9 @@
 					
 					<li>
 						<center>
-							<button type="button" class="buttonBeli"> BELI </button>
+						<form action="<?php echo SITEURL . '/cart/add/' . $product_id ?>" method="post">
+							<button type="submit" class="buttonBeli"> BELI </button>
+						</form>
 						</center>
 					</li>						
 				</ul>			

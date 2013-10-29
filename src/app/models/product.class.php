@@ -75,6 +75,7 @@ class Product {
 	 */
 	public static function getByCategory($category) {
 		try {
+			$dbh = $registry->database;
 			$smh = $dbh->prepare('SELECT * FROM product WHERE category = :category');
     		$smh->execute(array('category' => $category));
  		
@@ -90,6 +91,7 @@ class Product {
 	 */
 	public static function getBySearch($registry, $keyword) {
 		try {
+			$dbh = $registry->database;
 			$smh = $dbh->prepare('SELECT * FROM product WHERE MATCH(product_name, description) AGAINST (:keyword IN BOOLEAN MODE)');
     		$smh->execute(array('keyword' => $keyword));
  		
@@ -105,11 +107,12 @@ class Product {
 	 */
 	public static function getById($registry, $id) {
 		try {
+			$dbh = $registry->database;
 			$smh = $dbh->prepare('SELECT * FROM product WHERE product_id = :id');
     		$smh->execute(array('id' => $id));
  		
  			//return array of all
-   			return $smh->fetchAll();
+   			return $smh->fetch(PDO::FETCH_ASSOC);
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}

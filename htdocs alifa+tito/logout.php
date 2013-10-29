@@ -8,6 +8,7 @@
 	$sqlquery = "UPDATE authentication SET cookie_id=NULL , cookie_expire=0 WHERE username='".$_SESSION["username"]."'";
 	$sqlresult = mysql_query($sqlquery,$db );
 
+
 	session_destroy();
 	header("Location: index.php");
 ?>

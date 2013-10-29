@@ -12,11 +12,9 @@
 		?>
 		<div class = "login">
 			<p>username</p>
-			<input id="username" name="username">
-			</input>
+			<input id="username" name="username" type="text"/>
 			<p>password</p>
-			<input id="password" name="password">
-			</input>
+			<input type="password" id="password" name="password" />
 			<br/><br/>
 			<button type="submit">Login</button>
 		</div>

@@ -85,9 +85,9 @@
 					echo "Nama: <a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
 					echo "Harga: Rp".$row['harga']." <br/>";
 					?>
-						<input id="amount" name="amount" type='text' value='0' onkeyup='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></input>
+						<input id="amount<?php echo $row['id_inventori']; ?>" name="amount" type='text' value='0' onkeyup='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></input>
 						<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
-						<button onclick="addToCart(document.getElementById('amount').value, <?php echo $row['id_inventori']; ?>)">Add to cart</button>
+						<button onclick="addToCart(document.getElementById('amount<?php echo $row['id_inventori']; ?>').value, <?php echo $row['id_inventori']; ?>)">Add to cart</button>
 					<?php
 				}
 				

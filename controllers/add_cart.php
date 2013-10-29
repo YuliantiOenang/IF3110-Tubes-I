@@ -34,14 +34,8 @@
 	if($amount > $number){
 		echo 3;
 	} else{
-		$data = null;
-		while($row = mysqli_fetch_array($result)){
-			$data = $row;
-			break;
-		}
-		
 		if(!isset($_SESSION[$tag])){
-			$arr2 = array($counts => $id);
+			$arr2 = array($counts => $tag);
 			$_SESSION[$tag] = $amount;
 			if(!isset($_SESSION['shopping_bag'])){
 				$result = $arr2;
@@ -53,6 +47,7 @@
 			}
 			$_SESSION["shopping_bag"] = $result;
 		} else{
+			$_SESSION[$tag] = $amount;
 			echo 0;
 		}
 	}

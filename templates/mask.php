@@ -12,11 +12,9 @@
 		?>
 		<div id = "popuptext">
 			<p>username</p>
-			<input id="username" name="username">
-			</input>
+			<input id="username" name="username"/>
 			<p>password</p>
-			<input id="password" name="password">
-			</input>
+			<input id="password" name="password" type="password"/>
 			<br/><br/>
 			<button type="submit">Login</button>
 		</div>

@@ -11,9 +11,11 @@
 	$result = mysqli_query($con,"SELECT * FROM pengguna WHERE username = '".$username."'");
 	
 	$found = false;
-	while($row = mysqli_fetch_array($result)){
-		$found = true;
-		break;
+	if($result != null){
+		while($row = mysqli_fetch_array($result)){
+			$found = true;
+			break;
+		}
 	}
 	
 	if(!$found){

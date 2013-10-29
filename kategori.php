@@ -89,6 +89,26 @@
         </div>
       <?php endif; ?>
     <?php endfor; ?>
+    <?php
+      if ($sortVal == 0)
+        echo "Nama terurut menaik";
+      else if ($sortVal == 1)
+        echo "Nama terurut menurun";
+      else if ($sortVal == 2)
+        echo "Harga terurut menaik";
+      else if ($sortVal == 3)
+        echo "Harga terurut menurun";
+    ?>
+    <br>
+    <button onclick="location.href='sort.php?<?php echo "id=".$_GET['id']."&sort=".$sortVal."&nama=".$nama."&low=".$low."&high=".$high."&sortID=1"; ?>'">Toggle Sort Nama</button>
+    <button onclick="location.href='sort.php?<?php echo "id=".$_GET['id']."&sort=".$sortVal."&nama=".$nama."&low=".$low."&high=".$high."&sortID=2"; ?>'">Toggle Sort Harga</button><br>
+    <?php
+      for($i = 0; $i < ceil($count/$pageValue); $i++)
+        if ($i == $pageVal)
+          echo ($i+1)." ";
+        else
+          echo "<a href='kategori.php?id=".$_GET['id']."&sort=".$sortVal."&page=".$i."&nama=".$nama."&low=".$low."&high=".$high."'>".($i+1)."</a> ";
+    ?>
     <script src="validateStock.js"></script>
   </body>
 </html>

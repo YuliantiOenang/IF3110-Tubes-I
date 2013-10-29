@@ -40,7 +40,7 @@ if (isset($_POST['username']) && isset($_POST['password1']) && isset($_POST['ema
 		$_SESSION['card'] = 1;
 	}
 	echo "<h1>SUCCESS!</h1><br />";
-	header("Location: index.php");
+	header("Location: ".$_POST['return']);
 } else {
 	header("Location: register.php");
 }

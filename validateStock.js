@@ -6,7 +6,6 @@ function validateStock(i)
   var jumlahField = document.getElementById("jumlahField"+i).value;
   var keteranganField = document.getElementById("keteranganField"+i).value;
   var param = "id="+idField+"&nama="+namaField+"&harga="+hargaField+"&jumlah="+jumlahField+"&keterangan="+keteranganField;
-  alert(param);
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST","addtobag.php",true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

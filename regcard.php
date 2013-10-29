@@ -20,6 +20,7 @@ include 'macro/header.php';
 			<input type="number" placeholder="nomor kartu" id="num" name="num" onkeypress="if (this.value != '') validate('number', this.value, 'valnum')" required /><div id="valnum"></div><br />
 			<input type="text" placeholder="nama kartu" id="name" name="name" onkeypress="if (this.value != '') validate('name', this.value, 'valname')" required /><div id="valname"></div><br />
 			<input type="date" id="date" name="date" required /><br />
+			<input type="hidden" name="return" value="<?php echo ((isset($_GET['return']))?$_GET['return']:"index.php"); ?>">
 			<input type="submit" />
 		</form>
 		<button type="button" onclick="location.href='index.php'">Skip</button>

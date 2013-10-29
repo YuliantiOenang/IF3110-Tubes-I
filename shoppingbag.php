@@ -27,7 +27,7 @@
     <?php endforeach; ?>
     <div>
       Rp <span id="totalharga"><?php echo $total; ?></span>
-      <button onclick="location.href='buy.php'">Buy</button>
+      <button onclick=location.href='<?php echo (($_SESSION['card'] == 1)?"buy.php":"regcard.php?return=buy.php"); ?>'>Buy</button>
     </div>
     <script src="validateStock.js"></script>
   </body>

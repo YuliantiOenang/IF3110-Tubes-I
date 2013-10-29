@@ -69,12 +69,12 @@
 					</input>
 				</div>
 				<div id="form_one_row">
-					<input id="submit" type="submit" value="Submit"></input>
+					<input id="submit" type="submit" value="Submit" name="submitted"></input>
 				</div>
 			</form>
 			<form action="index.php" method="post">
 				<div id="form_one_row">
-					<input id="submit" type="submit" value="Skip" name="submitted"></input>
+					<input id="submit" type="submit" value="Skip" ></input>
 				</div>
 				<div id="form_one_row"></div>
 			</form>

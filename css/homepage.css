@@ -12,7 +12,12 @@ to {opacity: 0.0;margin-left: -100%;}
 
 p {
 	color:black;
-	font-family:arial;
+	font-family:Verdana;
+}
+
+html *{
+   font-family: Verdana;
+   font-size:99%;
 }
 
 .opening{
@@ -37,13 +42,23 @@ p {
 }
 
 .page_container {
-	width: 940px;
+	width: 960px;
 	height: 730px;
 	margin: auto;
-	border: 4px solid #eeeeee;
+	border: 4px solid #000000;
 	border-radius: 10px;
 	margin-top: 15px;
 	margin-bottom: 15px;
+}
+
+#item_status {
+	text-align:left;
+	float:left;
+}
+
+a{
+	cursor: hand;
+	cursor: pointer;
 }
 
 .sbox{                           
@@ -53,26 +68,27 @@ p {
 .sb_name{
 	padding-top: 2px;
 	padding-left: 4px;
+	float: left;
 }
 
 .sb_value{
-	width: 30px;
+	float: left;
 }
 
 .heading {
-	width: 940px;
+	width: 960px;
 	height: 100px;
 	background-color:white;
 }
 
 .footer {
-	width: 940px;
+	width: 960px;
 	height: 100px;
 	background-color:white;
 }
 
 .navigation {
-	width: 920px;
+	width: 940px;
 	height: 50px;
 	font-family: Ubuntu;
 	background-color:#eeeeee;
@@ -164,6 +180,42 @@ p {
 
 .goodsimage{
 	width:500px;
+	float:left;
+}
+
+.pagination{
+	margin-top:420px;
+}
+
+.category{
+	padding : 10px;
+	font-family:Verdana;
+	font-size:150%;
+}
+
+.status{
+	float: left;
+}
+
+#status{
+	text-align:left;
+	float:left;
+	font-family:Verdana;
+	font-size:75%;
+}
+
+#quantity{
+	float:left;
+}
+
+#cart{
+	float:left;
+}
+
+.goods{
+	text-align:center;
+	padding-left:5px;
+	padding-bottom:5px;
 	float:left;
 }
 

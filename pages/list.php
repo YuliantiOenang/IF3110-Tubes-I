@@ -41,16 +41,16 @@
 				?>
 				<form action="search.php" method="get">
 					<div class='sbox'>
-						<h3 class='sb_name'>Pencarian</h3>
-						<div class='sb_name'>Nama:</div><div class='sb_value'><input type="text" name="query_name" size="30" onkeyup="showResult(this.value)"></div>
+						<h3><b>Pencarian</b></h3>
+						<div class='sb_name'>Nama:</div><div class='sb_value'><input type="text" name="query_name" size="20" onkeyup="showResult(this.value)"></div>
 						<div id="livesearch"></div>
-						<div class='sb_name'>Harga:</div><div class='sb_value'><input type="text" name="query_price" size="30"></div>
+						<div class='sb_name'>Harga:</div><div class='sb_value'><input type="text" name="query_price" size="20"></div>
 						<div class='sb_name'>Kategori:</div><div class='sb_value'><select name="query_category">
 						  <option value="roti">Roti</option>
 						  <option value="minuman">Minuman</option>
 						  <option value="kalengan">Makanan Kalengan</option>
 						  <option value="segar">Makanan Segar</option>
-						  <option value="peralatan">Peralatan</option>
+						  <option value="peralatan">Peralatan Rumah</option>
 						</select></div>
 						<input type="submit" value="Submit">
 					</div>
@@ -66,9 +66,10 @@
 				}
 				//check data posted
 				
-				$category = $_GET['cat'];	
-				echo "<h2>Category: " . getFormalName($category)."</h2><br/>";
-							
+				$category = $_GET['cat'];
+				echo "<div class='category'>";
+				echo "<h2>" . getFormalName($category)."</h2><br/>";
+				echo "</div>";
 				$result = mysqli_query($con,"SELECT * FROM kategori NATURAL JOIN inventori WHERE nama_kategori = '".$category."'");
 				
 				$start = (!isset($_GET['start']) ? 0 : $_GET['start']);
@@ -86,27 +87,33 @@
 							break;
 						}
 					}
-						
-					echo "<img width = 200px src='../img/". $row['gambar'] ."'> <br/>";
-					echo "Nama: <a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
-					echo "Harga: Rp".$row['harga']." <br/>";
-					?>
-						<input id="amount<?php echo $row['id_inventori']; ?>" name="amount" type='text' value='0' onkeyup='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></input>
-						<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
-						<button onclick="addToCart(document.getElementById('amount<?php echo $row['id_inventori']; ?>').value, <?php echo $row['id_inventori']; ?>)">Add to cart</button>
-					<?php
+					echo "<div class='goods'>"	;
+						echo "<img width = 170px src='../img/". $row['gambar']. "'> <br/>";
+						echo "<a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
+						echo "Rp ".$row['harga'].",00 <br/>";
+						?>
+							<form>
+							<div id='quantity' ><input type='text' name='quant' value='0' size=7 ></input><br/></div>
+							<div id='cart'><a><img src="../img/addtocart.png" height=25px onclick='checkItem(quant.value, <?php echo $row['id_inventori']; ?>)'></a></div>
+							</form>
+							<div id ='status'>Status Stok:</div>
+							<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
+						<?php
+					echo "</div>";
 				}
 				
 				//PAGINASI
-				echo "<br/>";
+				echo "<div class='pagination'>";
 				$resultSize = mysqli_num_rows($result);
+				echo "Go to Page ";
 				for($i=1;$i<=ceil($resultSize/10);$i++){
 					echo '<a href="list.php?cat='. $category . '&start='. ($i - 1)*10 .'">'.$i. "</a> ";
 				}
+				echo "</div>";
 				
 				
-				if($resultSize == 0){
-					echo "No result found.";
+					if($resultSize == 0){
+						echo "No result found.";
 				}
 				mysqli_close($con);
 

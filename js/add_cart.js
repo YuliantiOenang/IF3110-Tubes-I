@@ -26,3 +26,7 @@ function addToCart(amounts, ids)
 	xmlhttp.open("GET","../controllers/add_cart.php?amount="+amounts+"&id="+ids,true);
 	xmlhttp.send();
 }
+
+function addToCart2(){
+	alert("haha");
+}

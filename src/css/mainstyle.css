@@ -66,10 +66,11 @@ body{
 #search{
 	color:#FFC90D;
 	text-align:left;
-	position:relative;
-	top:-35px;
+	position:absolute;
+	top:195px;
+	left:20px;
 	text-decoration:none;
-    width:850px;
+    width:900px;
 }
 
 #tasbelanja{
@@ -77,8 +78,8 @@ body{
 	height:100px;
 	border:5px double #804000;
 	border-top:0px;
-	position:relative;
-	top:-165px;
+	position:absolute;
+	top:155px;
 	right:200px;
 	color:red;
 }
@@ -112,7 +113,7 @@ body{
 }
 
 #welcometext{
-  position:fixed;
+  position:absolute;
   top:0px;
   left:20px;
   font-size:24px;
@@ -223,5 +224,5 @@ body{
 
 #radiobutt{
     position:relative;
-    right:-480px;
+    right:-540px;
 }

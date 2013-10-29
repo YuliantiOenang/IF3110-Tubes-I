@@ -1,0 +1,1 @@
+<?php echo "nama sekelompok ikan yang tergolong ke dalam marga Rastrelliger, suku Scombridae. Meskipun bertubuh kecil, ikan ini masih sekerabat dengan tenggiri, tongkol, tuna, madidihang, dan makerel. Di Ambon, ikan ini dikenal dengan nama lema atau tatare, di Makassar disebut banyar atau banyara. Dari sini didapat sebutan kembung banjar dan di medan 'kembung kuring'. "; ?>

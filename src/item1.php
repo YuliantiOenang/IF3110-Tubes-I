@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="index.css" type="text/css">
 <html lang="en">
   <head>
   </head>
@@ -26,7 +27,7 @@
                 
                 <a href="index.html">Logout</a>
 			</div>
-			<div class = "body">
+			<div class="content-area">
 				 <h1>MosquitoMissile</h1>
 				 <img src="image/item0.jpg"/>
 				 <br>
@@ -54,6 +55,7 @@
 				User requirement:
 				<br>
 				<textarea cols="50" rows="4" name="notes"></textarea>
+				<br>
 				<input type="submit" name="Submit" value="Submit">
 			</div>
 				

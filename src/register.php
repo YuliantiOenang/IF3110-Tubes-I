@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="index.css" type="text/css">
 <html>
 	<head>
 		  <script type="text/javascript">	  
@@ -143,8 +144,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	</head>
 	<body>
 		  <title>RUSERBA DIRECTOR'S CUT EDITION 2097</title>
-	  		<div>
-			<h1>Registrasi User Baru</h1>
+				<div class="container">
+		<span class="top-label>"
+			<span class="label-txt">Registrasi User Baru
+			</span>
+		</span>
+			<div class = "content area">
 			<div>Username:
 			<input name="username" type="text" id="username"></div>
 			&nbsp;

@@ -86,13 +86,13 @@ function login()
 	
 }
 
-function cekJumlah()
+function cekJumlah(no)
 {
 	//mengambil semua variable dalam form login
-	var id = document.getElementById('idBarang').value;	
+	var id = document.getElementById('idBarang'+no).value;	
 	
 
-	var jumlah = document.getElementById('jumlahBarang').value;
+	var jumlah = document.getElementById('jumlahBarang'+no).value;
 	if(jumlah=="")
 	{
 		alert("maaf anda harus mengisi jumlah barang terlebih dahulu");
@@ -193,14 +193,7 @@ function remove(id)
 				?>
 				</div>
 				<div >
-				<?php
-				if(isset($_COOKIE['user1']))
-				{
-				?>
 					<img src = "images/cart.png" class = "cart" onclick="window.location='shoppingbag.php'"></img>
-				<?php
-				}
-				?>
 				</div>
 			</div>
 			<div class = "signupplace">
@@ -297,7 +290,9 @@ function remove(id)
 		if(isset($_GET['key']))
 		{
 			if(isset($_GET['sort']))
-			{
+			{	
+				session_unset();
+		
 				$hasil = mysql_query("select nama, kategori,harga,deskripsi,foto,no_alat from peralatan where kategori='".$_GET['key']."' order by ".$_GET['sort']."");	
 				$hasil_temp="select nama, kategori,harga,deskripsi,foto,no_alat from peralatan where kategori='".$_GET['key']."' order by ".$_GET['sort']."";
 				$_SESSION['hasil']=$hasil_temp;
@@ -312,6 +307,8 @@ function remove(id)
 			}
 			else
 			{
+				session_unset();
+		
 				$hasil = mysql_query("select nama, kategori,harga,deskripsi,foto,no_alat from peralatan where kategori='".$_GET['key']."' order by nama");	
 				$hasil_temp="select nama, kategori,harga,deskripsi,foto,no_alat from peralatan where kategori='".$_GET['key']."' order by nama";
 				$_SESSION['hasil']=$hasil_temp;
@@ -345,10 +342,21 @@ function remove(id)
 					</div>
 					<a href="detailbarang.php?id='.$_SESSION['id'.$i].'"><p class = "copyrightext"> '.$_SESSION["nama".$i].'</a> </br>
 						  Rp'.$_SESSION["harga".$i].' </label> </br> </p>
-					<laabel>jumlah :</label><input type="text" size=4 id="jumlahBarang"/>
-					<input type="text" id="idBarang" value="'.$_SESSION['id'.$i].'" hidden/>
-					<input type="button" onclick="cekJumlah()" value="Beli"></input>
-					</div>';
+					<laabel>jumlah :</label><input type="text" size=4  id="jumlahBarang'.$i.'"/>
+					<input type="text" id="idBarang'.$i.'" value="'.$_SESSION['id'.$i].'" hidden/>';
+					if(isset($_COOKIE['user1']))
+					{
+					?>
+					<input type="button" onclick="cekJumlah(<?php echo $i;?>)" value="Beli"></input>
+					<?php
+					}
+					else
+					{
+					?>
+					<input type="button" onclick="alert('anda harus login terlebih dahulu'); window.location='index.php'" value="Beli"></input>
+					<?php
+					}
+					echo '</div>';
 			$i++;
 			}
 		}

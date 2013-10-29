@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 29 Okt 2013 pada 13.00
+-- Waktu pembuatan: 29 Okt 2013 pada 14.44
 -- Versi Server: 5.5.32
 -- Versi PHP: 5.4.19
 
@@ -125,20 +125,22 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `nomor_hp` int(50) NOT NULL,
+  `nomor_hp` varchar(50) NOT NULL,
   `alamat` varchar(200) NOT NULL,
   `provinsi` varchar(100) NOT NULL,
   `kota_kabupaten` varchar(100) NOT NULL,
-  `kode_pos` int(10) NOT NULL,
+  `kode_pos` varchar(10) NOT NULL,
+  `total_transaksi` int(11) NOT NULL,
   PRIMARY KEY (`id_pengguna`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data untuk tabel `pengguna`
 --
 
-INSERT INTO `pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `email`, `nomor_hp`, `alamat`, `provinsi`, `kota_kabupaten`, `kode_pos`) VALUES
-(4, 'wkwk', 'aaa', 'aa', 'aa@aa.com', 12198, 'asaunu', 'asausah', 'asahsua', 1111);
+INSERT INTO `pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `email`, `nomor_hp`, `alamat`, `provinsi`, `kota_kabupaten`, `kode_pos`, `total_transaksi`) VALUES
+(4, 'wkwk', 'aaa', 'aa', 'aa@aa.com', '12198', 'asaunu', 'asausah', 'asahsua', '1111', 100),
+(5, 'harits elfahmi', 'aaaaa', '70c881d4a26984ddce795f6f71817c9cf4480e79', 'adilelfahmi@gmail.com', '0', '', '', '', '0', 100);
 
 -- --------------------------------------------------------
 

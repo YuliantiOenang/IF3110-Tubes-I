@@ -3,7 +3,7 @@
   $dbhost = "localhost";
   $dbname = "kaskong";
   $dbuser = "root";
-  $dbpass = "root";
+  $dbpass = "";
 
   $link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 

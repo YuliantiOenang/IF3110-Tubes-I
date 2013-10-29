@@ -2,10 +2,10 @@
 -- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Inang: 127.0.0.1
--- Waktu pembuatan: 29 Okt 2013 pada 11.30
--- Versi Server: 5.6.11
--- Versi PHP: 5.5.3
+-- Host: 127.0.0.1
+-- Generation Time: Oct 29, 2013 at 12:23 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.19
 
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Basis data: `kaskong`
+-- Database: `kaskong`
 --
 CREATE DATABASE IF NOT EXISTS `kaskong` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `kaskong`;
@@ -26,7 +26,7 @@ USE `kaskong`;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 DROP TABLE IF EXISTS `barang`;
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`id`, `nama`, `deskripsi`, `harga`, `kategori`, `stok`, `terjual`, `gambar`) VALUES
@@ -77,41 +77,7 @@ INSERT INTO `barang` (`id`, `nama`, `deskripsi`, `harga`, `kategori`, `stok`, `t
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `order`
---
-
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE IF NOT EXISTS `order` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `tanggal` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_order_user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `order_barang`
---
-
-DROP TABLE IF EXISTS `order_barang`;
-CREATE TABLE IF NOT EXISTS `order_barang` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `barang_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `keterangan` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_order_barang_barang_id` (`barang_id`),
-  KEY `fk_order_barang_order_id` (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -126,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `kota` varchar(255) NOT NULL,
   `provinsi` varchar(255) NOT NULL,
   `kodepos` varchar(15) NOT NULL,
+  `transaksi` int(11) NOT NULL DEFAULT '0',
   `kredit_nama` varchar(255) DEFAULT NULL,
   `kredit_nomor` varchar(31) DEFAULT NULL,
   `kredit_expired_date` date DEFAULT NULL,
@@ -136,31 +103,14 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nama`, `username`, `password`, `email`, `hp`, `alamat`, `kota`, `provinsi`, `kodepos`, `kredit_nama`, `kredit_nomor`, `kredit_expired_date`) VALUES
-(1, 'Kos Kos', 'pospos', 'f5bb0c8de146c67b44babbf4e6584cc0', 'pos@pos.com', '08999306399', 'Jalan Buntu', 'Karta', 'KartaJ', '13960', NULL, NULL, NULL),
-(2, 'Kos Kos', 'jamesjaya', 'd933ae205664a67aba057467d19bb3aa', 'james@escepta.com', '08999306399', '123', 'Jakarta', 'DKI', '13960', NULL, NULL, NULL),
-(3, 'Siti Kelvin', 'sitikelvin', 'ddb5503ae5e25f56b250cf19ba8a7552', 'siti@kelvin.com', '08999306399', 'Jalan Buntu No. 123', 'Soerabaja', 'Jawa Timur', '13964', 'Gentong Cool', '123123', NULL),
-(4, 'Bolo Bolo', 'hellas', '113ad909a0db6dee7ad583fca9f6556e', 'james.jaya@students.itb.ac.id', '08123859123', 'Jalan Bolo', 'Bolo Bolo', 'Provinsi Bolo Bolo', '13960', 'Soto Ayam', '2093479286', '2013-10-03');
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `order`
---
-ALTER TABLE `order`
-  ADD CONSTRAINT `fk_order_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `order_barang`
---
-ALTER TABLE `order_barang`
-  ADD CONSTRAINT `fk_order_barang_barang_id` FOREIGN KEY (`barang_id`) REFERENCES `barang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_order_barang_order_id` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+INSERT INTO `user` (`id`, `nama`, `username`, `password`, `email`, `hp`, `alamat`, `kota`, `provinsi`, `kodepos`, `transaksi`, `kredit_nama`, `kredit_nomor`, `kredit_expired_date`) VALUES
+(1, 'Kos Kos', 'pospos', 'f5bb0c8de146c67b44babbf4e6584cc0', 'pos@pos.com', '08999306399', 'Jalan Buntu', 'Karta', 'KartaJ', '13960', 0, NULL, NULL, NULL),
+(2, 'Kos Kos', 'jamesjaya', 'd933ae205664a67aba057467d19bb3aa', 'james@escepta.com', '08999306399', '123', 'Jakarta', 'DKI', '13960', 0, NULL, NULL, NULL),
+(3, 'Siti Kelvin', 'sitikelvin', 'ddb5503ae5e25f56b250cf19ba8a7552', 'siti@kelvin.com', '08999306399', 'Jalan Buntu No. 123', 'Soerabaja', 'Jawa Timur', '13964', 0, 'Gentong Cool', '123123', NULL),
+(4, 'Bolo Bolo', 'hellas', '113ad909a0db6dee7ad583fca9f6556e', 'james.jaya@students.itb.ac.id', '08123859123', 'Jalan Bolo', 'Bolo Bolo', 'Provinsi Bolo Bolo', '13960', 0, 'Soto Ayam', '2093479286', '2013-10-03');
 SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

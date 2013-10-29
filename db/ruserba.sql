@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 29, 2013 at 01:26 PM
+-- Generation Time: Oct 29, 2013 at 08:48 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `id_barang` varchar(10) NOT NULL,
   `jumlah` int(5) NOT NULL,
   `permintaan` text NOT NULL,
+  `paid` int(1) NOT NULL,
   PRIMARY KEY (`id_cart`),
   KEY `username` (`username`),
   KEY `id_barang` (`id_barang`)
@@ -103,13 +104,13 @@ CREATE TABLE IF NOT EXISTS `cart` (
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id_cart`, `username`, `id_barang`, `jumlah`, `permintaan`) VALUES
-(1, 'azon04', 'BRG014', 2, ''),
-(2, 'azon04', 'BRG014', 2, ''),
-(3, 'azon04', 'BRG014', 1, ''),
-(4, 'azon04', 'BRG014', 1, ''),
-(5, 'azon04', 'BRG003', 5, ''),
-(6, 'azon04', 'BRG002', 1, 'Dagingnya di giles');
+INSERT INTO `cart` (`id_cart`, `username`, `id_barang`, `jumlah`, `permintaan`, `paid`) VALUES
+(1, 'azon04', 'BRG014', 2, '', 0),
+(2, 'azon04', 'BRG014', 2, '', 0),
+(3, 'azon04', 'BRG014', 1, '', 0),
+(4, 'azon04', 'BRG014', 1, '', 0),
+(5, 'azon04', 'BRG003', 5, '', 0),
+(6, 'azon04', 'BRG002', 1, 'Dagingnya di giles', 0);
 
 -- --------------------------------------------------------
 

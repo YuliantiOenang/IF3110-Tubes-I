@@ -98,7 +98,7 @@
 	
 	function addElement(parentID,id,text) {
 		var parentNode = document.getElementById(parentID);
-		var newDiv = document.createElement('label');
+		var newDiv = document.createElement('a');
 		newDiv.setAttribute('id',id);
 		console.log(text);
 		newDiv.innerHTML = text;
@@ -167,11 +167,11 @@
 	<a href="index.php"> <img   src="img/logo.png" width="150px"/> </a>
 </div>
 <div id="navCategory">
-	<a href="#" class="header_item">Makanan</a>
-	<a href="#" class="header_item">Minuman</a>
-	<a href="#" class="header_item">Alat Tulis</a>
-	<a href="#" class="header_item">Kebersihan</a>
-	<a href="#" class="header_item">Obat-obatan</a>
+	<a href="makanan.php" class="header_item">Makanan</a>
+	<a href="minuman.php" class="header_item">Minuman</a>
+	<a href="alattulis.php" class="header_item">Alat Tulis</a>
+	<a href="kebersihan.php" class="header_item">Kebersihan</a>
+	<a href="obat.php" class="header_item">Obat-obatan</a>
 </div>
 
 <div id="navMember">
@@ -181,11 +181,11 @@
 		echo '<a href="register.php" id="RegisterButton" class="button">Register</a>';
 	} else {
 		$username = $_SESSION['username'];
-		echo '<label class id="welcome">Welcome,'.$username .'</label>';
+		echo '<a class href="profile.php" id="welcome">Welcome,'.$username .'</a>';
 		echo '<a href="#" id="LogoutButton" class="button" onclick="logout()">Logout</a>';
 	}
 ?>
-	<a href="#" >Shopping Bag <?php 
+	<a href="shopping_bag.php" >Shopping Bag <?php 
 		if(isset($_SESSION['userid'])) {
 			$query = "SELECT COUNT(*) AS count_cart FROM cart WHERE username='".$_SESSION['username']."'";
 			$result = mysql_query($query, $link);

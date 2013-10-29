@@ -15,7 +15,7 @@
 			include 'header.php';
 		?>
 		
-		
+		<div id="content_body">
 			<h3 ><a href="alattulis.php">Alat Tulis</a> </h3>
 			<div class="content_item">
 				<ul class="horizontal_list">
@@ -51,10 +51,14 @@
 			
 			<h3>Mekanisme Belanja</h3>
 			<div class="content_item">
-			<p>Lorem Insum Dolor Sit Amer.Lorem Insum Dolor Sit Amer.Lorem Insum Dolor Sit Amer.Lorem Insum Dolor Sit Amer.
-			Lorem Insum Dolor Sit Amer.Lorem Insum Dolor Sit Amer.Lorem Insum Dolor Sit Amer.
-			Lorem Insum Dolor Sit Amer.Lorem Insum Dolor Sit Amer.
-			Lorem Insum Dolor Sit Amer.Lorem Insum Dolor Sit Amer.<p>
+			<p>Mekanisme pembelian di RuSerBa :
+			<ol>
+				<li> Login sebagai pengguna. Jika belum punya akun silahkan <a href="register.php">register</a>. </li>
+				<li> Pilih barang-barang yang akan dibeli. Barang akan masuk ke shopping bag.</li>
+				<li> Masuk ke shopping bag, klik tombol beli.</li>
+				<li> Masukan data kartu kredit anda.</li>
+				<li> Barang anda akan dikirim ke alamat anda.</li>
+			</ol><p>
 			</div>
 		</div>
 	</body>

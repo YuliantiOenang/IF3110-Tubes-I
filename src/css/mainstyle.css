@@ -2,10 +2,10 @@
  *  Dongkol Ampas Bro
  */
  
-a:link {text-decoration:none; color:cyan;}
-a:visited {text-decoration:none; color:cyan;}
+a:link {text-decoration:none; color:blue;}
+a:visited {text-decoration:none; color:blue;}
 a:hover {text-decoration:underline;}
-a:active {text-decoration:underline; color:blue;}
+a:active {text-decoration:underline; color:cyan;}
 
 body{
 	background-image:url('../gambar_barang/bgpattern.jpg');
@@ -67,17 +67,17 @@ body{
 	color:#FFC90D;
 	text-align:left;
 	position:relative;
-	top:-15px;
+	top:-60px;
 	text-decoration:none;
+	width:850px;
 }
 
 #tasbelanja{
 	width:100px;
 	height:100px;
-	border:5px double #804000;
 	border-top:0px;
 	position:relative;
-	top:-145px;
+	top:-190px;
 	right:200px;
 	color:red;
 }
@@ -100,14 +100,17 @@ body{
 	font-size:24px;
 }
 
-#logintext{
-    font-size:24px;
-    color:#123456;
-}
-
 #pic2home{
 	position:relative;
 	right:-500px;
+}
+
+#welcometext{
+	position:fixed;
+	top:0px;
+	left:20px;
+	font-size:24px;
+	color:white;
 }
 
 #pictext{
@@ -135,7 +138,7 @@ body{
 	margin:0px;
 	text-align:left;
 	font-family:"Book Antiqua";
-	color:white;
+	color:#804000;
 	font-size:20px;
 	background-image:url('../gambar_barang/backgroundpilihbarang.jpg');
 }
@@ -211,3 +214,7 @@ body{
 #addcreditcardcontent{height:150px;}
 #largecontent{height:800px;width:800px;}
 #giantcontent{height:1800px;width:800px;}
+#radiobutt{
+	position:relative;
+	right:-480px;
+}

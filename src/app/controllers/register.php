@@ -88,7 +88,7 @@ Class RegisterController Extends BaseController {
 
 	public function failed()
 	{
-		$this->registry->template->message = "Registrasi gagal, mohon maaf. Akan segera kami perbaiki.";
+		$this->registry->template->message = "Registrasi gagal, tolong periksa kembali data-data yang diisikan";
 		$this->registry->template->show('common');
 	}
 }

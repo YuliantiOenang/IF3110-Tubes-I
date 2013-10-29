@@ -15,16 +15,18 @@ class Customer {
 					`username` VARCHAR(16) NOT NULL,
 					`email` VARCHAR(32) NOT NULL ,
 					`password` CHAR(64) NOT NULL ,
-					`fullname` VARCHAR(32) NOT NULL ,
+					`fullname` VARCHAR(64) NOT NULL ,
 					`phone` VARCHAR(16) ,
-					`address` VARCHAR(256) ,
+					`address` VARCHAR(128) ,
 					`city` VARCHAR(32) ,
 					`province` VARCHAR(32) ,
 					`postcode` CHAR(5) ,
 					`card_number` VARCHAR(16) ,
 					`card_name` VARCHAR(32) ,
 					`card_expired` DATE ,
-					PRIMARY KEY (`customer_id`)
+					PRIMARY KEY (`customer_id`),
+					UNIQUE (`username`),
+					UNIQUE (`email`)
 				)";
 		try {
 			$dbh = $registry->database;

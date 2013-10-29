@@ -1,3 +1,15 @@
+<?php
+
+/*** begin our session ***/
+session_start();
+
+/*** set a form token ***/
+$form_token = md5( uniqid('auth', true) );
+
+/*** set the session form token ***/
+$_SESSION['form_token'] = $form_token;
+?>
+
 <?php require SITEPATH . '/app/views/head.php' ?>
 
 <body> 
@@ -19,6 +31,7 @@
                 <label for="card_expired">Expired: </label>
                 <input type="date" id="card_expired" name="card_expired" class="form-control"/>
             </div>
+            <input type="hidden" name="form_token" value="<?php echo $form_token; ?>" />
             <button type="submit" class="btn">Register</button>
         </form>
 	</div>

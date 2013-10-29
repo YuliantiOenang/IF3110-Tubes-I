@@ -154,6 +154,13 @@ body{
   * Bagian untuk CSS3 Carousel
   */
   
+.items {
+    width:999px;
+    -webkit-animation: hscroll 12s infinite;
+    -moz-animation: hscroll 12s infinite;
+    -ms-animation: hscroll 12s infinite;
+}
+  
 .scrollable {
     width: 333px;
     margin: 0 auto;

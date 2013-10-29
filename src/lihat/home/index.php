@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 	<title> Ruserba - Home</title>
-    <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/animatedShop.css" rel="stylesheet"/>
     <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/loginPopup.css" rel="stylesheet"/>
     <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/mainstyle.css" rel="stylesheet"/>
     <script src="<?=SITE_ROOT.NAME_ROOT;?>/js/ajaxLogin.js" type="text/javascript"></script>

@@ -1,0 +1,1 @@
+dump dulu databasenya lalu jalankan localhost/index.php pada browser

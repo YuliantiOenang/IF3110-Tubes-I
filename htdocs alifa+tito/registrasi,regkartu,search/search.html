@@ -1,0 +1,33 @@
+<html>
+<body>
+
+HALAMAN SEARCH
+
+<form name="formsearch" action="searchbarang.php" method="post" tag="registrasi">
+	<div align="left">
+		Nama Barang : <input name="namabarang" type="text"  /> 
+		<select value="Kategori" name="kategori">
+			<option value="" >Kategori</option>
+			<option value="beras">Beras</option>
+			<option value="roti">Roti</option>
+			<option value="daging segar">Daging Segar</option>
+			<option value="daging olahan">Daging Olahan</option>
+			<option value="beras">Buah</option>
+			<option value="roti">Sayur</option>
+		</select>
+		<select value="harga" name="harga">
+			<option value="0" >Harga</option>
+			<option value="1">< Rp 10.000</option>
+			<option value="2">Rp 10.000 <= harga < Rp 25.000 </option>
+			<option value="3">Rp 25.000 <= harga <  Rp 50.000 </option>
+			<option value="4">Rp 50.000 <= harga <  Rp 75.000 </option>
+			<option value="5">>= Rp 75.000</option>
+		</select>
+	<input name="search" type="submit" value="search" /> 
+	</div>
+</form>
+
+
+
+</body>
+</html>

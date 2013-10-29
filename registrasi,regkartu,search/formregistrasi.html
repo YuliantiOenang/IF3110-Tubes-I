@@ -1,0 +1,26 @@
+<html>
+<body>
+
+HALAMAN REGISTRASI
+
+<script type="text/javascript" src="checking.js"></script>
+
+<form name="formregistrasi" action="registrasi.php?go" method="post" tag="registrasi">
+	<div align="left">
+		Username : <input type="username" name="username" onkeyup="userHint(this.value,pwd.value)" /> <span id="userHint" ></span>  <br />
+		Password : <input type="password" name="pwd" onkeyup="passHint(this.value,username.value)" /> <span id="passHint" ></span> <br />
+		Confirm Password : <input type="password" name="cnfrm" onkeyup="cpassHint(this.value,pwd.value)" /> <span id="cpassHint" ></span> <br />
+		Nama Lengkap : <input type="text" name="namalengkap" onkeyup="namaHint(this.value)" /> <span id="namaHint" > </span> <br />
+		Email : <input type="email" name="email" onkeyup="emailHint(this.value,pwd.value)" /><span id="txtHint" ></span> <br />
+		Nomor HP : <input type="text" name="hp"/><br />
+		Tempat Tinggal : <input type="text" name="almt"/><br />
+		Kabupaten : <input type="text" name="kab"/><br />
+		Provinsi : <input type="text" name="prov"/> <br/>
+		Kode Pos : <input type="text" name="kode" /><br />
+	<input name="tombol" type="submit" value="register"  />
+	</div>
+</form>
+
+
+</body>
+</html>

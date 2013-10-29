@@ -1,0 +1,22 @@
+tito:
+index.php
+profile.php
++header
+
+rahma:
+listbarang.php
+detilbarang.php
+shoppingbag.php
+
+alifa:
+registeruser.php
+reegistercredit.php
+search.php
+
+kategori : 
+1. beras
+2. roti
+3. daging segar
+4. daging olahan
+5. buah
+6. sayur

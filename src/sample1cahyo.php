@@ -1,20 +1,20 @@
 <?php
-	// Contoh dari file content.
+	// // Contoh dari file content.
 
-	// Selalu include ini di awal.
-	require_once('ref.php');
+	// // Selalu include ini di awal.
+	// require_once('ref.php');
 
-	// Tentukan file css dan javascript.
-	$css_file = 'styles/sample.css';
-	$js_file = 'scripts/sample.js';
+	// // Tentukan file css dan javascript.
+	// $css_file = 'styles/sample.css';
+	// $js_file = 'scripts/sample.js';
 
-	// Tulis title
-	$page_title = 'Register into RuSerBa!';
+	// // Tulis title
+	// $page_title = 'Register into RuSerBa!';
 
-	// Include begin.
-	require_once('begin.php');
+	// // Include begin.
+	// require_once('begin.php');
 ?>
-
+<link link rel="stylesheet" type="text/css" href='styles/sample.css'>
 <div id="register_form">
 	<form name="register">
 		<div id="form_label">
@@ -40,25 +40,25 @@
 			<br>
 		</div>
 		<div id="form_input">
-			<input type="text" name="username" onblur= required>
+			<input type="text" name="email" required>
 			<br>
-			<input type="email" name="email" class="input" tabindex="2" required>
+			<input type="email" name="email" required>
 			<br>
-			<input type="password" name="password" class="input" tabindex="3" required>
+			<input type="password" name="password" required>
 			<br>
-			<input type="password" name="confirm_pwd" class="input" tabindex="4" required>
+			<input type="password" name="confirm_pwd" required>
 			<br>
-			<input type="text" name="fullname" class="input" tabindex="5" required>
+			<input type="text" name="fullname" required>
 			<br>
-			<input type="text" name="provinsi" class="input" tabindex="6">
+			<input type="text" name="provinsi">
 			<br>
-			<input type="text" name="kota" class="input" tabindex="7">
+			<input type="text" name="kota">
 			<br>
-			<textarea rows="4" name="address" style="margin-left:0px;margin-top:8px;" tabindex="8"></textarea>
+			<textarea rows="4" name="address" style="margin-left:0px;margin-top:8px;"></textarea>
 			<br>
-			<input type="text" name="kodepos" class="input" tabindex="9">
+			<input type="text" name="kodepos">
 			<br>
-			<input type="text" name="telepon" class="input" tabindex="10">
+			<input type="text" name="telepon">
 			<br>
 		</div>
 	</form>

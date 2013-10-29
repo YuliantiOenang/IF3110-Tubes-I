@@ -10,7 +10,7 @@
 	margin: 20px;
 }
 
-#content #register_form {
+ #register_form {
 	width:95%;
 	margin:auto;
 	height:520px;
@@ -18,7 +18,7 @@
 	display:block;
 }
 
-#content #form_label {
+ #form_label {
 	width: 40%;
 	height: 330px;
 	float: left;
@@ -28,7 +28,7 @@
 	letter-spacing:1px;
 }
 
-#content #form_input {
+ #form_input {
 	width: 60%;
 	height: 390px;
 	float: left;

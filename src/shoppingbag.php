@@ -5,6 +5,7 @@
 		<title>
 			Tas Belanja
 		</title>
+		<script src="js/transaction.js"></script>
 	</head>
 	<body>
 		<?php
@@ -13,7 +14,6 @@
 		<div id="content">
 			<h1>Tas Belanja</h1>
 			<?php
-			unset($_SESSION['usr']);
 				if (isset($_GET['nama'])) $nama = $_GET['nama'];
 				
 				if (isset($_POST['submit'])){
@@ -149,9 +149,10 @@
 			if (!isset($_SESSION['usr'])){
 				echo "Silakan login terlebih dahulu";
 			} else if (isset($set)){
+				$link2 = "shoppingbag.php";
 			?>
 			<form name="formsubmit" action="<?php echo $link2; ?>" method="post">
-			<input type="submit" value="BUY ALL!" name="submitall">
+			<input type="submit" value="BUY ALL!" name="submitall"></input>
 			</form>
 			<?php
 			} else {

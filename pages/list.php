@@ -68,7 +68,7 @@
 				
 				$category = $_GET['cat'];
 				echo "<div class='category'>";
-				echo "<h2>" . getFormalName($category)."</h2><br/>";
+				echo getFormalName($category)."<br/>";
 				echo "</div>";
 				$result = mysqli_query($con,"SELECT * FROM kategori NATURAL JOIN inventori WHERE nama_kategori = '".$category."'");
 				

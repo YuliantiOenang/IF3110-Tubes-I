@@ -12,4 +12,17 @@ Class ProductController Extends BaseController {
 		$this->registry->template->product_id = $id;
 		$this->registry->template->show('product');
 	}
+
+
+	public function search($keyword) {
+		$this->registry->template->CONFIG = $this->registry->config;
+		$this->registry->template->keyword = $keyword;
+		$this->registry->template->show('listproduct');
+	}
+
+	public function category($category) {
+		$this->registry->template->CONFIG = $this->registry->config;
+		$this->registry->template->category = $category;
+		$this->registry->template->show('listproduct');
+	}
 }

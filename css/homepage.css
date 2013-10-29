@@ -185,7 +185,17 @@ a{
 	font-size:25;
 }
 
+#status{
+	text-align:left;
+	float:left;
+}
+
+#quantity{
+	float:left;
+}
+
 #cart{
+	float:left;
 }
 
 .goods{

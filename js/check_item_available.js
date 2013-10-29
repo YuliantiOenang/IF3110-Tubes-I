@@ -13,11 +13,11 @@ function checkItem(str, id)
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
 			if(str == "" || isNaN(str) || parseInt(str) < 0){
-				document.getElementById("item_status" + id).innerHTML = "number not valid";
+				document.getElementById("item_status" + id).innerHTML = "Masukkan tidak valid";
 			} else if(parseInt(xmlhttp.responseText) >= parseInt(str)){
-				document.getElementById("item_status" + id).innerHTML = "item is available";
+				document.getElementById("item_status" + id).innerHTML = "Cukup";
 			} else{
-				document.getElementById("item_status" + id).innerHTML = "item is not available";
+				document.getElementById("item_status" + id).innerHTML = "Kurang";
 			} 
 		}
 	}

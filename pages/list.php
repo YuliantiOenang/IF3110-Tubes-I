@@ -92,9 +92,10 @@
 						echo "<a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
 						echo "Rp ".$row['harga'].",00 <br/>";
 						?>
-							<input type='text' onkeydown="" value='0' size=7 ></input>
-							<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
+							<div id='quantity' ><input type='text' onkeydown="" value='0' size=7 ></input><br/></div>
 							<div id='cart'><a><img src="../img/addtocart.png" height=25px onclick='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></img></a></div>
+							<div id ='status'>Status : </div>
+							<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
 						<?php
 					echo "</div>";
 				}

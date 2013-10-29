@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 29 Okt 2013 pada 11.20
+-- Waktu pembuatan: 29 Okt 2013 pada 13.30
 -- Versi Server: 5.5.27
 -- Versi PHP: 5.4.7
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `produk` (
   `stok` int(255) NOT NULL,
   `image` varchar(60) NOT NULL,
   `kategori` varchar(60) NOT NULL,
+  `keterangan` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
@@ -41,32 +42,32 @@ CREATE TABLE IF NOT EXISTS `produk` (
 -- Dumping data untuk tabel `produk`
 --
 
-INSERT INTO `produk` (`id`, `nama`, `harga`, `sold`, `stok`, `image`, `kategori`) VALUES
-(1, 'malkist', 5000, 3, 7, 'img/snack/malkist.jpg', 'snack'),
-(2, 'kacangatom', 2000, 4, 6, 'img/snack/kacangatom.jpg', 'snack'),
-(3, 'tango', 6000, 2, 8, 'img/snack/tango.jpg', 'snack'),
-(4, 'chiki', 1000, 1, 9, 'img/snack/chiki.jpg', 'snack'),
-(5, 'oreo', 4000, 7, 3, 'img/snack/oreo.jpg', 'snack'),
-(6, 'milkshake', 10000, 3, 7, 'img/minuman/milkshake.jpg', 'minuman'),
-(7, 'kopi', 6000, 9, 1, 'img/minuman/kopi.jpg', 'minuman'),
-(8, 'esteh', 2500, 8, 2, 'img/minuman/esteh.jpg', 'minuman'),
-(9, 'jus', 5000, 4, 6, 'img/minuman/jus.jpg', 'minuman'),
-(10, 'beer', 15000, 1, 9, 'img/minuman/beer.jpg', 'minuman'),
-(11, 'ayam', 12000, 4, 6, 'img/makanan/ayam.jpg', 'makanan'),
-(12, 'burger', 8000, 2, 8, 'img/makanan/burger.jpg', 'makanan'),
-(13, 'pizza', 20000, 3, 7, 'img/makanan/pizza.jpg', 'makanan'),
-(14, 'steak', 18000, 4, 6, 'img/makanan/steak.jpg', 'makanan'),
-(15, 'spageti', 13000, 2, 8, 'img/makanan/spageti.jpg', 'makanan'),
-(16, 'kasur', 500000, 1, 9, 'img/properti/kasur.jpg', 'properti'),
-(17, 'sofa', 300000, 2, 8, 'img/properti/sofa.jpg', 'properti'),
-(18, 'lemari', 400000, 1, 9, 'img/properti/lemari.jpg', 'properti'),
-(19, 'meja', 150000, 2, 8, 'img/properti/meja.jpg', 'properti'),
-(20, 'kursi', 100000, 4, 6, 'img/properti/kursi.jpg', 'properti'),
-(21, 'melon', 20000, 7, 3, 'img/buah/melon.jpg', 'buah'),
-(22, 'apel', 2000, 4, 6, 'img/buah/apel.jpg', 'buah'),
-(23, 'stroberi', 1000, 8, 2, 'img/buah/stroberi.jpg', 'buah'),
-(24, 'jeruk', 1500, 9, 1, 'img/buah/jeruk.jpg', 'buah'),
-(25, 'semangka', 6000, 3, 7, 'img/buah/semangka.jpg', 'buah');
+INSERT INTO `produk` (`id`, `nama`, `harga`, `sold`, `stok`, `image`, `kategori`, `keterangan`) VALUES
+(1, 'malkist', 5000, 3, 7, 'img/snack/malkist.jpg', 'snack', 'biskuit ditaburi dengan malt'),
+(2, 'kacangatom', 2000, 4, 6, 'img/snack/kacangatom.jpg', 'snack', 'kacang di dalam lapisan tepung'),
+(3, 'tango', 6000, 2, 8, 'img/snack/tango.jpg', 'snack', 'wafer berlapis coklat'),
+(4, 'chiki', 1000, 1, 9, 'img/snack/chiki.jpg', 'snack', 'makanan ringan berbentuk bola'),
+(5, 'oreo', 4000, 7, 3, 'img/snack/oreo.jpg', 'snack', 'biskiut coklat dengan cream susu'),
+(6, 'milkshake', 10000, 3, 7, 'img/minuman/milkshake.jpg', 'minuman', 'susu dengan rasa buah'),
+(7, 'kopi', 6000, 9, 1, 'img/minuman/kopi.jpg', 'minuman', 'minuman berkafein pencegah kantuk'),
+(8, 'esteh', 2500, 8, 2, 'img/minuman/esteh.jpg', 'minuman', 'teh manis dingin'),
+(9, 'jus', 5000, 4, 6, 'img/minuman/jus.jpg', 'minuman', 'jus buah'),
+(10, 'beer', 15000, 1, 9, 'img/minuman/beer.jpg', 'minuman', 'minuman beralkohol'),
+(11, 'ayam', 12000, 4, 6, 'img/makanan/ayam.jpg', 'makanan', 'ayam goreng'),
+(12, 'burger', 8000, 2, 8, 'img/makanan/burger.jpg', 'makanan', 'beef cheese burger'),
+(13, 'pizza', 20000, 3, 7, 'img/makanan/pizza.jpg', 'makanan', 'pizza bertoping aneka sayur dan daging'),
+(14, 'steak', 18000, 4, 6, 'img/makanan/steak.jpg', 'makanan', 'daging panggang'),
+(15, 'spageti', 13000, 2, 8, 'img/makanan/spageti.jpg', 'makanan', 'mie dengan saus khas italia'),
+(16, 'kasur', 500000, 1, 9, 'img/properti/kasur.jpg', 'properti', 'tempat untuk tidur'),
+(17, 'sofa', 300000, 2, 8, 'img/properti/sofa.jpg', 'properti', 'tempat duduk yang nyaman'),
+(18, 'lemari', 400000, 1, 9, 'img/properti/lemari.jpg', 'properti', 'tempat menyimpan barang'),
+(19, 'meja', 150000, 2, 8, 'img/properti/meja.jpg', 'properti', 'tempat menaruh barang'),
+(20, 'kursi', 100000, 4, 6, 'img/properti/kursi.jpg', 'properti', 'tempat duduk'),
+(21, 'melon', 20000, 7, 3, 'img/buah/melon.jpg', 'buah', 'buah melon segar'),
+(22, 'apel', 2000, 4, 6, 'img/buah/apel.jpg', 'buah', 'buah apel segar'),
+(23, 'stroberi', 1000, 8, 2, 'img/buah/stroberi.jpg', 'buah', 'buah stroberi segar'),
+(24, 'jeruk', 1500, 9, 1, 'img/buah/jeruk.jpg', 'buah', 'buah jeruk segar'),
+(25, 'semangka', 6000, 3, 7, 'img/buah/semangka.jpg', 'buah', 'buah semangka segar');
 
 -- --------------------------------------------------------
 

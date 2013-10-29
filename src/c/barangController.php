@@ -6,6 +6,7 @@ class BarangController extends dasarController {
 	public function index() {
 		$model = new Barang();
 		$array = $model->cariID($this->getParam());
+		if ($array == null) $this->redirect('index/home');
 		$template = $this->brankas->template;
 		$template->view = 'barang';
 		$template->model = $array[0];
@@ -88,13 +89,18 @@ class BarangController extends dasarController {
 	}
 
 	public function delete(){
-		$quantity = 0;
 		$id_barang = $this->getParam();
 		$model = new Barang($id_barang);
 
-		$_SESSION[$model->nama]= $quantity;
-		$_SESSION[ "msg" . $model->nama] = $req_msg;
-		
+		$array = $_SESSION['dibeli'];
+		if(($key = array_search($model->nama, $array)) !== false) {
+		    unset($array[$key]);
+		    $_SESSION['dibeli'] = $array;
+		}
+
+		$_SESSION['dibeli'] = $array;
+		unset($_SESSION['msg'.$model->nama]);
+
 		$this->redirect("cart/index");
 	}
 }	

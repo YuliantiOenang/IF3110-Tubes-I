@@ -51,9 +51,9 @@ Class RegisterController Extends BaseController {
 			$customer['province'] =  filter_var($_POST["province"], FILTER_SANITIZE_STRING);
 			$customer['postcode'] =  filter_var($_POST["postcode"], FILTER_SANITIZE_STRING);
 	
-			if (Customer::addCustomer($this->registry, $customer)) {
+			if (Customer::addCustomer($this->registry, $customer) > 0) {
 				//redirect
-				$_SESSION['logged_username'] = $customer['username'];
+				$_SESSION['logged_userid'] = $customer['logged_userid'];
 				header("Location: " . SITEURL . "/register/card/"); die();
 				//http_redirect (SITEURL . '/register/card', array ('username' => $customer['username']), true, HTTP_REDIRECT_POST );
 			} else {
@@ -74,7 +74,7 @@ Class RegisterController Extends BaseController {
 			or $_POST['form_token'] != $_SESSION['form_token']) {
 			header("Location: " . SITEURL . "/register/failed" ); die();
 		} else {
-			$customer['username'] = $_SESSION['logged_username'];
+			$customer['customer_id'] = $_SESSION['logged_userid'];
 			$customer['card_name'] = filter_var($_POST["card_name"], FILTER_SANITIZE_STRING);
 			$customer['card_number'] = filter_var($_POST["card_number"], FILTER_SANITIZE_STRING);
 			$customer['card_expired'] = filter_var($_POST["card_expired"], FILTER_SANITIZE_STRING);
@@ -90,7 +90,7 @@ Class RegisterController Extends BaseController {
 
 	public function success()
 	{
-		$this->registry->template->message = "Pendaftaran customer baru sukses. Silahkan login di kanan atas";
+		$this->registry->template->message = "Pendaftaran customer baru sukses.";
 		$this->registry->template->show('common');
 	}
 

@@ -68,13 +68,18 @@ class Customer {
 
 	/**
 	 * Menambah customer baru
+	 * Mereturn id dari customer
 	 */
 	public static function addCustomer($registry, $customer) {
 		try {
 			$dbh = $registry->database;
 			$sth = $dbh->prepare("INSERT INTO customer (username, email, password, fullname, phone, address, city, province, postcode) values (:username, :email, :password, :fullname, :phone, :address, :city, :province, :postcode)"); 
 
-			return $sth->execute($customer) !== false;
+			if ($sth->execute($customer) !== false) {
+				return $dbh->lastInsertId(); 
+			} else {
+				return 0;
+			}
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}
@@ -86,8 +91,7 @@ class Customer {
 	public static function updateCreditcard($registry, $customer) {
 		try {
 			$dbh = $registry->database;
-			$sth = $dbh->prepare("UPDATE customer SET card_number = :card_number, card_name = :card_name, card_expired = :card_expired	WHERE username = :username"); 
-
+			$sth = $dbh->prepare("UPDATE customer SET card_number = :card_number, card_name = :card_name, card_expired = :card_expired	WHERE customer_id = :customer_id"); 
 			return $sth->execute($customer) !== false;
 		} catch (PDOException $e) {
 			echo $e->getMessage();

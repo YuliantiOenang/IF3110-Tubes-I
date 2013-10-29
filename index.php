@@ -38,7 +38,7 @@
 					echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				}
 				//check data posted
-				for(int i=1;i<=5;i++){
+				for($i=1;$i<=5;$i++){
 					//$result = mysqli_query($con,"SELECT * FROM transaksi NATURAL JOIN inventori NATURAL JOIN kategori WHERE id_kategori = '".$i."'");
 					
 				}

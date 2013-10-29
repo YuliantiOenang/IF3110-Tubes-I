@@ -17,6 +17,14 @@
 			  alert("Password Salah");
 			  return false;
 			  }
+			 x=document.forms["editform"]["namalengkap"].value;
+			var spasipos=x.indexOf(" ");
+			var lastspasipos=x.lastIndexOf(" ");
+			if (x==null || x=="" || spasipos<=0 || lastspasipos==x.length)
+			{
+			 alert("Nama tidak lengkap");
+			 return false;
+			}
 		}
 	</script>
 	<body>
@@ -33,7 +41,7 @@
 						  {
 						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 						  } 
-				$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='karakuri'");				
+				$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='" . $usr . "'");				
 				$row = mysqli_fetch_array($result);
 				?>
 				

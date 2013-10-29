@@ -4,9 +4,6 @@
 	// Selalu include ini di awal.
 	require_once('ref.php');
 
-	// Include auth.php, untuk memeriksa user sudah login atau belum.
-	require_once('auth.php');
-
 	// Tentukan file css dan javascript.
 	$css_file = 'styles/sample.css';
 	$js_file = 'scripts/sample.js';
@@ -19,7 +16,7 @@
 ?>
 
 <div id="register_form">
-	<form name="register" method=POST action="katalog.html">
+	<form name="register">
 		<div id="form_label">
 			<label><span>Username *</span></label>
 			<br>
@@ -43,7 +40,7 @@
 			<br>
 		</div>
 		<div id="form_input">
-			<input type="text" name="username" class="input" tabindex="1" required>
+			<input type="text" name="username" onblur= required>
 			<br>
 			<input type="email" name="email" class="input" tabindex="2" required>
 			<br>

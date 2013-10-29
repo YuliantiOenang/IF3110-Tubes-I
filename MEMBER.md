@@ -3,3 +3,8 @@
 3. 13511067 Rama Febriyan dragoon.redeyed@gmail.com runbow
  
 Pengerjaan tidak menggunakan git sehingga yang di gqit hanya file finalnya
+
+Pembagian Tugas :
+1. Muhammad Rizky  : HTML,CSS,Image
+2. Adhika Aryantio : PHP login,registrasi,editprofile & database user
+3. Rama Febriyan   : PHP & Database Stock Barang

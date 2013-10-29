@@ -1,6 +1,8 @@
 <?php 
+/*
 	session_start();
 	session_destroy();
+*/
 
 	$con=mysqli_connect("localhost","root","","tubessatu");
 	if(mysqli_connect_errno()){

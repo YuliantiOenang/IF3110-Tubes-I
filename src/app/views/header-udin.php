@@ -4,7 +4,7 @@
 			<center>
 				<ul>
 					<li><a href="#">Logo</a></li> <!-- ganti dengan gambar logo ya-->
-					<li><a href="#">Home</a></li> <!-- # = masuk ke HOME-->
+					<li><a href="<?php echo SITEURL ?>">Home</a></li> <!-- # = masuk ke HOME-->
 					
 					<li><a href="#">Kategori Barang</a> <!-- # = masuk ke katogori barang-->
 						<ul>
@@ -56,11 +56,11 @@
 	
 	<form name="loginForm" method="post" action="<?php echo SITEURL . '/login' ?>">
 		<div>
-			<input name="myusername" type="text" id="id" placeholder="username" />
+			<input type="text" id="login-user" name="login-user" placeholder="username" />
 		</div>
 		
 		<div>
-			<input name="mypassword" type="password" id="pass" placeholder="password" />	
+			<input type="password" id="login-pass" name="login-pass" placeholder="password" />	
 		</div>			
 		<input type="submit" name="Submit" value="Login"/>
 	</form>	

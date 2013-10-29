@@ -5,12 +5,12 @@
 		
 		<li><a href="#">Kategori Barang</a> <!-- # = masuk ke katogori barang-->
 			<ul>
-				<li><a href="#">Kategori A</a></li>
-				<li><a href="#">Kategori B</a></li>
-				<li><a href="#">Kategori C</a></li>
-				<li><a href="#">Kategori D</a></li>
+				<li><a href="#">Elektronik</a></li>
+				<li><a href="#">Sandang</a></li>	
+				<li><a href="#">Otomotif</a></li>									
 			</ul>
 		</li>
+						
 		
 		<?php 
 			//periksa apakah sedang login atau tidak

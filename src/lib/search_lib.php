@@ -40,6 +40,32 @@
 		// mengambil barang yg punya keyword tertentu (entah nama, kategori, deskripsi, dll).
 		// page dimulai dari 0, 1 page 10 barang
 		// kembalian: array of Barang
+		global $DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME;
+		
+		$conn = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
+		$statement = $conn->prepare("SELECT * FROM barang WHERE nama_barang REGEXP ? OR kategori REGEXP ? OR deskripsi REGEXP ? OR harga = ? LIMIT ?, 10");
+		
+		$oldkeyword = $keyword;
+		$keyword = str_replace(" ", "|", $keyword);	
+		
+		$page *= 10;
+		
+		$statement->bind_param("ssssi", $keyword, $keyword, $keyword, $oldkeyword, $page);
+		
+		$statement->execute();
+		$statement->bind_result($id, $nama, $stok, $harga, $jumlah_beli, $kategori, $deskripsi);
+		
+		$result = array();
+		while($statement->fetch()){
+			$barang = new Barang();
+			$barang->set($id, $nama, $stok, $harga, $jumlah_beli, $kategori, $deskripsi);
+			array_push($result, $barang);
+		}
+		
+		$statement->close();
+		$conn->close();
+		
+		return $result;
 	}
 	
 	function searchCategory($category, $page, $srt, $ord){

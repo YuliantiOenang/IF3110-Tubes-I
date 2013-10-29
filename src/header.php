@@ -13,7 +13,7 @@
 		</div>		
 		<div class="search-wrapper">
 			<form method="GET" id="searchform" action="search.php">
-				<input type="text" name="q" class="search search-grey" onfocus="searchBoxFocus(this)" onblur="searchBoxBlur(this)" onkeypress="searchHandle" value="Search" />
+				<input type="text" name="q" class="search search-grey" onfocus="searchBoxFocus(this)" onblur="searchBoxBlur(this)" value="Search" />
 			</form>
 		</div>
 		

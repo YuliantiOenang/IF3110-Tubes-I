@@ -22,7 +22,7 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
-					<input id="label_form" class="text_field" type="text" onkeydown="validateregisForm()" name="username">
+					<input id="label_form" class="text_field" type="text" onkeyup="validateregisForm()" name="username">
 						<p class="info">
 							(Minimal 5 karakter)
 						</p>
@@ -35,7 +35,7 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
-					<input id="label_form" class="text_field" type="password" onkeydown="validateregisForm()" name="password">
+					<input id="label_form" class="text_field" type="password" onkeyup="validateregisForm()" name="password">
 						<p class="info">
 							(Minimal 8 Karakter)
 						</p>
@@ -48,7 +48,7 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
-					<input id="label_form" class="text_field" type="password" onkeydown="validateregisForm()" name="confirmpassword"></input>
+					<input id="label_form" class="text_field" type="password" onkeyup="validateregisForm()" name="confirmpassword"></input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -57,7 +57,7 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
-					<input id="label_form" class="text_field" type="text" onkeydown="validateregisForm()" name="namalengkap"></input>
+					<input id="label_form" class="text_field" type="text" onkeyup="validateregisForm()" name="namalengkap"></input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -66,7 +66,7 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
-					<input id="label_form" class="text_field" type="text" onkeydown="validateregisForm()" name="nomorhp"></input>
+					<input id="label_form" class="text_field" type="text" onkeyup="validateregisForm()" name="nomorhp"></input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -75,7 +75,7 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
-					<input id="label_form" class="text_field" type="text" onkeydown="validateregisForm()" name="alamat"></input>
+					<input id="label_form" class="text_field" type="text" onkeyup="validateregisForm()" name="alamat"></input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -84,7 +84,7 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
-					<input id="label_form" class="text_field" type="text" onkeydown="validateregisForm()" name="kota"></input>
+					<input id="label_form" class="text_field" type="text" onkeyup="validateregisForm()" name="kota"></input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -93,7 +93,7 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
-					<input id="label_form" class="text_field" type="text" onkeydown="validateregisForm()" name="provinsi"></input>
+					<input id="label_form" class="text_field" type="text" onkeyup="validateregisForm()" name="provinsi"></input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -102,7 +102,7 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
-					<input id="label_form" class="text_field" type="text" onkeydown="validateregisForm()" name="kodepos"></input>
+					<input id="label_form" class="text_field" type="text" onkeyup="validateregisForm()" name="kodepos"></input>
 				</div>
 				<div id="form_one_row">
 					<p id="label_form" class="label">
@@ -111,10 +111,10 @@
 					<p id="label_form" class="partition">
 						:
 					</p>
-					<input id="label_form" class="text_field" type="text" onkeydown="validateregisForm()" name="email"></input>
+					<input id="label_form" class="text_field" type="text" onkeyup="validateregisForm()" name="email"></input>
 				</div>
 				<div id="form_one_row">
-					<input id="submit" type="submit" disabled value="DAFTAR"></input>
+					<input id="submit" type="submit" disabled value="DAFTAR" name="daftar"></input>
 				</div>
 				<div id="form_one_row"></div>
 			</form>

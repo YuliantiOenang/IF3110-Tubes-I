@@ -1,5 +1,6 @@
 <!-- List of Merchandises In Category -->
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 	<head>
 		<script src="js/transaction.js"></script>
@@ -61,9 +62,9 @@
 					$link = "merchandise.php?id=".$row['ID'];
 					echo "<a href= $link>" .$row['Nama'] . "</a>";
 					echo "<br/><br/>";
-					$link2 = "category.php?kat=".$row['Kategori'];
+					$link2 = "category.php?kat=".$row['Kategori']."&id=".$row['Nama'];
 					?>
-					<form name="forminput" action="<?php echo $link2; ?>" onsubmit="return validateForm1()" method="post">
+					<form name="forminput" action="<?php echo $link2; ?>" method="post">
 					Jumlah: <input type="number" name="jumlah">
 					<input type="submit" value="BUY!">
 					</form>
@@ -86,11 +87,16 @@
 			}
 
 			//DisplayAllKategori();
-			if (isset($_POST['submitForm'])) { 
-				print_r($_POST);
-			}
-			
+			//print_r($_POST);
 			if (isset($_GET['kat'])) $GLOBALS['kat'] = $_GET['kat'];
+			if (isset($_GET['id'])) $GLOBALS['id'] = $_GET['id'];
+			if (isset($_POST['jumlah'])){
+				if ($_POST['jumlah'] > 0){
+					if (isset($_SESSION["$id"])) $_SESSION["$id"] = $_SESSION["$id"] + $_POST['jumlah'];
+					else $_SESSION["$id"] = $_POST['jumlah'];
+					echo $_POST['jumlah']." ".$id." dimasukkan ke shopping bag.. <br/>";
+				} else echo "Jumlah tidak sesuai.. <br/>";
+			}
 			echo "Kategori : ".$kat;
 			if (isset($kat)) {
 				if (isset($_GET['type'])) $type = $_GET['type'];

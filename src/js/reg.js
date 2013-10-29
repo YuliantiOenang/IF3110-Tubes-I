@@ -1,5 +1,6 @@
 function validateregisForm()
 {
+	document.getElementById('submit').disabled = true;
 	var x=document.forms["regisform"]["username"].value;
 	if (x!=null && x!="" && x.length >= 5)
 	  {
@@ -12,7 +13,9 @@ function validateregisForm()
 				if (x == y )
 				{
 					x=document.forms["regisform"]["namalengkap"].value;
-					if (x!=null && x!="")
+					var spasipos=x.indexOf(" ");
+					var lastspasipos=x.lastIndexOf(" ");
+					if (x!=null && x!="" && spasipos>0 && lastspasipos+1<x.length)
 					{
 						x=document.forms["regisform"]["nomorhp"].value;
 						if (x!=null && x!="")
@@ -32,8 +35,8 @@ function validateregisForm()
 											x=document.forms["regisform"]["email"].value;
 											var atpos=x.indexOf("@");
 											var dotpos=x.lastIndexOf(".");
-											if (x!=null && x!="" && atpos>0 && dotpos>=atpos+2 && dotpos+1<x.length)
-											{
+											if (x!=null && x!="" && atpos>0 && dotpos>=atpos+2 && dotpos+1<x.length && x!=y)
+											{												
 												document.getElementById('submit').disabled = false;
 											}
 										}

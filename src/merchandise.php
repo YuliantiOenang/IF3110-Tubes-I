@@ -1,5 +1,6 @@
 <!-- Detail of A Merchandise -->
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 	<head>
 		<script src="js/transaction.js"></script>
@@ -26,7 +27,7 @@
 				while($row = mysqli_fetch_array($GLOBALS['result']))
 				  { 
 				  echo "Detail Barang :";
-				  $link = "category.php?kat=".$row['Kategori'];
+				  $link = "category.php?kat=".$row['Kategori']."&id=".$row['Nama'];
 				  ?>
 				  <br/>
 				  <div>
@@ -38,7 +39,7 @@
 					<pre><?php echo 'Stok : '.$row['Banyak']; ?></pre>
 					<pre><?php echo 'Tambahan Permintaan :' ?></pre>
 					<textarea rows="10" cols="100"></textarea>
-					<form name="input" action="<?php echo $link; ?>" onsubmit="return validateForm2()" method="post">
+					<form name="input" action="<?php echo $link; ?>" method="post">
 					Jumlah: <input type="number" name="jumlah">
 					<input type="submit" value="BUY!">
 					</form> 

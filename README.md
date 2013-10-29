@@ -9,3 +9,4 @@
 	- Salin semua isi folder /src ke dalam folder /htdocs/WBD yang terletak di lokasi instalasi xampp
 	- Import database test ke dalam server dengan menggunakan phpMyAdmin
 	- Buka browser, dan navigasikan ke URL localhost/WBD/Index.php
+	- Server mysql lokal login dengan user root password ""

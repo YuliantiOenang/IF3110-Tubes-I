@@ -312,7 +312,7 @@ function remove(id)
 			</div>
 			
 			
-		</div>	</br>
+		</div>	</br></br>
 			<div class = "registerspace">
 			<input type="button" value = "Confirm" onclick="window.location='payment.php?jumlah=<?php echo $jumlahBarang; ?>'";></br>
 			</div>
@@ -330,7 +330,6 @@ function remove(id)
 
 		</div>
 		
-				<p class = "copyrightext">COPYRIGHT KeyboardHero</p>
 		
 	</div>
 </div>

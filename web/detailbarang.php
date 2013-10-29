@@ -352,7 +352,7 @@ function buy()
 
 		</div>
 		
-				<p class = "copyrightext">COPYRIGHT KeyboardHero</p>
+				
 		
 	</div>
 </div>

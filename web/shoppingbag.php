@@ -298,7 +298,7 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> Shopping Bag<label></br>
+		<label> MY SHOPPING BAG<label></br></br>
 		</div>
 		<?php
 			include "config/connect.php";
@@ -314,13 +314,12 @@ function remove(id)
 				</div>
 				
 				<p class = 'copyrightext'> ".$baris[2]." </br>
-					  Rp".$baris[3]." </label> </br> Pesan : ".$baris[5]." </br> </p></br>
-					  </br></br>
-					  </br></br></br></br>
+					  Rp".$baris[3]." </label> </br> Pesan : ".$baris[5]." </br> 
+					  
 				<input type='text' id='idBarang' value='".$baris[0]."' hidden/>
-				Jumlah: <input type='text' size=4 id='jumlahBarang' value='".$baris[4]."'/>
-				</br>
-				<input type='submit' value='change' onclick='cekJumlah()'>
+				Jumlah: <input type='text' size=4 id='jumlahBarang' value='".$baris[4]."'/></br>
+				
+				<input type='submit' value='change' onclick='cekJumlah()'></p>
 				</div>";
 				}
 			
@@ -335,7 +334,6 @@ function remove(id)
 
 		</div>
 		
-				<p class = "copyrightext">COPYRIGHT KeyboardHero</p>
 		
 	</div>
 </div>

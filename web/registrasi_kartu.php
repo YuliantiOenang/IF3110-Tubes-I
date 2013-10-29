@@ -326,18 +326,12 @@ function remove(id)
 		<label> BECOME A COLDPLAYER!<label></br></br>
 		</div>
 			<div class = "registerspace">
-			<label>Card Number </label> <input type="text" id="card_number" required placeholder = "0123456789101213" /></br>
-			</div>
+			<label>Card Number </label> <input type="text" id="card_number" required placeholder = "0123456789101213" /></br></br>
 			
-			<div class = "registerspace">
-			<label>Name On Card</label> <input type="text" id="card_name" required placeholder = "Chris Martin" /><label id="nama_label"></label></br>
-			</div>
+			<label>Name On Card</label> <input type="text" id="card_name" required placeholder = "Chris Martin" /><label id="nama_label"></label></br></br>
 			
-			<div class = "registerspace">
-			<label>expired date</label> <input type="text" id="card_expired" required placeholder = "08/12/2003" /></br>
-			</div>
+			<label>Expiration Date</label> <input type="text" id="card_expired" required placeholder = "08/12/2003" /></br></br>
 			
-			<div class = "registerspace">
 			<input type="button" id="submit" value = "Register credit card!" onclick="<?php if(isset($_GET['status'])) echo 'daftar_kartu_pembayaran()'; else echo 'daftar_kartu()';?>">
 			<input type="button" value = "SKIP" onclick="window.location='index.php'"></br>
 			

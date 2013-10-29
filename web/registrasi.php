@@ -336,44 +336,27 @@ function remove(id)
 		
 			<div class = "registerspace">
 			<form action="signup.php" method="POST">
-			<label>Username </label> <input type="text"  name ="username" id="username" onkeyup="checkSubmit()" required placeholder = "e.g. cmartin" /><label id="user_error"></label></br>
-			</div>
+			<label>Username </label> <input type="text"  name ="username" id="username" onkeyup="checkSubmit()" required placeholder = "e.g. cmartin" /><label id="user_error"></label></br></br>
 			
-			<div class = "registerspace">
-			<label>Nama Lengkap</label> <input type="text" id="nama_lengkap" name="nama_lengkap" onkeyup="checkSubmit()" required placeholder = "Chris Martin" /><label id="nama_label"></label></br>
-			</div>
+			<label>Nama Lengkap</label> <input type="text" id="nama_lengkap" name="nama_lengkap" onkeyup="checkSubmit()" required placeholder = "Chris Martin" /><label id="nama_label"></label></br></br>
 			
-			<div class = "registerspace">
-			<label>Nomor Handphone</label> <input type="text" id="handphone" name="handphone" onkeyup="checkSubmit()" placeholder = "083820666910" /></br>
-			</div>
+			<label>Nomor Handphone</label> <input type="text" id="handphone" name="handphone" onkeyup="checkSubmit()" placeholder = "083820666910" /></br></br>
 			
-			<div class = "registerspace">
-			<label>Alamat </label> <input type="text" id="alamat" name="alamat" onkeyup="checkSubmit()" placeholder = "Jl. Jend. Katamso Gg. Sukadamai No. 1" /></br>
-			</div>
+			<label>Alamat </label> <input type="text" id="alamat" name="alamat" onkeyup="checkSubmit()" placeholder = "Jl. Jend. Katamso Gg. Sukadamai No. 1" /></br></br>
 			
-			<div class = "registerspace">
-			<label>Provinsi </label> <input type="text" id="provinsi" name="provinsi" onkeyup="checkSubmit()" placeholder = "Jawa Barat" /></br>
-			</div>
+			<label>Provinsi </label> <input type="text" id="provinsi" name="provinsi" onkeyup="checkSubmit()" placeholder = "Jawa Barat" /></br></br>
 			
-			<div class = "registerspace">
-			<label>Kota/Kabupaten</label> <input type="text" id="kobupaten" name="kobupaten" onkeyup="checkSubmit()" placeholder = "Bandung" /></br>
-			</div>
+			<label>Kota/Kabupaten</label> <input type="text" id="kobupaten" name="kobupaten" onkeyup="checkSubmit()" placeholder = "Bandung" /></br></br>
 			
-			<div class = "registerspace">
-			<label>Kodepos </label> <input type="text" id="kodepos" name="kodepos" onkeyup="checkSubmit()"  placeholder = "14045" /></br>
-			</div>
+			<label>Kodepos </label> <input type="text" id="kodepos" name="kodepos" onkeyup="checkSubmit()"  placeholder = "14045" /></br></br>
 			
-			<div class = "registerspace">
-			<label>Password</label> <input type="password" id="password" name="password" onkeyup="checkSubmit()" required placeholder = "1234" /><label id="pass_label"></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Confirm Password</label> <input type="password" id="confirm_password" onkeyup="checkSubmit()" required placeholder = "1234" /><label id="conf_pass_label"></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Email</label> <input type="text" id="email" name="email" onkeyup="checkSubmit()" required placeholder = "cmartin@coldplay.com" /><label id="email_label"></label></br>
-			</div>
-			<div class = "registerspace">
-			<input type="submit" id="submit" value = "Register!" disabled></br>
+			<label>Password</label> <input type="password" id="password" name="password" onkeyup="checkSubmit()" required placeholder = "1234" /><label id="pass_label"></label></br></br>
+			
+			<label>Confirm Password</label> <input type="password" id="confirm_password" onkeyup="checkSubmit()" required placeholder = "1234" /><label id="conf_pass_label"></label></br></br>
+			
+			<label>Email</label> <input type="text" id="email" name="email" onkeyup="checkSubmit()" required placeholder = "cmartin@coldplay.com" /><label id="email_label"></label></br></br>
+		
+			<input type="submit" id="submit" value = "Register!" disabled></br></br>
 			</div>
 			</form>
 			 
@@ -390,7 +373,7 @@ function remove(id)
 
 		</div>
 		
-				<p class = "copyrightext">COPYRIGHT KeyboardHero</p>
+				
 		
 	</div>
 </div>

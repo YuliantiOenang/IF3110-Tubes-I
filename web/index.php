@@ -369,7 +369,7 @@ function remove(id)
 
 		</div>
 		
-				<p class = "copyrightext">COPYRIGHT KeyboardHero</p>
+				
 		
 	</div>
 </div>

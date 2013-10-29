@@ -31,7 +31,7 @@
 						//echo "<div class="">";
 						echo $value;
 						echo $_SESSION[$value]."<br/>";
-						echo "</div>
+						echo "</div>";
 					}
 				} else{
 					echo "No item in the cart";

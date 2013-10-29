@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "UTF-8">
+<title>register</title>
+<link rel = "stylesheet" type = "text/css" href = "mystyle.css">
+<script type="text/javascript" src="pop.js"></script>
+<script type="text/javascript" src="login.js"></script>
+
+
+</head>
+<body>
+<div class = "all">
+<div class = "logo">
+	<img src="sembako.png"/>
+</div>
+<div class = "header">
+	<a href = "home.html">
+	<div class = "menu">HOME</div>
+	</a>
+	<a href = "profile.html">
+	<div class = "menu">PROFILE</div>
+	</a>
+	<a href = "listbarang.php?Key=buah&Page=0" target="page1">
+	<div class = "menu">BUAH</div>
+	</a>
+	<a href = "listbarang.php?Key=sayur&Page=0" target="page1">
+	<div class = "menu">SAYUR</div>
+	</a>
+	<a href = "listbarang.php?Key=daging&Page=0" target="page1">
+	<div class = "menu">DAGING</div>
+	</a>
+	<a href = "listbarang.php?Key=ikan&Page=0" target="page1">
+	<div class = "menu">IKAN</div>
+	</a>
+	<a href = "listbarang.php?Key=bumbu&Page=0" target="page1">
+	<div class = "menu">BUMBU</div>
+	</a>
+	<a href = "cart.php" target="page1">
+	<div class = "menu">SHOPPING BAG</div>
+	</a>
+	<div style="display: none;" id="blanket"></div>
+	<div style="display: none;" id="popUpDiv">
+	<a onclick="popup('popUpDiv')" href="#"><img alt="" src="close.jpg" /></a><br />
+	<div class="popup">
+	<form name="login" action="html_form_action.asp" method="get">
+	Username : <input type="text" name="username"><br><br>
+	Password : <input type="password" name="pwd"><br><br>
+	<button type="button" onclick="valLogin(username.value,pwd.value)">Login</button>
+	<div id="valog"></div> <br><br> 
+	</form>
+	</div>
+	</div>
+	<!--css popup window 1 close-->
+	
+	<a onclick="popup('popUpDiv')" href="#">
+	<div class = "menu">LOGIN </div>
+	</a>
+	<a href = "register.html">
+	<div class = "menu">REGISTER</div>
+	</a>
+	
+</div>
+<div class="search">
+<input type="text" name="search">
+<select name="searchkategori">
+	<option value="pilihkategori">Pilih kategori ... </option>
+	<option value="sayur">Sayur</option>
+	<option value="buah">Buah</option>
+	<option value="ikan">Ikan</option>
+	<option value="daging">Daging</option>
+	<option value="bumbu">Bumbu</option>
+</select>
+<select name="searchharga">
+	<option value="pilihharga">Pilih harga ... </option>
+	<option value="range1">0-99</option>
+	<option value="range2">100-999</option>
+	<option value="range3">1000-9999</option>
+	<option value="range4">10000-99999</option>
+	<option value="range5">100000-999999</option>
+</select>
+<input type="submit" value="Search">
+</div>
+<div class = "page">
+<div class = "formregis">
+<form name="regis" >
+Card number : <input type="text" name="cardnumber" ><br><br>
+Name on card : <input type="text" name="nameoncard"><br><br>
+Expired date : <input type="text" name="expdate" ><br><br>
+<button type="button">
+submit</button>
+
+</form>
+
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -38,8 +38,10 @@ class Product {
 		$data = array(
 					array('Altec Lansing VS4261', 'Elektronik', 800000, 10, 'images/barang1.jpg', 'Sebuah speaker system yang memiliki banyak kelebihan. Selain walaupun harganya tidak terlalu mahal, speaker ini memiliki kelebihan pada banyak sisi, seperti kejelasan suara dan desainnya yang unik', 1),
 					array('Fiat 500', 'Otomotif', 1500000, 5, 'images/barang2.jpg', 'Mobil mini menarik dan unik', 1),
-					array('Jack Wolfskin', 'Sandang', 1500000, 10, 'images/barang3.jpg', 'Jaket tebal dengan desain yang sangat menarik ini cocok sekali digunakan didaerah kutub dan di dataran tinggi.', 1),
-					array('Acer 4652 G', 'Elektronik', 5000000, 10, 'images/barang4.jpg', 'Sebuah laptop handal yang mampu memenami anda dalam menjelajahi semua multimedia yang ada. Didukung dengan processor super cepat up to 3.1GHz, sangat cocok bagi anda yang menyukai dunia Game. Produk ini tersedia dalam beberapa warna', 5)
+					array('Jack Wolfskin', 'Fashion', 1500000, 10, 'images/barang3.jpg', 'Jaket tebal dengan desain yang sangat menarik ini cocok sekali digunakan didaerah kutub dan di dataran tinggi.', 1),
+					array('Acer 4652 G', 'Elektronik', 5000000, 10, 'images/barang4.jpg', 'Sebuah laptop handal yang mampu memenami anda dalam menjelajahi semua multimedia yang ada. Didukung dengan processor super cepat up to 3.1GHz, sangat cocok bagi anda yang menyukai dunia Game. Produk ini tersedia dalam beberapa warna', 5),
+					array('Rumah Mewah Bogor Tipe 21', 'Properti', 1000000000, 1, 'images/barang5.jpg', 'Rumah mewah yang terletak di Bogor ini mempunyai 4 buah ruangan yang sangat nyaman dan full furnish', 0), 
+					array('Gitar Yamaha YZR 200',  'Musik', 600000, 8, 'images/barang6.jpg', 'Gitar yamaha ini adalah gitar paling terkenal dikelasnya, setiap pembelian gitar ini akan diberikan garansi 3 bulan. Selain itu gitar ini terdapat pada bermacam-macam warna yang menarik.', 3)
 				);
 		try {
 			$dbh = $registry->database;

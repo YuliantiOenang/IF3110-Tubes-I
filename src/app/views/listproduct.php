@@ -82,6 +82,12 @@
 									: " . $row['price'] . "<br>
 									: " . $row['stock_count'] . "<br>								
 								</li>
+								
+								<li>							
+									Quantity <input type=&quot;number&quot; name=&quot;quantity&quot;><br><br>
+									<center><button type=button class=buttonBeli> BELI </button></center>
+								</li>
+
 							</ul>";		
 				}									
 				echo "</ul>";

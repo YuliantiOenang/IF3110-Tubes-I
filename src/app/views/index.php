@@ -30,10 +30,11 @@
 				<ul>
 					<li>															
 						<?php
-							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='Elektronik')) AND category='Elektronik'");					
+							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='elektronik')) AND category='elektronik'");					
 							while($row = mysqli_fetch_array($result))
 							{	
-								echo '<a href=product/detail/' . $row['product_id'] . '>';
+								echo "Kategori <b>Elektronik</b><br>";
+								echo '<a href=' . SITEURL . '/product/detail/' . $row['product_id'] . '>';
 								echo '<img src=' . SITEURL . '/include/' . $row['image_link'] . '>';
 								echo '</a>';
 							}						
@@ -42,10 +43,11 @@
 					
 					<li>
 						<?php
-							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='Sandang')) AND category='Sandang'");							
+							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='otomotif')) AND category='otomotif'");							
 							while($row = mysqli_fetch_array($result))
 							{	
-								echo '<a href=product/detail/' . $row['product_id'] . '>';
+								echo "Kategori <b>Otomotif</b><br>";
+								echo '<a href=' . SITEURL . '/product/detail/' . $row['product_id'] . '>';
 								echo '<img src=' . SITEURL . '/include/' . $row['image_link'] . '>';
 								echo '</a>';
 							}						
@@ -54,14 +56,41 @@
 					
 					<li> 				
 						<?php
-							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='Otomotif')) AND category='Otomotif'");							
+							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='fashion')) AND category='fashion'");							
 							while($row = mysqli_fetch_array($result))
 							{	
-								echo '<a href=product/detail/' . $row['product_id'] . '>';
+								echo "Kategori <b>Fashion</b><br>";
+								echo '<a href=' . SITEURL . '/product/detail/' . $row['product_id'] . '>';
 								echo '<img src=' . SITEURL . '/include/' . $row['image_link'] . '>';
 								echo '</a>';
 							}						
 						?>				
+					</li>
+					
+					<li> 				
+						<?php
+							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='properti')) AND category='properti'");							
+							while($row = mysqli_fetch_array($result))
+							{	
+								echo "Kategori <b>Properti</b><br>";
+								echo '<a href=' . SITEURL . '/product/detail/' . $row['product_id'] . '>';
+								echo '<img src=' . SITEURL . '/include/' . $row['image_link'] . '>';
+								echo '</a>';
+							}						
+						?>				
+					</li>
+					
+					<li>
+						<?php
+							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='musik')) AND category='musik'");							
+							while($row = mysqli_fetch_array($result))
+							{	
+								echo "Kategori <b>Musik</b><br>";
+								echo '<a href=' . SITEURL . '/product/detail/' . $row['product_id'] . '>';
+								echo '<img src=' . SITEURL . '/include/' . $row['image_link'] . '>';
+								echo '</a>';
+							}						
+						?>									
 					</li>
 				</ul>
 			</center>

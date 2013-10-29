@@ -13,7 +13,7 @@
 		
 	<body> 
 		
-		<?php require SITEPATH . '/app/views/header-udin.php'?>			
+		<?php require SITEPATH . '/app/views/header.php'?>			
 		
 		<!-- BAGIAN POP UP MESSAGE-->
 		<a href="#x" class="overlay" id="login_form"></a>
@@ -73,6 +73,7 @@
 										echo $row['description'] . "<br>";										
 									}						
 								?>
+
 							</p>
 						</li>
 					</ul>
@@ -80,7 +81,13 @@
 					<li>
 						<center>
 						<form action="<?php echo SITEURL . '/cart/add/' . $product_id ?>" method="post">
-							<button type="submit" class="buttonBeli"> BELI </button>
+							<li>
+								<center>
+									<p>Quantity <input type="number" name="quantity"><br></p>
+									<button type="submit" class="buttonBeli"> BELI </button>
+	
+								</center>
+							</li>	
 						</form>
 						</center>
 					</li>						

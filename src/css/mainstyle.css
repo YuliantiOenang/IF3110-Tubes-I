@@ -67,7 +67,7 @@ body{
 	color:#FFC90D;
 	text-align:left;
 	position:relative;
-	top:-60px;
+	top:-35px;
 	text-decoration:none;
 	width:850px;
 }
@@ -77,7 +77,7 @@ body{
 	height:100px;
 	border-top:0px;
 	position:relative;
-	top:-190px;
+	top:-165px;
 	right:200px;
 	color:red;
 }
@@ -103,14 +103,6 @@ body{
 #pic2home{
 	position:relative;
 	right:-500px;
-}
-
-#welcometext{
-	position:fixed;
-	top:0px;
-	left:20px;
-	font-size:24px;
-	color:white;
 }
 
 #pictext{

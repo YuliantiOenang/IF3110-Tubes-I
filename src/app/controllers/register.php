@@ -10,7 +10,7 @@ Class RegisterController Extends BaseController {
 	 * Jika tidak ada parameter yang diberikan, jalankan register customer
 	 */
 	public function index() {
-	    $this->customer();
+	    header("Location: " . SITEURL . "/register/customer" ); die();
 	}
 
 	/**
@@ -34,7 +34,7 @@ Class RegisterController Extends BaseController {
 	 */
 	public function new_customer() {
 		/*** begin our session ***/
-		session_start();
+		if (session_id() == '') session_start();
 
 		//validasi sedikit
 		if (!isset($_POST["username"], $_POST["email"], $_POST["password"], $_POST["fullname"])
@@ -51,9 +51,10 @@ Class RegisterController Extends BaseController {
 			$customer['province'] =  filter_var($_POST["province"], FILTER_SANITIZE_STRING);
 			$customer['postcode'] =  filter_var($_POST["postcode"], FILTER_SANITIZE_STRING);
 	
-			if (Customer::addCustomer($this->registry, $customer) > 0) {
+			$id = Customer::addCustomer($this->registry, $customer);
+			if ($id > 0) {
 				//redirect
-				$_SESSION['logged_userid'] = $customer['logged_userid'];
+				$_SESSION['logged_userid'] = $id;
 				header("Location: " . SITEURL . "/register/card/"); die();
 				//http_redirect (SITEURL . '/register/card', array ('username' => $customer['username']), true, HTTP_REDIRECT_POST );
 			} else {
@@ -68,9 +69,9 @@ Class RegisterController Extends BaseController {
 	 */
 
 	public function new_creditcard() {
-		session_start();
+		if (session_id() == '') session_start();
 		//validasi sedikit
-		if (!isset($_POST["card_name"], $_POST["card_number"], $_POST["card_expired"])
+		if (!isset($_POST["card_name"], $_POST["card_number"], $_POST["card_expired"], $_SESSION['logged_userid'])
 			or $_POST['form_token'] != $_SESSION['form_token']) {
 			header("Location: " . SITEURL . "/register/failed" ); die();
 		} else {

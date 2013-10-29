@@ -12,8 +12,20 @@
 			</ul>
 		</li>
 		
-		<li><a href="<?php echo SITEURL . '/register/' ?>">Register</a></li>	
-		<li><a href="#" onclick='loginOverlay()'>Login</a></li>			
+		<?php 
+			//periksa apakah sedang login atau tidak
+			if (session_id() == '') session_start();
+	
+			if (!isset($_SESSION['logged_userid'])) {
+				echo '<li><a href="' . SITEURL . '/register/">Register</a></li>';
+				echo '<li><a href="#" onclick="loginOverlay()">Login</a></li>';
+			} else {
+				echo '<li><a href="' . SITEURL . '/profile/">Profile</a></li>';
+				echo '<li><a href="' . SITEURL . '/login/destroy/">Logout</a></li>';			
+			}
+
+		?>
+		
 		<li>
 			<center><form id="cariBarang">					
 				<input type="type" placeholder="Pencarian">

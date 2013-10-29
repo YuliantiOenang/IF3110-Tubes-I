@@ -1,7 +1,7 @@
 <?php
 
 /*** begin our session ***/
-session_start();
+if (session_id() == '') session_start();
 
 /*** set a form token ***/
 $form_token = md5( uniqid('auth', true) );

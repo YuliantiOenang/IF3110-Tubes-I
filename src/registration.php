@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="css/global.css" />
 <link rel="stylesheet" href="css/registration.css" />
 <script src="js/ajax.js"></script>
+<script src="js/login.js"></script>
 
 <script type="text/javascript">
 function ValidateForm(form)
@@ -116,7 +117,7 @@ if (!reg.test(a)){
 <div class='content'>
 	<h3>Registration</h3>
 	<form id="form1" name="form1" method="post">
-	<div class="table">
+	<div id="regtable" class="table">
 	  <div class="row">
 		<div class="cell50">Name:</div>
 		<div class="cell50"><input type="text" name="name" /></div>

@@ -35,12 +35,34 @@
 					submitcard();
 				}
 			?>
-			<div>3 makanan/minuman terlaris</div>
-			<div>3 pakaian terlaris</div>
-			<div>3 furnitur terlaris</div>
-			<div>3 peralatan dapur terlaris</div>
-			<div>3 macam-macam barang terlaris</div>
-			<div>Skema transaksi pembelian</div>
+			<div id="one_block">
+				<h1 id="content_title">
+					3 makanan/minuman terlaris
+				</h1>
+			</div>
+			<div id="one_block">
+				<h1 id="content_title">
+					3 pakaian terlaris
+				</h1>
+			</div>
+			<div id="one_block">
+				<h1 id="content_title">
+					3 furnitur terlaris
+				</h1>
+			</div>
+			<div id="one_block">
+				<h1 id="content_title">
+					3 peralatan dapur terlaris
+				</h1>
+			</div>
+			<div id="one_block">
+				<h1 id="content_title">
+					3 macam-macam barang terlaris
+				</h1>
+			</div>
+			<div id="one_block">
+				<h1>Skema transaksi pembelian</h1>
+			</div>
 		</div>
 		<?php
 			include 'incl/footer.php';

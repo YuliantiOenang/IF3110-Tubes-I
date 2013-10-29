@@ -162,6 +162,13 @@ div, form, h1, li, p, ul {
 	margin-bottom:22px;
 }
 
+#one_block {
+	border: 1px solid;
+	border-radius:22px;
+	font-family:arial;
+	margin:8px 0px;
+}
+
 #footer {
 	background:-moz-linear-gradient(#ff0000, #bf0000, #B30F00);
 	background:-o-linear-gradient(#ff0000, #bf0000, #B30F00);

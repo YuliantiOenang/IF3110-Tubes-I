@@ -13,9 +13,9 @@ $_SESSION['form_token'] = $form_token;
 <?php require SITEPATH . '/app/views/head.php' ?>
 
 <body> 
-  
-        <?php require SITEPATH . '/app/views/header.php' ?>
-      <div id="container">
+    <?php require SITEPATH . '/app/views/header.php' ?>
+    
+    <div id="container">
 		<form action="<?php echo SITEURL . '/profile/update_customer' ?>" method="post">
             <h2>Edit Profile</h2>
             <div class="form-group">

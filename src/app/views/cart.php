@@ -1,9 +1,9 @@
 <?php require SITEPATH . '/app/views/head.php' ?>
 
 <body> 
-    <div id="container">
-        <?php require SITEPATH . '/app/views/header.php' ?>
+    <?php require SITEPATH . '/app/views/header.php' ?>
 
+    <div id="container">
         <h2>Shopping Cart</h2>
         <?php
 	        if (empty($items)) {

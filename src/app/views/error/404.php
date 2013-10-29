@@ -1,2 +1,2 @@
 <h1>404 Error</h1>
-<p>TODO TODO TODO</p>
+<p>Halaman yang Anda maksud tidak ada</p>

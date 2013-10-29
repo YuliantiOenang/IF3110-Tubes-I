@@ -8,6 +8,7 @@ Class ProductController Extends BaseController {
 	}
 
 	public function detail($id) {
+		$this->registry->template->CONFIG = $this->registry->config;
 		$this->registry->template->product_id = $id;
 		$this->registry->template->show('product');
 	}

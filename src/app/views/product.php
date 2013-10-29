@@ -1,5 +1,5 @@
 <?php
-	$con=mysqli_connect("localhost","root","","tubessatu");
+	$con=mysqli_connect("localhost","root", "", $CONFIG['mysql']['database'] );
 	if(mysqli_connect_errno()){
 			echo "Gagal Buka DB" . msqli_connect_error();
 	}
@@ -45,6 +45,7 @@
 									while($row = mysqli_fetch_array($result))
 									{	
 										echo SITEURL . '/include/' . $row['image_link'];
+										//echo "SELECT * FROM product WHERE product_id = " . $product_id;
 									}						
 								?>">						
 						</li>

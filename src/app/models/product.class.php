@@ -18,6 +18,7 @@ class Product {
 					`stock_count` INT(9) NOT NULL ,
 					`image_link` VARCHAR(64) ,
 					`description` TEXT ,
+					`sold` INT(9) ,
 					PRIMARY KEY (`product_id`)
 				)";
 		try {
@@ -35,12 +36,14 @@ class Product {
 	 */
 	public static function insertDummy($registry) {
 		$data = array(
-					array('HTML5 for Dummies',      'Ebook', 49000, 0, 'https://www.google.com/images/srpr/logo11w.png', ''),
-					array('Javascript for Dummies', 'Ebook', 71000, 11, '', 'Is the best sfsfsdf'),
+					array('Altec Lansing VS4261', 'Elektronik', 800000, 10, 'images/barang1.jpg', 'Sebuah speaker system yang memiliki banyak kelebihan. Selain walaupun harganya tidak terlalu mahal, speaker ini memiliki kelebihan pada banyak sisi, seperti kejelasan suara dan desainnya yang unik', 1),
+					array('Fiat 500', 'Otomotif', 1500000, 5, 'images/barang2.jpg', 'Mobil mini menarik dan unik', 1),
+					array('Jack Wolfskin', 'Sandang', 1500000, 10, 'images/barang3.jpg', 'Jaket tebal dengan desain yang sangat menarik ini cocok sekali digunakan didaerah kutub dan di dataran tinggi.', 1),
+					array('Acer 4652 G', 'Elektronik', 5000000, 10, 'images/barang4.jpg', 'Sebuah laptop handal yang mampu memenami anda dalam menjelajahi semua multimedia yang ada. Didukung dengan processor super cepat up to 3.1GHz, sangat cocok bagi anda yang menyukai dunia Game. Produk ini tersedia dalam beberapa warna', 5)
 				);
 		try {
 			$dbh = $registry->database;
-			$sth = $dbh->prepare("INSERT INTO product (product_name, category, price, stock_count, image_link,description) values (?, ?, ?, ?, ?, ?)"); 
+			$sth = $dbh->prepare("INSERT INTO product (product_name, category, price, stock_count, image_link,description, sold) values (?, ?, ?, ?, ?, ?, ?)"); 
 
 			foreach ($data as $value) {
 				if ($sth->execute($value) !== false) {

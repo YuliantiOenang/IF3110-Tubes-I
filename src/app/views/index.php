@@ -4,7 +4,7 @@
 	session_destroy();
 */
 
-	$con=mysqli_connect("localhost","root","","tubessatu");
+	$con=mysqli_connect("localhost","root", "", $CONFIG['mysql']['database'] );
 	if(mysqli_connect_errno()){
 			echo "Gagal Buka DB" . msqli_connect_error();
 	}
@@ -29,7 +29,7 @@
 				<ul>
 					<li>															
 						<?php
-							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category=1)) AND category=1");					
+							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='Elektronik')) AND category='Elektronik'");					
 							while($row = mysqli_fetch_array($result))
 							{	
 								echo '<a href=product/detail/' . $row['product_id'] . '>';
@@ -41,7 +41,7 @@
 					
 					<li>
 						<?php
-							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category=2)) AND category=2");							
+							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='Sandang')) AND category='Sandang'");							
 							while($row = mysqli_fetch_array($result))
 							{	
 								echo '<a href=product/detail/' . $row['product_id'] . '>';
@@ -53,7 +53,7 @@
 					
 					<li> 				
 						<?php
-							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category=3)) AND category=3");							
+							$result = mysqli_query($con,"SELECT * FROM product where (sold = (SELECT Max(sold) from product where category='Otomotif')) AND category='Otomotif'");							
 							while($row = mysqli_fetch_array($result))
 							{	
 								echo '<a href=product/detail/' . $row['product_id'] . '>';

@@ -46,7 +46,7 @@ function checkEmail() {
   			//document.getElementById("email-info").innerHTML = xmlhttp.responseText;
   			//document.getElementById("email-info").innerHTML = x.length;
 
-  			if (x.length > 16) {
+  			if (x.length > 32) {
   				document.getElementById("email-info").innerHTML = " Panjang harus kurang dari 32";
   				window.validEmail = false;
   			} else if (!isEmailValid(x)) {

@@ -10,7 +10,7 @@
 		</title>
 	</head>
 	<body>
-		<form name="loginForm" action="index.php" onsubmit="return validateForm()" method="post">
+		<form name="loginForm">
 			<div id="form_one_row">
 				<p id="label_form" class="label">
 					Username
@@ -30,7 +30,7 @@
 				<input id="label_form" class="text_field" type="password" name="pwd"></input>
 			</div>
 			<div id="form_one_row">
-				<input id="submit" type="submit" value="MASUK"></input>
+				<input id="submit" type="button" value="MASUK" onclick="validateForm()"></input>
 			</div>
 			<div id="form_one_row"></div>
 		</form>

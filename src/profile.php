@@ -14,16 +14,7 @@
 		<div id="content">
 			<h1>Profil Diri</h1>
 			<form name="profileform" action="edit_profile.php" method="post">
-				<?php
-				$con=mysqli_connect("localhost","root","","ruserba");
-						// Check connection
-						if (mysqli_connect_errno())
-						  {
-						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-						  } 
-				$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='karakuri'");				
-				$row = mysqli_fetch_array($result);
-				
+				<?php				
 				function submitedit()
 				{
 						$con=mysqli_connect("localhost","root","","ruserba");
@@ -34,7 +25,7 @@
 						  }
 						
 						$sql ="UPDATE customer SET NamaLengkap='$_POST[namalengkap]' ,Password='$_POST[changepassword]' 
-								,NomorHP='$_POST[nomorhp]' ,Alamat='$_POST[alamat]' ,Kota='$_POST[kota]' ,Provinsi='$_POST[provinsi]' ,KodePos='$_POST[kodepos]' WHERE IdName='karakuri'" ;
+								,NomorHP='$_POST[nomorhp]' ,Alamat='$_POST[alamat]' ,Kota='$_POST[kota]' ,Provinsi='$_POST[provinsi]' ,KodePos='$_POST[kodepos]' WHERE IdName='" . $usr . "'" ;
 						if(!mysqli_query($con,$sql))
 						{
 							die('Error' . mysqli_error($con));
@@ -43,8 +34,60 @@
 				}
 				if(isset($_REQUEST['sub']))
 				{
+					$con=mysqli_connect("localhost","root","","ruserba");
+						// Check connection
+						if (mysqli_connect_errno())
+						  {
+						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+						  }
+					$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='" . $usr . "'");				
+					$before = mysqli_fetch_array($result);	
+					
 					submitedit();
+					
+					$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='" . $usr . "'");				
+					$after = mysqli_fetch_array($result);
+
+					if( $before['NamaLengkap'] == $after['NamaLengkap'])
+					{
+						echo "<script> alert('NamaLengkap tidak diubah'); </script>";
+					}
+					if( $before['Password'] ==   $after['Password'] )
+					{
+						echo "<script> alert('Password tidak diubah'); </script>";
+					}
+					if( $before['NomorHP'] ==  $after['NomorHP'] )
+					{
+						echo "<script> alert('NomorHP tidak diubah'); </script>";
+					}
+					if(  $before['Alamat'] ==   $after['Alamat'] )
+					{
+						echo "<script> alert('Alamat tidak diubah'); </script>";
+					}
+					if(  $before['Kota'] ==   $after['Kota'])
+					{
+						echo "<script> alert('Kota tidak diubah'); </script>";
+					}
+					if(  $before['Provinsi'] ==  $after['Provinsi'])
+					{
+						echo "<script> alert('Provinsi tidak diubah'); </script>";
+					}
+					if( $before['KodePos'] ==  $after['KodePos'])
+					{
+						echo "<script> alert('Kode pos tidak diubah'); </script>";
+					}
+					
+					mysqli_close($con);
 				}
+				
+				$con=mysqli_connect("localhost","root","","ruserba");
+				// Check connection
+						if (mysqli_connect_errno())
+						  {
+						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+						  } 
+				$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='karakuri'");				
+				$row = mysqli_fetch_array($result);
 				?>
 				
 				<div id="form_one_row">

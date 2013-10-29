@@ -33,7 +33,7 @@ include 'macro/header.php';
 				echo "<input id=\"postal\" value=\"".$row['kodepos']."\" name=\"postal\" placeholder=\"kode pos\" type=\"number\" onkeypress=\"validateEmpty(this.value, 'valpostal')\"/><div id=\"valpostal\"></div><br />";
 			}			
 		} else {
-			echo "<meta http-equiv='refresh' content='=0;register.php' />";
+			header("Location: register.php");
 		}
 		?>
 		<input type="submit" /><br />

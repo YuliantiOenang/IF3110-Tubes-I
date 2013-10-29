@@ -3,8 +3,9 @@
 include "db.php";
 
 $_SESSION = array();
+setcookie("user_id", "", time()-3600);
 session_destroy();
 
-echo '<meta http-equiv="refresh" content="0;index.php">'
+header("Location: index.php");
 
 ?>

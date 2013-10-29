@@ -7,8 +7,9 @@
 		<h1>Profil </h1>
 		<div id="itemcontent">
 			<p>
-<?php
-				$query = mysql_query("SELECT * FROM anggota where userid = 'dinah'");
+<?php			//echo $_SESSION['userid'];
+				$un = $_SESSION["userid"];
+				$query = mysql_query("SELECT * FROM anggota where userid = '".$_SESSION['userid']."'");
 				$row = mysql_fetch_array($query);
 				echo "<table border=0>";
 					echo "<tr><td>Username</td><td>: ".$row['userid']."</td></tr>";

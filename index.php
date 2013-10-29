@@ -7,8 +7,6 @@ session_start();
 <link rel="stylesheet" href="css.css" type="text/css">
 <link rel="stylesheet" href="login.css" type="text/css">
 <link rel="stylesheet" href="content.css" type="text/css">
-<script type="text/javascript" src="updatepswd.js" ></script>
-<script type="text/javascript" src="registration_chk.js"></script>
 </head>
 <body>
 	<div id="all"> 
@@ -100,8 +98,6 @@ session_start();
 			include ('prosedur.php');
 		}?>	
 	</div>
-	<script type = "text/javascript" src="prosedur.js"></script>
-	<script type="text/javascript" src="updatepswdr.js"></script>
 </body>
 
 <?php

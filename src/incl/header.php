@@ -1,7 +1,12 @@
 <!-- SESSION -->
 <?php
-	session_start();
-	//session_destroy();
+	if (!isset($_SESSION)) {
+		session_start(); 
+	}
+	if (!isset($_COOKIE['cust']) && isset($_SESSION['usr'])) {
+		$exp = time() + 60 * 60 * 24 * 30;
+		setcookie("cust", $_SESSION['usr'], $exp);
+	}
 ?>
 
 <html>
@@ -14,14 +19,21 @@
 
 	<!-- HEADER -->
 	<?
-		if (isset($_SESSION['usr'])) { // check if any user is logged in
+		if (isset($_COOKIE['cust'])) {
+			$_SESSION['usr'] = $_COOKIE['cust'];
 			?>
 				<body onload="load_header()">
 			<?
-		} else { // no user logs in
-			?>
-				<body>
-			<?
+		} else {
+			if (isset($_SESSION['usr'])) { // check if any user is logged in
+				?>
+					<body onload="load_header()">
+				<?
+			} else { // no user logs in
+				?>
+					<body>
+				<?
+			}
 		}
 	?>
 		<div id="header">

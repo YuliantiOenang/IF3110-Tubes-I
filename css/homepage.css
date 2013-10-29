@@ -60,17 +60,14 @@ a{
 	cursor: pointer;
 }
 
-.sbox{                           
-	padding: 10px;
-}
-
-.sb_name{
-	padding-top: 2px;
+#sb_name{
 	padding-left: 4px;
+	padding-top: 5px;
 	float: left;
 }
 
-.sb_value{
+#sb_value{
+	padding-top: 2px;
 	float: left;
 }
 

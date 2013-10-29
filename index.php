@@ -7,6 +7,8 @@ session_start();
 <link rel="stylesheet" href="css.css" type="text/css">
 <link rel="stylesheet" href="login.css" type="text/css">
 <link rel="stylesheet" href="content.css" type="text/css">
+<script type="text/javascript" src="updatepswd.js" ></script>
+<script type="text/javascript" src="registration_chk.js"></script>
 </head>
 <body>
 	<div id="all"> 
@@ -26,7 +28,7 @@ session_start();
 						<td><a class="linkheader" href="index.php">Tentang Kami</a></td>
 						<td>
 						<?php
-							if(isset($_SESSION['username'])){
+							if(isset($_SESSION['userid'])){
 								echo "<a class='linkheader' href='logout.php'>Logout</a>";
 							}
 							else{
@@ -36,8 +38,8 @@ session_start();
 						</td>
 						<td>
 						<?php
-							if(isset($_SESSION['username'])){
-								echo "<a class='linkheader' href='index.php?page=profil'>Welcome ".$_SESSION['username']."!</a>";
+							if(isset($_SESSION['userid'])){
+								echo "<a class='linkheader' href='index.php?page=profil'>Welcome ".$_SESSION['userid']."!</a>";
 							}
 							else{
 								echo "<a class='linkheader' href='index.php?page=inputdaftar'>Registrasi</a>";
@@ -57,7 +59,7 @@ session_start();
 						<h1>Login</h1>
 						<form method="POST" action="sukseslogin.php">
 						<table border=0 align="center">
-						<tr><td><label>Username </label></td><td><input type="text" name="username" id="username"><br></td></tr>
+						<tr><td><label>Username </label></td><td><input type="text" name="userid" id="userid"><br></td></tr>
 						<tr><td><label>Password </label></td><td><input type="password" name="password" id="password"><br></td></tr>
 						<!--<div id="submit"><a href="sukseslogin.php">Login</a></div>-->
 						<tr><td></td><td><input class="submit" type="submit" name="submit" value="login"></td></tr>
@@ -82,16 +84,16 @@ session_start();
 		</div>
 		<?php
 		
-		//$_POST['username'] && $_POST['fullname'] && $_POST['nohp'] && $_POST['password'] && $_POST['alamat'] && $_POST['provinsi'] && $_POST['kabupaten'] && $_POST['email']
+		//$_POST['userid'] && $_POST['fullname'] && $_POST['nohp'] && $_POST['password'] && $_POST['alamat'] && $_POST['provinsi'] && $_POST['kabupaten'] && $_POST['email']
 		//Sukses Registrasi
 		if(isset($_GET['page'])) {
 			$page = $_GET['page'] . ".php";
 			include ($page);
 		}
-		else if(isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['fullname']) && isset($_SESSION['email'])){
+		else if(isset($_SESSION['userid']) && isset($_SESSION['password']) && isset($_SESSION['fullname']) && isset($_SESSION['email'])){
 			include ('daftarkartukredit.php');
 		}
-		else if(isset($_SESSION['username'])){
+		else if(isset($_SESSION['userid'])){
 			include ('prosedur.php');
 		}		
 		else {
@@ -99,6 +101,7 @@ session_start();
 		}?>	
 	</div>
 	<script type = "text/javascript" src="prosedur.js"></script>
+	<script type="text/javascript" src="updatepswdr.js"></script>
 </body>
 
 <?php

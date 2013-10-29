@@ -84,12 +84,9 @@ body{
 	color:red;
 }
 
-.picsize{
-	width:220px;
-	height:220px;
-    margin-top: 5px;
-    margin-left: 55px;
-    margin-right: 55px;
+#picsize{
+	width:100px;
+	height:100px;
 }
 
 #pichome{
@@ -221,6 +218,7 @@ body{
 #addcreditcardcontent{height:150px;}
 #largecontent{height:800px;width:800px;}
 #giantcontent{height:1800px;width:800px;}
+#autogenerate{height:4000px;width:800px;}
 
 #radiobutt{
     position:relative;

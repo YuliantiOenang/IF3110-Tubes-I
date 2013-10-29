@@ -85,7 +85,7 @@ while($row = mysql_fetch_object($data['barang']))
 ?>
 	<div class="baris">
 		<span class="kolom satu"><?=$row->nama_barang;?></span>
-		<span class="kolom dua"><img src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>" height=100px width=100px></span>
+		<span class="kolom dua"><img id="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>"></span>
 		<span class="kolom tiga"><?=$row->harga_barang;?></span>
 		<?php
 		if ($row->jumlah_barang > 0)
@@ -123,5 +123,10 @@ for ($i=0; $i<$data['jmlPage']; $i++)
 }
 ?>
 	</div>
+
+<div id="login_popup">
+    <div id="popup">
+    <?=$data['loginView'];?>
+</div>
 </body>
 </html>

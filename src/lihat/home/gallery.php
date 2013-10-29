@@ -75,7 +75,7 @@ $URLJS = SITE_ROOT.NAME_ROOT."/index.php/barang/generateContent";
                          </p>
                 </div>
     </div>
-	<div class="basiccontent" id="giantcontent">
+	<div class="basiccontent" id="autogenerate">
 		<form action="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari" method="GET">
 		<h3>Cari Barang</h3>
 		Nama : <input type="text" name="search"><br>

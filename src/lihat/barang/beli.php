@@ -138,5 +138,10 @@ while ($row = mysql_fetch_object($data['listCC']))
 <input type="button" value="back" onClick="history.go(-1);return reset();">
 </form>
 </div>
+
+<div id="login_popup">
+    <div id="popup">
+    <?=$data['loginView'];?>
+</div>
 </body>
 </html>

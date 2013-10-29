@@ -74,7 +74,7 @@
 while($row = mysql_fetch_object($data['detail']))
 {
 ?>
-	<img src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>" height=100px width=100px><br>
+	<img id="picsize" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/<?=$row->gambar;?>"><br>
 	Nama Barang : <?=$row->nama_barang;?><br>
 	Keterangan : <?=$row->keterangan;?><br>
 	Harga Barang : <?=$row->harga_barang;?><br>
@@ -94,5 +94,10 @@ while($row = mysql_fetch_object($data['detail']))
 }
 ?>
 	</div>
+
+<div id="login_popup">
+    <div id="popup">
+    <?=$data['loginView'];?>
+</div>
 </body>
 </html>

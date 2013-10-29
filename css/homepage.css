@@ -185,9 +185,12 @@ a{
 	font-size:25;
 }
 
-#status{
+.status{
+	float: left;
+}
+
+#statustext{
 	text-align:left;
-	float:left;
 }
 
 #quantity{

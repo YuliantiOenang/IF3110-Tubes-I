@@ -78,13 +78,13 @@
           <b><?php echo "<a href='barang.php?id=".$row[$i]['id']."'>".$row[$i]['nama']."</a> "; ?></b><br>
           Rp <?php echo $row[$i]['harga']; ?><br>
           <?php if (isset($_SESSION['user_id'])): ?>
-            Jumlah : <input type="number" id="jumlahField" name="jumlah" min=0><br>
+            Jumlah : <input type="number" id="jumlahField<?php echo $i; ?>" name="jumlah" min=1><br>
             Keterangan :<br>
-            <input type="textarea" id="keteranganField" name="keterangan"><br>
-            <input type="hidden" id="idField" name="id" value="<?php echo $row[$i]['id']; ?>">
-            <input type="hidden" id="namaField" name="nama" value="<?php echo $row[$i]['nama']; ?>">
-            <input type="hidden" id="hargaField" name="harga" value="<?php echo $row[$i]['harga']; ?>">
-            <button onclick="validateStock()">Add to Bag</button>
+            <input type="textarea" id="keteranganField<?php echo $i; ?>" name="keterangan"><br>
+            <input type="hidden" id="idField<?php echo $i; ?>" name="id" value="<?php echo $row[$i]['id']; ?>">
+            <input type="hidden" id="namaField<?php echo $i; ?>" name="nama" value="<?php echo $row[$i]['nama']; ?>">
+            <input type="hidden" id="hargaField<?php echo $i; ?>" name="harga" value="<?php echo $row[$i]['harga']; ?>">
+            <button onclick="validateStock(<?php echo $i; ?>)">Add to Bag</button>
           <?php endif; ?>
         </div>
       <?php endif; ?>

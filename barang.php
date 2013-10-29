@@ -23,15 +23,15 @@
       Kategori : <?php echo $kat[intval($row['kategori'])]; ?><br>
       Harga : Rp <?php echo $row['harga']; ?><br>
       Deskripsi :<br>
-      <?php echo $row['deskripsi']; ?>
+      <?php echo $row['deskripsi']; ?><br>
       <?php if (isset($_SESSION['user_id'])): ?>
-        Jumlah : <input type="number" id="jumlahField" name="jumlah" min=0><br>
+        Jumlah : <input type="number" id="jumlahField" name="jumlah" min=1><br>
         Keterangan :<br>
         <input type="textarea" id="keteranganField" name="keterangan"><br>
-        <input type="hidden" id="idField" name="id" value="<?php echo $row[$i]['id']; ?>">
-        <input type="hidden" id="namaField" name="nama" value="<?php echo $row[$i]['nama']; ?>">
-        <input type="hidden" id="hargaField" name="harga" value="<?php echo $row[$i]['harga']; ?>">
-        <button onclick="validateStock()">Add to Bag</button>
+        <input type="hidden" id="idField" name="id" value="<?php echo $_GET['id']; ?>">
+        <input type="hidden" id="namaField" name="nama" value="<?php echo $row['nama']; ?>">
+        <input type="hidden" id="hargaField" name="harga" value="<?php echo $row['harga']; ?>">
+        <button onclick="validateStock('')">Add to Bag</button>
       <?php endif; ?>
     </div>
     <script src="validateStock.js"></script>

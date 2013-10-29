@@ -1,18 +1,12 @@
-IF3110-Tubes-I
-==============
-Repositori ini adalah repositori dasar yang akan dijadikan basis oleh setiap kelompok peserta kuliah IF3110. 
+- Sebelum menjalankan webpage, pastikan terlebih dahulu:
+	1. PHP Terinstall di komputer
+	2. Webserver Terinstall di komputer
+	3. MySQL Terinstall di komputer
+	4. Seluruhnya telah terintegrasi dan dapat digunakan
+	* Dianjurkan menginstall XAMPP untuk integrasi secara mudah
 
-Pengumpulan Tugas:
-- Sebutkan URL repositori yang akan dinilai
-  - Repositori peserta kuliah harus merupakan fork dari repo ini (harus secara langsung)
-- Sebutkan anggota dari kelompok (NIM NAMA MAIL GITHUB_ID)
-- Kontributor dari repositori tersebut HANYA anggota kelompok yang bersangkutan
-
-Rule dan Konvensi:
-- Setiap peserta harus menggunakan akun pribadi, dan bukan shared-account, pada setiap kegiatan/hubungan dengan github
-- Proyek yang dikumpulkan harus memuat file berikut:
-- INSTALL.md - berisi how-to untuk proses peng-install-an dari aplikasi
-- MEMEBER.md - berisi NIM NAMA MAIL GITHUB_ID dari anggota grup ini
-- src/ - berisi semua kode sumber dari aplikasi yang akan anda kumplukan
-- docs/ - berisi dokumentasi dari aplikasi, jika diperlukan
-- db/ - berisi file sql hasil dump
+- Dengan asumsi XAMMP telah diinstall, berikut cara deploy website dalam local server
+	- Salin semua isi folder /src ke dalam folder /htdocs/WBD yang terletak di lokasi instalasi xampp
+	- Import database test ke dalam server dengan menggunakan phpMyAdmin
+	- Buka browser, dan navigasikan ke URL localhost/WBD/Index.php
+	- Server mysql lokal login dengan user root password ""

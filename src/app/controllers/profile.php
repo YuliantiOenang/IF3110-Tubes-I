@@ -9,11 +9,11 @@ Class ProfileController Extends BaseController {
 	 * Menampilkan profile seseorang jika login
 	 */	
 	public function index() {
-		session_start();
+		if (session_id() == '') session_start();
 
 		if(!isset($_SESSION['logged_userid'])) {
-		    //redirect ke home
-		    header("Location: " . SITEURL ); die();
+		    //redirect ke registrasi user
+		    header("Location: " . SITEURL . "/register/customer"); die();
 		} else {
 			$id = $_SESSION['logged_userid'];
 

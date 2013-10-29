@@ -17,14 +17,28 @@ Class RegisterController Extends BaseController {
 	 * Penanganan untuk register user
 	 */
 	public function customer() {
-		$this->registry->template->show('register/customer');
+		if (session_id() == '') session_start();
+
+		if (isset($_SESSION['logged_userid'])) {
+			//redirect ke home jika sudah login
+		    header("Location: " . SITEURL); die();
+		} else {
+			$this->registry->template->show('register/customer');
+		}
 	}
 
 	/**
 	 * Penanganan untuk register credit card
 	 */
 	public function card() {
-		$this->registry->template->show('register/credit_card');
+		if (session_id() == '') session_start();
+
+		if (!isset($_SESSION['logged_userid'])) {
+			//redirect ke registrasi user
+		    header("Location: " . SITEURL . "/register/customer"); die();
+		} else {
+			$this->registry->template->show('register/credit_card');
+		}
 	}
 
 	/**

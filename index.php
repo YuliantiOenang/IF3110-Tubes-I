@@ -8,7 +8,7 @@
 
 </head>
 	<div class="opening">
-		<div class="ocontent">
+		<div class="content">
 			<img src="img/logo.png" width='336px' height='149px'>
 		</div>
 	</div>

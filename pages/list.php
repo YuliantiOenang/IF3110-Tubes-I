@@ -41,17 +41,16 @@
 				?>
 				<form action="search.php" method="get">
 					<div class='sbox'>
-						<h3><b>Pencarian</b></h3>
-						<div class='sb_name'>Nama:</div><div class='sb_value'><input type="text" name="query_name" size="20" onkeyup="showResult(this.value)"></div>
-						<div class='sb_name'>Harga:</div><div class='sb_value'><input type="text" name="query_price" size="20"></div>
-						<div class='sb_name'>Kategori:</div><div class='sb_value'><select name="query_category">
+						<div id='sb_name'>Nama:</div><div id='sb_value'><input type="text" name="query_name" size="20" onkeyup="showResult(this.value)"></div>
+						<div id='sb_name'>Harga:</div><div id='sb_value'><input type="text" name="query_price" size="20"></div>
+						<div id='sb_name'>Kategori:</div><div id='sb_value'><select name="query_category">	
 						  <option value="roti">Roti</option>
 						  <option value="minuman">Minuman</option>
 						  <option value="kalengan">Makanan Kalengan</option>
 						  <option value="segar">Makanan Segar</option>
 						  <option value="peralatan">Peralatan Rumah</option>
 						</select></div>
-						<input type="submit" value="Submit">
+						<input type="image" src="../img/search.png" width=30px>
 					</div>
 					<div id="livesearch"></div>
 				</form>
@@ -68,7 +67,7 @@
 				
 				$category = $_GET['cat'];
 				echo "<div class='category'>";
-				echo "<h2>" . getFormalName($category)."</h2><br/>";
+				echo getFormalName($category)."<br/>";
 				echo "</div>";
 				$result = mysqli_query($con,"SELECT * FROM kategori NATURAL JOIN inventori WHERE nama_kategori = '".$category."'");
 				
@@ -94,7 +93,7 @@
 						?>
 							<form>
 							<div id='quantity' ><input type='text' name='quant' value='0' size=7 ></input><br/></div>
-							<div id='cart'><a><img src="../img/addtocart.png" height=25px onclick='checkItem(quant.value, <?php echo $row['id_inventori']; ?>)'></a></div>
+							<div id='cart'><a><img src="../img/addtocart.png" height=25px onmouseup='checkItem(quant.value, <?php echo $row['id_inventori']; ?>)'></a></div>
 							</form>
 							<div id ='status'>Status Stok:</div>
 							<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
@@ -115,7 +114,6 @@
 					if($resultSize == 0){
 						echo "No result found.";
 				}
-				mysqli_close($con);
 
 			?>
 		</div>

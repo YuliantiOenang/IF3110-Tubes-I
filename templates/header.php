@@ -17,9 +17,9 @@
 	<div class = "logo">
 		<?php 
 			if($_SESSION['state'] == 2)
-				echo "<a href='index.php'><img src='img/logo.png' width=200px/></a>";
+				echo "<a href='index.php'><img src='img/logo.png' height=120px/></a>";
 			else
-				echo "<a href='../index.php'><img src='../img/logo.png' width=200px/></a>";
+				echo "<a href='../index.php'><img src='../img/logo.png' height=120px/></a>";
 		?>
 	</div>
 	<div class = "registerlogin">

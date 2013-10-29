@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="style.css">		
+		<link rel="stylesheet" type="text/css" href="<?php echo SITEURL . '/include/css/style.css'?>">		
 	</head>
 		
 	<body> 
@@ -89,7 +89,7 @@
 							while($row = mysqli_fetch_array($result))
 							{	
 								echo '<a href=product.php?product_id=' . $row['product_id'] . '>';
-								echo '<img src=' . $row['image_link'] . '>';
+								echo '<img src=' . SITEURL . '/include/' . $row['image_link'] . '>';
 								echo '</a>';
 							}						
 						?>										
@@ -101,7 +101,7 @@
 							while($row = mysqli_fetch_array($result))
 							{	
 								echo '<a href=product.php?product_id=' . $row['product_id'] . '>';
-								echo '<img src=' . $row['image_link'] . '>';
+								echo '<img src=' . SITEURL . '/include/' . $row['image_link'] . '>';
 								echo '</a>';
 							}						
 						?>				
@@ -113,7 +113,7 @@
 							while($row = mysqli_fetch_array($result))
 							{	
 								echo '<a href=product.php?product_id=' . $row['product_id'] . '>';
-								echo '<img src=' . $row['image_link'] . '>';
+								echo '<img src=' . SITEURL . '/include/' . $row['image_link'] . '>';
 								echo '</a>';
 							}						
 						?>				

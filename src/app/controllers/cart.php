@@ -41,6 +41,8 @@ Class CartController Extends BaseController {
 		} else {
 			$customer_id = $_SESSION['logged_userid'];
 
+			ShoppingBag::updatePurchasedByCustomerId($this->registry, $customer_id);
+
 			$this->registry->template->message = "Terimakasih telah berbelanja bersama kami";
 			$this->registry->template->show('common');
 		}

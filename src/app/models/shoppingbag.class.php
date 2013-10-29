@@ -45,11 +45,21 @@ class ShoppingBag {
 	public static function getNotPurchasedByCustomerId($registry, $id) {
 		try {
 			$dbh = $registry->database;
-			$smh = $dbh->prepare('SELECT * FROM shopping_bag WHERE customer_id = :id');
+			$smh = $dbh->prepare('SELECT * FROM shopping_bag WHERE customer_id = :id AND is_purchased = 0');
     		$smh->execute(array('id' => $id));
  		
  			//pasti cuma ada satu
    			return $smh->fetchAll(PDO::FETCH_ASSOC);
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	public static function updatePurchasedByCustomerId($registry, $id) {
+		try {
+			$dbh = $registry->database;
+			$smh = $dbh->prepare('UPDATE shopping_bag SET is_purchased = 1 WHERE customer_id = :id');
+    		$smh->execute(array('id' => $id));
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}

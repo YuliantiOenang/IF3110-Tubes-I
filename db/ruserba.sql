@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 29, 2013 at 01:13 PM
+-- Generation Time: Oct 29, 2013 at 01:26 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `detail` text NOT NULL,
   `stok` int(5) DEFAULT '0',
   `kategori` int(11) NOT NULL,
+  `jumlah_jual` int(10) NOT NULL,
   PRIMARY KEY (`id_barang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,22 +42,22 @@ CREATE TABLE IF NOT EXISTS `barang` (
 -- Dumping data for table `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `nama_barang`, `url_gambar`, `harga`, `url_link`, `detail`, `stok`, `kategori`) VALUES
-('BRG001', 'Beras', 'img/items/beras.jpg,img/items/beras_1.jpg,img/items/beras_2.jpg', 9000, '', 'Beras adalah bagian bulir padi (gabah) yang telah dipisah dari sekam. Sekam (Jawa merang) secara anatomi disebut ''palea'' (bagian yang ditutupi) dan ''lemma'' (bagian yang menutupi).', 10, 0),
-('BRG002', 'Daging', 'img/items/daging.jpg', 20000, '', 'Daging ialah bagian lunak pada hewan yang terbungkus kulit dan melekat pada tulang yang menjadi bahan makanan. Daging tersusun sebagian besar dari jaringan otot, ditambah dengan lemak yang melekat padanya, urat, serta tulang rawan.', 10, 0),
-('BRG003', 'Telur', 'img/items/telur.jpg', 1000, '', 'Dalam kebanyakan burung dan reptilia, telur adalah zigot yang dihasilkan melalui fertilisasi sel telur dan berfungsi memelihara dan menjaga embrio. Telur-telur reptilia dan burung diselimuti kerak pelindung, yang memiliki lubang yang sangat kecil agar hewan yang belum lahir tersebut dapat bernapas.', 100, 0),
-('BRG004', 'Aqua', 'img/items/aqua.jpg', 2000, '', 'Aqua adalah sebuah merek air minum dalam kemasan (AMDK) yang diproduksi oleh PT Golden Mississippi Tbk di Indonesia sejak tahun 1973. Selain di Indonesia, Aqua juga dijual di Malaysia, Singapura, dan Brunei. Aqua adalah merek AMDK dengan penjualan terbesar di Indonesia dan merupakan salah satu merek AMDK yang paling terkenal di Indonesia, sehingga telah menjadi seperti merek generik untuk AMDK', 200, 1),
-('BRG005', 'Sirup', 'img/items/sirup.jpg', 10000, '', 'Sirup (dari Bahasa Arab ???? sharab, minuman) adalah cairan yang kental dan memiliki kadar gula terlarut yang tinggi, namun hampir tidak memiliki kecenderungan untuk mengendapkan kristal.', 200, 1),
-('BRG006', 'Bir', 'img/items/bir.jpg', 50000, '', 'Bir adalah segala minuman beralkohol yang diproduksi melalui proses fermentasi bahan berpati tanpa melalui proses penyulingan setelah fermentasi. Bir merupakan minuman beralkohol yang paling banyak dikonsumsi di dunia', 20, 1),
-('BRG007', 'Bolpoin', 'img/items/pen.jpg', 2000, '', 'Pena (bahasa Inggris: pen) adalah alat tulis yang menggunakan tinta. Ada berbagai warna tinta pen, yang paling umum adalah biru, hitam, dan merah. Ada berbagai macam pena, di antaranya pulpen, pena bulu, dan spidol.', 200, 2),
-('BRG008', 'Kertas', 'img/items/paper.jpg', 500, '', 'Kertas adalah bahan yang tipis dan rata, yang dihasilkan dengan kompresi serat yang berasal dari pulp. Serat yang digunakan biasanya adalah alami, dan mengandung selulosa dan hemiselulosa.', 1000, 2),
-('BRG009', 'Penggaris', 'img/items/ruler.jpg', 1000, '', 'Penggaris adalah sebuah alat pengukur dan alat bantu gambar untuk menggambar garis lurus. Terdapat berbagai macam penggaris, dari mulai yang lurus sampai yang berbentuk segitiga (biasanya segitiga siku-siku sama kaki dan segitiga siku-siku 30°–60°). Penggaris dapat terbuat dari plastik, logam, berbentuk pita dan sebagainya. Juga terdapat penggaris yang dapat dilipat.', 200, 2),
-('BRG010', 'Sapu', 'img/items/sapu.jpg', 5000, '', 'Sapu adalah salah satu alat pembersih yang terdiri dari bagian serat atau serabut kaku dan biasanya terpasang atau terikat kepada suatu pegangan silindris.', 3, 3),
-('BRG011', 'Serokan', 'img/items/serokan.jpg', 20000, '', 'Hanya sebuah serokan', 10, 3),
-('BRG012', 'Kemoceng', 'img/items/kemoceng.jpg', 10000, '', 'Kemoceng adalah salah satu alat pembersih yang terdiri dari bagian bulu-bulu dan biasanya terpasang atau terikat menjadi satu bagian bulat.', 5, 3),
-('BRG013', 'Obat flu : Mixagrip', 'img/items/obatflu.jpg', 1000, '', 'MIXAGRIP merupakan obat flu yang dapat menghilangkan gejala-gejala pada penyakit flu, influenza, dan rhinitis alergi seperti demam, sakit kepala, hidung tersumbat, dan bersin-bersin.', 100, 4),
-('BRG014', 'Kondom Sutra', 'img/items/kondom.jpg', 5000, '', 'Dirancang dengan teknologi super-tipis, kondom Sutra OK memberikan Anda pengalaman sentuhan langsung yang alami. Supaya lebih nikmat, tambahkan dua tetes Sutra Lubricant yang berbahan dasar air dibagian dalam kondom. \r\n\r\nKondom Sutra OK 100% lulus uji elektronis dan diproduksi sesuai dengan standar mutu international (ISO 4074) yang paling tinggi demi keamanan dan kenikmatan puncak. Bila digunakan secara benar, kondom akan mencegah kehamilan dan infeksi menular seksual, termasuk HIV/AIDS. ', 100, 4),
-('BRG015', 'Obat nyamuk Baygon', 'img/items/baygon.jpg', 15000, '', 'Baygon adalah merek pestisida produksi S. C. Johnson & Son. Kegunaannya adalah sebagai pembasmi dan pengendali hama rumah tangga, seperti nyamuk, kecoa, lipan, dan semut. Merek ini sangat populer di Indonesia sehingga sudah menjadi nama generik bagi produk sejenis.', 10, 4);
+INSERT INTO `barang` (`id_barang`, `nama_barang`, `url_gambar`, `harga`, `url_link`, `detail`, `stok`, `kategori`, `jumlah_jual`) VALUES
+('BRG001', 'Beras', 'img/items/beras.jpg,img/items/beras_1.jpg,img/items/beras_2.jpg', 9000, '', 'Beras adalah bagian bulir padi (gabah) yang telah dipisah dari sekam. Sekam (Jawa merang) secara anatomi disebut ''palea'' (bagian yang ditutupi) dan ''lemma'' (bagian yang menutupi).', 10, 0, 0),
+('BRG002', 'Daging', 'img/items/daging.jpg', 20000, '', 'Daging ialah bagian lunak pada hewan yang terbungkus kulit dan melekat pada tulang yang menjadi bahan makanan. Daging tersusun sebagian besar dari jaringan otot, ditambah dengan lemak yang melekat padanya, urat, serta tulang rawan.', 10, 0, 0),
+('BRG003', 'Telur', 'img/items/telur.jpg', 1000, '', 'Dalam kebanyakan burung dan reptilia, telur adalah zigot yang dihasilkan melalui fertilisasi sel telur dan berfungsi memelihara dan menjaga embrio. Telur-telur reptilia dan burung diselimuti kerak pelindung, yang memiliki lubang yang sangat kecil agar hewan yang belum lahir tersebut dapat bernapas.', 100, 0, 0),
+('BRG004', 'Aqua', 'img/items/aqua.jpg', 2000, '', 'Aqua adalah sebuah merek air minum dalam kemasan (AMDK) yang diproduksi oleh PT Golden Mississippi Tbk di Indonesia sejak tahun 1973. Selain di Indonesia, Aqua juga dijual di Malaysia, Singapura, dan Brunei. Aqua adalah merek AMDK dengan penjualan terbesar di Indonesia dan merupakan salah satu merek AMDK yang paling terkenal di Indonesia, sehingga telah menjadi seperti merek generik untuk AMDK', 200, 1, 0),
+('BRG005', 'Sirup', 'img/items/sirup.jpg', 10000, '', 'Sirup (dari Bahasa Arab ???? sharab, minuman) adalah cairan yang kental dan memiliki kadar gula terlarut yang tinggi, namun hampir tidak memiliki kecenderungan untuk mengendapkan kristal.', 200, 1, 0),
+('BRG006', 'Bir', 'img/items/bir.jpg', 50000, '', 'Bir adalah segala minuman beralkohol yang diproduksi melalui proses fermentasi bahan berpati tanpa melalui proses penyulingan setelah fermentasi. Bir merupakan minuman beralkohol yang paling banyak dikonsumsi di dunia', 20, 1, 0),
+('BRG007', 'Bolpoin', 'img/items/pen.jpg', 2000, '', 'Pena (bahasa Inggris: pen) adalah alat tulis yang menggunakan tinta. Ada berbagai warna tinta pen, yang paling umum adalah biru, hitam, dan merah. Ada berbagai macam pena, di antaranya pulpen, pena bulu, dan spidol.', 200, 2, 0),
+('BRG008', 'Kertas', 'img/items/paper.jpg', 500, '', 'Kertas adalah bahan yang tipis dan rata, yang dihasilkan dengan kompresi serat yang berasal dari pulp. Serat yang digunakan biasanya adalah alami, dan mengandung selulosa dan hemiselulosa.', 1000, 2, 0),
+('BRG009', 'Penggaris', 'img/items/ruler.jpg', 1000, '', 'Penggaris adalah sebuah alat pengukur dan alat bantu gambar untuk menggambar garis lurus. Terdapat berbagai macam penggaris, dari mulai yang lurus sampai yang berbentuk segitiga (biasanya segitiga siku-siku sama kaki dan segitiga siku-siku 30°–60°). Penggaris dapat terbuat dari plastik, logam, berbentuk pita dan sebagainya. Juga terdapat penggaris yang dapat dilipat.', 200, 2, 0),
+('BRG010', 'Sapu', 'img/items/sapu.jpg', 5000, '', 'Sapu adalah salah satu alat pembersih yang terdiri dari bagian serat atau serabut kaku dan biasanya terpasang atau terikat kepada suatu pegangan silindris.', 3, 3, 0),
+('BRG011', 'Serokan', 'img/items/serokan.jpg', 20000, '', 'Hanya sebuah serokan', 10, 3, 0),
+('BRG012', 'Kemoceng', 'img/items/kemoceng.jpg', 10000, '', 'Kemoceng adalah salah satu alat pembersih yang terdiri dari bagian bulu-bulu dan biasanya terpasang atau terikat menjadi satu bagian bulat.', 5, 3, 0),
+('BRG013', 'Obat flu : Mixagrip', 'img/items/obatflu.jpg', 1000, '', 'MIXAGRIP merupakan obat flu yang dapat menghilangkan gejala-gejala pada penyakit flu, influenza, dan rhinitis alergi seperti demam, sakit kepala, hidung tersumbat, dan bersin-bersin.', 100, 4, 0),
+('BRG014', 'Kondom Sutra', 'img/items/kondom.jpg', 5000, '', 'Dirancang dengan teknologi super-tipis, kondom Sutra OK memberikan Anda pengalaman sentuhan langsung yang alami. Supaya lebih nikmat, tambahkan dua tetes Sutra Lubricant yang berbahan dasar air dibagian dalam kondom. \r\n\r\nKondom Sutra OK 100% lulus uji elektronis dan diproduksi sesuai dengan standar mutu international (ISO 4074) yang paling tinggi demi keamanan dan kenikmatan puncak. Bila digunakan secara benar, kondom akan mencegah kehamilan dan infeksi menular seksual, termasuk HIV/AIDS. ', 100, 4, 0),
+('BRG015', 'Obat nyamuk Baygon', 'img/items/baygon.jpg', 15000, '', 'Baygon adalah merek pestisida produksi S. C. Johnson & Son. Kegunaannya adalah sebagai pembasmi dan pengendali hama rumah tangga, seperti nyamuk, kecoa, lipan, dan semut. Merek ini sangat populer di Indonesia sehingga sudah menjadi nama generik bagi produk sejenis.', 10, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -92,21 +93,23 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `username` varchar(15) NOT NULL,
   `id_barang` varchar(10) NOT NULL,
   `jumlah` int(5) NOT NULL,
+  `permintaan` text NOT NULL,
   PRIMARY KEY (`id_cart`),
   KEY `username` (`username`),
   KEY `id_barang` (`id_barang`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id_cart`, `username`, `id_barang`, `jumlah`) VALUES
-(1, 'azon04', 'BRG014', 2),
-(2, 'azon04', 'BRG014', 2),
-(3, 'azon04', 'BRG014', 1),
-(4, 'azon04', 'BRG014', 1),
-(5, 'azon04', 'BRG003', 5);
+INSERT INTO `cart` (`id_cart`, `username`, `id_barang`, `jumlah`, `permintaan`) VALUES
+(1, 'azon04', 'BRG014', 2, ''),
+(2, 'azon04', 'BRG014', 2, ''),
+(3, 'azon04', 'BRG014', 1, ''),
+(4, 'azon04', 'BRG014', 1, ''),
+(5, 'azon04', 'BRG003', 5, ''),
+(6, 'azon04', 'BRG002', 1, 'Dagingnya di giles');
 
 -- --------------------------------------------------------
 

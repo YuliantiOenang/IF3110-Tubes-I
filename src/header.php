@@ -186,11 +186,13 @@
 	}
 ?>
 	<a href="#" >Shopping Bag <?php 
-		$query = "SELECT COUNT(*) AS count_cart FROM cart WHERE username='".$_SESSION['username']."'";
-		$result = mysql_query($query, $link);
-		if(mysql_num_rows($result)>0) {
-			$row = mysql_fetch_array($result);
-			echo '('.$row['count_cart'].')';
+		if(isset($_SESSION['userid'])) {
+			$query = "SELECT COUNT(*) AS count_cart FROM cart WHERE username='".$_SESSION['username']."'";
+			$result = mysql_query($query, $link);
+			if(mysql_num_rows($result)>0) {
+				$row = mysql_fetch_array($result);
+				echo '('.$row['count_cart'].')';
+			}
 		}
 	?></a> 
 </div>

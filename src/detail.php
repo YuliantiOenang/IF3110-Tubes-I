@@ -19,10 +19,11 @@
 				$barang = $_GET['id'];
 				$username = $_SESSION['username'];
 				$jumlah = $_POST['jumlah'];
+				$permintaan = $_POST['permintaan'];
 				
 				if($jumlah > 0) {
-					$query = "INSERT INTO cart (username,id_barang,jumlah)
-						VALUES ('$username','$barang',$jumlah)";
+					$query = "INSERT INTO cart (username,id_barang,jumlah,permintaan)
+						VALUES ('$username','$barang',$jumlah,'$permintaan')";
 					$res = mysql_query($query,$link);
 					
 					if($res == null) {
@@ -96,7 +97,7 @@
 				
 				<label>Tambahan Permintaan</label>
 				<br/>
-				<textarea name="text1" class="textbox" ></textarea>
+				<textarea name="permintaan" class="textbox" ></textarea>
 				<br/>
 				<br/>
 				

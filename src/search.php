@@ -19,6 +19,12 @@
 				$kategori = $_GET['kategori'] or -1;
 				$min_harga = $_GET['harga_min'] or 0;
 				$max_harga = $_GET['harga_max'] or 0;
+				if(isset($_GET['idx'])) {
+					$start_idx = $_GET['idx'];
+				} else {
+					$start_idx = -1;
+				}
+				
 				if($kategori == '') {
 					if($min_harga <= 0 && $max_harga <= 0) {
 						$query = "SELECT * FROM barang WHERE nama_barang LIKE '%$name%'";
@@ -32,6 +38,10 @@
 						$query = "SELECT * FROM barang WHERE nama_barang LIKE '%$name%' AND kategori='$kategori' AND harga>$min_harga AND harga<$max_harga";
 					}
 				}
+				if($start_idx >= 0) {
+					$query = $query."  LIMIT $start_idx,10";
+				}
+				
 				$res = mysql_query($query, $link);
 			}
 		?>
@@ -64,33 +74,58 @@
 			</div>
 			<div id="paginasi">
 				<ul class="horizontal_list" >
-					<li>
-					<a href="#"><<</a>
-					</li>
-					<li>
-					<a href="#"><</a>
-					</li>
+					
 					<?php
-						if(mysql_num_rows($res)>0) {
-							$count = mysql_num_rows($res);
-							$count = ($count - $count%10) / 10;
-							for($iter = 0; $iter <= $count; $iter++) {
-								echo '<li> <a href="#">'.$iter.'</a></li>';
+							if(mysql_num_rows($res)>0) {
+								if(isset($_GET['idx'])) {
+									$start_idx = $_GET['idx'];
+								} else {
+									$start_idx = -1;
+								}
+				
+								
+								
+								$name = "";
+								if(isset($_GET['name'])){
+									$name = $_GET['name'];
+								}
+								if(isset($_GET['count'])) {
+									$count = $_GET['count'];
+								} else {
+									$count = mysql_num_rows($res);
+									$count = ($count - $count%10) / 10;
+								}
+								
+								echo '<li>';
+								echo '<a href="?name='.$name.'&idx='.(0).'&count='.$count.'"><<</a>';
+								echo '</li>';
+								echo '<li>';
+								$idx = $start_idx - 10;
+								if($idx <= 0) $idx = 0;
+								echo '<a href="?name='.$name.'&idx='.($idx).'&count='.$count.'"><</a>';
+								echo '</li>';
+								for($iter = 0; $iter <= $count; $iter++) {
+									echo '<li> <a href="?name='.$name.'&idx='.($iter * 10).'&count='.$count.'">'.$iter.'</a></li>';
+								}
+								echo '<li>';
+								$idx = $start_idx + 10;
+								if($idx >= $count*10) $idx = $count*10;
+								echo '<a href="?name='.$name.'&idx='.($idx).'&count='.$count.'">></a>';
+								echo '</li>';
+								echo '<li>';
+								echo '<a href="?name='.$name.'&idx='.($count*10).'&count='.$count.'">>></a>';
+								echo '</li>';
+								
 							}
-						}
 					?>
-					<li>
-					<a href="#">></a>
-					</li>
-					<li>
-					<a href="#">>></a>
-					</li>
 				</ul>
 			</div>
 			<div id="search_result">
 				<?php
 					if(mysql_num_rows($res)>0) {
+						$count = 0;
 						while($row = mysql_fetch_array($res)) {
+							if($count >= 10) break;
 							echo '<div class="search_item_result">';
 							echo '<a href="detail.php?id='.$row['id_barang'].'">';
 							$array = explode(',',$row['url_gambar']);
@@ -102,6 +137,7 @@
 								echo '<p>'.$row['detail'].'</p>';
 							}
 							echo '</a></div><hr/>';
+							$count++;
 						}
 					} else {
 						echo '<div class="search_item_result">';

@@ -20,7 +20,7 @@
 			<div class="content_item">
 				<ul class="horizontal_list">
 				<?php
-					$query = "SELECT * FROM barang WHERE kategori=0 ORDER BY stok DESC LIMIT 0,3";
+					$query = "SELECT * FROM barang WHERE kategori=0 ORDER BY jumlah_jual DESC LIMIT 0,3";
 					$result = mysql_query($query, $link);
 					if(mysql_num_rows($result)>0) {
 						while($row = mysql_fetch_array($result)) {
@@ -43,7 +43,7 @@
 			<div class="content_item">
 				<ul class="horizontal_list">
 					<?php
-					$query = "SELECT * FROM barang WHERE kategori=1 ORDER BY stok DESC LIMIT 0,3";
+					$query = "SELECT * FROM barang WHERE kategori=1 ORDER BY jumlah_jual DESC LIMIT 0,3";
 					$result = mysql_query($query, $link);
 					if(mysql_num_rows($result)>0) {
 						while($row = mysql_fetch_array($result)) {
@@ -66,7 +66,7 @@
 			<div class="content_item">
 				<ul class="horizontal_list">
 					<?php
-					$query = "SELECT * FROM barang WHERE kategori=2 ORDER BY stok DESC LIMIT 0,3";
+					$query = "SELECT * FROM barang WHERE kategori=2 ORDER BY jumlah_jual DESC LIMIT 0,3";
 					$result = mysql_query($query, $link);
 					if(mysql_num_rows($result)>0) {
 						while($row = mysql_fetch_array($result)) {
@@ -89,7 +89,7 @@
 			<div class="content_item">
 				<ul class="horizontal_list">
 					<?php
-					$query = "SELECT * FROM barang WHERE kategori=3 ORDER BY stok DESC LIMIT 0,3";
+					$query = "SELECT * FROM barang WHERE kategori=3 ORDER BY jumlah_jual DESC LIMIT 0,3";
 					$result = mysql_query($query, $link);
 					if(mysql_num_rows($result)>0) {
 						while($row = mysql_fetch_array($result)) {
@@ -112,7 +112,7 @@
 			<div class="content_item">
 				<ul class="horizontal_list">
 					<?php
-					$query = "SELECT * FROM barang WHERE kategori=4 ORDER BY stok DESC LIMIT 0,3";
+					$query = "SELECT * FROM barang WHERE kategori=4 ORDER BY jumlah_jual DESC LIMIT 0,3";
 					$result = mysql_query($query, $link);
 					if(mysql_num_rows($result)>0) {
 						while($row = mysql_fetch_array($result)) {

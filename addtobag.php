@@ -1,5 +1,4 @@
 <?php
-  // id,nama,harga,jumlah,keterangan
   include 'db.php';
   $id = $_POST['id'];
   $nama = $_POST['nama'];

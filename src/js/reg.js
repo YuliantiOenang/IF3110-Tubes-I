@@ -102,5 +102,27 @@ function validatecreditForm()
 	  {
 	  alert("Name on Card harus diisi");
 	  return false;
-	  }			
+	  }	
+
+	// validation on server side
+	var xmlhttp;
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+	xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}						
+	xmlhttp.onreadystatechange = function() {
+	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		if (xmlhttp.responseText == 0) { // failed
+			alert("CardNumber dan Nama tidak sesuai");
+		} else { // success
+			return true;
+		}
+	}
+	}
+	xmlhttp.open("GET", "svr/validate_regis_card.php?number="+x+"&name="+y, true);
+	xmlhttp.send();	  
 }
+
+

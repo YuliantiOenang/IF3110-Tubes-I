@@ -1,3 +1,8 @@
-Sonny Lazuardi Hermawan (13511029)
-David Setyanugraha (13511003)
-Ignatius Evan Daryanto (13511019)
+Cara Install Calvin & Salvy
+
+Cara Install (dengan xampp/wamp terinstall di komputer)
+
+- Aktifkan apache dan mysql pada xampp/wamp
+- buat database baru bernama ruserba
+- import sql "db/progin_13511029.sql" ke database ruserba 
+- jalankan localhost/calvinsalvy/index/

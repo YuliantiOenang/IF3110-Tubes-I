@@ -1,25 +1,9 @@
 <?php 
 session_start();
-$pageTitle = "Unique T-products designed by a frog";
+$pageTitle = "Ruserba Sinar Jaya";
 $section = "home";
 include('header.php'); 
 ?>
-	<!--	<div class="section banner">
-
-			<div class="wrapper">
-
-				<img class="hero" src="img/mike-the-frog.png" alt="Mike the Frog says:">
-				<div class="button">
-					<a href="products.php">
-						<h2>Hey, I&rsquo;m Mike!</h2>
-						<p>Check Out My products</p>
-					</a>
-				</div>
-			</div>
-
-		</div>
-	-->
-
 		<div class="section products latest">
 
 			<div class="wrapper">

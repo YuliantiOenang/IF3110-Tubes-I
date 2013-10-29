@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if (!$_GET['category']) {
+	header("Location:index.php");
+	exit();
+}
 $cat = $_GET['category'];
 $pageTitle = "Produk ".$cat;
 $section = "product";

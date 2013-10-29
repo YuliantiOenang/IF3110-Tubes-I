@@ -1,6 +1,11 @@
 <?php
 	session_start();
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	if((isset($_SESSION['username'])) || (isset($_COOKIE['sinarjaya']))){
+
+	header("Location:index.php");
+	exit();
+
+} else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$username = $_POST['username'];
 		$nama = $_POST['namalengkap'];
 		$noHP = $_POST['nomor'];
@@ -16,6 +21,8 @@
 		mysql_query('INSERT INTO `user` (username, nama, nohp, alamat, provinsi, kota, kodepos, email, password) VALUES ("'.$username.'", "'.$nama.'", "'.$noHP.'", "'.$alamat.'", "'.$provinsi.'", "'.$kota.'","'.$kodepos.'", "'.$email.'","'.$password.'")');
 		
 		$_SESSION['username'] = $username;
+		$expire = time()+2592000;
+		setcookie('sinarjaya', $username, $expire);
 
 		if (isset($_SESSION['username'])) {
 			header("Location: index.php");
@@ -52,12 +59,12 @@ include('header.php');
 					<input type="text" name="email" id="email" oninput="validateEmail()">
 					<span id="emailInfo"></span>
 					<label>Password</label>
-					<input type="text" name="password1" id="password1" oninput="validatePassword1()">
+					<input type="password" name="password1" id="password1" oninput="validatePassword1()">
 					<span id="password1Info"></span>
 					<label>Confirm Password</label>
-					<input type="text" name="password2" id="password2" oninput="validatePassword2()">
+					<input type="password" name="password2" id="password2" oninput="validatePassword2()">
 					<span id="password2Info"></span>
-					<input type="submit" value="Register" id="submit" name="submit">
+					<input type="submit" value="Register" id="submit" name="submit" class="register">
 				</form>
 			</div>
 		</div>

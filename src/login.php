@@ -21,7 +21,7 @@ $section = "login";
 					<input type="text" name="username" id="username">
 					<span id="unameInfo"></span>
 					<label>Password</label>
-					<input type="text" name="password" id="password">
+					<input type="password" name="password" id="password">
 					<span id="passInfo"></span><br />
 					<span id="loginInfo"></span><br />
 					<input type="button" value="Login" id="submit" name="submit" onclick="validateLogin()">

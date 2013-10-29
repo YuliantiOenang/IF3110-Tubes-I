@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title><?php echo $pageTitle; ?></title>
@@ -17,11 +18,18 @@
 					<p> Welcome, <a href="profil.php"><?php echo $_SESSION['username']; ?></a>
 						<a href="logout.php"> Log out</a>
 					</p>
+					<form method="GET" action="search.php" id="searchform">
+					<input type="text" class="search" name="keyword">
+					<input type="submit" value="search" class="search-btn">
+					<form>
 				<?php } else { ?> 
-					<a href="register.php"> Register </a>
-					<a href="javascript:void(0)" onclick="login()"> Login </a> <br />
-					<br />
-					<input type="text" class="search">
+					<a href="register.php" class="menutop"> Register </a>
+					<a href="javascript:void(0)" onclick="login()" class="menutop"> Login </a> <br />
+					
+					<form method="GET" action="search.php" id="searchform">
+					<input type="text" class="search" name="keyword">
+					<input type="submit" value="search" class="search-btn">
+					<form>
 				<?php } ?>
 				</div>
 			</div>

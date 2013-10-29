@@ -162,7 +162,7 @@ form td input,
 form td textarea {
     width: 100%;
 }
-form input[type="submit"] {
+form input[type="submit"] .register {
     width: 300px;
     text-align: center;
     border: 1px solid #8e8e46;
@@ -280,3 +280,15 @@ label {
 .search {
     width: 200px;
 }
+
+.search-btn {
+    width: 70px;
+}
+
+#searchform {
+    width: 290px;
+}
+
+.menutop {
+    margin-right: 12px;
+} 

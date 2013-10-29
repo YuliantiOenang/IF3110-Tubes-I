@@ -1,6 +1,5 @@
 <!-- Detail of A Merchandise -->
 <!DOCTYPE html>
-<?php session_start(); ?>
 <html>
 	<head>
 		<script src="js/transaction.js"></script>
@@ -22,9 +21,9 @@
 				  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 				  }
 
-				$GLOBALS['result'] = mysqli_query($con,"SELECT * FROM Merchandise WHERE ID='" . $GLOBALS['id'] . "'");
+				$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE ID='" . $GLOBALS['id'] . "'");
 				
-				while($row = mysqli_fetch_array($GLOBALS['result']))
+				while($row = mysqli_fetch_array($result))
 				  { 
 				  echo "Detail Barang :";
 				  $link = "category.php?kat=".$row['Kategori']."&id=".$row['Nama'];
@@ -37,11 +36,17 @@
 					<pre><?php echo 'Kategori : '.$row['Kategori']; ?></pre>
 					<pre><?php echo 'Keterangan : '.$row['Keterangan']; ?></pre>
 					<pre><?php echo 'Stok : '.$row['Banyak']; ?></pre>
+					<?php
+					if (isset($_SESSION['usr'])){
+					?>
 					<pre><?php echo 'Tambahan Permintaan :' ?></pre>
 					<textarea rows="10" cols="100"></textarea>
 					<form name="input" action="<?php echo $link; ?>" method="post">
 					Jumlah: <input type="number" name="jumlah">
 					<input type="submit" value="BUY!">
+					<?php
+					}
+					?>
 					</form> 
 				</div>
 				  <?php }

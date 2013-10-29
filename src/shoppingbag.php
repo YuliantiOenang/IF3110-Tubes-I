@@ -1,6 +1,5 @@
 <!-- Shopping Bag Page -->
 <!DOCTYPE html>
-<?php session_start(); ?>
 <html>
 	<head>
 		<title>
@@ -14,6 +13,7 @@
 		<div id="content">
 			<h1>Tas Belanja</h1>
 			<?php
+			unset($_SESSION['usr']);
 				if (isset($_GET['nama'])) $nama = $_GET['nama'];
 				
 				if (isset($_POST['submit'])){
@@ -24,7 +24,6 @@
 				if (isset($_POST['delete'])){
 					unset($_SESSION["$nama"]);
 				}
-				
 			?>
 			
 			
@@ -35,36 +34,7 @@
 					
 					foreach ($_SESSION as $key=>$value)
 					{
-						$con=mysqli_connect("localhost","root","","ruserba");
-						// Check connection
-						if (mysqli_connect_errno())
-						  {
-						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-						  }
-
-						$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
-
-						$row = mysqli_fetch_array($result);
-						
-						if ($row['Banyak'] < $value){
-							echo "Stok ".$key." tidak tersedia..";
-							unset($success);
-							break;
-						} else {
-							$success = $success + $value * $row['Harga'];
-						}
-
-						mysqli_close($con);
-					}
-					
-					if (isset($success)){
-						echo "Pembelian barang berhasil!";
-						echo "<br/>";
-						echo "Total Harga : ".$success;
-						echo "<br/>";
-						
-						// update database..
-						foreach ($_SESSION as $key=>$value)
+						if ($key != 'usr')
 						{
 							$con=mysqli_connect("localhost","root","","ruserba");
 							// Check connection
@@ -74,20 +44,73 @@
 							  }
 
 							$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
+
 							$row = mysqli_fetch_array($result);
-							$temp = $row['Banyak'] - $value;
-							mysqli_query($con,"UPDATE Merchandise SET Banyak=". $temp ." WHERE Nama='".$key."'");
+								
+							if ($row['Banyak'] < $value){
+								echo "Stok ".$key." tidak tersedia..";
+								unset($success);
+								break;
+							} else {
+								$success = $success + $value * $row['Harga'];
+							}
 
 							mysqli_close($con);
-							unset($_SESSION["$key"]);
 						}
+					}
+					
+					if (isset($success)){
+						
 						//
+						$con=mysqli_connect("localhost","root","","ruserba");
+						// Check connection
+						if (mysqli_connect_errno())
+						  {
+						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+						  }
+						// cek credit card..
+						$result2 = mysqli_query($con,"SELECT * FROM Have WHERE IdName='".$_SESSION['usr']."'");
+						if (mysqli_num_rows($result2) > 0){
+						// ada! update database
+							$row2 = mysqli_fetch_array($result2);
+							// update database..
+							foreach ($_SESSION as $key=>$value)
+							{
+								if ($key != 'usr')
+								{
+									$con=mysqli_connect("localhost","root","","ruserba");
+									// Check connection
+									if (mysqli_connect_errno())
+									  {
+									  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+									  }
+
+									$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
+									$row = mysqli_fetch_array($result);
+									$temp = $row['Banyak'] - $value;
+									mysqli_query($con,"UPDATE Merchandise SET Banyak=". $temp ." WHERE Nama='".$key."'");
+
+									unset($_SESSION["$key"]);
+									
+									mysqli_close($con);
+								}
+							}
+							echo "Pembelian barang berhasil!";
+							echo "<br/>";
+							echo "Total Harga : ".$success;
+							echo "<br/>";
+						} else {
+						// ga ada! ke register_card deh
+							header("Location: register_card.php");
+							die();
+						}
 					}
 				}
 				
 				foreach ($_SESSION as $key=>$value)
 				{
-					$set = 1;
+					if ($key != 'usr')
+					{
 					?>
 					<div style="background-color: #dddddd; margin: 0px 2px 0px 2px">
 					<img src="res/<?php echo $key.".jpg"; ?>" alt=<?php echo $key; ?> width=150 height=200>
@@ -105,11 +128,10 @@
 					  }
 
 					$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
-
+					$set = 1;
 					$row = mysqli_fetch_array($result);
-
-					mysqli_close($con);
 					
+					mysqli_close($con);
 					?>
 					<form name="forminput" action="<?php echo $link2; ?>" method="post">
 					Jumlah: <input type="number" value=<?php echo $value; ?> name="jumlah">
@@ -120,10 +142,13 @@
 					<pre><?php echo 'Harga : '.$value * $row['Harga']; ?><br/><br/></pre>
 					</div>
 					<?php
+					}
 				} 
 			?>
 			<?php
-			if (isset($set)){
+			if (!isset($_SESSION['usr'])){
+				echo "Silakan login terlebih dahulu";
+			} else if (isset($set)){
 			?>
 			<form name="formsubmit" action="<?php echo $link2; ?>" method="post">
 			<input type="submit" value="BUY ALL!" name="submitall">

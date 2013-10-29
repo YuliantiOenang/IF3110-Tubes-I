@@ -1,6 +1,5 @@
 <!-- List of Merchandises In Category -->
 <!DOCTYPE html>
-<?php session_start(); ?>
 <html>
 	<head>
 		<script src="js/transaction.js"></script>
@@ -27,12 +26,14 @@
 
 				$result = mysqli_query($con,"SELECT DISTINCT Kategori FROM Merchandise");
 
-				while($row = mysqli_fetch_array($result))
-				  {
-				  $link = "category.php?kat=".$row['Kategori'];
-				  echo "<a href= $link>" .$row['Kategori'] . "</a>";
-				  echo "<br>";
-				  }
+				if (mysql_num_rows($result) > 10){
+					while($row = mysqli_fetch_array($result))
+					  {
+					  $link = "category.php?kat=".$row['Kategori'];
+					  echo "<a href= $link>" .$row['Kategori'] . "</a>";
+					  echo "<br>";
+					  }
+				}
 
 				mysqli_close($con);
 			}
@@ -65,8 +66,14 @@
 					$link2 = "category.php?kat=".$row['Kategori']."&id=".$row['Nama'];
 					?>
 					<form name="forminput" action="<?php echo $link2; ?>" method="post">
+					<?php
+					if (isset($_SESSION['usr'])){
+					?>
 					Jumlah: <input type="number" name="jumlah">
 					<input type="submit" value="BUY!">
+					<?php
+					}
+					?>
 					</form>
 					<pre><?php echo 'Harga : '.$row['Harga']; ?><br/><br/></pre>
 				  </div>

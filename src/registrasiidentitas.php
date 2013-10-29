@@ -5,11 +5,18 @@
 <script src="js/validasiregistrasi.js"></script>
 <?php
 	session_start();
+	if(isset($_SESSION['id']))
+		header("location:dashboard.php");
 ?>
 </head>
 
 <body>
 	<div id="container">
+		<div id="header"> 
+			<div id="logo">
+				<a href="index.php"><img src="images/logo.png" title="Home" alt="Home"/></a>
+			</div>
+		</div>
 		<div id="tab_tengah">
 			<form name="register_form" method="post" action="register.php" enctype="multipart/form-data">
 				<div class="form_field">

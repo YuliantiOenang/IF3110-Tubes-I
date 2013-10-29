@@ -1,6 +1,8 @@
 <?php
 include "config.php";
 session_start();
+if(!isset($_SESSION['id']))
+		header("location:index.php");
 
 $username = "'".$_SESSION['id']."'";
 $result1 = mysql_query("SELECT * FROM kartu_kredit WHERE username=$username");

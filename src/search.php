@@ -2,6 +2,11 @@
 <head>
 <title>Hasil Pencarian</title>
 <link href="css/style.css" rel="stylesheet" type="text/css"/>
+<?php 
+	session_start();
+	if(!isset($_SESSION['id']))
+		header("location:index.php");
+?>
 <script>
 	function searchWord(){
 		var find = document.search.find.value;

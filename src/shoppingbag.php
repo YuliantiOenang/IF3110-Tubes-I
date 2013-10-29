@@ -4,8 +4,10 @@
 <link href="css/style.css" rel="stylesheet" type="text/css"/>
 <script src="js/validasibeli.js"></script>
 <?php
-	include "config.php";
 	session_start();
+	if(!isset($_SESSION['id']))
+		header("location:index.php");
+	include "config.php";
 	$username = "'".$_SESSION['id']."'";
 	$result1 = mysql_query("SELECT * FROM shopping_bag WHERE username=$username and status='Belum Selesai' ");
 	if ($result1!=null) {
@@ -20,6 +22,7 @@
 
 <body>
 	<div id="container">
+		<?php include "header.php"?>
 		<div id="tab_tengah"> 
 			<?php if (mysql_num_rows($result1)>0) { ?>
 				<form name="shopping_bag_form" method="post" action="editshoppingbag.php" enctype="multipart/form-data">

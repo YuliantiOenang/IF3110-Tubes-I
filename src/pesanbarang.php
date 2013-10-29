@@ -1,6 +1,8 @@
 <?php
-include "config.php";
 session_start();
+	if(!isset($_SESSION['id']))
+		header("location:index.php");
+include "config.php";
 $q=$_GET["q"];
 $username = "'".$_SESSION['id']."'";
 $result1 = mysql_query("SELECT * FROM shopping_bag WHERE username=$username and status='Belum Selesai' ");

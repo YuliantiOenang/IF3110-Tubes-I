@@ -5,11 +5,14 @@
 <script src="js/validasiregistrasi.js"></script>
 <?php
 	session_start();
+	if(!isset($_SESSION['id']))
+		header("location:index.php");
 ?>
 </head>
 
 <body>
 	<div id="container">
+		<?php include "header.php"?>
 		<div id="tab_tengah">
 			<form name="register_form" method="post" action="registerkartukredit.php" enctype="multipart/form-data">
 				<div class="form_field">

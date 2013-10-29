@@ -6,6 +6,8 @@
 <?php
 	include "config.php";
 	session_start();
+	if(!isset($_SESSION['id']))
+		header("location:index.php");
 	$q=$_GET["q"];
 	$result1 = mysql_query("SELECT * FROM barang WHERE id_barang=$q");
 	if ($result1!=null) {
@@ -26,6 +28,7 @@
 
 <body>
 	<div id="container">
+		<?php include "header.php"?>
 		<div id="tab_tengah"> 
 			<?php if (mysql_num_rows($result1)>0) { ?>
 				<h3>Detail Barang</h3>

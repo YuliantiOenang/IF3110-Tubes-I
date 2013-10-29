@@ -6,6 +6,8 @@
 <?php
 	include "config.php";
 	session_start();
+	if(!isset($_SESSION['id']))
+		header("location:index.php");
 	$username = "'".$_SESSION['id']."'";
 	$result1 = mysql_query("SELECT * FROM pengguna WHERE username=$username");
 	$result2 = mysql_query("SELECT * FROM shopping_bag WHERE username=$username and status='SELESAI'");
@@ -16,6 +18,7 @@
 
 <body>
 	<div id="container">
+		<?php include "header.php"?>
 		<div id="profilearea"> 
 			<h3>PROFIL PENGGUNA <?php echo strtoupper($row1['username']); ?></h3>
 			<div class="tampil_data">

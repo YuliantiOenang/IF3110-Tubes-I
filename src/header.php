@@ -18,6 +18,12 @@
 		<div class="menu" id="kategori5">
 			<a href="halamanbarang.php?q=bumbu">Bumbu</a>
 		</div>
+		<div class="menu">
+			<a href="shoppingbag.php">Shopping Bag</a>
+		</div>
+		<div class="menu">
+			<a href="profile.php">Welcome <?php echo $_SESSION['id'];?></a>
+		</div>
 		<div class = "menu" id = "search">
 			 <form name="search" method="post" action="search.php">
 				 Search for: <input type="text" name="find" /> in 

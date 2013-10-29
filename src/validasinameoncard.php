@@ -1,6 +1,5 @@
 <?php
 include "config.php";
-
 $q=$_GET["q"];
 $r=$_GET["r"];
 

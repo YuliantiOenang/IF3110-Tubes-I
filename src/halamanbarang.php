@@ -6,6 +6,8 @@
 	<?php
 		include "config.php";
 		session_start();
+		if(!isset($_SESSION['id']))
+			header("location:index.php");
 		$q="'".$_GET["q"]."'";
 		$result1 = mysql_query("SELECT * FROM barang WHERE kategori=$q");
 		if ($result1!=null) {
@@ -38,7 +40,7 @@
 						Nama Barang :
 					</div>
 					<div class="tampil_data">
-						<?php echo $row1['nama'];?>
+						<a href='detailbarang.php?q=<?php echo $row1['id_barang'];?>'> <?php echo $row1['nama'];?></a>
 					</div>
 					<div class="tampil_data">
 						<?php echo $row1['kategori'];?>

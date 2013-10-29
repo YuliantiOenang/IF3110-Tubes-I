@@ -1,6 +1,5 @@
 <?php
 include "config.php";
-
 $result = mysql_query("SELECT * FROM bank");
 while($row = mysql_fetch_array($result))
 	$a[]= $row['card_number'];

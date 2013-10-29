@@ -7,6 +7,8 @@
 		
 		if($res!=null){
 			exit($res);
+		}else{
+			exit(handleTransactionAjax());
 		}
 		
 		exit();

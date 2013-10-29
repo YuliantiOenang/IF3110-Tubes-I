@@ -29,16 +29,25 @@
 				$password=$data["password"];
 				$statement2 = $conn->prepare("INSERT INTO member(name,address,contact,email,username,password,jumlah_transaksi)VALUES('$name', '$address', '$contact', '$email', '$username', '$password', 0)");
 				$statement2->execute();
+				$statement2->close();
+				
+				$statement2 = $conn->prepare("SELECT mem_id FROM member WHERE Username = ?");
+				$statement2->bind_param("s", $data["username"]);
+				$statement2->execute();
+				
+				$statement2->bind_result($id);
 				$statement2->fetch();
-				return 0;
+				
+				
+				return $id;
 			}
 			else{
-				return 1;
+				return -1;
 			}
 			$statement1->close();
 		}
 		else{
-			return 2;
+			return -2;
 		}
 		$statement->close();
 		$conn->close();		
@@ -55,11 +64,12 @@
 		$response = array("status" => "error");
 		
 		$sisa = addToUser($request);
-		if ($sisa == 0)
+		if ($sisa >= 0){
 			$response["status"] = "ok";
-		else{
+			$response["id"] = $sisa;
+		}else{
 			$response["status"] = "error";
-			if ($sisa == 1){
+			if ($sisa == -1){
 				$response["message"] = "Username sudah terdaftar sebelumnya";
 			}
 			else{

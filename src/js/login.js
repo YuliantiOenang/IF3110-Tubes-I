@@ -22,7 +22,7 @@ function login(){
 
 function redirect_login(){
 	if(getLoginInfo() == null){
-		window.location = "index.php";
+		window.location = "registration.php";
 		return true;
 	}
 	
@@ -32,7 +32,8 @@ function redirect_login(){
 function logout(){
 	localStorage.removeItem("logininfo");
 	localStorage.removeItem("shoppingbag");
-	location.reload(true)
+	
+	window.location = "index.php";
 }
 
 function getLoginInfo(){

@@ -91,9 +91,13 @@ if (!reg.test(a)){
 	var callback = function(response){	
 		if(response.status == "ok"){
 			alert("Anda berhasil sign up");
-			window.location = "index.php"
+			
+			var hasil = {"user": f, "id": response.id};
+			localStorage.setItem("logininfo", JSON.stringify(hasil));
+			
+			window.location = "kredit.php";
 		}else{
-			alert(response.message);
+			alert(response.raw);
 		}
 	};
 	

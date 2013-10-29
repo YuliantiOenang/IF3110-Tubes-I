@@ -63,7 +63,7 @@ function refreshCart(){
 			cart.appendChild(hrow);
 			
 			var s = "<div id='btn-row' class='row'>"
-			s += "<input class='main-button' type='button' value='Lakukan Pembelian' onclick='commit_buy()' />";
+			s += "<input class='main-button' type='button' value='Lakukan Pembelian' onclick='commit_buy(null)' />";
 			s += " <input class='grey-button' type='button' value='Bersihkan Keranjang' onclick='clean_cart()' />";
 			s += "</div>"
 			
@@ -100,8 +100,34 @@ function deleteItem(id){
 	}
 }
 
-function commit_buy(){
-
+function commit_buy(cb){
+	// cek kartu kredit
+	
+	var list = [];
+	var bag = JSON.parse(localStorage.shoppingbag);
+	for (barang in bag){
+		list.push({"id" : parseInt(barang), "jumlah" : bag[barang]});
+	}
+	
+	var callback = function(response){
+		if(response.status == "ok"){
+			alert("Barang sudah terbeli");
+			localStorage.removeItem("shoppingbag");
+			refreshCart();
+		}else{
+			if(response.code == 0){
+				alert("Barang tidak mencukupi");
+			}else{
+				window.location = "kredit.php?buy=1";
+			}
+		}
+	}
+	
+	if (cb!=null) callback = cb;
+	
+	var loginfo = getLoginInfo();
+	
+	sendAjax({"action" : "buy", "list": list, "id" : loginfo.id}, "cart.php", callback);
 }
 
 function editItem(id){
@@ -133,7 +159,8 @@ function createCell(size, content){
 }
 
 function loadCartPage(){
-	if(redirect_login) return;
-	
-	refreshCart();
+	if(redirect_login()) 
+		return;
+	else
+		refreshCart();
 }

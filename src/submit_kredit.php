@@ -1,22 +1,39 @@
-<?php
+<?php	
+		include("./lib/db.php");
 		$card_number = "";
 		$name_card = "";
 		$expired_date = "";
-		$error = "";
+		$error = ""; $userid = "";
+		
 		if (isset($_POST["ajax"])) {
-			$request = json_decode($_POST["ajax"], true);
+			$request = json_decode($_POST["ajax"], true);			
 			$card_number = $request["cardnumber"]; 
 			$expired_date = $request["expireddate"]; 
 			$name_card = $request["namecard"];
+			$userid = $request["id"];
 			validation();
 		}
 		
+		
 
+		function setCreditCard(){
+			global $DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME, $userid, $card_number, $name_card, $expired_date;
+			
+			$conn = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
+			$statement = $conn->prepare("UPDATE member SET no_credit = ?, nama_credit = ?, expired_date = ? WHERE mem_id = ?");
+			
+			$statement->bind_param("sssi", $card_number, $name_card, $expired_date, $userid);
+			$statement->execute();
+			
+			$statement->close();
+			$conn->close();
+		}
+		
 		function validation () {
 		global $error;
 			if (validateNumber() && validateDate() && validateNotEmpty( ) ) {
 				$response["status"] = "ok";
-				//jika berhasil maka update database pelanggan dengan nomor kartu
+				setCreditCard();
 			} else {
 				$response["status"] = "error";
 				$response["deskripsi"] = $error;

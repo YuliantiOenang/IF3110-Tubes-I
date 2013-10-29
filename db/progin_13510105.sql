@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2013 at 01:20 PM
+-- Generation Time: Oct 29, 2013 at 01:46 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `kategori` varchar(256) NOT NULL,
   `url_gambar` varchar(256) NOT NULL,
   PRIMARY KEY (`id_barang`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=77 ;
 
 --
 -- Dumping data for table `barang`
@@ -122,7 +122,22 @@ INSERT INTO `barang` (`id_barang`, `nama`, `stok`, `terjual`, `harga`, `kategori
 (58, 'Gula Indolampung', 10, 0, 15000, 'gula', 'image/58.jpg'),
 (59, 'Pioneer Sugar', 10, 0, 10000, 'gula', 'image/59.jpg'),
 (60, 'C&H Granulated Sugar', 10, 0, 11000, 'gula', 'image/60.jpg'),
-(61, 'Silver Spoon Sugar', 10, 0, 12000, 'gula', 'image/61.jpg');
+(61, 'Silver Spoon Sugar', 10, 0, 12000, 'gula', 'image/61.jpg'),
+(62, 'Sapi Lokal', 10, 0, 96000, 'daging', 'image/62.jpg'),
+(63, 'Sapi Australia', 10, 0, 100000, 'daging', 'image/63.jpg'),
+(64, 'Sapi USA', 10, 0, 110000, 'daging', 'image/64.jpg'),
+(65, 'Sapi New Zealand', 10, 0, 105000, 'daging', 'image/65.jpg'),
+(66, 'Sapi Lokal High Grade', 10, 0, 120000, 'daging', 'image/66.jpg'),
+(67, 'Rusa Lokal', 10, 0, 140000, 'daging', 'image/67.jpg'),
+(68, 'Rusa Impor', 10, 0, 160000, 'daging', 'image/68.jpg'),
+(69, 'Ayam Kampung', 10, 0, 78000, 'daging', 'image/69.jpg'),
+(70, 'Ayam Potong', 10, 0, 70000, 'daging', 'image/70.jpg'),
+(71, 'Bebek', 10, 0, 85000, 'daging', 'image/71.jpg'),
+(72, 'Kambing ', 10, 90000, 14000, 'daging', 'image/72.jpg'),
+(73, 'Kambing Giling', 93000, 0, 15000, 'daging', 'image/73.jpg'),
+(74, 'Kambing Potong', 92000, 0, 10000, 'daging', 'image/74.jpg'),
+(75, 'Kerbau', 10, 0, 95000, 'daging', 'image/75.jpg'),
+(76, 'Kelinci', 10, 0, 50000, 'daging', 'image/76.jpg');
 
 -- --------------------------------------------------------
 

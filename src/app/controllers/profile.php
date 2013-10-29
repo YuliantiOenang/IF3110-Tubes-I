@@ -25,4 +25,20 @@ Class ProfileController Extends BaseController {
 			}
 		}
 	}
+
+	/** 
+	 * Untuk mengedit profile
+	 */
+	public function edit() {
+		if (session_id() == '') session_start();
+
+		if (!isset($_SESSION['logged_userid'])) {
+			//redirect ke home jika belum login
+		    header("Location: " . SITEURL); die();
+		} else {
+			$customer = Customer::getById($this->registry, $_SESSION['logged_userid']);
+			$this->registry->template->customer = $customer;
+			$this->registry->template->show('profile/edit');
+		}
+	}
 }

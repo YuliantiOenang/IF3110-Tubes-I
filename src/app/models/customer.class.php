@@ -21,6 +21,7 @@ class Customer {
 					`city` VARCHAR(32) ,
 					`province` VARCHAR(32) ,
 					`postcode` CHAR(5) ,
+					`transaction` INT(5) NOT NULL ,
 					`card_number` VARCHAR(16) ,
 					`card_name` VARCHAR(32) ,
 					`card_expired` DATE ,
@@ -118,7 +119,7 @@ class Customer {
 	public static function addCustomer($registry, $customer) {
 		try {
 			$dbh = $registry->database;
-			$sth = $dbh->prepare("INSERT INTO customer (username, email, password, fullname, phone, address, city, province, postcode) values (:username, :email, :password, :fullname, :phone, :address, :city, :province, :postcode)"); 
+			$sth = $dbh->prepare("INSERT INTO customer (username, email, password, fullname, phone, address, city, province, postcode, transaction) values (:username, :email, :password, :fullname, :phone, :address, :city, :province, :postcode, :transaction)"); 
 
 			if ($sth->execute($customer) !== false) {
 				return $dbh->lastInsertId(); 

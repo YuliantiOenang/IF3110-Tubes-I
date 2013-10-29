@@ -64,7 +64,8 @@ Class RegisterController Extends BaseController {
 			$customer['city'] =  filter_var($_POST["city"], FILTER_SANITIZE_STRING);
 			$customer['province'] =  filter_var($_POST["province"], FILTER_SANITIZE_STRING);
 			$customer['postcode'] =  filter_var($_POST["postcode"], FILTER_SANITIZE_STRING);
-	
+			$customer['transaction'] = 0;
+			
 			$id = Customer::addCustomer($this->registry, $customer);
 			if ($id > 0) {
 				//redirect

@@ -25,7 +25,7 @@
 						  }
 						
 						$sql ="UPDATE customer SET NamaLengkap='$_POST[namalengkap]' ,Password='$_POST[changepassword]' 
-								,NomorHP='$_POST[nomorhp]' ,Alamat='$_POST[alamat]' ,Kota='$_POST[kota]' ,Provinsi='$_POST[provinsi]' ,KodePos='$_POST[kodepos]' WHERE IdName='" . $usr . "'" ;
+								,NomorHP='$_POST[nomorhp]' ,Alamat='$_POST[alamat]' ,Kota='$_POST[kota]' ,Provinsi='$_POST[provinsi]' ,KodePos='$_POST[kodepos]' WHERE IdName='".$_SESSION['usr']."'" ;
 						if(!mysqli_query($con,$sql))
 						{
 							die('Error' . mysqli_error($con));
@@ -40,12 +40,12 @@
 						  {
 						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 						  }
-					$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='" . $usr . "'");				
+					$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='".$_SESSION['usr']."'");				
 					$before = mysqli_fetch_array($result);	
 					
 					submitedit();
 					
-					$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='" . $usr . "'");				
+					$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='".$_SESSION['usr']."'");				
 					$after = mysqli_fetch_array($result);
 
 					if( $before['NamaLengkap'] == $after['NamaLengkap'])
@@ -86,7 +86,7 @@
 						  {
 						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 						  } 
-				$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='" . $usr . "'");				
+				$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='".$_SESSION['usr']."'");				
 				$row = mysqli_fetch_array($result);
 				?>
 				

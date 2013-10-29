@@ -104,25 +104,25 @@
 				<img src="images/Minuman/sari buah/buavita sirsak.jpg" alt="buavita sirsak" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sari buah/dewland jambu.jpg" alt="dewland jambu" width="200"/></a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sari buah/foco tamarin.jpg" alt="foco tamarin" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sari buah/happy day tomat.jpg" alt="happy day tomat" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sari buah/minute maid pulpy.jpg" alt="minute maid pulpy" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sari buah/nutrisari buah sayur.jpg" alt="nutrisari buah sayur" width="200"/></a>
 			</td>
 		</tr>		
@@ -136,37 +136,37 @@
 		<table border="0" width="200" align="center">
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sirup/abc raspberry.jpg" alt="abc raspberry" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sirup/abc rose.jpg" alt="abc rose" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sirup/abc strawberry.jpg" alt="abc strawberry" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sirup/marjan leci.jpg" alt="marjan leci" width="200"/></a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sirup/marjan melon.jpg" alt="marjan melon" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sirup/marjan milk strawberry.jpg" alt="marjan milk strawberry" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sirup/pohon pinang markisa.jpg" alt="pohon pinang markisa" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/sirup/sarang tawon sirsak.jpg" alt="sarang tawon sirsak" width="200"/></a>
 			</td>
 		</tr>		
@@ -180,37 +180,37 @@
 		<table border="0" width="200" align="center">
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/susu/bendera-bubuk-full-cream-800gr.jpg" alt="bendera-bubuk-full-cream-800gr" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/susu/boneeto-chocolate-box-700gr.jpg" alt="boneeto-chocolate-box-700gr" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/susu/dancow-5clcn-efa-coklat-800g.jpg" alt="dancow-5clcn-efa-coklat-800g" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/susu/entrasol-gold-vanilla-2x185-gr370gr.jpg" alt="entrasol-gold-vanilla-2x185-gr370gr" width="200"/></a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/susu/lactamil-ibu-hamil-coklat-400gr.jpg" alt="lactamil-ibu-hamil-coklat-400gr" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/susu/prenagen-mommy-vanilla-400gr.jpg" alt="prenagen-mommy-vanilla-400gr" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/susu/produgen-hi-cal-gold-coklat-box-500-gr.jpg" alt="produgen-hi-cal-gold-coklat-box-500-gr" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/susu/tropicana-slim-hi-l0-vanilla-500-gr.jpg" alt="tropicana-slim-hi-l0-vanilla-500-gr" width="200"/></a>
 			</td>
 		</tr>		
@@ -224,37 +224,37 @@
 		<table border="0" width="200" align="center">
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/teh/bendera-teh-bubuk-50gr.jpg" alt="bendera-teh-bubuk-50gr" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/teh/goalpara-100-gr.jpg" alt="goalpara-100-gr" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/teh/max-tea-tarik.jpg" alt="max-tea-tarik" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/teh/sariwangi-tb-asli-19gr-x-25.jpg" alt="sariwangi-tb-asli-19gr-x-25" width="200"/></a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/teh/slim-tea mustika ratu.jpg" alt="slim-tea mustika ratu" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/teh/sosro-teh-celup-2-gr-x-30.jpg" alt="sosro-teh-celup-2-gr-x-30" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/teh/tongtji-celup-green-tea-2gr-x-25.jpg" alt="tongtji-celup-green-tea-2gr-x-25" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/teh/wrp-diet-tea-box-10x25gr.jpg" alt="wrp-diet-tea-box-10x25gr" width="200"/></a>
 			</td>
 		</tr>		
@@ -268,37 +268,37 @@
 		<table border="0" width="200" align="center">
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/yogurt/activia-stroberi.jpg" alt="activia-stroberi" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/yogurt/bio kul plain.jpg" alt="cheesecake-" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/yogurt/Elle vire stroberi.jpg" alt="Elle vire stroberi" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/yogurt/Emmi StrawberryYogurt.jpg" alt="Emmi StrawberryYogurt" width="200"/></a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/yogurt/heavenly blush stroberi.jpg" alt="heavenly blush stroberi" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/yogurt/kefir stroberi.jpg" alt="kefir stroberi" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/yogurt/nestle stroberi.jpg" alt="nestle stroberi" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Minuman/yogurt/yakult.jpg" alt="yakult" width="200"/></a>
 			</td>
 		</tr>		

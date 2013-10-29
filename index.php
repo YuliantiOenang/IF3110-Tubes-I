@@ -15,7 +15,7 @@ session_start();
 				<a href="index.php"> <img border="0" src="images/logo.png" width="100" height="100"></a> 
 			</div> 
 			<div id="shoppingbag"> 	
-				<a href="index.php"> <img border="0" src="images/shoppingbag.png" width="70" height="70"></a> 
+				<a href="index.php?page=cart"> <img border="0" src="images/shoppingbag.png" width="70" height="70"></a> 
 				<br>shopping bag 
 				<br>item(0) 
 			</div> 

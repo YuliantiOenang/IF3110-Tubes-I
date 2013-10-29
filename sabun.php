@@ -92,37 +92,37 @@
 		<table border="0" width="200" align="center">
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Sabun/sabun wajah/Citra Hazeline Lst Cool Snow.jpg" alt="Citra Hazeline Lst Cool Snow" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Sabun/sabun wajah/Clean Clean Toner Pet.jpg" alt="Clean Clean Toner Pet" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Sabun/sabun wajah/Clean Clear Daily Pore Cleans.jpg" alt="Clean Clear Daily Pore Cleans" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Sabun/sabun wajah/Clean Clear Facial Foam.jpg" alt="Clean Clear Facial Foam" width="200"/></a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Sabun/sabun wajah/Ponds Am Facial Foam.jpg" alt="Ponds Am Facial Foam" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Sabun/sabun wajah/Garnier Men Tl Oil Cont Scrub Foam.jpg" alt="Garnier Men Tl Oil Cont Scrub Foam" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Sabun/sabun wajah/Ponds Ff Pure White.jpg" alt="minute maid pulpy" width="200"/></a>
 			</td>
 			<td>
-				<a href="home.php" target="_blank">
+				<a href="index.php" target="_blank">
 				<img src="images/Sabun/sabun wajah/Ponds Wb Naturals Fac Foam.jpg" alt="Ponds Wb Naturals Fac Foam" width="200"/></a>
 			</td>
 		</tr>		

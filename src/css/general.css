@@ -177,3 +177,8 @@ div, form, h1, li, p, ul {
 	text-align:center;
 	width:1230px;
 }
+
+#itemlist{
+	background-color:#dddddd;
+	margin:0px 2px 0px 2px;
+}

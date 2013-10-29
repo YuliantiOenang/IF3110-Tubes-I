@@ -71,7 +71,7 @@
 					if ($j >= $startidx+10) break;
 					$row = $GLOBALS['arr'][$j];
 					?>
-					<div style="background-color: #dddddd; margin: 0px 2px 0px 2px">
+					<div id="itemlist">
 					<img src="res/<?php echo $row['Nama'].".jpg"; ?>" alt=<?php echo $row['Nama']; ?> width=150 height=200>
 					<br/>
 					<?php

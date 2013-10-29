@@ -102,9 +102,9 @@
 					}
 				}
 				
+				$harga = 0;
 				foreach ($_SESSION as $key=>$value)
 				{
-					
 					$con=mysqli_connect("localhost","root","","ruserba");
 					// Check connection
 					if (mysqli_connect_errno())
@@ -115,7 +115,7 @@
 					$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
 					if (mysqli_num_rows($result) > 0){
 						?>
-						<div style="background-color: #dddddd; margin: 0px 2px 0px 2px">
+						<div id="itemlist">
 						<img src="res/<?php echo $key.".jpg"; ?>" alt=<?php echo $key; ?> width=150 height=200>
 						<br/>
 						<?php
@@ -124,7 +124,7 @@
 						echo "<br/>";
 						$set = 1;
 						$row = mysqli_fetch_array($result);
-						
+						$harga = $harga + $value*$row['Harga'];
 						?>
 						<form name="forminput" action="<?php echo $link2; ?>" method="post">
 						Jumlah: <input type="number" value=<?php echo $value; ?> name="jumlah">
@@ -146,6 +146,7 @@
 				$link2 = "shoppingbag.php";
 			?>
 			<form name="formsubmit" action="<?php echo $link2; ?>" method="post">
+			<?php echo "Total Harga : ".$harga."  "; ?>
 			<input type="submit" value="BUY ALL!" name="submitall"></input>
 			</form>
 			<?php

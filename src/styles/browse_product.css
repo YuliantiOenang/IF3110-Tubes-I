@@ -1,0 +1,10 @@
+#content .browseproduct .browseproductspan	{
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+
+#content .browseproduct .browseproductspan input	{
+	margin-left: 5px;
+	margin-right: 10px;
+}

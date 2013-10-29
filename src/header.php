@@ -5,7 +5,7 @@
 			<p>Pengunjung baru? <a href="register.php">Register</a></p>
 		</div>
 		<div id="headerloggedin">
-			<p>Welcome <span id="headerusername"></span>!<a href="javascript:;" id="headerlogoutbutton">Logout</a></span></p>
+			<p>Welcome <span id="headerusername"></span>!<a href="javascript:;" id="headerlogoutbutton">Logout</a></p>
 		</div>
 	</div>
 	<div id="headerlogo">
@@ -24,7 +24,7 @@
 						databaseConnect();
 						$catarr = getCategory();
 						foreach($catarr as $cat)	{
-							echo '<a href=category.php?category_id=' . $cat['id_kategori'] . '>';
+							echo '<a href="category.php?category_id=' . $cat['id_kategori'] . '">';
 							echo $cat['nama_kategori'] . '</a>';
 						}
 					?>

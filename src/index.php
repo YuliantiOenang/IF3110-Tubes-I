@@ -21,8 +21,8 @@
 						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 						  }
 						
-						$sql ="INSERT INTO Credit(CardNumber, CardName, ExpiredDate, JumlahDuit) VALUES
-								('$_POST[cardnumber]','$_POST[nameoncard]', '$_POST[expireddate]',1000000)" ;
+						$sql ="INSERT INTO Credit(CardNumber, CardName, ExpiredDate) VALUES
+								('$_POST[cardnumber]','$_POST[nameoncard]', '$_POST[expireddate]')" ;
 						if(!mysqli_query($con,$sql))
 						{
 							die('Error' . mysqli_error($con));

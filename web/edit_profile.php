@@ -409,34 +409,26 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> EDIT PROFILE<label></br></br>
+		<p class = "title"> EDIT PROFILE</p></br></br>
 		</div>
 			<div class = "registerspace">
-			<label>Nama Lengkap</label> <input type="text" id="nama_lengkap" placeholder = "Chris Martin" value =<?php echo $_COOKIE["user1"]?> defaultValue = <?php echo $_COOKIE["user1"]?>></br>
-			</div>
-			<div class = "registerspace">
-			<label>Change Password</label> <input type="password" id="password" required placeholder = "1234"></br>
-			</div>
-			<div class = "registerspace">
-			<label>Confirm change Password</label> <input type="password" id="conf_password" required placeholder = "1234"></br>
-			</div>
-			<div class = "registerspace">
-			<label>Alamat</label> <input type="text" id="alamat" placeholder = "Jl. Ganesha No.10 Bandung" value ="<?php if(isset($_COOKIE["alamat"])) echo $_COOKIE["alamat"];?>" defaultValue = <?php if(isset($_COOKIE["alamat"])) echo $_COOKIE["alamat"]?>></br>
-			</div>
-			<div class = "registerspace">
-			<label>Provinsi</label> <input type="text" id="provinsi" placeholder = "Jawa Barat" value ="<?php if(isset($_COOKIE["provinsi"])) echo $_COOKIE["provinsi"];?>" defaultValue = <?php if(isset($_COOKIE["provinsi"])) echo $_COOKIE["provinsi"]?>></br>
-			</div>
-			<div class = "registerspace">
-			<label>Kota/Kabupaten</label> <input type="text" id="kobupaten" placeholder = "Sumur Bandung" value ="<?php if(isset($_COOKIE["kobupaten"])) echo $_COOKIE["kobupaten"];?>" defaultValue = <?php if(isset($_COOKIE["kobupaten"])) echo $_COOKIE["kobupaten"]?>></br>
-			</div>
-			<div class = "registerspace">
-			<label>Kode Pos</label> <input type="text" id="kodepos" placeholder = "40124" value ="<?php if(isset($_COOKIE["kodepos"])) echo $_COOKIE["kodepos"];?>" defaultValue = <?php if(isset($_COOKIE["kodepos"])) echo $_COOKIE["kodepos"]?>></br>
-			</div>
-			<div class = "registerspace">
-			<label>Nomor Handphone</label> <input type="text" id="handphone" placeholder = "08180000000" value ="<?php if(isset($_COOKIE["handphone"])) echo $_COOKIE["handphone"];?>" defaultValue = <?php if(isset($_COOKIE["handphone"])) echo $_COOKIE["handphone"]?>></br>
-			</div>
-			<div class = "registerspace">
-			<input type="button" value = "Save" onclick="checkSubmit()"><label id="pesan"></label></br>
+			<label>Nama Lengkap</label> <input type="text" id="nama_lengkap" placeholder = "Chris Martin" value =<?php echo $_COOKIE["user1"]?> defaultValue = <?php echo $_COOKIE["user1"]?>></br></br>
+			
+			<label>Change Password</label> <input type="password" id="password" required placeholder = "1234"></br></br>
+			
+			<label>Confirm change Password</label> <input type="password" id="conf_password" required placeholder = "1234"></br></br>
+			
+			<label>Alamat</label> <input type="text" id="alamat" placeholder = "Jl. Ganesha No.10 Bandung" value ="<?php if(isset($_COOKIE["alamat"])) echo $_COOKIE["alamat"];?>" defaultValue = <?php if(isset($_COOKIE["alamat"])) echo $_COOKIE["alamat"]?>></br></br>
+			
+			<label>Provinsi</label> <input type="text" id="provinsi" placeholder = "Jawa Barat" value ="<?php if(isset($_COOKIE["provinsi"])) echo $_COOKIE["provinsi"];?>" defaultValue = <?php if(isset($_COOKIE["provinsi"])) echo $_COOKIE["provinsi"]?>></br></br>
+			
+			<label>Kota/Kabupaten</label> <input type="text" id="kobupaten" placeholder = "Sumur Bandung" value ="<?php if(isset($_COOKIE["kobupaten"])) echo $_COOKIE["kobupaten"];?>" defaultValue = <?php if(isset($_COOKIE["kobupaten"])) echo $_COOKIE["kobupaten"]?>></br></br>
+			
+			<label>Kode Pos</label> <input type="text" id="kodepos" placeholder = "40124" value ="<?php if(isset($_COOKIE["kodepos"])) echo $_COOKIE["kodepos"];?>" defaultValue = <?php if(isset($_COOKIE["kodepos"])) echo $_COOKIE["kodepos"]?>></br></br>
+			
+			<label>Nomor Handphone</label> <input type="text" id="handphone" placeholder = "08180000000" value ="<?php if(isset($_COOKIE["handphone"])) echo $_COOKIE["handphone"];?>" defaultValue = <?php if(isset($_COOKIE["handphone"])) echo $_COOKIE["handphone"]?>></br></br>
+			
+			<input type="button" value = "Save" onclick="checkSubmit()"><label id="pesan"></label></br></br>
 			</div>
 			
 			 

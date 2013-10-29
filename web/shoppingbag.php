@@ -298,7 +298,7 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> MY SHOPPING BAG<label></br></br>
+		<p class = "title"> MY SHOPPING BAG</p></br></br>
 		</div>
 		<?php
 			include "config/connect.php";

@@ -331,7 +331,7 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> BECOME A COLDPLAYER!<label></br></br>
+		<p class = "title"> BECOME A COLDPLAYER!</p></br></br>
 		</div>
 		
 			<div class = "registerspace">

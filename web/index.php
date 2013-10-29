@@ -256,7 +256,7 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> TOP THREE JACKETS<label></br>
+		<p class = "title"> TOP THREE JACKETS</p></br>
 		</div>
 		<div class = "topthreecat">
 			<?php
@@ -276,7 +276,7 @@ function remove(id)
 			?>
 		</div>
 		<div class = "topfivetitle">
-		<label> TOP THREE SWEATER<label></br>
+		<p class = "title"> TOP THREE SWEATER</p></br>
 		</div>
 		<div class = "topthreecat">
 			<?php
@@ -296,7 +296,7 @@ function remove(id)
 			?>
 		</div>
 		<div class = "topfivetitle">
-		<label> TOP THREE T-SHIRTS<label></br>
+		<p class = "title"> TOP THREE T-SHIRTS</p></br>
 		</div>
 		<div class = "topthreecat">
 			<?php
@@ -316,7 +316,7 @@ function remove(id)
 			?>
 		</div>
 		<div class = "topfivetitle">
-		<label> TOP THREE MISC.<label></br>
+		<p class = "title"> TOP THREE MISC.</p></br>
 		</div>
 		<div class = "topthreecat">
 			<?php
@@ -336,7 +336,7 @@ function remove(id)
 			?>
 		</div>
 		<div class = "topfivetitle">
-		<label> TOP THREE POKEMON<label></br>
+		<p class = "title"> TOP THREE POKEMON</p></br>
 		</div>
 		<div class = "topthreecat">
 			<?php

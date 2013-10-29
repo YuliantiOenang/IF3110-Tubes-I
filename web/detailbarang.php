@@ -305,7 +305,7 @@ function buy()
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> PRODUCT DETAIL<label></br></br>
+		<p class = "title"> PRODUCT DETAIL</p></br></br>
 		</div>
 		
 			<div class = "toppreview">

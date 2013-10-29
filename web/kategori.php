@@ -271,7 +271,7 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> SEARCH RESULTS<label></br></br>
+		<p class = "title"> CATEGORY</p></br></br>
 		<form method="get" action="kategori.php">
 		<input type="key" name="key" hidden value="<?php echo $_GET['key'] ?>"/>
 		<select name="sort">

@@ -309,43 +309,33 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> Profile Anda<label></br></br>
+		<p class = "title"> YOUR PROFILE</p></br></br>
 		</div>
 			<div class = "registerspace">
-			<label>Username : <?php echo $_COOKIE["username"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Nama Lengkap : <?php echo $_COOKIE["user1"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Nomor Handphone : <?php if(isset($_COOKIE["handphone"]))echo $_COOKIE["handphone"]; ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Alamat : <?php if(isset($_COOKIE["alamat"]))echo $_COOKIE["alamat"] ;?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Provinsi : <?php if(isset($_COOKIE["provinsi"])) echo $_COOKIE["provinsi"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Kota / Kabupaten : <?php if(isset($_COOKIE["kobupaten"])) echo $_COOKIE["kobupaten"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Kodepos : <?php if(isset($_COOKIE["kodepos"])) echo $_COOKIE["kodepos"] ?></label></br>
-			</div>
-			<div class = "registerspace">
-			<label>Email : <?php echo $_COOKIE["email"] ?></label></br>
-			</div>
-			<div class = "registerspace">
+			<label>Username : <?php echo $_COOKIE["username"] ?></label></br></br>
+			
+			<label>Nama Lengkap : <?php echo $_COOKIE["user1"] ?></label></br></br>
+			
+			<label>Nomor Handphone : <?php if(isset($_COOKIE["handphone"]))echo $_COOKIE["handphone"]; ?></label></br></br>
+			
+			<label>Alamat : <?php if(isset($_COOKIE["alamat"]))echo $_COOKIE["alamat"] ;?></label></br></br>
+			
+			<label>Provinsi : <?php if(isset($_COOKIE["provinsi"])) echo $_COOKIE["provinsi"] ?></label></br></br>
+			
+			<label>Kota / Kabupaten : <?php if(isset($_COOKIE["kobupaten"])) echo $_COOKIE["kobupaten"] ?></label></br></br>
+			
+			<label>Kodepos : <?php if(isset($_COOKIE["kodepos"])) echo $_COOKIE["kodepos"] ?></label></br></br>
+			
+			<label>Email : <?php echo $_COOKIE["email"] ?></label></br></br>
+			
 			<label>Jumlah Transaksi : <?php 
 				include "config/connect.php";
 				
 				$mysql=mysql_query("select id_costumer from terbayar where id_costumer='".$_COOKIE['IdCustomer']."'");
 				echo mysql_num_rows($mysql);
 			?>
-			</label></br>
-			</div>
+			</label></br></br>
 			
-			<div class = "registerspace">
 			<input type="button" value = "Edit" onclick="toEditProfile()"></br>
 			</div>
 			  
@@ -360,7 +350,7 @@ function remove(id)
 
 		</div>
 		
-				<p class = "copyrightext">COPYRIGHT KeyboardHero</p>
+				
 		
 	</div>
 </div>

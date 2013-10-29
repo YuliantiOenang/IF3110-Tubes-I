@@ -258,7 +258,7 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> SEARCH RESULTS<label></br></br>
+		<p class = "title"> SEARCH RESULTS</p></br></br>
 		</div>
 		<?php
 		

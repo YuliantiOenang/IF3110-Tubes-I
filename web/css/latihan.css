@@ -498,4 +498,8 @@ width : 100%;
 float: left;
 }
 
-
+.title {
+text-align : center;
+font-weight : bold;
+font-size : 20px;
+}

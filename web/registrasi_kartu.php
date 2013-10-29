@@ -323,7 +323,7 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> BECOME A COLDPLAYER!<label></br></br>
+		<p class ="title"> REGISTER YOUR CARD</p></br></br>
 		</div>
 			<div class = "registerspace">
 			<label>Card Number </label> <input type="text" id="card_number" required placeholder = "0123456789101213" /></br></br>
@@ -348,7 +348,7 @@ function remove(id)
 
 		</div>
 		
-				<p class = "copyrightext">COPYRIGHT KeyboardHero</p>
+				
 		
 	</div>
 </div>

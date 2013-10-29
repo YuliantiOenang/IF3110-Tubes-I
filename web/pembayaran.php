@@ -262,7 +262,7 @@ function remove(id)
 	</div>
 	<div class = "boddy">
 		<div class = "topfivetitle">
-		<label> CHECKOUT<label></br></br>
+		<p class = "title"> CHECKOUT</p></br></br>
 		</div>
 		<div class= "bayar"> 
 			<div class= "isibayar">

@@ -27,7 +27,7 @@
 		<div id="log"></div>
 		<li><a href="shoppingbag.php">Shopping Bag</a></li>
 		<div id="searchbar" style="float:right">
-		<li><input type="text" name="search" id="cari" placeholder="Cari Barang" onkeyup="searchsuggest(cari.value)">
+		<li><input type="text" name="search" id="cari" placeholder="Cari Barang" onkeyup="searchsuggest(cari.value)" onblur="resetsuggest()">
 			<ul class="suggestion" id="cariyu">	
 			</ul>
 		</li>

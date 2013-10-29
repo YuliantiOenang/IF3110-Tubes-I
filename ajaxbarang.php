@@ -17,7 +17,7 @@ while($row = mysql_fetch_array($hasil2)){
 	echo '<h2><a href="detailbarang.php?id='.$row["id"].'">'.$row["nama"].'</a></h2>';
 	echo '<p>Harga: '.$row["harga"].'</p>';
 	echo '<form action="shoppingbag.php" method="GET">Masukkan jumlah yang akan dibeli: ';
-	echo '<input type="number" name="quantity" min="0"><input type="submit" value="Beli!"></form>';
+	echo '<input type="number" name="quantity" min="0" id="qty2"><input type="button" value="Beli!" id="buy" onclick="tempBuy('.$row["id"].',qty2.value)"></form>';
 	echo '</div></div>';
 }
 sleep(1);

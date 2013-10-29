@@ -16,8 +16,8 @@
 		echo '<h2>'.$row["nama"].'</h2>';
 		echo '<p>Keterangan : '.$row["keterangan"].'</p>';
 		echo '<form>';
-		echo '<pre>Masukkan tambahan permintaan			<input type="text"></pre>';
 		echo '<pre>Masukkan jumlah barang yang akan dibeli		<input type="number" name="quantity" min="1"></pre>';
+		echo '<pre style="vertical-align:top">Masukkan tambahan permintaan 			<textarea name="tambahan" rows="4"></textarea></pre>';
 		echo '<input type="submit" value="Beli!"></form>';
 	}
 	?>

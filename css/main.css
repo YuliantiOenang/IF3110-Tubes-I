@@ -1,7 +1,3 @@
-/* Imports */
-@import url("reset.css");
-@import url("global-forms.css");
- 
 /***** Global *****/
 /* Body */
 body {
@@ -278,7 +274,7 @@ pre {
 	-moz-border-radius: 0px;
 }
 
-#featured #slideshow #slideshow-inner #slide-1 img, #featured #slideshow #slideshow-inner #slide-2 img, #featured #slideshow #slideshow-inner #slide-3 img {
+#featured #slideshow #slideshow-inner #myslide img{
 	border-radius: 0px;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
@@ -299,7 +295,7 @@ pre {
 	overflow: hidden;
 	padding: 20px;
 	text-align: left;
-	width: 750px;
+	width: 700px;
  	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -317,7 +313,7 @@ pre {
 	padding: 20px;
 	text-align: left;
 	float: right;
-    width: 250px;
+    width: 300px;
  
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -519,7 +515,6 @@ pre {
 	padding: 0;
 	margin: 0;
     height: 100%;
-    width: 500%;
     overflow: hidden;
     position: relative;
     left: 0px;
@@ -530,7 +525,7 @@ pre {
 }
 
 #slideshow-inner>ul>li {
-    width: 20%;
+    width: 640px;
     height: 320px;
     float: left;
     position: relative;
@@ -538,7 +533,8 @@ pre {
 
 #slideshow-inner>ul>li>img {
 	margin-left: auto;
-	width: 100%;
+	height: 320px;
+    width: 100%;
 }
 
 #slideshow input[type=radio] {
@@ -578,9 +574,9 @@ pre {
 
 #slideshow input[type=radio]#button-3:checked~label[for=button-3] { background-color: rgba(100,100,100,1) }
 
-#slideshow label[for=button-1] { margin-left: -36px }
+#slideshow label[for=button-1] { margin-left: -26px }
 
-#slideshow label[for=button-2] { margin-left: -18px }
+#slideshow label[for=button-2] { margin-left: -8px }
 
 #slideshow input[type=radio]#button-1:checked~#slideshow-inner>ul { left: 0 }
 
@@ -598,7 +594,7 @@ label.arrows {
     display: none;
     opacity: 0.7;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 110;
     background-color: transparent;
     -webkit-transition: opacity .2s;
     -moz-transition: opacity .2s;
@@ -612,7 +608,7 @@ label.arrows:hover { opacity: 1 }
 label.arrows:active { margin-top: -23px }
 
 input[type=radio]#button-1:checked~.arrows#arrow-2, input[type=radio]#button-2:checked~.arrows#arrow-3 {
-    right: -55px;
+    right: -45px;
     display: block;
 }
 
@@ -634,9 +630,9 @@ input[type=radio]#button-3:checked~.arrows#arrow-2 { left: -37px }
     position: absolute;
     top: 0;
     left: 0;
-    width: 260px;
+    width: 360px;
     font-family: 'Tahoma';
-    z-index: 1000;
+    z-index: 199;
 }
 
 .description input { visibility: hidden }
@@ -647,14 +643,14 @@ input[type=radio]#button-3:checked~.arrows#arrow-2 { left: -37px }
     position: relative;
     left: -17px;
     top: 00px;
-    width: 40px;
+    width: auto;
     height: 27px;
     display: inline-block;
     text-align: center;
-    padding-top: 7px;
+    padding: 7px;
     border-bottom-right-radius: 15px;
     cursor: pointer;
-    opacity: 0;
+    opacity: 0.5;
     -webkit-transition: opacity .2s;
     -moz-transition: opacity .2s;
     -o-transition: opacity .2s;
@@ -669,12 +665,10 @@ input[type=radio]#button-3:checked~.arrows#arrow-2 { left: -37px }
 
 .description .description-text {
     background-color: rgba(255,255,230,.5);
-    padding-left: 45px;
-    padding-top: 25px;
-    padding-right: 15px;
-    padding-bottom: 15px;
+    padding: 20px;
     position: relative;
-    top: -35px;
+    top: 5px;
+	left: 5px;
     z-index: 4;
     opacity: 0;
     -webkit-transition: opacity .2s;

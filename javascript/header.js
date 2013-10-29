@@ -111,6 +111,7 @@ function search(text)
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			document.getElementById("featured").innerHTML="<h2>Hasil pencarian dengan kata kunci \""+text+"\"</h2>"+xmlhttp.responseText;
+			document.getElementById("cariyu").innerHTML="";
 		}
 	}
 	xmlhttp.open("GET","search.php?cari="+text+"&suggest=false",true);
@@ -178,4 +179,7 @@ function hitunghari(timestamp1,timestamp2){
     var difference = timestamp2 - timestamp1;
     var daysDifference = Math.floor(difference/1000/60/60/24);
     return daysDifference;
+}
+function resetsuggest(){
+	setTimeout("document.getElementById('cariyu').innerHTML='';",200);
 }

@@ -18,7 +18,7 @@ if(typeof(Storage)!=="undefined"){
 				document.getElementById("kota").value=str[4];
 				document.getElementById("kodepos").value=str[5];
 				document.getElementById("email").value=str[6];
-				document.getElementById("usnm").value=str[7];
+				document.getElementById("usnmt").innerHTML=str[7];
 			}
 		}
 		xmlhttp.open("POST","ajaxprofile.php",true);
@@ -167,7 +167,7 @@ function validate(text,num,pas)
 		<h2 id="headername"></h2>
 		<form id="registerform" method="post" action="editprofilesave.php" enctype="multipart/form-data">
 		<pre>(*) Harus diisi.</pre>
-		<pre>Username*			<input type="text" name="username" id="usnm"/><span id="validasiUser"></span></pre>
+		<pre>Username*			<input type="hidden" name="username" id="usnm"><span id="usnmt"></span><span id="validasiUser"></span></pre>
 		<pre>Password*			<input type="password" name="password" id="pwd" onblur="validate(pwd.value,3,usnm.value)"/><span id="validasiPass"></span></pre>
 		<pre>Confirm Password*		<input type="password" name="password" id="pwd2" onblur="validate(pwd2.value,4,pwd.value)"/><span id="validasiCoPass"></span></pre>
 		<pre>Nama Lengkap*		<input type="text" name="nama" id="nama" onblur="validate(nama.value,1,'budi')"/><span id="validasiNama"></span></pre>

@@ -60,7 +60,18 @@ a{
 	cursor: pointer;
 }
 
+<<<<<<< HEAD
 #sb_name{
+=======
+.sbox{                           
+	padding: 10px;
+}
+.popular{
+	margin-top: 170px;
+}
+.sb_name{
+	padding-top: 2px;
+>>>>>>> bca3c6a40307a645e1980bb6556617bc0c4f4b60
 	padding-left: 4px;
 	padding-top: 3px;
 	float: left;
@@ -232,6 +243,12 @@ a{
 
 .goodsimagedata{
 	padding-top:10px;
+}
+
+.goods2{
+	text-align:center;
+	padding-left:5px;
+	padding-bottom:5px;
 }
 
 .textinput{

@@ -39,8 +39,24 @@
 				}
 				//check data posted
 				for($i=1;$i<=5;$i++){
-					//$result = mysqli_query($con,"SELECT * FROM transaksi NATURAL JOIN inventori NATURAL JOIN kategori WHERE id_kategori = '".$i."'");
-					
+					$result = mysqli_query($con,"SELECT * FROM transaksi, inventori, kategori WHERE transaksi.id_inventori = inventori.id_inventori AND inventori.id_kategori = kategori.id_kategori AND inventori.id_kategori = ".$i." ORDER BY transaksi.jumlah DESC LIMIT 3");
+					$found = false;
+					echo "<div "; 
+					if($i != 1) 
+						echo "class='popular'"; 
+					echo ">";
+						while($row = mysqli_fetch_array($result)){
+							if(!$found){
+								echo "<h2>Barang Populer untuk Kategori: ". $row['nama_kategori']."</h2><br/>";
+							}
+							$found = true;
+							echo "<div class='goods'>"	;
+							echo "<img width = 170px src='img/". $row['gambar']. "'> <br/>";
+							echo "<a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
+							echo "Rp ".$row['harga'].",00 <br/>";
+							echo "</div>";
+						}
+					echo "</div>";
 				}
 			?>
 			<!--<p>Toko Imba</p>-->

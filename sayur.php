@@ -1,9 +1,11 @@
+
 		<article class="lifted_content_box">
 		<h1>Sayur-mayur</h1>
+		<div id="itemcontent">
 		<table border="0" width="200" align="center">
 		<tr>
 			<td>
-				<a href="index.php?page=barang&nama=Bayam">
+				<a href="home.php" target="_blank">
 				<img src="images/Sayur/bayam.png" alt="bayam segar" width="200"/></a>
 			</td>
 			<td>
@@ -56,4 +58,5 @@
 			</td>
 		</tr>		
 		</table>
+		</div>
 		</article>

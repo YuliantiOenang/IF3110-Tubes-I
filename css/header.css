@@ -192,3 +192,8 @@ ul#menubar .suggestion li a:hover {
 	color : #fff;
 	font-family: 'verdana';
 }
+#patrick {
+	position:fixed;
+	right: -200px;
+	bottom : 30px;
+}

@@ -1,5 +1,6 @@
 <?php include "header.php";?>
 <script>
+var str;
 if(typeof(Storage)!=="undefined"){
 	if(localStorage.wbduser){
 		var xmlhttp;
@@ -10,7 +11,7 @@ if(typeof(Storage)!=="undefined"){
 		}
 		xmlhttp.onreadystatechange=function(){
 			if (xmlhttp.readyState==4 && xmlhttp.status==200){
-				var str = xmlhttp.responseText.split("||");
+				str = xmlhttp.responseText.split("||");
 				document.getElementById("nama").value=str[0];
 				document.getElementById("nomorhp").value=str[1];
 				document.getElementById("alamat").value=str[2];
@@ -19,6 +20,9 @@ if(typeof(Storage)!=="undefined"){
 				document.getElementById("kodepos").value=str[5];
 				document.getElementById("email").value=str[6];
 				document.getElementById("usnmt").innerHTML=str[7];
+				document.getElementById("usnm").value=str[7];
+				document.getElementById("pwd").value=str[8];
+				document.getElementById("pwd2").value=str[8];
 			}
 		}
 		xmlhttp.open("POST","ajaxprofile.php",true);
@@ -162,6 +166,23 @@ function validate(text,num,pas)
 	xmlhttp.open("GET","validasi.php?q="+temp+"&num="+num+"&pass="+pas,true);
 	xmlhttp.send();
 }
+function ceksama(){
+	if(document.getElementById("nama").value==str[0]
+		&& document.getElementById("nomorhp").value==str[1]
+		&& document.getElementById("alamat").value==str[2]
+		&& document.getElementById("provinsi").value==str[3]
+		&& document.getElementById("kota").value==str[4]
+		&& document.getElementById("kodepos").value==str[5]
+		&& document.getElementById("email").value==str[6]
+		&& document.getElementById("usnmt").innerHTML==str[7]
+		&& document.getElementById("usnm").value==str[7]
+		&& document.getElementById("pwd").value==str[8]
+		&& document.getElementById("pwd2").value==str[8]){
+			alert("Tidak ada perubahan data");
+	}else{
+		document.getElementById("registerform").submit();
+	}
+}
 </script>
 <article id="featured" class="body">
 		<h2 id="headername"></h2>
@@ -169,7 +190,7 @@ function validate(text,num,pas)
 		<pre>(*) Harus diisi.</pre>
 		<pre>Username*			<input type="hidden" name="username" id="usnm"><span id="usnmt"></span><span id="validasiUser"></span></pre>
 		<pre>Password*			<input type="password" name="password" id="pwd" onblur="validate(pwd.value,3,usnm.value)"/><span id="validasiPass"></span></pre>
-		<pre>Confirm Password*		<input type="password" name="password" id="pwd2" onblur="validate(pwd2.value,4,pwd.value)"/><span id="validasiCoPass"></span></pre>
+		<pre>Confirm Password*		<input type="password" name="password2" id="pwd2" onblur="validate(pwd2.value,4,pwd.value)"/><span id="validasiCoPass"></span></pre>
 		<pre>Nama Lengkap*		<input type="text" name="nama" id="nama" onblur="validate(nama.value,1,'budi')"/><span id="validasiNama"></span></pre>
 		<pre>Nomor HP				<input type="text" name="nomorhp" id="nomorhp"></pre>
 		<pre>Profile Photo			<input type="file" name="foto" id="foto"></pre>
@@ -178,7 +199,7 @@ function validate(text,num,pas)
 		<pre>Kota					<input type="text" name="kota" id="kota"></pre>
 		<pre>Kode Pos				<input type="text" name="kodepos" id="kodepos"></pre>
 		<pre>Email*				<input type="text" name="email" id="email" onblur="validate(email.value,5,null)"/><span id="validasiEmail"></span></pre>
-		<input type="submit" value="Save"> <a href='profile.php'>Kembali</a></form>
+		<input type="button" onclick="ceksama()" value="Save"> <a href='profile.php'>Kembali</a></form>
 </article><!-- /#featured -->
 <?php include "footer.php";?>
 

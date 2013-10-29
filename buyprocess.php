@@ -1,22 +1,14 @@
 <?php
 if (isset($_POST['data'])) $tabel = json_decode($_POST['data'],true);
+if(isset($_POST['username'])) $username = $_POST['username'];
 include "koneksi.inc.php";
 	$contents = array();
 	for($i=0;$i<sizeof($tabel);$i++){
 		if($tabel[$i]>0){
-			$sqlx="SELECT jumlah from barang WHERE id = ".($i);
-			$resultx = mysql_query($sqlx,$koneksi);
-			$rowx = mysql_fetch_array($resultx);
-			$jmlx = intval($rowx['jumlah']) - intval($tabel[$i]);
-			$deltax = intval($rowx['terjual']) + intval($tabel[$i]);
-			$sql="UPDATE barang SET jumlah = '$jmlx' WHERE id = '$i'";
-			$result = mysql_query($sql,$koneksi);
-			$row = mysql_fetch_array($result);
-			$sql2="UPDATE barang SET terjual = '$deltax' WHERE id = '$i'";
-			$result2 = mysql_query($sql2,$koneksi);
-			$row2 = mysql_fetch_array($result2);
-			//array_push($contents, array("id"=>$i,"nama"=>$row['nama'],"harga"=>$row['harga'],"jumlah"=>$row['jumlah'],"dibeli"=>$tabel[$i]),"terjual"=>$deltax); 
+			$sql="UPDATE barang SET jumlah = jumlah - '$tabel[$i]',terjual = terjual +'$tabel[$i]' WHERE id = '$i'";
+			mysql_query($sql,$koneksi);
 		}
 	}
-	//echo json_encode($contents);
+	$sql4="UPDATE anggota SET jmlhtransaksi = jmlhtransaksi+1 WHERE username = '$username'";
+	if(mysql_query($sql4,$koneksi)){}else{ echo "Gagal transaksi"; }
 ?>

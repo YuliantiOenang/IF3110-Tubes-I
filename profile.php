@@ -15,6 +15,7 @@
 			<pre id="kota">Kota			: </pre>
 			<pre id="kodepos">Kode Pos		: </pre>
 			<pre id="email">Email			: </pre>
+			<pre id="trans">Jumlah Transaksi yang sudah dilakukan	: </pre>
 		<form method="post" action="editprofile.php">
 		<input type="submit" value="Edit Profile"> <span id="cekkartu"></span>
 		</form>
@@ -40,6 +41,7 @@ if(typeof(Storage)!=="undefined"){
 				document.getElementById("email").innerHTML+=str[6];
 				document.getElementById("usernamep").innerHTML+=str[7];
 				document.getElementById("foto").innerHTML+="<img src='images/"+str[9]+"'>";
+				document.getElementById("trans").innerHTML+=str[10];
 			}
 		}
 		xmlhttp.open("POST","ajaxprofile.php",true);

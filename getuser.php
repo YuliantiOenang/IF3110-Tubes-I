@@ -7,7 +7,7 @@ $sql="SELECT password FROM anggota WHERE username = '".$u."'";
 $result = mysql_query($sql,$koneksi);
 if(mysql_num_rows($result)==1){
   $row = mysql_fetch_array($result);
-  if(md5($p)==$row['password']) echo "LOGIN";
+  if($p==$row['password']) echo "LOGIN";
 }else echo "Incorrect username/password Combination
 The username and password you entered don't match.";
 ?>

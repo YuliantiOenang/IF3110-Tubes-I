@@ -94,10 +94,13 @@ function searchsuggest(text)
 	xmlhttp.open("GET","search.php?cari="+text+"&suggest=true",true);
 	xmlhttp.send();
 }
+var spage=1;
+var stext;
 function search(text)
 {
 	var xmlhttp;
 	if (text.length==0){ return; }
+	var stext = text;
 	if (window.XMLHttpRequest)
 	{// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -110,11 +113,11 @@ function search(text)
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
-			document.getElementById("featured").innerHTML="<h2>Hasil pencarian dengan kata kunci \""+text+"\"</h2>"+xmlhttp.responseText;
+			document.getElementById("featured").innerHTML+=xmlhttp.responseText;
 			document.getElementById("cariyu").innerHTML="";
 		}
 	}
-	xmlhttp.open("GET","search.php?cari="+text+"&suggest=false",true);
+	xmlhttp.open("GET","search.php?cari="+text+"&suggest=false&page="+spage,true);
 	xmlhttp.send();
 }
 function auth(user,pass){
@@ -142,7 +145,7 @@ function auth(user,pass){
 					localStorage.wbduser = user;
 					localStorage.wbdlogintime=new Date().getTime();
 					var s = "<li><a href=\"profile.php\">Welcome "+localStorage.wbduser+"!</a></li>";
-					s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');localStorage.removeItem('wbdlogintime');\">Logout</a></li>";
+					s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');localStorage.removeItem('wbdlogintime');localStorage.removeItem('shoppingbag');\">Logout</a></li>";
 					document.getElementById("log").innerHTML=s;
 				break;
 				case '1':
@@ -159,12 +162,13 @@ if(typeof(Storage)!=="undefined"){
 	if(localStorage.wbduser && localStorage.wbdlogintime){
 		if(hitunghari(Number(localStorage.wbdlogintime),new Date().getTime())<=30){
 			var s = "<li><a href=\"profile.php\">Welcome "+localStorage.wbduser+"!</a></li>";
-			s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');localStorage.removeItem('wbdlogintime');\">Logout</a></li>";
+			s += "<li><a href=\"index.php\" onclick=\"javascript:localStorage.removeItem('wbduser');localStorage.removeItem('wbdlogintime');localStorage.removeItem('shoppingbag');\">Logout</a></li>";
 			document.getElementById("log").innerHTML=s;
 		}else{
 			alert("Waktu login kamu sudah lebih dari 30 hari.\nSilahkan login ulang");
 			localStorage.removeItem('wbduser');
 			localStorage.removeItem('wbduserlogin');
+			localStorage.removeItem('shoppingbag');
 			window.location.href="../tubeswbd1/index.php";
 		}
 	}else{
@@ -183,3 +187,16 @@ function hitunghari(timestamp1,timestamp2){
 function resetsuggest(){
 	setTimeout("document.getElementById('cariyu').innerHTML='';",200);
 }
+function resetsearch(){
+	spage=1;
+	document.getElementById('featured').innerHTML='';
+}
+window.onscroll = function() {
+	if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+		if(stext!=null){
+			spage++;
+			search(stext);
+			alert(spage);
+		}
+	}
+};

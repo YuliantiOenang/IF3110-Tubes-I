@@ -18,7 +18,8 @@ if($hasil){
 		echo $row['email']."||";	
 		echo $row['username']."||";
 		echo $row['password']."||";
-		echo $row['foto'];
+		echo $row['foto']."||";
+		echo $row['jmlhtransaksi'];
 	}
 }else{
 	echo "Gagal koneksi ke database";

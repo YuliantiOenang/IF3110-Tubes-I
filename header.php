@@ -32,7 +32,7 @@
 			<ul class="suggestion" id="cariyu">	
 			</ul>
 		</li>
-		<li><button type="button" onclick="search(cari.value)">Search</button></li>
+		<li><button type="button" onclick="resetsearch();search(cari.value,1);">Search</button></li>
 		</div>
 	</ul></nav>
 	</header><!-- /#banner -->
@@ -47,7 +47,7 @@
 		<pre>Password		<input type="password" id="password" name="password"></pre>
 		<input type="button" value="Login" onclick="auth(username.value,password.value)"> <a href="registerform.php">Daftar baru!</a>
 	</form>
-	<div id="welcomebar"></div>
 	</div>
+	<div id="patrick"><img src="images/patrick.gif" width="20%" height="20%"></div>
 	<!-- import script dari file javascript -->
 	<script src="javascript/header.js"></script>

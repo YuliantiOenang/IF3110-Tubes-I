@@ -2,6 +2,7 @@
 <html>
 <head><title>Pendaftaran Kartu Kredit</title></head>
 <link rel="stylesheet" href="css/registerform.css" type="text/css" />
+<link rel="stylesheet" href="css/kalender.css" type="text/css" />
 <body>
 	<?php include "header.php"; ?>
 	<?php include "sidebar.php";?>
@@ -10,7 +11,7 @@
 	<p><script>document.write(localStorage.wbduser);</script> bisa mendaftarkan kartu kredit sekarang atau nanti</p>
 	<pre>Card Number	<input type="text" name="cardnumber"></pre>
 	<pre>Name on Card	<input type="text" name="nama"></pre>
-	<pre>Expired Date 	<input type="text" name="expired"></pre>
+	<pre>Expired Date 	<input onclick="ds_sh(this);" name="expired" readonly="readonly" style="cursor: text"></pre>
 	<input type="hidden" name="username" id="usernamep" value="">
 	<div id="cek"><input type="button" value="Ok" onclick="cekkartu(document.forms['myform']);"> <a href="index.php">Skip</a></div>
 	</form>
@@ -54,5 +55,10 @@
 		}
 	}
 	</script>
+	<div class="ds_box" id="ds_conclass" style="display: none;">
+		<div id="ds_calclass"></div>
+	</div>
+
+<script type="text/javascript" src="javascript/kalender.js"></script>
 	<?php include "footer.php"; ?>
 </body>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2013 at 01:10 PM
+-- Generation Time: Oct 29, 2013 at 01:20 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `kategori` varchar(256) NOT NULL,
   `url_gambar` varchar(256) NOT NULL,
   PRIMARY KEY (`id_barang`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
 
 --
 -- Dumping data for table `barang`
@@ -107,7 +107,22 @@ INSERT INTO `barang` (`id_barang`, `nama`, `stok`, `terjual`, `harga`, `kategori
 (43, 'Lengkuas', 10, 0, 2000, 'bumbu', 'image/43.jpg'),
 (44, 'Serai', 10, 0, 3000, 'bumbu', 'image/44.jpg'),
 (45, 'Pala', 10, 0, 4000, 'bumbu', 'image/45.jpg'),
-(46, 'Wijen', 10, 0, 5000, 'bumbu', 'image/46.jpg');
+(46, 'Wijen', 10, 0, 5000, 'bumbu', 'image/46.jpg'),
+(47, 'C&H Sugar', 10, 0, 10000, 'gula', 'image/47.jpg'),
+(48, 'Tate Lyle Sugar', 10, 0, 11000, 'gula', 'image/48.jpg'),
+(49, 'Gula Piramid Kristal', 10, 0, 12000, 'gula', 'image/49.jpg'),
+(50, 'Gula Prai', 10, 0, 13000, 'gula', 'image/50.jpg'),
+(51, 'Raja Gula', 10, 0, 14000, 'gula', 'image/51.jpg'),
+(52, 'Gula Kwala Madu', 10, 0, 15000, 'gula', 'image/52.jpg'),
+(53, 'Gula PSM', 10, 0, 10000, 'gula', 'image/53.jpg'),
+(54, 'Gula Legiku', 10, 0, 11000, 'gula', 'image/54.jpg'),
+(55, 'Gua Ragula', 10, 0, 12000, 'gula', 'image/55.jpg'),
+(56, 'Gulaku', 10, 0, 13000, 'gula', 'image/56.jpg'),
+(57, 'Gula Indosugar', 10, 0, 14000, 'gula', 'image/57.jpg'),
+(58, 'Gula Indolampung', 10, 0, 15000, 'gula', 'image/58.jpg'),
+(59, 'Pioneer Sugar', 10, 0, 10000, 'gula', 'image/59.jpg'),
+(60, 'C&H Granulated Sugar', 10, 0, 11000, 'gula', 'image/60.jpg'),
+(61, 'Silver Spoon Sugar', 10, 0, 12000, 'gula', 'image/61.jpg');
 
 -- --------------------------------------------------------
 

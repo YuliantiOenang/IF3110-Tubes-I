@@ -41,7 +41,7 @@
 				?>
 				<form action="search.php" method="get">
 					<div class='sbox'>
-						<h3 class='sb_name'>Pencarian</h3>
+						<h3><b>Pencarian</b></h3>
 						<div class='sb_name'>Nama:</div><div class='sb_value'><input type="text" name="query_name" size="30" onkeyup="showResult(this.value)"></div>
 						<div id="livesearch"></div>
 						<div class='sb_name'>Harga:</div><div class='sb_value'><input type="text" name="query_price" size="30"></div>
@@ -112,8 +112,8 @@
 				echo "</div>";
 				
 				
-				if($resultSize == 0){
-					echo "No result found.";
+					if($resultSize == 0){
+						echo "No result found.";
 				}
 				mysqli_close($con);
 

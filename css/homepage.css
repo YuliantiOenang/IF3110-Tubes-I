@@ -61,10 +61,11 @@ a{
 .sb_name{
 	padding-top: 2px;
 	padding-left: 4px;
+	float: left;
 }
 
 .sb_value{
-	width: 30px;
+	float: left;
 }
 
 .heading {

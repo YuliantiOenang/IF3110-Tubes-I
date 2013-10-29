@@ -1,4 +1,27 @@
 <?php
+	function baseUrl()
+        {
+		$_scriptUrl = null;
+                if($_scriptUrl===null)
+                {
+                        $scriptName=basename($_SERVER['SCRIPT_FILENAME']);
+                        //echo "SCRIPT NAME: ". $scriptName;
+						if(basename($_SERVER['SCRIPT_NAME'])===$scriptName)
+                                $_scriptUrl=$_SERVER['SCRIPT_NAME'];
+                        elseif(basename($_SERVER['PHP_SELF'])===$scriptName)
+                                $_scriptUrl=$_SERVER['PHP_SELF'];
+                        elseif(isset($_SERVER['ORIG_SCRIPT_NAME']) && basename($_SERVER['ORIG_SCRIPT_NAME'])===$scriptName)
+                                $_scriptUrl=$_SERVER['ORIG_SCRIPT_NAME'];
+                        elseif(($pos=strpos($_SERVER['PHP_SELF'],'/'.$scriptName))!==false)
+                                $_scriptUrl=substr($_SERVER['SCRIPT_NAME'],0,$pos);
+                        elseif(isset($_SERVER['DOCUMENT_ROOT']) && strpos($_SERVER['SCRIPT_FILENAME'],$_SERVER['DOCUMENT_ROOT'])===0)
+                                $_scriptUrl=str_replace('\\','/',str_replace($_SERVER['DOCUMENT_ROOT'],'',$_SERVER['SCRIPT_FILENAME']));
+                        else
+                                throw new CException(Yii::t('yii','CHttpRequest is unable to determine the entry script URL.'));
+                }
+                return $_scriptUrl;
+       }
+
 	$xmlDoc=new DOMDocument();
 	$xmlDoc->load("links.xml");
 
@@ -26,14 +49,12 @@
 		  {
 			if ($hint=="")
 			{
-				$hint="<a href='" . 
-				$z->item(0)->childNodes->item(0)->nodeValue . 
-				"' target='_blank'>" . 
+				$hint="<a href='" . explode("livesearch.php", baseUrl())[0] .$z->item(0)->childNodes->item(0)->nodeValue . "' target='_blank'>" . 
 				$y->item(0)->childNodes->item(0)->nodeValue . "</a>";
 			}
 		  else
 			{
-				$hint=$hint . "<br /><a href='" . 
+				$hint=$hint . "<br /><a href='" .explode("livesearch.php", baseUrl())[0].  
 				$z->item(0)->childNodes->item(0)->nodeValue . 
 				"' target='_blank'>" . 
 				$y->item(0)->childNodes->item(0)->nodeValue . "</a>";

@@ -69,9 +69,10 @@
 				echo "<p>Kode Pos : ".$data['kode_pos']."</p>";
 				
 				//count transactions
-				$result = mysqli_query($con,"SELECT * FROM transaksi WHERE id_pengguna = ".$user_id);
-				
-				$count = $result->num_rows;
+				$result = mysqli_query($con,"SELECT * FROM pengguna WHERE id_pengguna = ".$user_id);
+				while($row = mysqli_fetch_array($result)){
+					$count = $row['total_transaksi'];
+				}
 				echo "<p>Total transactions : ".$count."</p>";
 				
 			?>

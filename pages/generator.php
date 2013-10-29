@@ -38,7 +38,7 @@
 		$child->addChild('name', $row['nama_inventori']);
 		$child->addChild('price', $row['harga']);
 		$child->addChild('category', $row['nama_kategori']);
-		$child->addChild('url', explode("generator.php", baseUrl())[0]."details.php?gid=". $row['id_inventori']);
+		$child->addChild('url', "details.php?gid=". $row['id_inventori']);
 	}
 	// Add the text attribute
 	//$child->addAttribute("text", "geography");

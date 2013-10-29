@@ -68,9 +68,9 @@
 			</form>
 			<form> Quantity :
 				<input class="numinput" type="number" name="quantity" size="500"><br/> 
-				<input type="image" src="../img/addtocart.png">
 			</form>
-			<button onclick="window.location.href='.php'">Click me</button>
+			<a href=#><img height=30px src="../img/addtocart.png"></img></a>
+			<a href ='../pages/shopping_bag.php'><img height=30px src="../img/viewcart.png"></img></a>
 			<?php mysqli_close($con); ?>
 		</div>
 	</div>

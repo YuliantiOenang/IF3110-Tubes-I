@@ -2,7 +2,7 @@
 if(isset($_GET['cari'])){ $cari = $_GET['cari']; }
 if(isset($_GET['suggest'])){ $suggest = $_GET['suggest']; }
 include "koneksi.inc.php";
-$query = "select * from barang";
+$query = "select * from barang order by kategori";
 $hasil = mysql_query($query,$koneksi);
 $p = -1;
 $a = array();
@@ -13,6 +13,7 @@ while($row = mysql_fetch_array($hasil)){
 if (strlen($cari) > 0){
 	$hint="";
 	$acc =-1;
+	$kat="";
 	for($i=0; $i<count($a); $i++)
 	{
 		if (strtolower($cari)==strtolower(substr($a[$i][1],0,strlen($cari))) || strtolower($cari)==strtolower(substr($a[$i][3],0,strlen($cari)))
@@ -20,6 +21,7 @@ if (strlen($cari) > 0){
 		{
 			$acc++;
 			if($suggest=="true"){
+				if($kat!=$a[$i][3]){ $hint = $hint."<li><a style='background:grey;color:white' href='halamanbarang.php?kategori=".$a[$i][3]."'>".$a[$i][3]."</a></li>"; $kat=$a[$i][3]; }
 				$temp = '<li><a href="detailbarang.php?id='.$a[$i][0].'">'.$a[$i][1].'</a></li>';
 				$hint=$hint.$temp;
 			}else{

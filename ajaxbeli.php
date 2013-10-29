@@ -1,6 +1,6 @@
 <?php
-if (isset($_POST['id'])) $idbrg = intval($_POST['id']);
-if (isset($_POST['qtt'])) $qtty = intval($_POST['qtt']);
+if (isset($_POST['id'])) $idbrg = $_POST['id'];
+if (isset($_POST['qtt'])) $qtty = $_POST['qtt'];
 include "koneksi.inc.php";
 	$sql="SELECT * FROM barang WHERE id = '".$idbrg."'";
 	$result = mysql_query($sql,$koneksi);

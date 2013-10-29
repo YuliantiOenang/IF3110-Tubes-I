@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head><title>Pendaftaran Anggota Baru Ruserba</title>
+	<link rel="stylesheet" href="css/registerform.css" type="text/css" />
 	<script>
 		var list = [];
 		function readysubmit(no,val)

@@ -1,3 +1,4 @@
 <aside id="sidebar" class="body">
-	<p>Isi sidebar dengan apapun yang kalian mauuu~</p>
+	<p>Selamat datang!</p>
+	<div id="s_bar">Silakan pilih barang belanjaan Anda! :)</div>
 </aside>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head><title>Halaman Barang</title></head>
-
+<link rel="stylesheet" href="css/halamanbarang.css" type="text/css" />
 <?php include "header.php";?>
 <?php include "sidebar.php";?>
 <article id="featured" class="body">
@@ -97,7 +97,7 @@
 					content_sb += "<div id=k"+isi[k].id+"><span>"+itt+"</span><span  style='margin-left:20px'>"+isi[k].nama+"</span><span  style='margin-left:20px'>"+isi[k].dibeli+"</span><span  style='margin-left:10px'>"+isi[k].harga+"</span><a href='javascript:doInCart(0,"+isi[k].id+",0)'><img src='images/cancel.png' width=15 height=15/></a></div>";	
 			}
 			content_sb += "<hr/><div><pre>Total     :       Rp "+total+",-</pre></div><input type='button' value='Bayar Transaksi' id='deal' onclick='buy()'>";
-				document.getElementById("sidebar").innerHTML=content_sb;
+				document.getElementById("s_bar").innerHTML=content_sb;
 			}else{
 				//alert("PIKACHU!");
 				//document.getElementById("indikator").innerHTML="<img src='images/loader.gif'><p>Memuat barang-barang yang lain...</p>";
@@ -122,7 +122,7 @@
 		xmlhttp.onreadystatechange=function(){
 			if (xmlhttp.readyState==4 && xmlhttp.status==200){
 				alert("LOMPAT KE ATAP, TRANSAKSI BERHASIL!");
-				document.getElementById("sidebar").innerHTML="Silakan pilih barang belanjaan Anda! :)";
+				document.getElementById("s_bar").innerHTML="Silakan pilih barang belanjaan Anda! :)";
 			}
 		}
 		xmlhttp.open("POST","buyprocess.php",true);

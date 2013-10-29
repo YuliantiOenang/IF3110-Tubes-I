@@ -1,17 +1,12 @@
 <?php include "header.php";?>
 <?php include "sidebar.php";?>
+<link rel="stylesheet" href="css/halamanbarang.css" type="text/css" />
+<link rel="stylesheet" href="css/imageslider.css" type="text/css" />
 <article id="featured" class="body">
 	<h2>Most Wanted Products</h2>
 	<div id="slideshow">
-			<input type="radio" id="button-1" name="controls" checked="checked"/>
-			<label for="button-1"></label>
-			<input type="radio" id="button-2" name="controls"/>
-			<label for="button-2"></label>
-			<input type="radio" id="button-3" name="controls"/>
-			<label for="button-3"></label>
-			<label for="button-1" class="arrows" id="arrow-1">></label>
-			<label for="button-2" class="arrows" id="arrow-2">></label>
-			<label for="button-3" class="arrows" id="arrow-3">></label>
+			<label class="arrows" id="arrow-1" onclick="autoPlaySlide.slidetoleft();"><</label>
+			<label class="arrows" id="arrow-2" onclick="autoPlaySlide.slidetoright();">></label>
 			<div id="slideshow-inner">
 				<ul id="myslide">
 	<?php
@@ -33,7 +28,7 @@
 							<?php echo $row3["kategori"]." #".$rank; ?>
 						</label>
                         <div class="description-text">
-                            <h2><?php echo $row4['nama']; ?></h2>
+                            <a href="detailbarang.php?id=<?php echo $row4['id']; ?>"><?php echo $row4['nama']; ?></a>
                             <p><?php echo $row4['keterangan']; ?></p>
                         </div>
 					</div>
@@ -57,14 +52,28 @@ autoPlaySlide = {
 	play: function(){
 		document.getElementById("myslide").style.left=autoPlaySlide.geser+"%";
 		if(autoPlaySlide.counter==0){
-			if(autoPlaySlide.i==<?php echo $slideid; ?>){ autoPlaySlide.counter=1; autoPlaySlide.i=1; autoPlaySlide.geser+=100; }
-			else{ autoPlaySlide.geser-=100; }
+			if(autoPlaySlide.i==<?php echo $slideid; ?>){ 
+				autoPlaySlide.counter=1; 
+				autoPlaySlide.geser+=100; 
+			}else{ autoPlaySlide.geser-=100; }
 		}else{
-			if(autoPlaySlide.i==<?php echo $slideid; ?>){ autoPlaySlide.counter=0; autoPlaySlide.i=1; autoPlaySlide.geser-=100; }
-			else{ autoPlaySlide.geser+=100; }
+			if(autoPlaySlide.i==1){ 
+				autoPlaySlide.counter=0; 
+				autoPlaySlide.geser-=100; 
+			}else{ autoPlaySlide.geser+=100; }
 		}
-		autoPlaySlide.i++;
+		if(autoPlaySlide.counter==0){ autoPlaySlide.i++; }else{ autoPlaySlide.i--; }
 		setTimeout("autoPlaySlide.play()",autoPlaySlide.delay);
+	},
+	slidetoleft: function(){
+		autoPlaySlide.geser+=100;
+		autoPlaySlide.i--;
+		document.getElementById("myslide").style.left=autoPlaySlide.geser+"%";	
+	},
+	slidetoright: function(){
+		autoPlaySlide.geser-=100;
+		autoPlaySlide.i++;
+		document.getElementById("myslide").style.left=autoPlaySlide.geser+"%";	
 	}
 }
 autoPlaySlide.init();

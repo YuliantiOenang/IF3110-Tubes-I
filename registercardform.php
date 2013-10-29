@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head><title>Pendaftaran Kartu Kredit</title></head>
+<link rel="stylesheet" href="css/registerform.css" type="text/css" />
 <body>
 	<?php include "header.php"; ?>
 	<?php include "sidebar.php";?>

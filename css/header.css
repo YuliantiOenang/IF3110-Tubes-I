@@ -187,3 +187,8 @@ ul#menubar .suggestion li a:hover {
 	background: #C74354;
 	transition:background 1s ease;
 }
+#suggestkategori {
+	background : #000;
+	color : #fff;
+	font-family: 'verdana';
+}

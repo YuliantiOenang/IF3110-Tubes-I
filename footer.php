@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/footer.css" type="text/css" />
 <footer id="contentinfo" class="body">
 	<address id="about" class="vcard body">
 		<img src="images/logo.png" alt="RuSerBa Logo" class="photo" width="40" height="40"/>

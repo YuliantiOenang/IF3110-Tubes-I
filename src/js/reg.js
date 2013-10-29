@@ -36,8 +36,29 @@ function validateregisForm()
 											var atpos=x.indexOf("@");
 											var dotpos=x.lastIndexOf(".");
 											if (x!=null && x!="" && atpos>0 && dotpos>=atpos+2 && dotpos+1<x.length && x!=y)
-											{												
-												document.getElementById('submit').disabled = false;
+											{	
+												x=document.forms["regisform"]["username"].value;
+												y=document.forms["regisform"]["email"].value;
+												// validation on server side
+												var xmlhttp;
+												if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+													xmlhttp = new XMLHttpRequest();
+												}
+												else {// code for IE6, IE5
+													xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+												}
+												
+												xmlhttp.onreadystatechange = function() {
+													if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+														if (xmlhttp.responseText == 0) { // failed
+															alert("Usernama atau Email sudah dipakai.");
+														} else { // success
+															document.getElementById('submit').disabled = false;
+														}
+													}
+												}
+												xmlhttp.open("GET", "svr/validate_registration.php?username="+x+"&email="+y, true);
+												xmlhttp.send();
 											}
 										}
 									}

@@ -3,15 +3,10 @@
 	include("functions.php");
 	
 	if(isset($_REQUEST['command']) && $_REQUEST['command']=='update'){
-		//$name=$_REQUEST['name'];
-		//$email=$_REQUEST['email'];
-		//$address=$_REQUEST['address'];
-		//$phone=$_REQUEST['phone'];
+		//$name=$_SESSION['username'];
 		
-		//$result=mysql_query("insert into customers values('','$name','$email','$address','$phone')");
-		$customerid=mysql_insert_id();
 		$date=date('Y-m-d');
-		$result=mysql_query("insert into orders values('','$date','$customerid')") or die("insert into orders"."<br/><br/>".mysql_error());
+		//$result=mysql_query("insert into orders values('','$date','$name')") or die("insert into orders"."<br/><br/>".mysql_error());
 		$orderid=mysql_insert_id();
 		
 		$max=count($_SESSION['cart']);
@@ -36,12 +31,6 @@
 <title>Pembayaran</title>
 <script language="javascript">
 	function validate(){
-		var f=document.form1;
-		if(f.name.value==''){
-			alert('Your name is required');
-			f.name.focus();
-			return false;
-		}
 		f.command.value='update';
 		f.submit();
 	}
@@ -52,13 +41,8 @@
 <body>
 <form name="form1" onsubmit="return validate()">
     <input type="hidden" name="command" />
-        <h1>Billing Info</h1><br>
-        	Order Total:<?php echo get_order_total()?>
-            Your Name:<input type="text" name="name" />
-            Address:<input type="text" name="address" />
-            Email:<input type="text" name="email" />
-            Phone:<input type="text" name="phone" />
-            &nbsp;<input type="submit" value="Place Order" />
+        <h1>Klik untuk membayar!</h1><br>
+            &nbsp;<input type="submit" value="Bayar" />
 </form>
 </body>
 </html>

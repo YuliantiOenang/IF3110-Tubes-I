@@ -76,4 +76,8 @@
 		}
 		return $sum;
 	}
+	function get_jum_transaksi($user){
+		$result=mysql_query("select count(*) serial from orders where usernameCustomer=$user");
+		return $result;
+	}
 ?>

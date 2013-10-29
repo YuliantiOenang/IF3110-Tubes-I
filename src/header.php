@@ -132,7 +132,7 @@
 		var newDiv = document.createElement('a');
 		newDiv.setAttribute('id','RegisterButton');
 		newDiv.setAttribute('class','button');
-		newDiv.setAttribute('href','#');
+		newDiv.setAttribute('href','register.php');
 		newDiv.setAttribute('onclick','');
 		newDiv.innerHTML = "Register";
 		parentNode.insertBefore(newDiv, parentNode.firstChild);
@@ -178,14 +178,21 @@
 <?php
 	if(!$isLogin) {
 		echo '<a href="#" id="LoginButton" class="button" onclick="loginBox()">Login</a>';
-		echo '<a href="#" id="RegisterButton" class="button">Register</a>';
+		echo '<a href="register.php" id="RegisterButton" class="button">Register</a>';
 	} else {
 		$username = $_SESSION['username'];
 		echo '<label class id="welcome">Welcome,'.$username .'</label>';
 		echo '<a href="#" id="LogoutButton" class="button" onclick="logout()">Logout</a>';
 	}
 ?>
-	<a href="#" >Shopping Bag</a> 
+	<a href="#" >Shopping Bag <?php 
+		$query = "SELECT COUNT(*) AS count_cart FROM cart WHERE username='".$_SESSION['username']."'";
+		$result = mysql_query($query, $link);
+		if(mysql_num_rows($result)>0) {
+			$row = mysql_fetch_array($result);
+			echo '('.$row['count_cart'].')';
+		}
+	?></a> 
 </div>
 <form id="search" action="search.php">
 	<input name="name" type="text" class="text_input" />

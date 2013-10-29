@@ -15,11 +15,33 @@
 		<?php
 			include 'header.php';
 			
+			if(isset($_POST['addToCart'])) {
+				$barang = $_GET['id'];
+				$username = $_SESSION['username'];
+				$jumlah = $_POST['jumlah'];
+				
+				if($jumlah > 0) {
+					$query = "INSERT INTO cart (username,id_barang,jumlah)
+						VALUES ('$username','$barang',$jumlah)";
+					$res = mysql_query($query,$link);
+					
+					if($res == null) {
+						//echo '<div class="alert_top" >Pembelian Gagal</div>';
+					} else {
+						//echo '<div class="alert_top" >Barang berhasil masuk Cart</div>';
+					}
+				} else {
+					//echo '<div class="alert_top" >Barang tidak boleh kurang dari sama dengan 0</div>';
+				}
+			}
+			
 			$id = $_GET['id'];
 			$query = "SELECT * FROM barang WHERE id_barang='$id'";
 			
 			$result = mysql_query($query, $link);
 			$barang = mysql_fetch_array($result);
+			
+			
 		?>
 		
 		<script>
@@ -49,7 +71,7 @@
 			<?php
 			 echo '<h3>'.$barang['nama_barang'].'</h3>';
 			?>
-			<form action ="#" id="detail_barang">
+			<form action ="detail.php?id=<?php echo $barang['id_barang']; ?>" id="detail_barang" method="post">
 				<div class="content_item">
 					<ul class="horizontal_list">
 						<?php
@@ -57,7 +79,7 @@
 							$i = 0;
 							while($i < count($array_pic)) {
 								echo "<li>";
-								echo '<img src="'.$array_pic[$i].'" width="25%"/>';
+								echo '<img src="'.$array_pic[$i].'" height="100%"/>';
 								echo "</li>";
 								$i++;
 							}
@@ -79,13 +101,13 @@
 				<br/>
 				
 				<label>Jumlah</label>
-				<input id="jumlah" type="number" value="0" class="quantity" onchange="updateTotal()"/>
+				<input name="jumlah" id="jumlah" type="number" value="0" class="quantity" onchange="updateTotal()"/>
 				<br/>
 				<label>Harga Satuan : </label><label id="hargaSatuan"><?php echo $barang['harga']; ?></label>
 				<br/>
 				<label>Total :</label> <label id="totalHarga">0</label>
 				<br/>
-				<input id="buttonBeli" type="submit" value="Beli" class="button" />
+				<input name="addToCart" id="buttonBeli" type="submit" value="Add To Cart" class="button" />
 				<br/>
 			</form>
 		</div>

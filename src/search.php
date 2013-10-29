@@ -5,7 +5,7 @@
 ?>
 <html>
 	<head>
-		<title>Search for : </title>
+		<title>Search for : <?php echo $_GET['name']; ?></title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
 	<body>
@@ -70,6 +70,15 @@
 					<li>
 					<a href="#"><</a>
 					</li>
+					<?php
+						if(mysql_num_rows($res)>0) {
+							$count = mysql_num_rows($res);
+							$count = ($count - $count%10) / 10;
+							for($iter = 0; $iter <= $count; $iter++) {
+								echo '<li> <a href="#">'.$iter.'</a></li>';
+							}
+						}
+					?>
 					<li>
 					<a href="#">></a>
 					</li>

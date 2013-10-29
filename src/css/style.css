@@ -199,7 +199,6 @@ body,h3
 #detail_barang
 {
 	padding : 10px;
-	height : auto;
 }
 
 
@@ -342,3 +341,31 @@ body,h3
 {
 	text-decoration:none;
 }
+
+#paginasi a
+{
+	text-decoration : none;
+}
+
+#registerform 
+{
+	width : 75%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left : auto;
+	margin-right : auto;
+	vertical-align:text-top;
+}
+
+#registerform label 
+{
+	display: inline-block;
+	width : 150px;
+	margin-bottom : 10px;
+}
+
+textarea 
+{
+	vertical-align:text-top;
+}
+

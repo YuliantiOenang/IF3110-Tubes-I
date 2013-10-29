@@ -1,0 +1,58 @@
+Cek Spek Tubes WBD
+
+FUNGSIONALITAS
+1. Logo Situs
+	Udah 
+2. Kategori
+	Udah
+3. Login + Daftar
+	UDAH CUY: Popup, redirect, ubah login/logout
+4. Registrasi + Profile
+	Udah
+5. Search
+	Input teks, button, dropdown udah ada, belum nguery
+6. Link Shopping Bag
+	Udah
+7. Gambar Top Three Buyment
+	Tinggal dirapiin kalo mau
+8. Halaman Kategori
+	Udah
+9. Search Result
+	Udah
+10. Detail Barang
+	Tinggal dirapiin kalo mau
+11. Profile
+	Udah
+12. Shopping bag
+	Udah
+
+WAJIB
+1. Oke
+2. Oke, iya ga sih?
+3. Oke
+
+BONUS
+1. Ada
+2. 
+3. 
+4.
+5. Udah
+6. 
+7. Udah
+8.
+
+3.
+4.
+5. Oke
+6. Oke
+7. Oke
+
+BASIS DATA
+1. Belum
+2. Belum
+
+PERUBAHAN SPEK TUGAS
+1. Udah
+2. Udah
+3. Udah
+4. Udah

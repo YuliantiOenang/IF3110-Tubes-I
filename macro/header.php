@@ -1,6 +1,5 @@
 <head>
 	<title>KasKong</title>
-
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/homePage.css">
 	<script src="script/header_home.js"></script>
@@ -19,7 +18,7 @@
 	<div id='rightBox'>
 		<?php
 			if (isset($_SESSION['user_id'])) {
-				echo "<a id=\"shopbag\" href=\"#\"><img src=\"images/shopbag.png\"></a></p>";
+				echo "<a id=\"shopbag\" href=\"shoppingbag.php\"><img src=\"images/shopbag.png\"></a></p>";
 			}
 		?>
 		<div id="headerControl">

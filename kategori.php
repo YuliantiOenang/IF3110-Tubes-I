@@ -78,19 +78,17 @@
           <b><?php echo "<a href='barang.php?id=".$row[$i]['id']."'>".$row[$i]['nama']."</a> "; ?></b><br>
           Rp <?php echo $row[$i]['harga']; ?><br>
           <?php if (isset($_SESSION['user_id'])): ?>
-            <form method="post" action="buy.php">
-              <!-- id,nama,jumlah,harga,keterangan -->
-              Jumlah : <input type="number" name="jumlah" min=0><br>
-              Keterangan :<br>
-              <input type="textarea" name="keterangan"><br>
-              <input type="hidden" id="idField" name="id">
-              <input type="hidden" id="namaField" name="nama">
-              <input type="hidden" id="hargaField" name="harga">
-              <input type="submit" value="Add to Bag">
-            </form>
+            Jumlah : <input type="number" id="jumlahField" name="jumlah" min=0><br>
+            Keterangan :<br>
+            <input type="textarea" id="keteranganField" name="keterangan"><br>
+            <input type="hidden" id="idField" name="id" value="<?php echo $row[$i]['id']; ?>">
+            <input type="hidden" id="namaField" name="nama" value="<?php echo $row[$i]['nama']; ?>">
+            <input type="hidden" id="hargaField" name="harga" value="<?php echo $row[$i]['harga']; ?>">
+            <button onclick="validateStock()">Add to Bag</button>
           <?php endif; ?>
         </div>
       <?php endif; ?>
     <?php endfor; ?>
+    <script src="validateStock.js"></script>
   </body>
 </html>

@@ -23,16 +23,16 @@
 		<div class = "container">
 			<?php
 				function getFormalName($name){
-					if($name == "baking")
-						return "Baking";
-					elseif($name == "beverages")
-						return "Beverages";
-					elseif($name == "cansoups")
-						return "Canned Goods & Soups";
-					elseif($name == "fresh")
-						return "Fresh Food";
-					elseif($name == "household")
-						return "Household Essentials";
+					if($name == "roti")
+						return "Roti";
+					elseif($name == "minuman")
+						return "Minuman";
+					elseif($name == "kalengan")
+						return "Makanan Kalengan";
+					elseif($name == "segar")
+						return "Makanan Segar";
+					elseif($name == "peralatan")
+						return "Peralatan Rumah";
 				}
 				
 				//SEARCH BAR
@@ -44,11 +44,11 @@
 						<div id="livesearch"></div>
 						<div class='sb_name'>Harga:</div><div class='sb_value'><input type="text" name="query_price" size="30"></div>
 						<div class='sb_name'>Kategori:</div><div class='sb_value'><select name="query_category">
-						  <option value="baking">Baking</option>
-						  <option value="beverages">Beverages</option>
-						  <option value="fresh">Fresh Food</option>
-						  <option value="cansoups">Canned Goods & Soups</option>
-						  <option value="household">Household Essentials</option>
+						  <option value="roti">Roti</option>
+						  <option value="minuman">Minuman</option>
+						  <option value="kalengan">Makanan Kalengan</option>
+						  <option value="segar">Makanan Segar</option>
+						  <option value="peralatan">Peralatan</option>
 						</select></div>
 						<input type="submit" value="Submit">
 					</div>

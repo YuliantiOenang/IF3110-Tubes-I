@@ -27,7 +27,7 @@
   $nama = "";
   if (isset($_GET['nama']))
     $nama = $_GET['nama'];
-  $query = "SELECT nama, harga, gambar FROM barang WHERE kategori = ".$_GET['id']." AND ".$harga." AND nama LIKE '%".$nama."%' ORDER BY ".$sort;
+  $query = "SELECT id, nama, harga, gambar FROM barang WHERE kategori = ".$_GET['id']." AND ".$harga." AND nama LIKE '%".$nama."%' ORDER BY ".$sort;
   $result = mysqli_query($link,$query);
   $row = array();
   $count = 0;
@@ -37,13 +37,33 @@
   $pageVal = 0;
   if (isset($_GET['page']))
     $pageVal = $_GET['page'];
+  $kat[] = array();
+  $kat[] = "Makanan";
+  $kat[] = "Minuman";
+  $kat[] = "Pakaian";
+  $kat[] = "Rumah";
+  $kat[] = "Plus-Plus";
 ?>
 
 <html>
   <head>
-    <title>Kaskong - <?php echo $_GET['id']; ?></title>
+    <title>Kaskong - <?php echo $kat[intval($_GET['id'])]; ?></title>
   </head>
   <body>
+    <?php include 'macro/header.php'; ?>
+    <?php
+      if ($sortVal == 0)
+        echo "Nama terurut menaik";
+      else if ($sortVal == 1)
+        echo "Nama terurut menurun";
+      else if ($sortVal == 2)
+        echo "Harga terurut menaik";
+      else if ($sortVal == 3)
+        echo "Harga terurut menurun";
+    ?>
+    <br>
+    <button onclick="location.href='sort.php?<?php echo "id=".$_GET['id']."&sort=".$sortVal."&nama=".$nama."&low=".$low."&high=".$high."&sortID=1"; ?>'">Toggle Sort Nama</button>
+    <button onclick="location.href='sort.php?<?php echo "id=".$_GET['id']."&sort=".$sortVal."&nama=".$nama."&low=".$low."&high=".$high."&sortID=2"; ?>'">Toggle Sort Harga</button><br>
     <?php
       for($i = 0; $i < ceil($count/$pageValue); $i++)
         if ($i == $pageVal)
@@ -55,10 +75,20 @@
       <?php if ($row[$i] != NULL): ?>
         <div>
           <img src=<?php echo $row[$i]['gambar']; ?> ><br>
-          <b><?php echo $row[$i]['nama']; ?></b><br>
+          <b><?php echo "<a href='barang.php?id=".$row[$i]['id']."'>".$row[$i]['nama']."</a> "; ?></b><br>
           Rp <?php echo $row[$i]['harga']; ?><br>
+          <?php if (isset($_SESSION['user_id'])): ?>
+            Jumlah : <input type="number" id="jumlahField" name="jumlah" min=0><br>
+            Keterangan :<br>
+            <input type="textarea" id="keteranganField" name="keterangan"><br>
+            <input type="hidden" id="idField" name="id" value="<?php echo $row[$i]['id']; ?>">
+            <input type="hidden" id="namaField" name="nama" value="<?php echo $row[$i]['nama']; ?>">
+            <input type="hidden" id="hargaField" name="harga" value="<?php echo $row[$i]['harga']; ?>">
+            <button onclick="validateStock()">Add to Bag</button>
+          <?php endif; ?>
         </div>
       <?php endif; ?>
     <?php endfor; ?>
+    <script src="validateStock.js"></script>
   </body>
 </html>

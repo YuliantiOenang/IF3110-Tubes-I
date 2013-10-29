@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title> Lihat Histori Belanjaan </title>
+	<title> Lihat Belanjaan </title>
     <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/table.css" rel="stylesheet"/>
 	<link href="<?=SITE_ROOT.NAME_ROOT;?>/css/profile.css" rel="stylesheet"/>
     <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/mainstyle.css" rel="stylesheet"/>
@@ -29,16 +29,39 @@
 			<?php
 				}
 			?>
-			<p id ="search">Cari Barang: <input type="text" size="100"> <input type="submit" value="Search"></p>
+			<form action="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari" method="GET">
+			<p id ="search"><b>Cari Barang:</b>
+			Nama : <input type="text" name="search">
+			Kategori : 
+			<select name="kategori">
+			<option value="">--Pilih--</option>
+			<?php
+			while ($row = mysql_fetch_object($data['listCateg']))
+			{
+			?>
+			<option value="<?=$row->name;?>"><?=$row->name;?></option>
+			<?php
+			}
+			?>
+			</select>
+			Harga : <input type="text" name="harga">
+			<input type="submit"><br>
+			<span id="radiobutt">
+			<input type="radio" name="operator" value="L" checked>Less than
+			<input type="radio" name="operator" value="E">Equal to
+			<input type="radio" name="operator" value="G">Greater than
+			</span>
+			</p>
+			</form>
 			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/cart"><img id="tasbelanja" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/tasbelanja.jpg" alt="Tas Belanja"></a>	
 		</div>
 		<div id="kategori">
-			 <p><span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>Sembako</strong></a></span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>Handphone</strong></a></span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>PeralatanElektronik</strong></a></span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>AksesorisKomputer</strong></a></span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>PerabotanRumah</strong></a></span>
-				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>AlatTulis</strong></a></span>
+			 <p><span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Sembako"><strong>Sembako</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Handphone"><strong>Handphone</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Peralatan+Listrik"><strong>PeralatanElektronik</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Aksesoris+Komputer"><strong>AksesorisKomputer</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Perabotan+Rumah"><strong>PerabotanRumah</strong></a></span>
+				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Alat+Tulis"><strong>AlatTulis</strong></a></span>
 			 <p>
 		</div>
 	</div>
@@ -49,23 +72,22 @@
 			<span class="kolom satu" id="narrowcolumn">No</span>
 			<span class="kolom dua">Nama Barang</span>
 			<span class="kolom tiga">Quantity</span>
-            <span class="kolom empat">Harga Total</span>
+			<span class="kolom empat">Tanggal Pembelian</span>
 			<span class="kolom lima">Deskripsi Tambahan</span>
 			<span class="kolom enam">Status</span>
 			<span class="kolom tujuh">Aksi</span>
 		</div>
 		<?php
-		$i=0; $total_harga=0;
+		$i=0;
 		while ($row = mysql_fetch_object($data['listBarang']))
 		{
 			$i++;
-            if ($row->status == 0) $total_harga = $total_harga + $row->jumlah_barang * $row->harga_barang;
 		?>
 		<div class="baris">
 			<span class="kolom satu" id="narrowcolumn"><?=$i;?></span>
 			<span class="kolom dua"><?=$row->nama_barang;?></span>
 			<span class="kolom tiga"><?=$row->jumlah_barang;?></span>
-            <span class="kolom empat"><?=$row->jumlah_barang * $row->harga_barang;?></span>
+			<span class="kolom empat"><?=$row->tgl_pembelian;?></span>
 			<span class="kolom lima"><?=$row->deskripsi_tambahan;?></span>
 			
 			<?php
@@ -73,7 +95,7 @@
 			{
 			?>
 				<span class="kolom enam"><font color="red">Barang belum dibayar / dibeli</font></span>
-				<span class="kolom tujuh"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/hapusBarang?id=<?=$row->id;?>">Delete</a></span>
+				<span class="kolom tujuan"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/hapusBarang?id=<?=$row->id;?>">Delete</a></span>
 			<?php
 			}
 			else
@@ -89,9 +111,7 @@
 		<?php
 		}
 		?>
-		</div><br>
-        
-    Total Harga (Yang belum dibeli) : <?=$total_harga;?><br><br>
+		</div>
         
 	Klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli"> ini </a> untuk melakukan pembayaran<br>
 	Klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/"> ini </a> untuk belanja kembali<br>

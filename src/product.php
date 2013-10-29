@@ -33,10 +33,10 @@ $product = getProductData($_GET['product_id']);
 Harga: Rp<?php echo $product['harga']; ?>,- / <?php echo $product['satuan']; ?>
 </p>
 <p>
-Sisa stok: <?php echo $product['jumlah_stok']; ?>
+Sisa stok: <span id="jumlahstok"><?php echo $product['jumlah_stok']; ?></span>
 </p>
 <p>
-Jumlah beli: <input id="jumlahproduk" name="text" name="jumlah_product"></input>
+Jumlah beli: <input id="jumlahproduk" name="text" name="jumlah_product" />
 </p>
 <p>
 Keterangan: 
@@ -46,6 +46,7 @@ Keterangan:
 <p>
 <button id="buybutton" type="submit" >Beli</button>
 </p>
+<p id="errorjumlah"></p>
 </div>
 
 <?php

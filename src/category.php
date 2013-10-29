@@ -64,7 +64,7 @@
 				echo "Page ";
 				for ($i=1; $i<=($GLOBALS['size']+9)/10; $i++){
 					$link = "category.php?kat=".$GLOBALS['kat']."&type=".$GLOBALS['type']."&page=".$i;
-					echo "<a href= $link>" .$i . "   </a>";
+					echo "<a href='".$link."'>" .$i . "   </a>";
 				}
 				$startidx = ($GLOBALS['page']-1)*10;
 				for ($j=$startidx; $j<$GLOBALS['size']; $j++){
@@ -76,11 +76,13 @@
 					<br/>
 					<?php
 					$link = "merchandise.php?id=".$row['ID'];
-					echo "<a href= $link>" .$row['Nama'] . "</a>";
+					echo "<a href='".$link."'>" .$row['Nama'] . "</a>";
 					echo "<br/><br/>";
 					$link2 = "category.php?kat=".$row['Kategori']."&id=".$row['Nama'];
 					?>
-					<form name="forminput" action="<?php echo $link2; ?>" method="post">
+					<?php
+					echo "<form name='forminput' action='".$link2."' method='post'>";
+					?>
 					<?php
 					if (isset($_SESSION['usr'])){
 					?>
@@ -97,7 +99,7 @@
 				echo "Page ";
 				for ($i=1; $i<=($GLOBALS['size']+9)/10; $i++){
 					$link = "category.php?kat=".$GLOBALS['kat']."&page=".$i;
-					echo "<a href= $link>" .$i . "   </a>";
+					echo "<a href='".$link."'>" .$i . "   </a>";
 				}
 			}
 

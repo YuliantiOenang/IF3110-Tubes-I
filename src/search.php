@@ -37,7 +37,7 @@
 					echo "Page ";
 					for ($i=1; $i<=($GLOBALS['size']+9)/10; $i++){
 						$link = "search.php?&name=".$name."&page=".$i;
-						echo "<a href= $link>" .$i . "   </a>";
+						echo "<a href='".$link."'>" .$i . "   </a>";
 					}
 					$startidx = ($GLOBALS['page']-1)*10;
 					for ($j=$startidx; $j<$GLOBALS['size']; $j++){
@@ -50,7 +50,7 @@
 						<br/>
 						<?php
 						$link = "merchandise.php?id=".$row['ID'];
-						echo "<a href= $link>" .$row['Nama'] . "</a>";
+						echo "<a href='".$link."'>" .$row['Nama'] . "</a>";
 						echo "<br/><br/>";
 						$link2 = "search.php?name=".$name."&id=".$row['Nama'];
 						?>
@@ -70,7 +70,7 @@
 					echo "Page ";
 					for ($i=1; $i<=($GLOBALS['size']+9)/10; $i++){
 						$link = "search.php?&name=".$name."&page=".$i;
-						echo "<a href= $link>" .$i . "   </a>";
+						echo "<a href='".$link."'>" .$i . "   </a>";
 					}
 				}
 				
@@ -83,7 +83,7 @@
 					echo "Page ";
 					for ($i=1; $i<=($GLOBALS['size']+9)/10; $i++){
 						$link = "search.php?&name=".$name."&page=".$i;
-						echo "<a href= $link>" .$i . "   </a>";
+						echo "<a href='".$link."'>" .$i . "   </a>";
 					}
 					$startidx = ($GLOBALS['page']-1)*10;
 					for ($j=$startidx; $j<$GLOBALS['size']; $j++){
@@ -96,7 +96,7 @@
 						<br/>
 						<?php
 						$link = "merchandise.php?id=".$row['ID'];
-						echo "<a href= $link>" .$row['Nama'] . "</a>";
+						echo "<a href='".$link."'>" .$row['Nama'] . "</a>";
 						echo "<br/><br/>";
 						$link2 = "search.php?name=".$name."&id=".$row['Nama'];
 						?>
@@ -116,7 +116,7 @@
 					echo "Page ";
 					for ($i=1; $i<=($GLOBALS['size']+9)/10; $i++){
 						$link = "search.php?&name=".$name."&page=".$i;
-						echo "<a href= $link>" .$i . "   </a>";
+						echo "<a href='".$link."'>" .$i . "   </a>";
 					}
 				}
 				
@@ -130,7 +130,7 @@
 						echo "Page ";
 						for ($i=1; $i<=($GLOBALS['size']+9)/10; $i++){
 							$link = "search.php?&name=".$name."&page=".$i;
-							echo "<a href= $link>" .$i . "   </a>";
+							echo "<a href='".$link."'>" .$i . "   </a>";
 						}
 						$startidx = ($GLOBALS['page']-1)*10;
 						for ($j=$startidx; $j<$GLOBALS['size']; $j++){
@@ -143,7 +143,7 @@
 							<br/>
 							<?php
 							$link = "merchandise.php?id=".$row['ID'];
-							echo "<a href= $link>" .$row['Nama'] . "</a>";
+							echo "<a href='".$link."'>" .$row['Nama'] . "</a>";
 							echo "<br/><br/>";
 							$link2 = "search.php?name=".$name."&id=".$row['Nama'];
 							?>
@@ -163,7 +163,7 @@
 						echo "Page ";
 						for ($i=1; $i<=($GLOBALS['size']+9)/10; $i++){
 							$link = "search.php?&name=".$name."&page=".$i;
-							echo "<a href= $link>" .$i . "   </a>";
+							echo "<a href='".$link."'>" .$i . "   </a>";
 						}
 					}
 				}

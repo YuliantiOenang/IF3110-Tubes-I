@@ -6,6 +6,7 @@
     <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/table.css" rel="stylesheet"/>
 	<link href="<?=SITE_ROOT.NAME_ROOT;?>/css/profile.css" rel="stylesheet"/>
     <link href="<?=SITE_ROOT.NAME_ROOT;?>/css/mainstyle.css" rel="stylesheet"/>
+    <script src="<?=SITE_ROOT.NAME_ROOT;?>/js/ajaxShop.js" type="text/javascript"></script>
 </head>
 <body>
 	<div id="header">
@@ -27,9 +28,9 @@
 			<br><br>
 			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user"><strong>Profile</strong></a>
             <br><br>
-			<p id="welcometext">Welcome, <?php echo $_SESSION['username'] ?></p>
+            <p id="welcometext">Welcome, <?php echo $_SESSION['username'] ?></p>
             <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/cart"><img id="tasbelanja" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/tasbelanja.jpg" alt="Tas Belanja"></a>        
-
+ 
 			<?php
 				}
 			?>
@@ -60,7 +61,7 @@
         </div>
                 <div id="kategori">
                          <p>
-								<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Sembako"><strong>Sembako</strong></a></span>
+                                <span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Sembako"><strong>Sembako</strong></a></span>
                                 <span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Handphone"><strong>Handphone</strong></a></span>
                                 <span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Peralatan+Listrik"><strong>PeralatanElektronik</strong></a></span>
                                 <span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/cari?search=&kategori=Aksesoris+Komputer"><strong>AksesorisKomputer</strong></a></span>
@@ -91,8 +92,8 @@
 		<div class="baris">
 			<span class="kolom satu" id="narrowcolumn"><?=$i;?></span>
 			<span class="kolom dua"><?=$row->nama_barang;?></span>
-			<span class="kolom tiga"><?=$row->jumlah_barang;?></span>
-            <span class="kolom empat"><?=$row->jumlah_barang * $row->harga_barang;?></span>
+			<span class="kolom tiga"><input type="text" name="qty" size="8" id="qty_<?=$row->id;?>" value="<?=$row->jumlah_barang;?>" <?php if ($row->status == 1) echo "disabled"; ?>></span>
+            <span class="kolom empat"><div id="harga_<?=$row->id;?>"><?=$row->jumlah_barang * $row->harga_barang;?></div></span>
 			<span class="kolom lima"><?=$row->deskripsi_tambahan;?></span>
 			
 			<?php
@@ -100,7 +101,10 @@
 			{
 			?>
 				<span class="kolom enam"><font color="red">Barang belum dibayar / dibeli</font></span>
-				<span class="kolom tujuh"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/hapusBarang?id=<?=$row->id;?>">Delete</a></span>
+				<span class="kolom tujuh">
+                <input type="button" value="Tambah ke Cart" id="beli" onClick="onUpdateCart('<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/updateCart', <?=$row->id;?>); return false;">
+                <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/hapusBarang?id=<?=$row->id;?>">Delete</a>
+                </span>
 			<?php
 			}
 			else
@@ -117,8 +121,6 @@
 		}
 		?>
 		</div><br>
-        
-    Total Harga (Yang belum dibeli) : <?=$total_harga;?><br><br>
         
 	Klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli"> ini </a> untuk melakukan pembayaran<br>
 	Klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/"> ini </a> untuk belanja kembali<br>

@@ -137,6 +137,19 @@ class Barang_Model
         $query = "INSERT INTO barang_card (id_barang,id_card,status,jumlah_barang,id_user,deskripsi_tambahan) VALUES ('".$id_barang."','"."0"."','"."0"."','".$jumlah_barang."','".$_SESSION['id']."','".$deskripsi_tambahan."')";
 		$this->database->query($query);
     }
+    
+    public function UpdateCart($id, $jumlah_barang)
+    {
+        $query = "UPDATE barang_card SET jumlah_barang=". $jumlah_barang ." WHERE id=". $id;
+        $this->database->query($query);
+    }
+    
+    public function getCart($id)
+    {
+        $query = "SELECT * FROM barang_card WHERE id=". $id;
+        $this->database->query($query);
+        return $this->database->fetch();
+    }
 
 	public function generateCart()
 	{

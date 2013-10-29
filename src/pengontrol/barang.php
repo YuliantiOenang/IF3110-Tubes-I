@@ -35,6 +35,41 @@ class Barang
         }
     }
     
+    public function updateCart(array $var)
+    {
+        if (isset($_SESSION['username']))
+        {
+            if (isset($var['submit']))
+            {
+				//algoritma apabila barang sudah disubmit
+				$m = new Barang_Model();
+					
+				if (!is_numeric($var['id'])) die("SQL Injection detected");
+                
+                $row_two = $m->getCart($var['id']);
+                $row_three = $m->getOnlyBarangID($row_two->id_barang);               
+
+				$row = $m->getOnlyBarangID($row_two->id_barang);
+               
+				if ($row->jumlah_barang < $var['qty'] || $var['qty'] <= 0)
+				{
+					echo "Failure: Transaksi tidak berhasil, qty yang dimasukkan tidak valid.";
+				}
+				else
+				{
+                    $m->UpdateCart($var['id'], $var['qty']);
+                    
+                    $total_price = $var['qty'] * $row_three->harga_barang;
+					echo "Success: ". $total_price;
+				}
+            }
+        }
+        else
+        {
+            echo "Redirect: ".SITE_ROOT.NAME_ROOT."/index.php/user/register"; // kembali ke halaman register
+        }
+    }
+    
 	public function beli(array $var)
 	{
 		if (isset($_SESSION['username']))

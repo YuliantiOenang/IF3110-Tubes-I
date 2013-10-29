@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2013 at 12:53 PM
+-- Generation Time: Oct 29, 2013 at 01:03 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `kategori` varchar(256) NOT NULL,
   `url_gambar` varchar(256) NOT NULL,
   PRIMARY KEY (`id_barang`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `barang`
@@ -76,7 +76,22 @@ INSERT INTO `barang` (`id_barang`, `nama`, `stok`, `terjual`, `harga`, `kategori
 (12, 'Beras Goldrice Merah', 10, 0, 12000, 'beras', 'image/12.jpg'),
 (13, 'Beras Goldrice Hijau', 10, 0, 13000, 'beras', 'image/13.jpg'),
 (14, 'Beras Cap Louhan', 10, 0, 14000, 'beras', 'image/14.jpg'),
-(15, 'Beras Myrice', 10, 0, 8000, 'beras', 'image/15.jpg');
+(15, 'Beras Myrice', 10, 0, 8000, 'beras', 'image/15.jpg'),
+(16, 'Sayur Bayam', 10, 0, 6000, 'sayur', 'image/16'),
+(17, 'Sawi', 10, 0, 6000, 'sayur', 'image/17'),
+(18, 'Kangkung', 10, 0, 7000, 'sayur', 'image/18'),
+(19, 'Timun', 10, 0, 8000, 'sayur', 'image/19'),
+(20, 'Seledri', 10, 0, 4000, 'sayur', 'image/20'),
+(21, 'Daun Singkong', 10, 0, 5000, 'sayur', 'image/21'),
+(22, 'Peria', 10, 0, 6000, 'sayur', 'image/22'),
+(23, 'Brokoli', 10, 0, 7000, 'sayur', 'image/23'),
+(24, 'Bok Choy', 10, 0, 8000, 'sayur', 'image/24'),
+(25, 'Buncis', 10, 0, 4000, 'sayur', 'image/25'),
+(26, 'Wortel', 10, 0, 5000, 'sayur', 'image/26'),
+(27, 'Kol', 10, 0, 6000, 'sayur', 'image/27'),
+(28, 'Petai', 10, 0, 7000, 'sayur', 'image/28'),
+(29, 'Asparagus', 10, 0, 8000, 'sayur', 'image/29'),
+(30, 'Kacang Panjang', 10, 0, 4000, 'sayur', 'image/30');
 
 -- --------------------------------------------------------
 

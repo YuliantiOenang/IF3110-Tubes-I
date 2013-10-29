@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2013 at 02:40 PM
+-- Generation Time: Oct 29, 2013 at 09:27 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -42,11 +42,11 @@ CREATE TABLE IF NOT EXISTS `barang` (
 --
 
 INSERT INTO `barang` (`id`, `id_kategori`, `gambar`, `nama_barang`, `harga_barang`, `keterangan`, `jumlah_barang`) VALUES
-(3, 1, 'sembako/beras.jpg', 'Beras', 8500, 'Ini beras per 1 kg', 999954),
+(3, 1, 'sembako/beras.jpg', 'Beras', 8500, 'Ini beras per 1 kg', 999949),
 (4, 1, 'sembako/gulapasir.jpg', 'Gula Pasir', 12000, 'Ini gula pasir per 1 kg', 0),
 (5, 1, 'sembako/minyakgoreng.jpg', 'Minyak Goreng', 11000, 'Minyak Goreng per 1 liter', 999988),
 (6, 1, 'sembako/telurayam.jpg', 'Telur Ayam', 15000, 'Telur Ayam per 1 kg', 999877),
-(7, 2, 'handphone/blackberrycdmahitam.jpg', 'Blackberry CDMA 9930 Hitam', 1500000, '', 100),
+(7, 2, 'handphone/blackberrycdmahitam.jpg', 'Blackberry CDMA 9930 Hitam', 1500000, '', 99),
 (8, 2, 'handphone/acerliquide2.jpg', 'Acer Liquid E2', 2500000, '', 125),
 (9, 2, 'handphone/samsunggalaxys4.jpg', 'Samsung Galaxy S4', 7000000, '', 90),
 (10, 2, 'handphone/blackberryq5.jpg', 'BlackBerry Q5', 4500000, '', 190),
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `barang_card` (
   `tgl_pembelian` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deskripsi_tambahan` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `barang_card`
@@ -91,8 +91,10 @@ CREATE TABLE IF NOT EXISTS `barang_card` (
 
 INSERT INTO `barang_card` (`id`, `id_barang`, `id_card`, `status`, `jumlah_barang`, `id_user`, `tgl_pembelian`, `deskripsi_tambahan`) VALUES
 (9, 6, 1, 0, 123, 4, '2013-10-27 01:38:40', 'test'),
-(10, 3, 4, 0, 1, 7, '2013-10-28 12:05:35', 'test'),
-(12, 4, 4, 0, 1, 7, '2013-10-28 16:36:08', 'Gula manis\r\n');
+(10, 3, 4, 1, 1, 7, '2013-10-28 12:05:35', 'test'),
+(12, 4, 5, 1, 1, 7, '2013-10-28 16:36:08', 'Gula manis\r\n'),
+(19, 3, 4, 1, 1, 7, '2013-10-29 12:58:02', ''),
+(20, 7, 4, 1, 1, 7, '2013-10-29 14:25:53', '');
 
 -- --------------------------------------------------------
 

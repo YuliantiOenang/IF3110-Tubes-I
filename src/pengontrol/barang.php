@@ -115,6 +115,8 @@ class Barang
 		{
 			$m = new Barang_Model();
 			$u = new View('barang/search');
+            $v = new View ('barang/login');
+            $u->setData('loginView', $v->render(false));
 			$u->setData('nama_barang',$var['search']);
 			$u->setData('kategori',$var['kategori']);
 			$u->setData('harga',$var['harga']);

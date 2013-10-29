@@ -6,25 +6,21 @@
 <head>
 	<title>Toko Imba</title>
 </head>
-
 <body>
-
 <div class = "page_container">
-
-		<?php 
-			session_start();
-			$_SESSION['state'] = 1;
-			
-			if($_SESSION['state'] == 1){
-				include ("../templates/header.php");
-				include ("../templates/navigation.php"); 
-			}
-			else{
-				include ("templates/header.php");
-				include ("templates/navigation.php"); 
-			}
-		?>
-
+	<?php 
+		session_start();
+		$_SESSION['state'] = 1;
+		
+		if($_SESSION['state'] == 1){
+			include ("../templates/header.php");
+			include ("../templates/navigation.php"); 
+		}
+		else{
+			include ("templates/header.php");
+			include ("templates/navigation.php"); 
+		}
+	?>
 		<div class = "container">
 			<?php
 			// Create connection
@@ -62,15 +58,29 @@
 				</form>
 				<?php mysqli_close($con); ?>
 			</div>
+
 		</div>
-		<?php 
-			if($_SESSION['state'] == 1){
-				include ("../templates/footer.php");
-			}
-			else{
-				include ("templates/footer.php");
-			} 
-		?>
+		<div class = "data">
+			<?php echo $row['nama_inventori'];?><br/><br/>
+			<?php echo $row['description'];?><br/><br/>
+			<form novalidate> Permintaan Khusus : <br/> 
+				<textarea class="textinput" width=200 height=100 type="text" name="tambahan"></textarea>
+			</form>
+			<form> Quantity :
+				<input class="numinput" type="number" name="quantity" size="500"><br/> 
+				<input type="image" src="../img/addtocart.png">
+			</form>
+			<button onclick="window.location.href='.php'">Click me</button>
+			<?php mysqli_close($con); ?>
+		</div>
+	</div>
+	<?php 
+		if($_SESSION['state'] == 1){
+			include ("../templates/footer.php");
+		} else {
+			include ("templates/footer.php");
+		} 
+	?>
 </div>
 </body>
 </html>

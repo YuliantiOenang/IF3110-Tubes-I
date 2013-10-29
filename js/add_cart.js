@@ -1,4 +1,4 @@
-function addToCart(amount, id)
+function addToCart(amounts, ids)
 {
 	var xmlhttp;
 	
@@ -13,11 +13,16 @@ function addToCart(amount, id)
 	
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
-			alert("haha");
+			if(xmlhttp.responseText == 0)
+				alert("cart updated to " + amounts);
+			else if(xmlhttp.responseText == 1)
+				alert("cart add new item  " + amounts + "x");
+			else if(xmlhttp.responseText == 2)
+				alert("first to cart " + amounts);
+			else if(xmlhttp.responseText == 3)
+				alert("stock is smaller than your request");
 		}
 	}
-	
-	alert(amount + " " + id);
-	xmlhttp.open("GET","../controllers/add_cart.php",true);
+	xmlhttp.open("GET","../controllers/add_cart.php?amount="+amounts+"&id="+ids,true);
 	xmlhttp.send();
 }

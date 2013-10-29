@@ -5,8 +5,12 @@ p {
 
 .page_container {
 	width: 940px;
-	height: 500px;
-	float: left;
+	height: 750px;
+	margin: auto;
+	border: 4px solid #2E9AFE;
+	border-radius: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .heading {
@@ -21,16 +25,18 @@ p {
 }
 
 .navigation {
-	width: 940px;
+	width: 920px;
 	height: 50px;
+	font-family: Ubuntu;
 	background-color:#eeeeee;
 	padding-left:10px;
 	padding-right:10px;
 }
 
 .bar_navigation {
-	width: 170px;
+	width: 177px;
 	height: 30px;
+	padding-top:8px;
 	text-align: center;
 	border-style:outset;
 	background: #f0f9ff; /* Old browsers */
@@ -41,45 +47,36 @@ p {
 	background: -ms-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
-
-
 	box-shadow: 1px 3px 1px #888888;
 	float: left;
 }
 
+h1 {
+	font-family:Brush Script std;
+	font-size:250%;
+}
+
 .container {
+	padding-left=10px;
 	width: 940px;
+	height: 500px;
 	background-color:#dddddd;
 	float: left;
 	overflow-y: scroll;
 }
 
 .logo {
-	width:600px;
+	width:200px;
+	margin-left:10px;
 	float:left;
-}
-
-.mask {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	display:none;
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.popup {
-	position: relative;
-	width: 500px;
-	height: 280px;
-	top: 25%;
-	left: 30%;
-	background-color:rgba(20, 20, 200, 1.0);
 }
 
 .login {
-	width:300px;
-	float:left;
-	margin:0px 0 0 0;
+	position:absolute;
+	font-family:Helvetica;
+	top :20px;
+	right :130px;
+	width :200px;
 }
 
 .user {
@@ -91,6 +88,7 @@ p {
 	width:500px;
 	float:left;
 }
+
 .textinput{
 	width:400px;
 	height:100px;

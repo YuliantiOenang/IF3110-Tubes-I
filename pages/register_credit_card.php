@@ -26,7 +26,6 @@
 		?>
 		<?php if($continue){ ?>
 		<?php 
-			session_start();
 			$_SESSION['state'] = 1;
 			
 			if($_SESSION['state'] == 1){

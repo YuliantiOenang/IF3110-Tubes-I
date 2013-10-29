@@ -28,6 +28,7 @@ if ($barang == null) header("Location: index.php");
 <link rel="stylesheet" href="css/barang.css" />
 
 <script src="js/ajax.js"></script>
+<script src="js/login.js"></script>
 <script src="js/transaction.js"></script>
 </head>
 <body>

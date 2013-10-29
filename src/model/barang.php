@@ -76,10 +76,29 @@ class Barang_Model
 		return $this->database->query($query);
 	}
 
-	public function getAllBarang($offset)
+	public function getAllBarang($sort, $jenisSort, $offset)
 	{
-		//LIMIT 0, 10 
-		$query = "select barang.gambar, barang.id, barang.nama_barang, barang.harga_barang, barang.jumlah_barang from barang join kategori on barang.id_kategori=kategori.id limit ".$offset.",10";
+		//LIMIT 0, 10
+		if (isset($sort))
+		{
+			if ($sort=="nama")
+				$partial1 = " ORDER BY barang.nama_barang ";
+			else if ($sort=="kategori")
+				$partial1 = " ORDER BY kategori.name ";
+			else
+				$partial1 = " ORDER BY barang.harga_barang ";
+		}
+		else $partial1=" ";
+
+		if (isset($jenisSort)){
+			if ($jenisSort == "ASC")
+				$partial2 = " ASC ";
+			else
+				$partial2 = " DESC ";		
+		}
+		else $partial2=" ";
+ 
+		$query = "select kategori.name, barang.gambar, barang.id, barang.nama_barang, barang.harga_barang, barang.jumlah_barang from barang join kategori on barang.id_kategori=kategori.id ".$partial1.$partial2." limit ".$offset.",10";
 		return $this->database->query($query);
 	}
 
@@ -110,8 +129,15 @@ class Barang_Model
 
 	public function generateCart()
 	{
-		$query = "SELECT barang_card.tgl_pembelian, barang_card.status, barang_card.jumlah_barang, barang_card.deskripsi_tambahan, card.card_number,barang.nama_barang from barang JOIN barang_card JOIN card ON barang_card.id_user=".$_SESSION['id']." AND barang_card.id_barang = barang.id AND barang_card.id_card = card.id AND card.id_user =".$_SESSION['id'];
+		$query = "SELECT barang_card.id, barang_card.tgl_pembelian, barang_card.status, barang_card.jumlah_barang, barang_card.deskripsi_tambahan, card.card_number,barang.nama_barang from barang JOIN barang_card JOIN card ON barang_card.id_user=".$_SESSION['id']." AND barang_card.id_barang = barang.id AND barang_card.id_card = card.id AND card.id_user =".$_SESSION['id'];
 		return $this->database->query($query);
+	}
+
+	public function deleteBarang($id)
+	{
+		//delete from artikel where id=4;
+		$query = "delete from barang_card where id=".$id;
+		$this->database->query($query);
 	}
 }
 		

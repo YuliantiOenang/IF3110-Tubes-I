@@ -68,6 +68,12 @@
 		</form>
 		<hr>
 		
+		Sort By : <br>
+		<b> Nama (<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/index?page=<?=$data['pageOf'];?>&sort=nama&jenisSort=ASC"> ASC </a>, <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/index?page=<?=$data['pageOf'];?>&sort=nama&jenisSort=DESC"> DESC </a>) <br>
+		Kategori(<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/index?page=<?=$data['pageOf'];?>&sort=kategori&jenisSort=ASC"> ASC </a>,<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/index?page=<?=$data['pageOf'];?>&sort=kategori&jenisSort=DESC"> DESC </a>)<br>
+		Harga(<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/index?page=<?=$data['pageOf'];?>&sort=harga&jenisSort=ASC"> ASC </a>,<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/index?page=<?=$data['pageOf'];?>&sort=harga&jenisSort=DESC"> DESC </a>)<br>
+		</b>
+
 		<div id="table">
 		<div class="header">
 			<span class="kolom satu">Nama Barang</span>
@@ -112,14 +118,14 @@
 		</div>
 		
 		Halaman : 
-		<?php
-		for ($i=0; $i<$data['jmlPage']; $i++)
-		{
-		?>
-			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/index?page=<?=$i;?>"> <?=$i;?> </a>
-		<?php
-		}
-		?>
+<?php
+for ($i=0; $i<$data['jmlPage']; $i++)
+{
+?>
+	 <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/index?page=<?=$i;?>&sort=<?=$data['sort'];?>&jenisSort=<?=$data['jenisSort'];?>"> <?=$i;?> </a>
+<?php
+}
+?>
 	</div>
 </body>
 </html>

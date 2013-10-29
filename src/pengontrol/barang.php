@@ -114,8 +114,19 @@ class Barang
 		$m = new Barang_Model();
 		$u = new View('home/gallery');
 		$u->setData('listCateg',$m->getAllCategory());
-		$u->setData('barang',$m->getAllBarang($var['page']*10));
+
+		if (isset($var['sort'])) $u->setData('sort',$var['sort']);
+		else $u->setData('sort','');
+
+		if (isset($var['jenisSort'])) $u->setData('jenisSort',$var['jenisSort']);
+		else $u->setData('jenisSort','');
+
+		$u->setData('barang',$m->getAllBarang($var['sort'], $var['jenisSort'], $var['page']*10));
 		$u->setData('jmlPage',(($m->countBarang()->JmlBarang)/10));
+
+		if (isset($var['page'])) $u->setData('pageOf',$var['page']);
+		else $u->setData('pageOf',0);
+		
 		$u->render();
 	}
 
@@ -126,5 +137,12 @@ class Barang
 		$v->setData('detail',$u->getBarangID($var['id']));
         $v->setData('id',$var['id']);
 		$v->render();
+	}
+
+	public function hapusBarang(array $var)
+	{
+		$m = new Barang_Model();
+		$m->deleteBarang($var['id']);
+		header("Refresh: 0;url=".SITE_ROOT.NAME_ROOT."/index.php/user/cart");
 	}
 }

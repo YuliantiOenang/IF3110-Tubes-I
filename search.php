@@ -15,7 +15,8 @@ if (strlen($cari) > 0){
 	$acc =-1;
 	for($i=0; $i<count($a); $i++)
 	{
-		if (strtolower($cari)==strtolower(substr($a[$i][1],0,strlen($cari))))
+		if (strtolower($cari)==strtolower(substr($a[$i][1],0,strlen($cari))) || strtolower($cari)==strtolower(substr($a[$i][3],0,strlen($cari)))
+			|| strtolower($cari)==$a[$i][4])
 		{
 			$acc++;
 			if($suggest=="true"){

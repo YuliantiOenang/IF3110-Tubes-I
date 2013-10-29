@@ -93,30 +93,36 @@ function cekJumlah()
 	
 
 	var jumlah = document.getElementById('jumlahBarang').value;
-	//request ke file php
-	http.open('get', 'addCart2.php?id='+id+'&jumlah='+jumlah+"&permintaan=standart",true);
-	//cek hasil request 4 jika berhasil
-	http.onreadystatechange = function()
-	  {
+	if(jumlah=="")
+	{
+		alert("maaf anda harus mengisi jumlah barang terlebih dahulu");
+	}
+	else
+	{
+		//request ke file php
+		http.open('get', 'addCart2.php?id='+id+'&jumlah='+jumlah+"&permintaan=standart",true);
+		//cek hasil request 4 jika berhasil
+		http.onreadystatechange = function()
+		  {
+			
+			if (http.readyState==4 && http.status==200)
+			{
+				try
+				{
+				
+				var decodeJSON = JSON.parse(http.responseText);
+				
+				alert("Maaf barang yang ada di stok tidak cukup.\n jumlah stok "+http.responseText);
+				}
+				catch(e)
+				{
+				alert("Berhasil daftar ke keranjang.");
+				}
+			}
+		  }
+		http.send(); 
 		
-		if (http.readyState==4 && http.status==200)
-		{
-			try
-			{
-			
-			var decodeJSON = JSON.parse(http.responseText);
-			
-			alert("Maaf barang yang ada di stok tidak cukup.\n jumlah stok "+http.responseText);
-			}
-			catch(e)
-			{
-			alert("Berhasil daftar ke keranjang.");
-			}
-		}
-	  }
-	http.send(); 
-	
-	
+	}	
 }
 
 function logout()
@@ -394,9 +400,9 @@ function remove(id)
 			 }
 			 $i=0;
 			 echo "Page : ";
-			 for($i=1;$i<$jumlahPage;$i++)
+		 for($i=0;$i<$jumlahPage-1;$i++)
 			{
-			echo '<a href="kategori.php?page='.$i.'&sort='.$sort.'&key='.$_GET['key'].'">'.$i.'  </a>';
+			echo '<a href="kategori.php?page='.$i.'&sort='.$sort.'&key='.$_GET['key'].'">'.($i+1).'  </a>';
 			}
 			?>
 			</div>

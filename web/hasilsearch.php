@@ -267,7 +267,7 @@ function remove(id)
 		
 		if(isset($_GET['key']))
 		{
-			
+			session_unset();
 			if($_GET['kategori'] == "all")
 			{
 				if($_GET['range']==1)
@@ -302,6 +302,7 @@ function remove(id)
 			}
 			else
 			{
+				session_unset();
 				if($_GET['range']==1)
 				{
 				$hasil = mysql_query("select nama, kategori,harga,deskripsi,foto,no_alat from peralatan where kategori='".$_GET['kategori']."' and harga<50000 and nama like '%".$_GET['key']."%'");	
@@ -338,7 +339,7 @@ function remove(id)
 		else
 		{
 		$hasil=$_SESSION['hasil'];
-		//session_unset();
+		
 		$_SESSION['hasil']=$hasil;
 		}
 		if(!isset($_GET['page']))
@@ -359,6 +360,7 @@ function remove(id)
 		}
 		else
 		{
+			
 			$counter=0;
 			$batas=($_GET['page']*10)+10;
 			$counter=$_GET['page']*10;
@@ -394,7 +396,7 @@ function remove(id)
 			 $i=0;
 			 for($i=0;$i<$jumlahPage;$i++)
 			{
-			echo 'Page <a href="hasilsearch.php?page='.$i.'">'.$i.'  </a>';
+			echo 'Page <a href="hasilsearch.php?page='.$i.'">'.($i+1).'  </a>';
 			}
 			?>
 			</div>

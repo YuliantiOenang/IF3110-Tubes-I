@@ -124,6 +124,50 @@ function remove(id)
 {
     return (elem=document.getElementById(id)).parentNode.removeChild(elem);
 }
+function buy()
+{
+	
+	//mengambil semua variable dalam form login
+	var jumlah = document.getElementById('jumlahBeli').value;	
+	var permintaan = document.getElementById('permintaan').value;
+	var id=document.getElementById('id').value;
+	
+	if(permintaan=="")
+	{
+		permintaan="standart";
+	}
+	if(jumlah=="")
+	{
+		alert("Maaf anda harus mengisi jumlah barang terlebih dahulu");
+	}
+	
+	else
+	{
+		//request ke file php
+		http.open('get', 'addCart.php?id='+id+'&jumlah='+jumlah+"&permintaan="+permintaan,true);
+		//cek hasil request 4 jika berhasil
+		http.onreadystatechange = function()
+		  {
+			
+			if (http.readyState==4 && http.status==200)
+			{
+				try
+				{
+				var decodeJSON = JSON.parse(http.responseText);
+				alert("ERROR, kesalahan database");
+				}
+				catch(e)
+				{
+				
+				alert("Barang sudah masuk ke dalam keranjang.");
+
+				
+				}
+			}
+		  }
+		http.send(); 
+		}
+}
 </script>
 <body>
 <div id="lightbox">	
@@ -282,23 +326,21 @@ function remove(id)
 				</div>
 			 
 			</div>
-			  <div class = "detail">
-					<form method="GET" action="addCart.php">
+			 <div class = "detail">
 					<p> Nama Produk : <?php echo $nama;?></p>
 					<p> Harga Produk : <?php echo "Rp.".$kategori;?></p>
 					<p> Deskripsi : <?php echo $deskripsi;?></p>
-					<input hidden name='id' value="<?php echo $_GET['id']; ?>"></input>
+					<input hidden id='id' name='id' value="<?php echo $_GET['id']; ?>"></input>
 					<?php if(isset($_COOKIE['user1']))
 					{
 					?>
-					<label> Jumlah Beli : </label> <input type="text" id="user" name="jumlah"/></br></br>
-					<label> Permintaan Khusus : </label> <input type="text" id="user" name="permintaan"/></br></br>
-					<input type="submit" value="Add to Cart"></input>
+					<label> Jumlah Beli : </label> <input type="text" required id="jumlahBeli" name="jumlah"/></br></br>
+					<label> Permintaan Khusus : </label> <input type="text" id="permintaan" name="permintaan"/></br></br>
+					<input type="button" onclick="buy()" value="Add to Cart"></input>
 					<?php
 					}
 					?>
-					</form>
-				</div>
+					</div>
 			</div>
 			</div>
 			

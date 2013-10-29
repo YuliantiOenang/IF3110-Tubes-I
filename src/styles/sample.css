@@ -9,3 +9,28 @@
 	width: 200px;
 	margin: 20px;
 }
+
+#content #register_form {
+	width:95%;
+	margin:auto;
+	height:520px;
+	padding-top:30px;
+	display:block;
+}
+
+#content #form_label {
+	width: 40%;
+	height: 330px;
+	float: left;
+	font-family: Tahoma;
+	color: #3B5999;
+	line-height: 40px;
+	letter-spacing:1px;
+}
+
+#content #form_input {
+	width: 60%;
+	height: 390px;
+	float: left;
+	line-height: 40px;
+}

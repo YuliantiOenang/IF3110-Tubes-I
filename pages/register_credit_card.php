@@ -26,7 +26,6 @@
 		?>
 		<?php if($continue){ ?>
 		<?php 
-			session_start();
 			$_SESSION['state'] = 1;
 			
 			if($_SESSION['state'] == 1){
@@ -49,8 +48,11 @@
 				<input id="name" name="name" type="text" onkeyup="checkFullName(this.value)"></input>
 				<p id="name_status"></p>
 				<p>Expired Date</p>
-				<input name="expired_date" type="date"></input>
-				<!--<p id="expired_date_status"></p>-->
+				<input id="dates" name="dates" type="number" maxlength= 2 placeholder="DD" onkeyup="checkAllDate()"></input>
+				<input id="month" name="month" type="number" maxlength= 2 placeholder="MM" onkeyup="checkAllDate()"></input>
+				<input id="year" name="year" type="number" maxlength= 4 placeholder="YYYY" onkeyup="checkAllDate()"></input>
+				<p id="date_status"></p>
+				<br/>
 				<br/>
 				<button type = "submit" id="button_register" disabled="true">Register</button>
 			</form>

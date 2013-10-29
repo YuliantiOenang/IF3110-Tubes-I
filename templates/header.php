@@ -31,6 +31,13 @@
 				if(isset($_SESSION['username'])){
 					if($_SESSION['on']){
 						$data = $_SESSION['username'];
+						
+						if($_SESSION['state'] == 1){
+							echo "<a href='../pages/shopping_bag.php'><img width=100px src='../img/viewcart.png'/></a><br/>";
+						} else{
+							echo "<a href='pages/shopping_bag.php'><img width=100px src='img/viewcart.png'/></a><br/>";
+						}
+						
 						echo "You are logged as ".$data;
 
 						if($_SESSION['state'] == 1){
@@ -51,22 +58,30 @@
 				<?php
 				} else
 					echo "<a href='../pages/register_user.php'>register</a> or <a href=# onclick='doPopUp()'>login</a>";
+			} else{
+				if($_SESSION['state'] == 2){
+					echo "<br/><a href='pages/register_credit_card.php'>view/registrasi kartu kredit</a>";
+				} else{
+					echo "<br/><a href='../pages/register_credit_card.php'>view/registrasi kartu kredit</a>";
+				}
 			}
 		?>
-	</div>
+	
 	<?php 
 	if(isset($_SESSION['on'])){
 	if($_SESSION['on']){
 	?>
-	<div class = "user">
-		<br/>
+	
 		<?php
+			echo "<br/>";
 			if($_SESSION['state'] == 1){
+				//echo "<img width=100px src='../img/viewcart.png'/><br/>";
 				echo "<a href='../pages/profile_user.php'>view/edit profile</a>";
 			}
 			else{
+				//echo "<img width=100px src='img/viewcart.png'/><br/>";
 				echo "<a href='pages/profile_user.php'>view/edit profile</a>";
 			} ?>
-	</div>
 	<?php }} ?>
+	</div>
 </div>

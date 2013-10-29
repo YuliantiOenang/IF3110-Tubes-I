@@ -2,6 +2,8 @@
 <html>
 <!-- includes -->
 <link rel='stylesheet' type='text/css' href='../css/homepage.css' media='screen' />
+<script type="text/javascript" src="../js/check_item_available.js"></script>
+<script type="text/javascript" src="../js/add_cart.js"></script>
 <head>
 	<title>Toko Imba</title>	
 
@@ -90,7 +92,7 @@
 						echo "<a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
 						echo "Rp ".$row['harga'].",00 <br/>";
 						?>
-							<input type='text' value='0' size=7 ></input>
+							<input type='text' onkeydown="" value='0' size=7 ></input>
 							<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
 							<div id='cart'><a><img src="../img/addtocart.png" height=25px onclick='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></img></a></div>
 						<?php
@@ -124,8 +126,6 @@
 		?>
 	</div>
 </html>
-
-<script type="text/javascript" src="../js/check_item_available.js"></script>
 
 <script>
 function showResult(str)

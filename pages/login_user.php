@@ -30,10 +30,10 @@
 		<div class = "container">
 			<form action = "../controllers/login_user.php" method = "post">
 				<p>username</p>
-				<input id="username" name="username">
+				<input id="username" name="username" type="text">
 				</input>
 				<p>password</p>
-				<input id="password" name="password">
+				<input id="password" name="password" type="password">
 				</input>
 				<br/><br/>
 				<button type="submit">Login</button>

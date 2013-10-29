@@ -7,6 +7,11 @@
 	<title>Toko Imba</title>	
 
 </head>
+	<div class="opening">
+		<div class="ocontent">
+			<img src="img/logo.png" width='336px' height='149px'>
+		</div>
+	</div>
 	<div class = "page_container">
 		<?php 
 			session_start();

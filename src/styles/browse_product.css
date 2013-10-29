@@ -8,3 +8,12 @@
 	margin-left: 5px;
 	margin-right: 10px;
 }
+
+#content .browseproduct, #content h1, #content h2	{
+	text-align: center;
+}
+
+#content h2	{
+	margin: 0px;
+	margin-top: 30px;
+}

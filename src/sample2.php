@@ -13,6 +13,7 @@
 
 	// Include begin.
 	require_once('begin.php');
+	require_once('category_function.php');
 ?>
 <div class="browseproduct">
 <?php

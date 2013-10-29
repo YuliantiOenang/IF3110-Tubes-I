@@ -14,9 +14,8 @@
 		<?php
 			include 'header.php';
 		?>
-
 		<div id="content_body">
-            <h3>Profile</h3>              
+            <h3>Profile</h3>
 				<form name="registerform" action="formprofil.php"  method="post" accept-charset="utf-8">  
 						<br>
                         <label>Username</label>
@@ -56,7 +55,6 @@
                         
 						<br>
                         <input type="submit" value="edit">  
-
 				</form> 
         </div>
 	</body>

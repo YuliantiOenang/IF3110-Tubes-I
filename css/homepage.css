@@ -62,12 +62,11 @@ a{
 
 #sb_name{
 	padding-left: 4px;
-	padding-top: 5px;
+	padding-top: 3px;
 	float: left;
 }
 
 #sb_value{
-	padding-top: 2px;
 	float: left;
 }
 
@@ -116,6 +115,7 @@ a{
 .container {
 	padding-left:20px;
 	padding-bottom:20px;
+	padding-top:10px;
 	width: 940px;
 	height: 500px;
 	background-color:#dddddd;
@@ -176,12 +176,15 @@ a{
 }
 
 .goodsimage{
+	margin-top:10p;
+	border : solid #0995F8;
+	padding-top:10px;
 	width:500px;
 	float:left;
 }
 
 .pagination{
-	margin-top:420px;
+	margin-top:430px;
 }
 
 .category{
@@ -190,6 +193,13 @@ a{
 	font-size:300%;
 }
 
+#dataname{
+	font-size:200%;
+}
+
+#description{
+	height:100px;
+}
 .status{
 	float: left;
 }
@@ -209,6 +219,9 @@ a{
 	float:left;
 }
 
+#numinput{
+	float:left;
+}
 .goods{
 	text-align:center;
 	height :210px;
@@ -217,10 +230,18 @@ a{
 	float:left;
 }
 
+.goodsimagedata{
+	padding-top:10px;
+}
+
 .textinput{
-	width:400px;
-	height:100px;
+	width:395px;
+	height:75px;
 	resize: none;
+}
+
+#jumlah{
+	width:100px;
 }
 
 .numinput{
@@ -228,6 +249,8 @@ a{
 }
 
 .data{
+	padding-left : 10px;
+	padding-right : 10 px;
 	width:400px;
 	float:left;
 }

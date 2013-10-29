@@ -1,0 +1,240 @@
+
+<html>
+<head>
+<title>basic.html</title>
+  <meta charset = "UTF-8" />
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="Registration.css">
+  <link rel="stylesheet" href="Header.css">
+<script src = "Search.js"></script>
+</head>
+<body onload="Load_data(); Inisialisasi()">
+
+<div id = "maindiv">
+
+<!-- HEADER -->
+
+<!-- Script Header -->
+<script src = "Header.js"></script>
+
+<!-- Markup Header -->
+<div id="homebar">
+
+<!-- Search Bar -->
+<form id = "search"> 
+Search Item: <input type="search" name="search" id="searchbar" >
+<select id='select'>
+  <option value="name">Nama</option>
+  <option value="price">Harga</option>
+  <option value="category">Category</option>
+</select>
+<input id="searchButton" style="visibility:visible" type="button" value="Search" onclick="Search()">
+</form>
+
+<!-- Banner -->
+<a href="Index.php"> <img src="/WBD/img/Placeholder.png" width="800px" height="200px"> </a>
+
+<!-- Menubar -->
+<ul id="nav">
+    <li>
+        <a href="Index.php">Home</a>
+    </li>
+
+    <li>
+        <a href="#">Product</a>
+        <ul>
+            <li><a href="search.html?category=Prototype">Prototype</a></li>
+            <li><a href="search.html?category=Grunts">Grunts</a></li>
+            <li><a href="search.html?category=Zeon Obsolete Units">Zeon Obsolet</a></li>
+            <li><a href="search.html?category=Ver. Ka">Ver. Ka</a></li>
+            <li><a href="search.html?category=Special Paint Version">Special Paint</a></li>
+        </ul>
+    </li>
+	<li>
+		<a href="cart.php">Cart</a>
+	</li>
+	<li id="Registah">
+		<a id ='new_id' href="Register.html">Register</a>
+	</li>
+	<li id="loginarea">
+		<input id="LoginB" type="button" value="Log in" onclick="Login()">
+	</li>
+</ul>
+
+</div>
+
+<!-- END HEADER -->
+
+<div class="showitem">
+
+<div id='data1' class="itembar">
+<div class="itemlist">
+	<ul>
+	<li><a  id="namaitem1" href="html_basic.html">Zaku</a></li>
+	<li id="hargaitem1">Harga</li>
+	<li>Jumlah:<input type="number" id="jumlahitem1" name="quantity" min="0" ><button type="button" id="buy_button1">Buy</button></li>
+	</ul>
+</div>
+
+<div class="itempicture">
+	<img id="itempicture1" src="MS-06S.GIF" alt="itempic">
+</div>
+</div>
+
+<div id='data2' class="itembar">
+<div class="itemlist">
+	<ul>
+	<li><a  id="namaitem2" href="html_basic.html">Zaku</a></li>
+	<li id="hargaitem2">Harga</li>
+	<li>Jumlah:<input type="number" id="jumlahitem2" name="quantity" min="0" ><button type="button" id="buy_button2">Buy</button></li>
+	</ul>
+</div>
+
+<div class="itempicture">
+	<img id="itempicture2" src="MS-06S.GIF" alt="itempic">
+</div>
+</div>
+
+<div id='data3' class="itembar">
+<div class="itemlist">
+	<ul>
+	<li><a  id="namaitem3" href="html_basic.html">Zaku</a></li>
+	<li id="hargaitem3">Harga</li>
+	<li>Jumlah:<input type="number" id="jumlahitem3" name="quantity" min="0" ><button type="button" id="buy_button3">Buy</button></li>
+	</ul>
+</div>
+
+<div class="itempicture">
+	<img id="itempicture3" src="MS-06S.GIF" alt="itempic">
+</div>
+</div>
+
+<div id='data4' class="itembar">
+<div class="itemlist">
+	<ul>
+	<li><a  id="namaitem4" href="html_basic.html">Zaku</a></li>
+	<li id="hargaitem4">Harga</li>
+	<li>Jumlah:<input type="number" id="jumlahitem4" name="quantity" min="0" ><button type="button" id="buy_button4">Buy</button></li>
+	</ul>
+</div>
+
+<div class="itempicture">
+	<img id="itempicture4" src="MS-06S.GIF" alt="itempic">
+</div>
+</div>
+
+<div id='data5' class="itembar">
+<div class="itemlist">
+	<ul>
+	<li><a  id="namaitem5" href="html_basic.html">Zaku</a></li>
+	<li id="hargaitem5">Harga</li>
+	<li>Jumlah:<input type="number" id="jumlahitem5" name="quantity" min="0" ><button type="button" id="buy_button5">Buy</button></li>
+	</ul>
+</div>
+
+<div class="itempicture">
+	<img id="itempicture5" src="MS-06S.GIF" alt="itempic">
+</div>
+</div>
+
+<div id='data6' class="itembar">
+<div class="itemlist">
+	<ul>
+	<li><a  id="namaitem6" href="html_basic.html">Zaku</a></li>
+	<li id="hargaitem6">Harga</li>
+	<li>Jumlah:<input type="number" id="jumlahitem6" name="quantity" min="0" ><button type="button" id="buy_button6">Buy</button></li>
+	</ul>
+</div>
+
+<div class="itempicture">
+	<img id="itempicture6" src="MS-06S.GIF" alt="itempic">
+</div>
+</div>
+
+<div id='data7' class="itembar">
+<div class="itemlist">
+	<ul>
+	<li><a  id="namaitem7" href="html_basic.html">Zaku</a></li>
+	<li id="hargaitem7">Harga</li>
+	<li>Jumlah:<input type="number" id="jumlahitem7" name="quantity" min="0" ><button type="button" id="buy_button7">Buy</button></li>
+	</ul>
+</div>
+
+<div class="itempicture">
+	<img id="itempicture7" src="MS-06S.GIF" alt="itempic">
+</div>
+</div>
+
+<div id='data8' class="itembar">
+<div class="itemlist">
+	<ul>
+	<li><a  id="namaitem8" href="html_basic.html">Zaku</a></li>
+	<li id="hargaitem8">Harga</li>
+	<li>Jumlah:<input type="number" id="jumlahitem8" name="quantity" min="0" ><button type="button" id="buy_button8">Buy</button></li>
+	</ul>
+</div>
+
+<div class="itempicture">
+	<img id="itempicture8" src="MS-06S.GIF" alt="itempic">
+</div>
+</div>
+
+<div id='data9' class="itembar">
+<div class="itemlist">
+	<ul>
+	<li><a  id="namaitem9" href="html_basic.html">Zaku</a></li>
+	<li id="hargaitem9">Harga</li>
+	<li>Jumlah:<input type="number" id="jumlahitem9" name="quantity" min="0" ><button type="button" id="buy_button9">Buy</button></li>
+	</ul>
+</div>
+
+<div class="itempicture">
+	<img id="itempicture9" src="MS-06S.GIF" alt="itempic">
+</div>
+</div>
+
+<div id='data10' class="itembar">
+<div class="itemlist">
+	<ul>
+	<li><a  id="namaitem10" href="html_basic.html">Zaku</a></li>
+	<li id="hargaitem10">Harga</li>
+	<li>Jumlah:<input type="number" id="jumlahitem10" name="quantity" min="0" ><button type="button" id="buy_button10">Buy</button></li>
+	</ul>
+</div>
+
+<div class="itempicture">
+	<img id="itempicture10" src="MS-06S.GIF" alt="itempic">
+</div>
+</div>
+
+<p id='pagenumber'>page 1 </p>
+<span>
+<button id="<" type="button" onclick="before()"><</button>
+<button id=">" type="button" onclick="next()">></button></span>
+</div>
+<!--ini data buat paginasi -->
+<!--ini data buat paginasi -->
+
+<!-- ini buat atur-atur hasil search bar nya -->
+<div id="others">
+<form> 
+<br>
+Search Item: <input type="search" name="search" id="searchbar" >
+<select id='sortby'>
+  <option value="Nama">Nama</option>
+  <option value="Harga">Harga</option>
+</select>
+<select id='sorttype'>
+  <option value="ASC">Ascending</option>
+  <option value="DESC">Descending</option>
+</select>
+<input id="sortButton" style="visibility:visible" type="button" value="sort" onclick="sorting()">
+</form>
+<!-- ini buat atur-atur hasil search bar nya -->
+</div>
+
+<p>Solomon Company 2013</p>
+<p>All rights reserved</p>
+</div>
+</body>
+</html>

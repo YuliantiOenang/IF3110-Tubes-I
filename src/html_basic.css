@@ -1,0 +1,218 @@
+/*Homepage CSS*/
+
+/*id*/
+#container
+{
+	width:1340px;
+	height:768px;
+	
+}
+
+#header
+{
+	background-color:#FF0000;
+	width:15%;
+	height:26%;
+	float:left;
+	border:2px solid #FFFFFF;
+	border-radius:10px;
+}
+
+#title
+{
+	width:100%;
+	height:20%;
+	float:left;
+}
+
+.menu
+{
+	height:500px;
+	width:200px;
+	float:left;
+	border:3px solid #a1a1a1;
+	padding:20px 20px; 
+	background:#000FFF;
+	border-radius:30px;
+}
+
+#nav > loginarea
+{
+	float:left;
+    margin-right:0px;
+    position:relative;
+	width:600px;
+	background:#333;
+}
+
+/* this is the Item Display Area */
+
+.showitem
+{
+max-width:800px;
+border:3px solid #FFFFFF;
+float:left;
+}
+
+.itembar
+{
+height:325px;
+width:400px;
+float:left;
+}
+
+.itemlist
+{
+background-color:#FF0000;
+height:325px;
+width:150px;
+float:left;
+border:1px solid #000000;
+}
+
+.itempicture
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+#itempicture1
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+#itempicture2
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+#itempicture3
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+#itempicture4
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+#itempicture5
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+#itempicture6
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+#itempicture7
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+#itempicture8
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+#itempicture9
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+#itempicture10
+{
+height:325px;
+width:244px;
+float:left;
+border:1px solid #000000;
+}
+
+.searchitem
+{
+position:fixed;
+top:5px;
+right:5px;
+}
+
+/*this area and below are used to manage CSS for cart. Is a prototype testing. */
+
+.cart
+{
+float:left;
+height:30%;
+width:90%;
+background:#FFFFFF;
+margin-right:auto;
+}
+
+.cartrow
+{
+display:block;
+width:match-parent
+}
+
+.cellnama
+{
+display:inline-block;
+width:30%;
+vertical-align:top;
+}
+
+.cellharga
+{
+display:inline-block;
+width:15%;
+vertical-align:top;
+}
+
+.celljumlah
+{
+display:inline-block;
+width:10%;
+vertical-align:top;
+}
+
+.celldescript
+{
+display:inline-block;
+width:40%;
+vertical-align:top;
+}
+
+/*cart area ends here*/
+
+#quantity
+{
+width:50%;
+}

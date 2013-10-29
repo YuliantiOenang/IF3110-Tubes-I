@@ -3,7 +3,6 @@
 <head>
 <script>
 function form_making(){
-var compare = window.opener.document.getElementById("result").innerHTML;
 localStorage.id = document.getElementById("id").value;
 localStorage.pass =document.getElementById("pass").value;
 //lakukan koneksi ke server
@@ -18,28 +17,33 @@ localStorage.pass =document.getElementById("pass").value;
 		}
 		xmlhttp.onreadystatechange=function(){
 			if (xmlhttp.readyState==4 && xmlhttp.status==200){
-				//window.opener.document.getElementById("result").innerHTML=xmlhttp.responseText;
-				localStorage.IsLogin = xmlhttp.responseText;
+				//window.opener.document.getElementById("test").innerHTML=xmlhttp.responseText;
+				var temp = xmlhttp.responseText;
+				var hasil = JSON.parse(temp);
+				localStorage.IsLogin = hasil.login;
+				localStorage.data = hasil.data;
+				var datasplit = data.split(",");
+				if (datasplit[8] == 0){
+					localStorage.IsKredit = 1;
+				}else{
+					localStorage.IsKredit = 0;
+				}
+				//window.alert(localStorage.IsLogin);
 			}
 		}
 		xmlhttp.open("POST","Login.php",false);
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		var data ='id='+localStorage.id+'&pass='+localStorage.pass;
 		xmlhttp.send(data);
-		var i=0;
-		if(localStorage.IsLogin==true){
+		//window.alert("jumlah i "+temp);
+		if(localStorage.IsLogin==0){
 			//localStorage.IsLogin = true;
-			window.opener.document.getElementById('LoginB').style.visibility="hidden";
-			window.opener.document.getElementById('LogoutB').style.visibility="visible";
-			window.opener.document.getElementById('new_id').style.visibility="hidden";
-			window.opener.document.getElementById("result").innerHTML="You are logged in as "+localStorage.id;		
+			window.opener.GlobalUpdateFunction();
+			window.close();
 		}
 		else{
-		window.opener.document.getElementById("result").innerHTML="Id tidak ditemukan/Passwor Anda Salah"
-		
+			window.alert("Id/Password Salah");
 		}
-
-window.close();
 }
 function close_form(){
 localStorage.removeItem(id);

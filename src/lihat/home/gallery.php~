@@ -39,7 +39,7 @@ $URLJS = SITE_ROOT.NAME_ROOT."/index.php/barang/generateContent";
 			<a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/user/cart"><img id="tasbelanja" src="<?=SITE_ROOT.NAME_ROOT;?>/gambar_barang/tasbelanja.jpg" alt="Tas Belanja"></a>	
 		</div>
 		<div id="kategori">
-			 <p><span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang"><strong>Gallery</strong></a></span>
+			 <p><span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang"><strong>Sembako</strong></a></span>
 				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>Handphone</strong></a></span>
 				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>PeralatanElektronik</strong></a></span>
 				<span><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/home/gallery"><strong>AksesorisKomputer</strong></a></span>

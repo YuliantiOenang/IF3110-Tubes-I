@@ -19,10 +19,10 @@ $result = mysqli_query($con,"UPDATE pengguna SET nama_pengguna = '".$nama_penggu
 if($result){
 	?><script>alert("edit success");</script>
 	<?php
-	header("Location: ../pages/edit_profil_user.php");
+	//header("Location: ../pages/edit_profil_user.php");
 } else{
 	?><script>alert("edit fail");</script><?php
-	header("Location: ../pages/edit_profil_user.php");
+	//header("Location: ../pages/edit_profil_user.php");
 }
 
 ?>

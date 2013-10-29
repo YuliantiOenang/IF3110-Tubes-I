@@ -49,11 +49,10 @@
 			<span class="kolom satu" id="narrowcolumn">No</span>
 			<span class="kolom dua">Nama Barang</span>
 			<span class="kolom tiga">Quantity</span>
-			<span class="kolom empat">Kartu Kredit</span>
-			<span class="kolom lima">Tanggal Pembelian</span>
-			<span class="kolom enam">Deskripsi Tambahan</span>
-			<span class="kolom tujuh">Status</span>
-			<span class="kolom delapan">Aksi</span>
+			<span class="kolom empat">Tanggal Pembelian</span>
+			<span class="kolom lima">Deskripsi Tambahan</span>
+			<span class="kolom enam">Status</span>
+			<span class="kolom tujuh">Aksi</span>
 		</div>
 		<?php
 		$i=0;
@@ -65,23 +64,22 @@
 			<span class="kolom satu" id="narrowcolumn"><?=$i;?></span>
 			<span class="kolom dua"><?=$row->nama_barang;?></span>
 			<span class="kolom tiga"><?=$row->jumlah_barang;?></span>
-			<span class="kolom empat"><?=$row->card_number;?></span>
-			<span class="kolom lima"><?=$row->tgl_pembelian;?></span>
-			<span class="kolom enam"><?=$row->deskripsi_tambahan;?></span>
+			<span class="kolom empat"><?=$row->tgl_pembelian;?></span>
+			<span class="kolom lima"><?=$row->deskripsi_tambahan;?></span>
 			
 			<?php
 			if ($row->status == 0)
 			{
 			?>
-				<span class="kolom tujuh"><font color="red">Barang belum dibayar / dibeli</font></span>
-				<span class="kolom delapan"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/hapusBarang?id=<?=$row->id;?>">Delete</a></span>
+				<span class="kolom enam"><font color="red">Barang belum dibayar / dibeli</font></span>
+				<span class="kolom tujuan"><a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/hapusBarang?id=<?=$row->id;?>">Delete</a></span>
 			<?php
 			}
 			else
 			{
 			?>
-				<span class="kolom tujuh"><font color="green">Barang sudah dibayar / dibeli</font></span>
-				<span class="kolom delapan"></span>
+				<span class="kolom enam"><font color="green">Barang sudah dibayar / dibeli</font></span>
+				<span class="kolom tujuh"></span>
 			<?php
 			}
 			?>

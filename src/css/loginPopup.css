@@ -6,12 +6,11 @@
             width:500px;
             height:200px;
             border:1px solid white;
-            background-color:white;
             top:30%;
             position:relative;
             margin: 0 auto;
-            background: rgb(247, 247, 247);
             border: 1px solid rgba(147, 184, 189,0.8);
+            background-image:url('../gambar_barang/backgroundpic.jpg');
             opacity:1;              
         }
         

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2013 at 11:36 PM
+-- Generation Time: Oct 29, 2013 at 02:40 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
 
 INSERT INTO `barang` (`id`, `id_kategori`, `gambar`, `nama_barang`, `harga_barang`, `keterangan`, `jumlah_barang`) VALUES
 (3, 1, 'sembako/beras.jpg', 'Beras', 8500, 'Ini beras per 1 kg', 999954),
-(4, 1, 'sembako/gulapasir.jpg', 'Gula Pasir', 12000, 'Ini gula pasir per 1 kg', 22),
+(4, 1, 'sembako/gulapasir.jpg', 'Gula Pasir', 12000, 'Ini gula pasir per 1 kg', 0),
 (5, 1, 'sembako/minyakgoreng.jpg', 'Minyak Goreng', 11000, 'Minyak Goreng per 1 liter', 999988),
 (6, 1, 'sembako/telurayam.jpg', 'Telur Ayam', 15000, 'Telur Ayam per 1 kg', 999877),
 (7, 2, 'handphone/blackberrycdmahitam.jpg', 'Blackberry CDMA 9930 Hitam', 1500000, '', 100),
@@ -57,7 +57,7 @@ INSERT INTO `barang` (`id`, `id_kategori`, `gambar`, `nama_barang`, `harga_baran
 (15, 4, 'komputer/opticaldriveasusdvdrwexternalslim.jpg', 'Optical Drive Asus DVDRW External Slim SDRW-08D2SU-LITE', 350000, '', 85),
 (16, 4, 'komputer/memoryddr3corsair.jpg', 'Memory DDR3 Corsair CMD8GX3M2A1600C9 (2x4Gb) DDR3 ', 1600000, '', 110),
 (17, 4, 'komputer/lcdmonitoracer24inch.jpg', 'LCD Monitor Acer 24 Inch S243HL Size 24 inch', 3000000, '', 95),
-(18, 4, 'komputer/harddiskexternaladata.jpg', ' Harddisk External A-Data HD-710 1 TB Ext.2.5 Inch', 950000, '', 145),
+(18, 4, 'komputer/harddiskexternaladata.jpg', 'Harddisk External A-Data HD-710 1 TB Ext.2.5 Inch', 950000, '', 145),
 (19, 5, 'perabot/panasonicdishdryer.jpg', 'PANASONIC Dish Dryer [FD-S03S1-W]', 850000, '', 84),
 (20, 5, 'perabot/domostandwaterdispenser.jpg', 'DOMO Stand Water Dispenser [DI 2020]', 1400000, '', 78),
 (21, 5, 'perabot/panasonicmesincucitwintub.jpg', 'PANASONIC Mesin Cuci Twin Tub [NA-W75BC1A]', 2000000, 'Warna Biru', 65),

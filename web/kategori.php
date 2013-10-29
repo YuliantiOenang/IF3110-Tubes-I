@@ -371,13 +371,23 @@ function remove(id)
 					<div class = "previmage">
 						<img src= "'.$_SESSION["foto".$counter].'" class="resizeimage"><img>
 					</div>
-					<a href="detailbarang.php?id='.$_SESSION['id'.$counter].'"><p class = "copyrightext"> '.$_SESSION["nama".$counter].' </a></br>
+					<a href="detailbarang.php?id='.$_SESSION['id'.$counter].'"><p class = "copyrightext"> '.$_SESSION["nama".$counter].'</a> </br>
 						  Rp'.$_SESSION["harga".$counter].' </label> </br> </p>
-						  					<laabel>jumlah :</label><input type="text" size=4 id="jumlahBarang"/>
-					<input type="text" id="idBarang" value="'.$_SESSION['id'.$counter].'" hidden/>
-					<input type="button" onclick="cekJumlah()" value="Beli"></input>
-					
-				</div>';
+					<laabel>jumlah :</label><input type="text" size=4  id="jumlahBarang'.$counter.'"/>
+					<input type="text" id="idBarang'.$counter.'" value="'.$_SESSION['id'.$counter].'" hidden/>';
+					if(isset($_COOKIE['user1']))
+					{
+					?>
+					<input type="button" onclick="cekJumlah(<?php echo $counter;?>)" value="Beli"></input>
+					<?php
+					}
+					else
+					{
+					?>
+					<input type="button" onclick="alert('anda harus login terlebih dahulu'); window.location='index.php'" value="Beli"></input>
+					<?php
+					}
+					echo '</div>';
 			$counter++;
 			}
 		}

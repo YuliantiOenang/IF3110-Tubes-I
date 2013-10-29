@@ -51,7 +51,7 @@ class Customer {
 	}
 
 	/**
-	 * Mendapatkan produk dengan id tertentu
+	 * Mendapatkan customer dengan id tertentu
 	 */
 	public static function getById($registry, $id) {
 		try {
@@ -61,6 +61,21 @@ class Customer {
  		
  			//pasti cuma ada satu
    			return $smh->fetch(PDO::FETCH_ASSOC);
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	/**
+	 * Memeriksa apakah user tersebut ada dan password sesuai
+	 */
+	public static function isValid($registry, $user, $pass) {
+		try {
+			$dbh = $registry->database;
+			$smh = $dbh->prepare('SELECT customer_id FROM customer WHERE username = :username AND password = :password');
+    		$smh->execute(array('username' => $user, 'password' => $pass));
+ 			
+   			return $smh->fetchColumn();
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}

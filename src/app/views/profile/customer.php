@@ -14,7 +14,7 @@
             <p>City: <?php echo $customer['city'] ?> </p>
             <p>Province: <?php echo $customer['province'] ?> </p>
             <p>Post Code: <?php echo $customer['postcode'] ?> </p>
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn">Edit</button>
 	</div>
 </body>
 </html>

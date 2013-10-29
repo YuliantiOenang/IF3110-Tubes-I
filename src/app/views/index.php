@@ -13,7 +13,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="<?php echo SITEURL . '/include/css/style.css'?>">		
+		<link rel="stylesheet" type="text/css" href="<?php echo SITEURL . '/include/css/style.css'?>">	
+		<link rel="stylesheet" type="text/css" href="<?php echo SITEURL . '/include/css/test.css' ?>">	
 	</head>
 		
 	<body> 

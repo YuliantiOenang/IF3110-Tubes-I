@@ -13,9 +13,9 @@ $_SESSION['form_token'] = $form_token;
 <?php require SITEPATH . '/app/views/head.php' ?>
 
 <body> 
-    <div id="container">
+    
         <?php require SITEPATH . '/app/views/header.php' ?>
-
+    <div id="container">
 		<form action="<?php echo SITEURL . '/register/new_creditcard' ?>" method="post">
             <h2>Credit Card Register</h2>
             <p>Registrasi sebelumnya sudah disimpan, jangan khawatir</p>

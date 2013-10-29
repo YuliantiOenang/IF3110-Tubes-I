@@ -11,3 +11,25 @@ body {
         padding: 10px;
         border-radius: 5px;
 }
+
+
+.logo {
+	height:40px;
+}
+
+.dropdownHeader  ul {				
+	list-style : none;
+	position : relative;
+	display : inline-table;		
+	padding: 10px 0px 0px 0px;
+	margin-top:0px;
+	margin-bottom:10px;
+}
+
+.dropdownHeader ul li a {
+	display: block;
+	padding: 10px 40px;
+	color: #fcfcfc;
+	text-decoration: none;
+	padding: 10px 20px;
+}

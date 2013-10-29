@@ -4,14 +4,15 @@
 			<nav class="dropdownHeader"> <!-- untuk link-->
 				<center>
 					<ul>
-						<li><a href="<?php echo SITEURL ?>">Logo</a></li> <!-- ganti dengan gambar logo ya-->
-						<li><a href="<?php echo SITEURL ?>">Home</a></li> <!-- # = masuk ke HOME-->
+						<li><a href="<?php echo SITEURL ?>"><img src="<?php echo SITEURL . '/include/images/logo.png'?>" class="logo"></a></li> <!-- ganti dengan gambar logo ya-->
 						
 						<li><a href="#">Kategori Barang</a> <!-- # = masuk ke katogori barang-->
 							<ul>
-								<li><a href="product/category/elektronik">Elektronik</a></li>
-								<li><a href="product/category/sandang">Sandang</a></li>	
-								<li><a href="product/category/otomotif">Otomotif</a></li>									
+								<li><a href="<?php echo SITEURL . '/product/category/elektronik' ?>">Elektronik</a></li>
+								<li><a href="<?php echo SITEURL . '/product/category/sandang' ?>">Sandang</a></li>	
+								<li><a href="<?php echo SITEURL . '/product/category/otomotif' ?>">Otomotif</a></li>		
+								<li><a href="<?php echo SITEURL . '/product/category/properti' ?>">Properti</a></li>	
+								<li><a href="<?php echo SITEURL . '/product/category/musik' ?>">Musik</a></li>								
 							</ul>
 						</li>
 

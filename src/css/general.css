@@ -27,6 +27,13 @@ img {
 	width:auto\9;
 }
 
+#img2 {
+	max-height:100%;
+	width:auto;
+	height:auto\9;
+	margin:0px 43px;
+}
+
 div, form, h1, li, p, ul {
 	margin:0;
 	padding:0;
@@ -177,7 +184,7 @@ div, form, h1, li, p, ul {
 	padding:12px 8px;
 }
 
-#first_box {
+#first_box_1 {
 	background-color:pink;
 	border-radius:8px;
 	float:left;
@@ -186,7 +193,7 @@ div, form, h1, li, p, ul {
 	width:25%;
 }
 
-#second_box {
+#second_box_1 {
 	background-color:pink;
 	border-radius:8px;
 	float:left;
@@ -195,7 +202,115 @@ div, form, h1, li, p, ul {
 	width:25%;
 }
 
-#third_box {
+#third_box_1 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#first_box_2 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#second_box_2 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#third_box_2 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#first_box_3 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#second_box_3 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#third_box_3 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#first_box_4 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#second_box_4 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#third_box_4 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#first_box_5 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#second_box_5 {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#third_box_5 {
 	background-color:pink;
 	border-radius:8px;
 	float:left;

@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script src="js/home.js"></script>
 		<title>
 			Beranda Toko
 		</title>
 	</head>
-	<body>
+	<body onload="">
 		<?php
 			include 'incl/header.php';
 		?>
@@ -39,29 +40,54 @@
 				<h1 id="content_title">
 					3 makanan/minuman terlaris
 				</h1>
+				<div id="first_box">1</div>
+				<div id="second_box">2</div>
+				<div id="third_box">3</div>
+				<div id="footnote"></div>
 			</div>
 			<div id="one_block">
 				<h1 id="content_title">
 					3 pakaian terlaris
 				</h1>
+				<div id="first_box"></div>
+				<div id="second_box"></div>
+				<div id="third_box"></div>
+				<div id="footnote"></div>
 			</div>
 			<div id="one_block">
 				<h1 id="content_title">
 					3 furnitur terlaris
 				</h1>
+				<div id="first_box"></div>
+				<div id="second_box"></div>
+				<div id="third_box"></div>
+				<div id="footnote"></div>
 			</div>
 			<div id="one_block">
 				<h1 id="content_title">
 					3 peralatan dapur terlaris
 				</h1>
+				<div id="first_box"></div>
+				<div id="second_box"></div>
+				<div id="third_box"></div>
+				<div id="footnote"></div>
 			</div>
 			<div id="one_block">
 				<h1 id="content_title">
 					3 macam-macam barang terlaris
 				</h1>
+				<div id="first_box"></div>
+				<div id="second_box"></div>
+				<div id="third_box"></div>
+				<div id="footnote"></div>
 			</div>
 			<div id="one_block">
-				<h1>Skema transaksi pembelian</h1>
+				<h1 id="content_title_right">Skema transaksi pembelian</h1>
+				<div id="footnote"></div>
+				<div id="first_box"></div>
+				<div id="second_box"></div>
+				<div id="third_box"></div>
+				<div id="footnote"></div>
 			</div>
 		</div>
 		<?php

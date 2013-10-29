@@ -18,24 +18,7 @@
 	</head>
 
 	<!-- HEADER -->
-	<?
-		if (isset($_COOKIE['cust'])) {
-			$_SESSION['usr'] = $_COOKIE['cust'];
-			?>
-				<body onload="load_header()">
-			<?
-		} else {
-			if (isset($_SESSION['usr'])) { // check if any user is logged in
-				?>
-					<body onload="load_header()">
-				<?
-			} else { // no user logs in
-				?>
-					<body>
-				<?
-			}
-		}
-	?>
+	<body>
 		<div id="header">
 			<div id="header_top">
 				<ul id="nav_bar_right">
@@ -103,5 +86,36 @@
 				</p>
 			</div>
 		</div>
+		<?
+			if (isset($_COOKIE['cust'])) {
+				$_SESSION['usr'] = $_COOKIE['cust'];
+				?>
+					<script>
+						var list = document.getElementsByTagName("ul")[0];
+						for (var i = 1; i < 5; i++) {
+							list.getElementsByTagName("li")[i].setAttribute("id","nav_hor_hidden");
+						}
+						for (var j = 5; j < 10; j++) {
+							list.getElementsByTagName("li")[j].setAttribute("id","nav_hor");
+						}
+					</script>
+				<?
+			} else {
+				if (isset($_SESSION['usr'])) { // check if any user is logged in
+					?>
+						<script>
+							var list = document.getElementsByTagName("ul")[0];
+							for (var i = 1; i < 5; i++) {
+								list.getElementsByTagName("li")[i].setAttribute("id","nav_hor_hidden");
+							}
+							for (var j = 5; j < 10; j++) {
+								list.getElementsByTagName("li")[j].setAttribute("id","nav_hor");
+							}
+						</script>
+					<?
+				} else { // no user logs in
+				}
+			}
+		?>
 	</body>
 </html>

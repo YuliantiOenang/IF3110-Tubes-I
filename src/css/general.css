@@ -162,11 +162,50 @@ div, form, h1, li, p, ul {
 	margin-bottom:22px;
 }
 
+#content_title_right {
+	float:right;
+	margin-bottom:22px;
+}
+
 #one_block {
-	border: 1px solid;
-	border-radius:22px;
+	background:linear-gradient(transparent 90%, #ff0000, #B30F00);
+	/*border-top:1px solid #bf0000;
+	border-bottom:2px solid #B30F00;*/
+	border-radius:8px;
 	font-family:arial;
 	margin:8px 0px;
+	padding:12px 8px;
+}
+
+#first_box {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#second_box {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#third_box {
+	background-color:pink;
+	border-radius:8px;
+	float:left;
+	height:256px;
+	margin:0px 44px;
+	width:25%;
+}
+
+#footnote {
+	clear:both;
 }
 
 #footer {

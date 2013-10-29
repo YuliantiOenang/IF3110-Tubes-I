@@ -52,11 +52,11 @@ function validateForm()
 }
 
 /* when page is loaded */
-function load_header() {
+function load() {
 	for (var i = 1; i < 5; i++) {
 		document.getElementsByTagName("li")[i].setAttribute("id","nav_hor_hidden");
 	}
-	for (var i = 5; i < 10; i++) {
-		document.getElementsByTagName("li")[i].setAttribute("id","nav_hor");
+	for (var j = 5; j < 10; j++) {
+		document.getElementsByTagName("li")[j].setAttribute("id","nav_hor");
 	}
 }

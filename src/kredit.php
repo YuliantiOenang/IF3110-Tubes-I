@@ -10,7 +10,18 @@ jika gagal memberikan notifikasi gagal dan kembali ke halaman registrasi kartu k
 <html>
 <body>
 <script src="js/ajax.js"></script>
-<script src="validation.js"></script>
+<script>
+	function validation (theForm) {
+		var data = {"cardnumber" : theForm["cardnumber"].value, "expireddate" : theForm["expireddate"].value, "namecard" : theForm["namecard"].value};
+		var callback = function(response) {
+			if (response.status == "error") 
+				alert(response.deskripsi) ;
+			else
+				alert("berhasil");
+		};
+		sendAjax(data, "submit.php", callback);
+	}
+</script>
 <h1> REGISTRASI KARTU KREDIT </h1>
 <p> Registrasi kartu kredit dilakukan melalui form yang ada dibawah ini </p>
 <form method="post" action="submit.php">
@@ -20,7 +31,7 @@ jika gagal memberikan notifikasi gagal dan kembali ke halaman registrasi kartu k
 	<input type="text" id="namecard" name="namecard" /><br/>
 	<label for "expireddate">Expired Date (Format MM/YY) : </label>
 	<input type="text" id="expireddate" name="expireddate" /><br/>
-	<!--<button type="button" onclick="validation(this.form)"  >Submit</button>-->
+	
 	<input type="button" value = "Submit" onclick="validation(this.form)" />
 </body>
 </form>

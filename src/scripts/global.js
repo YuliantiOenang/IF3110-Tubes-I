@@ -75,15 +75,19 @@ function deleteShoppingBag()	{
 }
 function setProductQuantity(product_id, quantity)	{
 	var bag = getShoppingBag();
-	if (bag[product_id] === undefined) bag[product_id] = {};
+	if (bag[product_id] === undefined)	{
+		bag[product_id] = {};
+		bag[product_id]["note"] = "";
+	}
 	bag[product_id]["quantity"] = quantity;
-	bag[product_id]["note"] = "";
 	setShoppingBag(bag);
 }
 function setProductNote(product_id, note)	{
 	var bag = getShoppingBag();
-	if (bag[product_id] === undefined) bag[product_id] = {};
-	bag[product_id]["quantity"] = 0;
+	if (bag[product_id] === undefined)	{
+		bag[product_id] = {};
+		bag[product_id]["quantity"] = 0;
+	}
 	bag[product_id]["note"] = note;
 	setShoppingBag(bag);
 }

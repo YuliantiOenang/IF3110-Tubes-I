@@ -1,0 +1,367 @@
+#header {
+	height:100px;
+	width:100%;
+	float:left;
+	background-color:darkgrey;
+}
+
+#logo{
+	margin-top:10px;
+	margin-left:25px;
+    height:50px;
+	width:150px;
+	float:left;
+}
+
+#bukan_logo{
+	margin-top:50px;
+	margin-left:10px;
+    height:10px;
+	width:900px;
+	float:left;
+}
+
+#button_daftar{
+	margin-left:50px;
+	margin-top:40px;
+	float:left;
+	height:100px;
+	width:50px;
+}
+
+#button_login{
+	margin-left:850px;
+	margin-top:40px;
+	float:left;
+	height:100px;
+	width:50px;
+}
+
+#button_keluar{
+	margin-left:20px;
+	margin-top:40px;
+	float:left;
+	height:100px;
+	width:50px;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+	background:lightblue;
+	margin: 0;
+}
+
+#mekanisme_transaksi{
+	margin-top:50px;
+	margin-left:30px;
+	float:left;
+	width:45%;
+	padding:10px;
+}
+#barang_populer{
+	margin-top:50px;
+	margin-left:20px;
+	float:left;
+	width:45%;
+	height:500px;
+	padding:10px;
+}
+
+#barang_populer h2{
+	text-align:center;
+}
+
+#tab_tengah{
+	margin-top:100px;
+	margin-left:400px;
+	float:left;
+	width:520px;
+	background-color:lightgrey;
+	padding:10px;
+	border:5px solid grey;
+}
+
+#gambar{
+	float:left;
+	width:20%;
+	padding:5px;
+	margin-left:10px;
+}
+
+#gambar1{
+	
+}
+
+#gambar2{
+	
+}
+
+#gambar3{
+	
+}
+
+#gambar4{
+	
+}
+
+#gambar5{
+	
+}
+
+#detail_barang{
+	float:left;
+	width:75%;
+}
+
+#edit_profile{
+	width:40%;
+	float:left;
+	background-color:lightgrey;
+	margin-top:100px;
+	padding:10px;
+	border:5px solid grey;
+}
+
+#kolom_tengah{
+	width:10%;
+	height:400px;
+	float:left;
+}
+
+#profilearea {
+	width:30%;
+	height:300px;
+	background-color:lightgrey;
+	float:left;
+	border:5px solid grey;
+	margin-top:100px;
+	margin-left:50px;
+	padding:10px;
+}
+
+#isi1{
+	height:220px;
+	width:310px;
+	float:left;
+	font:normal 13px "Verdana", Arial, Helvetica, sans-serif;
+	border-style:dashed;
+	border-width:1px;
+	background-color:#FFFFE6;
+	overflow:auto;
+}
+
+#hasilcari{
+	height:80px;
+	width:312px;
+	float:left;
+	font:normal 13px "Verdana", Arial, Helvetica, sans-serif;
+	background-color:#E6E6E6;
+}
+
+#hasilcari2{
+	height:100px;
+	width:312px;
+	float:left;
+	font:normal 13px "Verdana", Arial, Helvetica, sans-serif;
+	background-color:#E6E6E6;
+}
+
+.kategori{
+	width:190px;
+	height:160px;
+	float:left;
+	margin-left:5px;
+	margin-top:5px;
+}
+
+.detail_shopping_bag {
+	float:left;
+}
+
+.baris {
+	float:left;
+}
+
+.kolombutton{
+	width:100%;
+	float:left;
+	margin-bottom:10px;
+}
+
+.kolom1{
+	width:120px;
+	float:left;
+	font: arial;
+	font-size:18px;
+	margin-bottom:10px;
+}
+
+.kolom2{
+	width:100px;
+	float:left;
+	margin-left:10px;
+	font: arial;
+	font-size:18px;
+	margin-bottom:10px;
+}
+
+.kolom3{
+	width:75px;
+	float:left;
+	margin-left:10px;
+}
+
+.kolom3 input{
+	width:50%;
+}
+
+.kolom4{
+	width:100px;
+	float:left;
+	margin-left:10px;
+}
+
+.kolom4 input{
+	width:100%;
+}
+
+.tampil_data{
+	font: arial;
+	font-size:18px;
+	margin-bottom:10px;
+	width:50%;
+	float:left;
+}
+
+.form_field{
+
+}
+
+.field_kiri{
+	font: arial;
+	font-size:18px;
+	margin-bottom:10px;
+	width:50%;
+	float:left;
+}
+
+.field_kanan{
+	margin-bottom:10px;
+	width:50%;
+	float:left;
+}
+
+.field_kanan input{
+	width:100%;
+}
+
+.field_kanan select{
+	width:33%;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    bottom: 0;
+    cursor: default;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: 1;
+
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    transition: opacity .5s;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+.popup {
+	width:30%;
+    background-color: #fff;
+    border: 3px solid #fff;
+    display: inline-block;
+    left: 50%;
+    opacity: 0;
+    padding: 15px;
+    position: fixed;
+    text-align: justify;
+    top: 40%;
+    visibility: hidden;
+    z-index: 10;
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+
+    -webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -ms-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -o-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+
+    -webkit-transition: opacity .5s, top .5s;
+    -moz-transition: opacity .5s, top .5s;
+    -ms-transition: opacity .5s, top .5s;
+    -o-transition: opacity .5s, top .5s;
+    transition: opacity .5s, top .5s;
+}
+.overlay:target+.popup {
+    top: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+.close {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    top: -15px;
+    width: 30px;
+
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+}
+.close:before {
+    color: rgba(255, 255, 255, 0.9);
+    content: "X";
+    font-size: 24px;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+}
+.close:hover {
+    background-color: rgba(64, 128, 128, 0.8);
+}
+
+.menu {
+	float:left;
+}
+
+.menu a {
+	padding:5px 25px;
+	color:#FFF;
+	text-decoration:none;
+}
+.menu a:hover {
+	color:#FFF;
+	text-decoration:none;
+}

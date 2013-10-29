@@ -33,6 +33,7 @@ $_SESSION['form_token'] = $form_token;
             </div>
             <input type="hidden" name="form_token" value="<?php echo $form_token; ?>" />
             <button type="submit" class="btn">Register</button>
+            <a href="<?php echo SITEURL?>">Skip</a>
         </form>
 	</div>
 </body>

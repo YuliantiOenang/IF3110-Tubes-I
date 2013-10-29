@@ -44,7 +44,6 @@
 				echo '<li><a href="' . SITEURL . '/profile/">Profile</a></li>';
 				echo '<li><a href="' . SITEURL . '/login/destroy/">Logout</a></li>';			
 			}
-
 		?>
 		
 		<li>
@@ -52,5 +51,6 @@
 				<input type="type" placeholder="Pencarian">
 			</form></center>
 		</li>
+		<li><a href="<?php echo SITEURL . '/cart'?>" id="keranjang">Keranjang</a></li>	
 	</ul>
 </nav>

@@ -48,7 +48,7 @@
 						  <option value="minuman">Minuman</option>
 						  <option value="kalengan">Makanan Kalengan</option>
 						  <option value="segar">Makanan Segar</option>
-						  <option value="peralatan">Peralatan</option>
+						  <option value="peralatan">Peralatan Rumah</option>
 						</select></div>
 						<input type="submit" value="Submit">
 					</div>
@@ -64,9 +64,10 @@
 				}
 				//check data posted
 				
-				$category = $_GET['cat'];	
-				echo "<h2>Category: " . getFormalName($category)."</h2><br/>";
-							
+				$category = $_GET['cat'];
+				echo "<div class='category'>";
+				echo "<h2>" . getFormalName($category)."</h2><br/>";
+				echo "</div>";
 				$result = mysqli_query($con,"SELECT * FROM kategori NATURAL JOIN inventori WHERE nama_kategori = '".$category."'");
 				
 				$start = (!isset($_GET['start']) ? 0 : $_GET['start']);
@@ -84,22 +85,26 @@
 							break;
 						}
 					}
-						
-					echo "<img width = 200px src='../img/". $row['gambar'] ."'> <br/>";
-					echo "Nama: <a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
-					echo "Harga: Rp".$row['harga']." <br/>";
-					?>
-						<input type='text' value='0' onkeyup='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></input>
-						<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
-					<?php
+					echo "<div class='goods'>"	;
+						echo "<img width = 170px src='../img/". $row['gambar']. "'> <br/>";
+						echo "<a href='details.php?gid=". $row['id_inventori'] ."'>". $row['nama_inventori'] . " </a><br/>";
+						echo "Rp ".$row['harga'].",00 <br/>";
+						?>
+							<input type='text' value='0' size=7 ></input>
+							<div id='item_status<?php echo $row['id_inventori']; ?>'></div>
+							<div id='cart'><a><img src="../img/addtocart.png" height=25px onclick='checkItem(this.value, <?php echo $row['id_inventori']; ?>)'></img></a></div>
+						<?php
+					echo "</div>";
 				}
 				
 				//PAGINASI
-				echo "<br/>";
+				echo "<div class='pagination'>";
 				$resultSize = mysqli_num_rows($result);
+				echo "Go to Page ";
 				for($i=1;$i<=ceil($resultSize/10);$i++){
 					echo '<a href="list.php?cat='. $category . '&start='. ($i - 1)*10 .'">'.$i. "</a> ";
 				}
+				echo "</div>";
 				
 				
 				if($resultSize == 0){

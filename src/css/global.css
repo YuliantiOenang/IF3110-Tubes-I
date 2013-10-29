@@ -87,7 +87,7 @@ html, body{
 	display:block;
 	padding: 0;
 	width: 100%;
-	position: relative;
+	vertical-align: top;
 }
 
 .menu-wrapper{
@@ -99,6 +99,7 @@ html, body{
 .search-wrapper{
 	display:inline-block;
 	text-align: right;
+	
 	width: 17%;
 	overflow: visible;
 }
@@ -107,8 +108,23 @@ html, body{
 	padding: 0; margin: 0; 
 }
 
+.search{
+	background: #fff;
+	border: 0;
+	padding: 0.25em 0.4em;
+	
+	-moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.search:focus{
+	outline: 0;
+}
+
 .search-grey{
-	color: #666;
+	color: #999;
 }
 
 .menu .item{

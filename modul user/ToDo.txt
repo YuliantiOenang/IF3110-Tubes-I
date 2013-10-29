@@ -1,0 +1,1 @@
+Media Queries setelah style semuanya aman, fokus dl ke yang tampilan desktop

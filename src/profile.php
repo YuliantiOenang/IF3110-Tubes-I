@@ -86,7 +86,7 @@
 						  {
 						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 						  } 
-				$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='karakuri'");				
+				$result = mysqli_query($con,"SELECT * FROM customer WHERE IdName='" . $usr . "'");				
 				$row = mysqli_fetch_array($result);
 				?>
 				

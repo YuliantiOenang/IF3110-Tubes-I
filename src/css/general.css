@@ -110,6 +110,10 @@ div, form, h1, li, p, ul {
 	text-align:center;
 }
 
+#nav_hor_hidden {
+	display:none;
+}
+
 #nav_hor_wrap {
 	color:white;
 	display:block;

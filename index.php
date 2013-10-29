@@ -36,6 +36,6 @@
 		?>
 	</div>
 	<?php
-		include ("pages/mask.php");
+		include ("templates/mask.php");
 	?>
 </html>

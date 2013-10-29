@@ -48,6 +48,7 @@
 						<a href="logout.php">Logout</a><br>
 						Welcome <a href="Profile.php?user=' . $_COOKIE["user"] . '">' . $user['nama_lengkap'] . '</a>
 					</div>';
+				
 					
 					mysqli_close($conn);
 				}

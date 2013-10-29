@@ -12,7 +12,7 @@
 	$js_file = 'scripts/sample.js';
 
 	// Tulis title
-	$page_title = 'Hello RuSerBa!';
+	$page_title = 'Register into RuSerBa!';
 
 	// Include begin.
 	require_once('begin.php');
@@ -38,15 +38,7 @@
 			</label>
 			<br>
 			<label>
-				<span> Full Name *</span>
-			</label>
-			<br>
-			<label>
-				<span >Telephone Number</span>
-			</label>
-			<br>
-			<label>
-				<span> Credit Card Number </span>
+				<span>Full Name *</span>
 			</label>
 			<br>
 			<label>

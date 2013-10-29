@@ -18,7 +18,11 @@ function changeOrder(ord){
 }
 
 function refreshCategoryPage(){
-	document.location = "category.php?cat=" + category + "&sort=" + sortby + "&order=" + order;	
+	document.getElementById("cattable").innerHTML = "";
+	loadable = true;
+	page = -1;
+	
+	nextPage();
 }
 
 function setInfo(info){

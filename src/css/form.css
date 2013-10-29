@@ -1,0 +1,32 @@
+#form_one_row {
+	clear:both;
+	margin:16px auto;
+	width:450px;
+}
+
+#label_form {
+	float:left;
+	margin-bottom:inherit;
+}
+
+.label {
+	width:150px;
+}
+
+.partition {
+	width:12px;
+}
+
+.text_field {
+	width:256px;
+}
+
+.info {
+	margin-left:162px;
+}
+
+#submit {
+	float:right;
+	margin-right:28px;
+	width:100px;
+}

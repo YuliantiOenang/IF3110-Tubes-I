@@ -13,7 +13,7 @@
 	
 	<body>
 
-		<?php require SITEPATH . '/app/views/header-udin.php'?>
+		<?php require SITEPATH . '/app/views/header.php'?>
 		
 		
 		<!-- CONTENT -->

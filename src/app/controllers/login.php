@@ -21,6 +21,7 @@ Class LoginController Extends BaseController {
 			header("Location: " . SITEURL . "/login/failed" ); die();
 		} else {
 			$_SESSION['logged_userid'] = $id;
+			$_SESSION['logged_username'] = $user;
 			header("Location: " . SITEURL . "/login/success/"); die();
 		}
 	}

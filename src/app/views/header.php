@@ -1,56 +1,71 @@
-<nav> <!-- untuk link-->
-	<ul>
-		<li><a href="#">Logo</a></li> <!-- ganti dengan gambar logo ya-->
-		<li><a href="<?php echo SITEURL ?>">Home</a></li> <!-- # = masuk ke HOME-->
-		
-		<li><a href="#">Kategori Barang</a> <!-- # = masuk ke katogori barang-->
-			<ul>
-				<li><a href="#">Elektronik</a></li>
-				<li><a href="#">Sandang</a></li>	
-				<li><a href="#">Otomotif</a></li>									
-			</ul>
-		</li>
+<!--header-->
+	<div id="header">
+		<div>
+			<nav class="dropdownHeader"> <!-- untuk link-->
+				<center>
+					<ul>
+						<li><a href="<?php echo SITEURL ?>">Logo</a></li> <!-- ganti dengan gambar logo ya-->
+						<li><a href="<?php echo SITEURL ?>">Home</a></li> <!-- # = masuk ke HOME-->
 						
-		
-		<?php 
-			//periksa apakah sedang login atau tidak
-			if (session_id() == '') session_start();
-	
-			if (!isset($_SESSION['logged_userid'])) {
-				echo '<li><a href="' . SITEURL . '/register/">Register</a></li>';
-				echo '<li><a href="#" onclick="loginOverlay()">Login</a></li>';
-		?>
-				<div id="overlay">
-				    <div id="overlay-inside">
-				        <form action="<?php echo SITEURL . '/login' ?>" method="post">
-				            <h2>Login</h2>
-				            <div class="form-group">
-				                <label for="login-user">Username: </label>
-				                <input type="text" id="login-user" name="login-user" class="form-control"/>
-				            </div>
-				            <div class="form-group">
-				                <label for="login-pass">Password: </label>
-				                <input type="password" id="login-pass" name="login-pass" class="form-control"/>
-				            </div>
-				            <button type="submit" class="btn">Login</button>
-				        </form>
-				     </div>
-				</div>
+						<li><a href="#">Kategori Barang</a> <!-- # = masuk ke katogori barang-->
+							<ul>
+								<li><a href="product/category/elektronik">Elektronik</a></li>
+								<li><a href="product/category/sandang">Sandang</a></li>	
+								<li><a href="product/category/otomotif">Otomotif</a></li>									
+							</ul>
+						</li>
+
+					<?php 
+						//periksa apakah sedang login atau tidak
+						if (session_id() == '') session_start();
 				
-				<!-- bisa ditaruh dibawah -->
-				<script src="<?php echo SITEURL . '/include/js/login.js' ?>"></script>
-		<?php
-			} else {
-				echo '<li><a href="' . SITEURL . '/profile/">Profile</a></li>';
-				echo '<li><a href="' . SITEURL . '/login/destroy/">Logout</a></li>';			
-			}
-		?>
+						if (!isset($_SESSION['logged_userid'])) {
+							echo '<li><a href="' . SITEURL . '/register/">Register</a></li>';
+							echo '<li><a href="#login_form">Login</a></li>	';
+						} else {
+							echo '<li><a>Welcome ' . $_SESSION['logged_username'] . '</a></li>';
+							echo '<li><a href="' . SITEURL . '/profile/">Profile</a></li>';
+							echo '<li><a href="' . SITEURL . '/login/destroy/">Logout</a></li>';			
+						}
+					?>
+												
+						<li>
+							<center>
+								<form id="search" action="product/search">
+									<input name="keyword" type="text" size="40" placeholder="Cari barang..." />
+								</form>
+							</center>
+							
+						<!--
+							<center><form id="cariBarang">					
+								<input type="type" placeholder="Pencarian">
+							</form></center> -->
+						</li>
+						<li><a href="#" id="keranjang">Keranjang</a></li>	
+					</ul>
+				</center>
+			</nav>
+		</div>
+	</div>	
+
+<!-- BAGIAN POP UP MESSAGE-->
+<a href="#x" class="overlay" id="login_form"></a>
+<div class="popup">
+	<h2>Selamat Datang disitus kami</h2>
+	<p>Silahkan masukan username dan password</p>
+	
+	<form name="loginForm" method="post" action="<?php echo SITEURL . '/login' ?>">
+		<div>
+			<input type="text" id="login-user" name="login-user" placeholder="username" />
+		</div>
 		
-		<li>
-			<center><form id="cariBarang">					
-				<input type="type" placeholder="Pencarian">
-			</form></center>
-		</li>
-		<li><a href="<?php echo SITEURL . '/cart'?>" id="keranjang">Keranjang</a></li>	
-	</ul>
-</nav>
+		<div>
+			<input type="password" id="login-pass" name="login-pass" placeholder="password" />	
+		</div>			
+		<input type="submit" name="Submit" value="Login"/>
+	</form>	
+		<br>
+		Belum Punya Account ? <a href="#"> DAFTAR </a>
+	<a class="close" href="#close"></a>
+</div>	
+<!-- END HEADER-->		

@@ -30,12 +30,12 @@
 
 }	
 
-	nav ul ul {
+.dropdownHeader ul ul {
 		display:none;	
 		
 	}
 	
-	nav ul li:hover > ul {
+.dropdownHeader  ul li:hover > ul {
 		display:block;
 	}
 
@@ -46,7 +46,7 @@ body{
 	background-color: #999999;
 }
 
-nav ul {				
+.dropdownHeader  ul {				
 	list-style : none;
 	position : relative;
 	display : inline-table;		
@@ -56,13 +56,13 @@ nav ul {
 	margin-bottom:10px;
 }
 	
-nav ul:after {
+.dropdownHeader  ul:after {
 	content:"";
 	clear:both;
 	display:block;
 }
 	
-	nav ul li {
+.dropdownHeader  ul li {
 		font-size:18px;	
 		border-right:1px solid #000;
 		border-left:1px solid #000;
@@ -70,15 +70,15 @@ nav ul:after {
 		color:#f0f0f0;				
 	}
 	
-	nav ul li:hover{
+.dropdownHeader  ul li:hover{
 		background: #d0d0d0;				
 	}
 		
-	nav ul li:hover a {
+.dropdownHeader ul li:hover a {
 		color: #343434;
 	}
 	
-	nav ul li a {
+.dropdownHeader ul li a {
 		display: block; 
 		padding: 10px 40px;
 		color: #fcfcfc; 
@@ -86,7 +86,7 @@ nav ul:after {
 		panding : 0 20px;
 	}
 	
-	nav ul li form{		
+.dropdownHeader ul li form{		
 		margin-top:5px;
 		margin-bottom:5px;
 		margin-left: 10px;
@@ -94,14 +94,14 @@ nav ul:after {
 	}
 			
 	
-	nav ul ul {		
+.dropdownHeader ul ul {		
 		border-radius: 0px;
 		padding: 0px;
 		margin:0px;		
 		top: 100%;
 	}
 	
-		nav ul ul li{
+.dropdownHeader ul ul li{
 			background:#f0f0f0;
 			float : none;				
 			position : relative;
@@ -109,15 +109,15 @@ nav ul:after {
 			border-left:0px solid #E9E9E9;						
 		}
 		
-			nav ul ul li a{
+.dropdownHeader ul ul li a{
 				padding: 10px 40px;				
 			}
 			
-			nav ul ul li a:hover{
+.dropdownHeader 	ul ul li a:hover{
 				background: #ffffff;
 			}
 			
-			nav ul ul ul{
+.dropdownHeader ul ul ul{
 				position : relative;
 				left: 100%;
 				top : 0;				

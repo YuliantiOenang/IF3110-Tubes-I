@@ -70,6 +70,7 @@ Class RegisterController Extends BaseController {
 			if ($id > 0) {
 				//redirect
 				$_SESSION['logged_userid'] = $id;
+				$_SESSION['logged_userid'] = $_POST["username"];
 				header("Location: " . SITEURL . "/register/card/"); die();
 				//http_redirect (SITEURL . '/register/card', array ('username' => $customer['username']), true, HTTP_REDIRECT_POST );
 			} else {

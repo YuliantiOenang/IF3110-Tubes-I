@@ -1,9 +1,10 @@
 <?php require SITEPATH . '/app/views/head.php' ?>
 
 <body> 
-    <div id="container">
-        <?php require SITEPATH . '/app/views/header.php' ?>
 
+        <?php require SITEPATH . '/app/views/header.php' ?>
+    <div id="container">
+        
         <h2>Profile</h2>
             <p>Username: <?php echo $customer['username'] ?> </p>
             <p>Email: <?php echo $customer['email'] ?> </p>

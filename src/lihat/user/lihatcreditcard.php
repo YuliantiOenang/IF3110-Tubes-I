@@ -46,8 +46,8 @@
 		Credit card anda<br>
 		<div id="table">
 		<div class="header">
-			<span class="kolom satu">No</span>
-			<span class="kolom dua">Number</span>
+			<span class="kolom satu" id="narrowcolumn">No</span>
+			<span class="kolom dua" id="widecolumn">Number</span>
 			<span class="kolom tiga">Nama</span>
 			<span class="kolom empat">Expired Date</span>
 		</div>
@@ -58,8 +58,8 @@
 			$i++;
 		?>
 		<div class="baris">
-			<span class="kolom satu"><?=$i;?></span>
-			<span class="kolom dua"><?=$row->card_number;?></span>
+			<span class="kolom satu" id="narrowcolumn"><?=$i;?></span>
+			<span class="kolom dua" id="widecolumn"><?=$row->card_number;?></span>
 			<span class="kolom tiga"><?=$row->name;?></span>
 			<span class="kolom empat"><?=$row->expired_date;?></span>
 		</div>

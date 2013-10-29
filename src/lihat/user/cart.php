@@ -44,30 +44,30 @@
 	</div>
 	<div class="basiccontent" id="largecontent">
 		Ini laman belanjaan<br>
-			<table border = 1>
-			<tr>
-			<th>No</th>
-			<th>Nama Barang</th>
-			<th>Quantity</th>
-			<th>Kartu Kredit</th>
-			<th>Tanggal Pembelian</th>
-			<th>Deskripsi Tambahan</th>
-			<th>Status</th>
-		</tr>
+		<div id="table">
+		<div class="header">
+			<span class="kolom satu" id="narrowcolumn">No</span>
+			<span class="kolom dua">Nama Barang</span>
+			<span class="kolom tiga">Quantity</span>
+			<span class="kolom empat">Kartu Kredit</span>
+			<span class="kolom lima">Tanggal Pembelian</span>
+			<span class="kolom enam">Deskripsi Tambahan</span>
+			<span class="kolom tujuh">Status</span>
+		</div>
 		<?php
-		$i = 0;
+		$i=0;
 		while ($row = mysql_fetch_object($data['listBarang']))
 		{
 			$i++;
 		?>
-		<tr>
-			<td><?=$i;?></td>
-			<td><?=$row->nama_barang;?></td>
-			<td><?=$row->jumlah_barang;?></td>
-			<td><?=$row->card_number;?></td>
-			<td><?=$row->tgl_pembelian;?></td>
-			<td><?=$row->deskripsi_tambahan;?></td>
-			<td>
+		<div class="baris">
+			<span class="kolom satu" id="narrowcolumn"><?=$i;?></span>
+			<span class="kolom dua"><?=$row->nama_barang;?></span>
+			<span class="kolom tiga"><?=$row->jumlah_barang;?></span>
+			<span class="kolom empat"><?=$row->card_number;?></span>
+			<span class="kolom lima"><?=$row->tgl_pembelian;?></span>
+			<span class="kolom enam"><?=$row->deskripsi_tambahan;?></span>
+			<span class="kolom tujuh">
 			<?php
 			if ($row->status == 0)
 			{
@@ -82,12 +82,12 @@
 			<?php
 			}
 			?>
-			</td>
-		</tr>
+			</span>
+		</div>
 		<?php
 		}
 		?>
-		</table>
+		</div>
         
 	Klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/beli"> ini </a> untuk melakukan pembayaran<br>
 	Klik <a href="<?=SITE_ROOT.NAME_ROOT;?>/index.php/barang/"> ini </a> untuk belanja kembali<br>

@@ -44,7 +44,7 @@ session_start();
 							}
 						?>
 						</td></tr>
-					<form action="" method='post' id="cari">
+					<form action="search_exe.php" method='post' id="cari">
 					<tr align="center"><td></td>
 						<td>Pencarian</td>
 						<td><input type="text" name="kategori" id="kategori"></td>
@@ -69,15 +69,15 @@ session_start();
 		 </div>
 		 <div id="navigasi">
 			 <ul class="nav">
-				 <li><a href="index.php">Sembako</a></li>
-				 <li><a href="index.php">Daging</a></li>
-				 <li><a href="index.php">Sayur</a></li>
-				 <li><a href="index.php">Buah</a></li>
-				 <li><a href="index.php">Bumbu Dapur</a></li>
-				 <li><a href="index.php">Snack</a></li>
-				 <li><a href="index.php">Minuman</a></li>
-				 <li><a href="index.php">Sabun</a></li>
-				 <li><a href="index.php">Lainnya</a></li>
+				 <li><a href="index.php?page=sembako">Sembako</a></li>
+				  <li><a href="index.php?page=daging">Daging</a></li>
+				 <li><a href="index.php?page=sayur">Sayur</a></li>
+				 <li><a href="index.php?page=buah">Buah</a></li>
+				 <li><a href="index.php?page=bumbudapur">Bumbu Dapur</a></li>
+				 <li><a href="index.php?page=snack">Snack</a></li>
+				 <li><a href="index.php?page=minuman">Minuman</a></li>
+				 <li><a href="index.php?page=sabun">Sabun</a></li>
+				 <li><a href="index.php?page=buah">Lainnya</a></li>
 				 </ul>
 		</div>
 		<?php

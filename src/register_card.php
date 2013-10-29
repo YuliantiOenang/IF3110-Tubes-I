@@ -35,7 +35,9 @@
 				{
 					submitregistry();
 				}
-			?>
+				
+				$_SESSION['userregistrasi']= $_POST['username'];
+		?>
 			<h1>Lembar Pemakaian Kartu Kredit</h1>
 			<form name="creditform" action="index.php" onsubmit="return validatecreditForm()" method="post">
 				<div id="form_one_row">

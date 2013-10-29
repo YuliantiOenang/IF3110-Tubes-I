@@ -28,7 +28,19 @@
 						{
 							die('Error' . mysqli_error($con));
 						}
+
+						$lalala = $_SESSION['userregistrasi'];
+						
+						$sql ="INSERT INTO Have(CardNumber, IdName) VALUES ('$_POST[cardnumber]', '".$lalala."')";
+						if(!mysqli_query($con,$sql))
+						{
+							die('Error' . mysqli_error($con));
+						}
 						mysqli_close($con);
+						
+						if(isset($_SESSION['userregistrasi'])){
+						unset($_SESSION['userregistrasi']);
+						}
 				}
 				
 				if(isset($_REQUEST['submitted']))

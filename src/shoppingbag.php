@@ -5,6 +5,7 @@
 		<title>
 			Tas Belanja
 		</title>
+		<script src="js/transaction.js"></script>
 	</head>
 	<body>
 		<?php
@@ -13,7 +14,6 @@
 		<div id="content">
 			<h1>Tas Belanja</h1>
 			<?php
-			unset($_SESSION['usr']);
 				if (isset($_GET['nama'])) $nama = $_GET['nama'];
 				
 				if (isset($_POST['submit'])){
@@ -34,17 +34,15 @@
 					
 					foreach ($_SESSION as $key=>$value)
 					{
-						if ($key != 'usr')
-						{
-							$con=mysqli_connect("localhost","root","","ruserba");
-							// Check connection
-							if (mysqli_connect_errno())
-							  {
-							  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-							  }
+						$con=mysqli_connect("localhost","root","","ruserba");
+						// Check connection
+						if (mysqli_connect_errno())
+						  {
+						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+						  }
 
-							$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
-
+						$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
+						if (mysqli_num_rows($result) > 0){
 							$row = mysqli_fetch_array($result);
 								
 							if ($row['Banyak'] < $value){
@@ -54,9 +52,8 @@
 							} else {
 								$success = $success + $value * $row['Harga'];
 							}
-
-							mysqli_close($con);
 						}
+						mysqli_close($con);
 					}
 					
 					if (isset($success)){
@@ -76,24 +73,22 @@
 							// update database..
 							foreach ($_SESSION as $key=>$value)
 							{
-								if ($key != 'usr')
-								{
-									$con=mysqli_connect("localhost","root","","ruserba");
-									// Check connection
-									if (mysqli_connect_errno())
-									  {
-									  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-									  }
+								$con=mysqli_connect("localhost","root","","ruserba");
+								// Check connection
+								if (mysqli_connect_errno())
+								  {
+								  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+								  }
 
-									$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
+								$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
+								if (mysqli_num_rows($result) > 0){
 									$row = mysqli_fetch_array($result);
 									$temp = $row['Banyak'] - $value;
 									mysqli_query($con,"UPDATE Merchandise SET Banyak=". $temp ." WHERE Nama='".$key."'");
 
 									unset($_SESSION["$key"]);
-									
-									mysqli_close($con);
 								}
+								mysqli_close($con);
 							}
 							echo "Pembelian barang berhasil!";
 							echo "<br/>";
@@ -107,19 +102,9 @@
 					}
 				}
 				
+				$harga = 0;
 				foreach ($_SESSION as $key=>$value)
 				{
-					if ($key != 'usr')
-					{
-					?>
-					<div style="background-color: #dddddd; margin: 0px 2px 0px 2px">
-					<img src="res/<?php echo $key.".jpg"; ?>" alt=<?php echo $key; ?> width=150 height=200>
-					<br/>
-					<?php
-					echo $key;
-					echo "<br/>";
-					$link2 = "shoppingbag.php?nama=".$key;
-					
 					$con=mysqli_connect("localhost","root","","ruserba");
 					// Check connection
 					if (mysqli_connect_errno())
@@ -128,30 +113,41 @@
 					  }
 
 					$result = mysqli_query($con,"SELECT * FROM Merchandise WHERE Nama='".$key."'");
-					$set = 1;
-					$row = mysqli_fetch_array($result);
-					
-					mysqli_close($con);
-					?>
-					<form name="forminput" action="<?php echo $link2; ?>" method="post">
-					Jumlah: <input type="number" value=<?php echo $value; ?> name="jumlah">
-					<input type="submit" value="UPDATE" name="submit">
-					<input type="submit" value="DELETE" name="delete">
-					</form>
-					<pre><?php echo 'Jumlah : '.$value; ?><br/><br/></pre>
-					<pre><?php echo 'Harga : '.$value * $row['Harga']; ?><br/><br/></pre>
-					</div>
-					<?php
+					if (mysqli_num_rows($result) > 0){
+						?>
+						<div id="itemlist">
+						<img src="res/<?php echo $key.".jpg"; ?>" alt=<?php echo $key; ?> width=150 height=200>
+						<br/>
+						<?php
+						$link2 = "shoppingbag.php?nama=".$key;
+						echo $key;
+						echo "<br/>";
+						$set = 1;
+						$row = mysqli_fetch_array($result);
+						$harga = $harga + $value*$row['Harga'];
+						?>
+						<form name="forminput" action="<?php echo $link2; ?>" method="post">
+						Jumlah: <input type="number" value=<?php echo $value; ?> name="jumlah">
+						<input type="submit" value="UPDATE" name="submit">
+						<input type="submit" value="DELETE" name="delete">
+						</form>
+						<pre><?php echo 'Jumlah : '.$value; ?><br/><br/></pre>
+						<pre><?php echo 'Harga : '.$value * $row['Harga']; ?><br/><br/></pre>
+						</div>
+						<?php
 					}
+					mysqli_close($con);
 				} 
 			?>
 			<?php
 			if (!isset($_SESSION['usr'])){
 				echo "Silakan login terlebih dahulu";
 			} else if (isset($set)){
+				$link2 = "shoppingbag.php";
 			?>
 			<form name="formsubmit" action="<?php echo $link2; ?>" method="post">
-			<input type="submit" value="BUY ALL!" name="submitall">
+			<?php echo "Total Harga : ".$harga."  "; ?>
+			<input type="submit" value="BUY ALL!" name="submitall"></input>
 			</form>
 			<?php
 			} else {

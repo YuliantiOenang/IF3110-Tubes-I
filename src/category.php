@@ -13,6 +13,9 @@
 		?>
 		<div id="content">
 			<?php
+			$arr = array();
+			$size = 0;
+			
 			// Menampilkan seluruh kategori barang yang tersedia
 			function DisplayAllKategori(){
 				echo "Kategori Barang : <br/>";
@@ -54,18 +57,32 @@
 			}
 
 			function DisplayKategori(){
-				while($row = mysqli_fetch_array($GLOBALS['result']))
-				  { ?>
-				  <div style="background-color: #dddddd; margin: 0px 2px 0px 2px">
+				$GLOBALS['size'] = mysqli_num_rows($GLOBALS['result']);
+				while ($row = mysqli_fetch_assoc($GLOBALS['result'])) {
+					$GLOBALS['arr'][] = $row;
+				}
+				echo "Page ";
+				for ($i=1; $i<=($GLOBALS['size']+9)/10; $i++){
+					$link = "category.php?kat=".$GLOBALS['kat']."&type=".$GLOBALS['type']."&page=".$i;
+					echo "<a href='".$link."'>" .$i . "   </a>";
+				}
+				$startidx = ($GLOBALS['page']-1)*10;
+				for ($j=$startidx; $j<$GLOBALS['size']; $j++){
+					if ($j >= $startidx+10) break;
+					$row = $GLOBALS['arr'][$j];
+					?>
+					<div id="itemlist">
 					<img src="res/<?php echo $row['Nama'].".jpg"; ?>" alt=<?php echo $row['Nama']; ?> width=150 height=200>
 					<br/>
 					<?php
 					$link = "merchandise.php?id=".$row['ID'];
-					echo "<a href= $link>" .$row['Nama'] . "</a>";
+					echo "<a href='".$link."'>" .$row['Nama'] . "</a>";
 					echo "<br/><br/>";
 					$link2 = "category.php?kat=".$row['Kategori']."&id=".$row['Nama'];
 					?>
-					<form name="forminput" action="<?php echo $link2; ?>" method="post">
+					<?php
+					echo "<form name='forminput' action='".$link2."' method='post'>";
+					?>
 					<?php
 					if (isset($_SESSION['usr'])){
 					?>
@@ -76,8 +93,14 @@
 					?>
 					</form>
 					<pre><?php echo 'Harga : '.$row['Harga']; ?><br/><br/></pre>
-				  </div>
-				  <?php }
+					</div>
+					<?php
+				}
+				echo "Page ";
+				for ($i=1; $i<=($GLOBALS['size']+9)/10; $i++){
+					$link = "category.php?kat=".$GLOBALS['kat']."&page=".$i;
+					echo "<a href='".$link."'>" .$i . "   </a>";
+				}
 			}
 
 			function DisplaySort(){
@@ -97,6 +120,8 @@
 			//print_r($_POST);
 			if (isset($_GET['kat'])) $GLOBALS['kat'] = $_GET['kat'];
 			if (isset($_GET['id'])) $GLOBALS['id'] = $_GET['id'];
+			if (isset($_GET['page'])) $GLOBALS['page'] = $_GET['page'];
+			else $GLOBALS['page'] = 1;
 			if (isset($_POST['jumlah'])){
 				if ($_POST['jumlah'] > 0){
 					if (isset($_SESSION["$id"])) $_SESSION["$id"] = $_SESSION["$id"] + $_POST['jumlah'];

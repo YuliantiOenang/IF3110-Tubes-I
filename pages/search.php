@@ -54,6 +54,8 @@
 						echo "Harga: Rp".$row['harga']." <br/>";
 						echo "Kategori: ". getFormalName($row['nama_kategori'])."<br/>";
 					}
+					if(!$found)
+						echo "No results found.";
 				} else {
 					echo "No results found.";
 				}

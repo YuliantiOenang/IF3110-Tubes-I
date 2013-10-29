@@ -43,7 +43,6 @@
 					<div class='sbox'>
 						<h3><b>Pencarian</b></h3>
 						<div class='sb_name'>Nama:</div><div class='sb_value'><input type="text" name="query_name" size="20" onkeyup="showResult(this.value)"></div>
-						<div id="livesearch"></div>
 						<div class='sb_name'>Harga:</div><div class='sb_value'><input type="text" name="query_price" size="20"></div>
 						<div class='sb_name'>Kategori:</div><div class='sb_value'><select name="query_category">
 						  <option value="roti">Roti</option>
@@ -54,6 +53,7 @@
 						</select></div>
 						<input type="submit" value="Submit">
 					</div>
+					<div id="livesearch"></div>
 				</form>
 				
 				<?php

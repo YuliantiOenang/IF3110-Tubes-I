@@ -1,0 +1,168 @@
+body
+{
+	
+}
+
+#icon{
+	float:left; 
+	padding-left:15px; 
+	padding-right:15px;
+	padding-top:5px; 
+	padding-bottom:5px; 
+	background-color:#FF0000
+}
+
+#title{
+	width:790px;
+	height:115px;
+	font-family:Roboto;
+	font-size:40px; 
+	color:white; 
+	float:left;
+	padding-top:60px;
+	padding-left:40px;
+	padding-right:40px;
+	margin-left:2px; 
+	background-color:#FF0000;
+}
+
+#head-right{
+	width:18%; 
+	height:155px; 
+	float:left;
+	font-family:Roboto; 
+	color:white; 
+	padding-right:5px; 
+	padding-top:20px;
+	padding-left:10px; 
+	background-color:#FF0000;
+}
+
+#login{
+	float: right; 
+	text-align:right;
+}
+
+#logout{
+	float: right;
+	text-align:right;
+	display:none;
+}
+
+.mekanisme{
+	width : 100%;
+	height	: 120px;
+	background-color : #FF0000;
+}
+
+.centertext{
+	text-align	: center;
+}
+
+.top5title {
+	margin-top : 10px;
+	margin-left : 150px;
+	height : 10%;
+	width : 100%;
+	float:left;
+	font-weight : Bold;
+}
+
+.top3cat{
+	margin: 0px;
+	padding-left:150px ;
+	height: auto;
+	width: auto;
+	float: left;
+	text-align: center;
+	
+}
+
+.firstpreview{
+	width	: 150px;
+	height	: 100px;
+	margin-left	: 50px;
+	border-radius	: 10px;
+	float : left;
+}
+
+.nextpreview{
+	width : 150px;
+	height : 150px;
+	background-color : red;
+	margin-left : auto;
+	margin-right : auto;
+	margin-top : 5px;
+}
+
+.resizeimage{
+	width	: 150px;
+	height	: 100px;
+}
+
+#navcontainer ul
+{
+	padding-left: 200px;
+	padding-top: 0px;
+	margin-left: 0;
+	color: White;
+	float: left;
+	width: 100%;
+	font-family: arial, helvetica, sans-serif;
+}
+
+#navcontainer ul li { display: inline; }
+
+#navcontainer ul li a
+{
+	padding: 1em 3.6em;
+	background-color: #036;
+	color: White;
+	text-decoration: none;
+	float: top;
+	border-right: 1px solid #fff;
+}
+
+
+#navcontainer ul li a:hover
+{
+	background-color: #369;
+	color: #fff;
+}
+
+
+#wrap{
+	background : #EAEAEA;
+	width : 70%;
+	margin : 0px auto 0px;
+}
+
+/* DIV ID = "CONTAINER" */
+#container
+{
+	margin : auto;
+	width : 70%;
+	height : auto;
+	padding-top : 10px;
+	padding-bottom : 200px;
+	background-color:#EAEAEA;
+	border-style : solid;
+	border-width : 10px;
+	border-color : #660000;
+	border-radius: 15px;
+}
+
+/* DIV ID = "FOOTER" */
+#footer
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size : 12px;
+	text-align:center;
+	clear:both;
+	color: #FFFFFF;
+}
+
+#float-right{
+	float : right;
+}
+

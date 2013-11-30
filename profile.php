@@ -19,6 +19,7 @@ if(typeof(Storage)!=="undefined"){
 				document.getElementById("kodepos").innerHTML+=str[5];
 				document.getElementById("email").innerHTML+=str[6];
 				document.getElementById("usernamep").innerHTML+=str[7];
+				document.getElementById("foto").innerHTML+="<img src='images/"+str[9]+"'>";
 			}
 		}
 		xmlhttp.open("POST","ajaxprofile.php",true);
@@ -32,22 +33,21 @@ if(typeof(Storage)!=="undefined"){
 }
 </script>
 <article id="featured" class="body">
-		<img src="images/user.png" alt="User Avatar" width="100" height="100" align="left"/>
-		<pre><h2 id="nama">   </h2></pre>
-		<pre><h3 id="usernamep">   @</h3></pre><br><hr>
+		<h2 id="headername"></h2>
 		<div id="info"></div>
-			<pre><h3>Basic Info</h3></pre>
-			<pre id="nomorhp">Nomor Hp		:  </pre>
-			<pre id="alamat">Alamat		:  </pre>
-			<pre id="provinsi">Provinsi		:  </pre>
-			<pre id="kota">Kota			:  </pre>
-			<pre id="kodepos">Kode Pos		:  </pre>
-			<pre id="email">Email			:  </pre>
+			<span id="foto"></span>
+			<pre id="nama">Nama Lengkap 	:</pre>
+			<pre id="nomorhp">Nomor Hp		:</pre>
+			<pre id="alamat">Alamat		:</pre>
+			<pre id="provinsi">Provinsi		:</pre>
+			<pre id="kota">Kota			:</pre>
+			<pre id="kodepos">Kode Pos		:</pre>
+			<pre id="email">Email			:</pre>
+			<pre id="usernamep">Username		:</pre>
 		<form method="action" action="editprofile.php">
 		<input type="submit" value="Edit Profile">
 		</form>
 </article><!-- /#featured -->
-
 <?php include "footer.php";?>
 
 </div>
